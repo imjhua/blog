@@ -26,6 +26,8 @@ navigation:
     url: /about
   - name: Archive
     url: /archive
+  - name: Diary
+    url: /diaries
   - name: Tags
     url: /tags
   - name: Theme
