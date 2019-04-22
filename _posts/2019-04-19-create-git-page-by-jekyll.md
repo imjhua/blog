@@ -13,11 +13,11 @@ Jekyll 기본 구조
 
 | 파일명 | 설명  |
 |:-----|:-----|
-| _includes   | 재사용하기 위한 파일을 담는 디렉토리. | 
+| _includes   | 재사용하기 위한 파일을 담는 디렉토리. footer, header 등 html flagment들 | 
 | _posts 	    | 작성하는 글이 등록되는 폴더. (파일 명명 규칙: yyyy-mm-dd-title.md) |
 | _layouts    | 포스트 템플릿 |
 | _site       | jekyll 로 작성한 파일들이 html 로 변환되어 저장되는 폴더 |
-| _sass	      | 스타일이 정의된 파일 |
+| _sass	      | 스타일이 정의된 파일 (css파일 / scss) |
 | _config.yml | 환경 설정 정보 |
 | index.html  | 첫 화면 |
 
