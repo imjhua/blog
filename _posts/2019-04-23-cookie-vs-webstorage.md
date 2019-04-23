@@ -2,8 +2,10 @@
 layout: post
 title: 쿠키 vs 웹스토리지
 tags:
-  - webstorage
+  - web-storage
   - cookie
+  - local-storage
+  - session-storage
 comments: true
 ---
 
