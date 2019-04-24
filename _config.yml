@@ -28,6 +28,8 @@ navigation:
     url: /archive
   - name: Diary
     url: /diaries
+  - name: Style
+    url: /style
   - name: Tags
     url: /tags
   - name: Theme
