@@ -45,8 +45,7 @@ comments: true
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.
-
-http://blog.drakejin.me/Serverless-2/
-https://hojak99.tistory.com/450
-https://velopert.com/3543
-http://blog.drakejin.me/Serverless-1/
+- http://blog.drakejin.me/Serverless-2/
+- https://hojak99.tistory.com/450
+- https://velopert.com/3543
+- http://blog.drakejin.me/Serverless-1/
