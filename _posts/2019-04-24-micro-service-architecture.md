@@ -113,5 +113,4 @@ Apigateway가 마이크로 서비스 아키텍처 상에서 수행하는 주요 
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.
-
-https://bcho.tistory.com/948
+- https://bcho.tistory.com/948

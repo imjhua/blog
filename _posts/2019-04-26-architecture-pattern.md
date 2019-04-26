@@ -198,5 +198,4 @@ MVC 패턴이라고도 하는 이 패턴은 대화형 애플리케이션(interac
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.
-
-https://mingrammer.com/translation-10-common-software-architectural-patterns-in-a-nutshell/
+- https://mingrammer.com/translation-10-common-software-architectural-patterns-in-a-nutshell/

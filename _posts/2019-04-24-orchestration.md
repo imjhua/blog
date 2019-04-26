@@ -16,5 +16,4 @@ comments: true
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.
-
-http://blog.drakejin.me/Serverless-2/
+- http://blog.drakejin.me/Serverless-2/

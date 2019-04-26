@@ -112,8 +112,7 @@ http://www.w3.org/TR/2012/WD-html5-diff-20121025/
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.
-
-https://unikys.tistory.com/265
+- https://unikys.tistory.com/265
 
 
 
