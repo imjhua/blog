@@ -61,6 +61,8 @@ HTTP/2는 모든 HTTP대체하는 것이 아니라는 점이다. 동사, 상태 
 
 
 
+----
 해당 내용은 다음 글을 참고 하였습니다.
+
 https://www.slideshare.net/hiscale/111015-html5-1
 https://medium.com/@chullino/http%EC%97%90%EC%84%9C%EB%B6%80%ED%84%B0-websocket%EA%B9%8C%EC%A7%80-94df91988788

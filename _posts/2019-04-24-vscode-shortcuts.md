@@ -22,9 +22,13 @@ comments: true
 라인 맨 처음 끝
 
 
+찾는 문자열 앞으로 검색 cmd + g / cmd + shift + g
 
+git srouce control explorer: ctrl + shift + g
 
+----
 해당 내용은 다음 글을 참고 하였습니다.
+
 
 
 https://demun.github.io/vscode-tutorial/shortcuts/

@@ -43,7 +43,9 @@ comments: true
 서버리스 컴퓨팅(serverless computing)은 클라우드 컴퓨팅 실행 모델의 하나로, 클라우드 제공자는 동적으로 머신 자원의 할당을 관리한다. 가격은 미리 구매한 용적 단위가 아닌 애플리케이션이 소비한 자원의 실제 양에 기반을 둔다. 유틸리티 컴퓨팅의 일종이다.
 
 
+----
 해당 내용은 다음 글을 참고 하였습니다.
+
 http://blog.drakejin.me/Serverless-2/
 https://hojak99.tistory.com/450
 https://velopert.com/3543
