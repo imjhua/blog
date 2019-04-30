@@ -3,7 +3,7 @@ layout: post
 title: 서버리스(Serverless) 아키텍처란?
 tags:
  - serverless
-comments: true
+categories: text
 ---
 
 ## 소개

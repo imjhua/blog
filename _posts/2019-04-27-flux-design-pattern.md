@@ -3,7 +3,7 @@ layout: post
 title: Flux Design Pattern  
 tags:
  - flux
-comments: true
+categories: text
 ---
 
 ## 소개

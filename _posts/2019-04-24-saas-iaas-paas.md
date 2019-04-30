@@ -5,7 +5,7 @@ tags:
  - saas
  - iaas
  - paas
-comments: true
+categories: text
 ---
 
 ## 소개

@@ -3,7 +3,7 @@ layout: post
 title: 디자인 패턴 
 tags:
  - design-pattern
-comments: true
+categories: text
 ---
 
 

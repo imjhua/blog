@@ -4,7 +4,7 @@ title: HTML5 FlexBox
 tags:
   - html5
   - flexbox
-comments: true
+categories: text
 ---
 
 ## 배경 

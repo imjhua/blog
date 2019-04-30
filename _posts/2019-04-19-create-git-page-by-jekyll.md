@@ -4,7 +4,7 @@ title: Gituhb page 만들기 (by Jekyll)
 tags:
   - gitpage
   - jekyll
-comments: true
+categories: text
 ---
 
 먼저, 페이지를 만들기 앞서 [Jekyll](https://jekyllrb.com/)이란 정적 웹사이트 빌더(static site builder) 도구입니다. Markdown기반으로 텍스트를 작성하여 간단하게 페이지를 만들 수 있습니다. Jekyll의 기본적인 디렉토리 구조만 익힌다면 블로그의 포스트를 작성하는데 큰 어려움은 없을 것입니다.

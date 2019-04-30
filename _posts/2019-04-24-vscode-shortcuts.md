@@ -4,7 +4,7 @@ title: Visual Studio Code 단축키
 tags:
  - visual-studio-code
  - vscode-shortcut
-comments: true
+categories: text
 ---
 
 ## 소개
@@ -15,7 +15,8 @@ comments: true
 대소문자 변경
 탭 이동
 
-라인 복사
+option+shift+위아래: 라인 복사
+
 같은 글자 검색
 맨 위
 맨 아래
@@ -25,6 +26,9 @@ comments: true
 찾는 문자열 앞으로 검색 cmd + g / cmd + shift + g
 
 git srouce control explorer: ctrl + shift + g
+explorer: cmd+b
+option+위아래 라인 이동
+
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.

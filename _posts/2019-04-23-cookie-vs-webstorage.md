@@ -6,7 +6,7 @@ tags:
   - cookie
   - local-storage
   - session-storage
-comments: true
+categories: text
 ---
 
 

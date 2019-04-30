@@ -3,7 +3,7 @@ layout: post
 title: React 컴포넌트 
 tags:
  - react
-comments: true
+categories: text
 ---
 
 ## 소개

@@ -4,7 +4,7 @@ title: 10가지 소프트웨어 아키텍처 패턴
 tags:
  - architecture
  - architecture-pattern
-comments: true
+categories: text
 ---
 
 ## 소개

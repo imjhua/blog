@@ -4,7 +4,7 @@ title: 마이크로 서비스 아키텍처 (Micro Service Architecture)
 tags:
  - msa
  - micero-service-architecture
-comments: true
+categories: text
 ---
 
 ## 소개

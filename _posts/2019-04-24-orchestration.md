@@ -3,7 +3,7 @@ layout: post
 title: 오케스트레이션 
 tags:
  - orchestration
-comments: true
+categories: text
 ---
 
 ## 소개

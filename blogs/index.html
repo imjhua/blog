@@ -1,0 +1,27 @@
+---
+layout: page
+permalink: /blogs/
+---
+
+{% for category in site.categories %}
+  {% if category[0] != 'diary' %}
+
+  <h2>{{category[0]}}</h2>
+
+  <ul class="archive">
+    {% for c in category[1] %}
+    <li>
+        <time>{{ c.date | date: "%Y-%m-%d" }}</time>
+        {% if c.link %}
+        <a href="{{ c.link }}">
+        {% else %}
+        <a href="{{ site.baseurl }}{{ c.url }}">
+        {% endif %}
+          {{ c.title }}
+        </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+{% endfor %}

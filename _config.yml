@@ -20,8 +20,10 @@ avatar: https://avatars1.githubusercontent.com/u/49778658?s=460&v=4
 # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
 # it from the list(Delete '- name: ' and 'url: ', too!)
 navigation:
-  - name: Blog
+  - name: Home
     url: /
+  - name: Blog
+    url: /blogs
   - name: About
     url: /about
   - name: Archive
