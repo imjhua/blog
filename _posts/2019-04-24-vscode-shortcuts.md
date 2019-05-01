@@ -23,6 +23,11 @@ option+shift+위아래: 라인 복사
 라인 맨 처음 끝
 
 
+같은 문자열 찾기
+cmd+d / cmd+u
+ctrl + ` 터미널 닫기
+
+
 찾는 문자열 앞으로 검색 cmd + g / cmd + shift + g
 
 git srouce control explorer: ctrl + shift + g
