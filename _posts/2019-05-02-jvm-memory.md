@@ -54,4 +54,3 @@ class의 구조 정보가 들어갑니다. 전역 변수와 함수 영역 이기
 해당 내용은 다음 글을 참고 하였습니다.
 - https://jeong-pro.tistory.com/148
 - https://huelet.tistory.com/entry/JVM-%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B5%AC%EC%A1%B0
-0 
