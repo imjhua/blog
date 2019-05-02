@@ -1,10 +1,9 @@
 ---
 layout: post
-title: HTML5 FlexBox
+title: FlexBox 레이아웃 
 tags:
-  - html5
   - flexbox
-categories: HTML5
+categories: CSS
 ---
 
 ## 소개

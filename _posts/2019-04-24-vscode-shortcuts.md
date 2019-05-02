@@ -21,7 +21,7 @@ option+shift+위아래: 라인 복사
 맨 위
 맨 아래
 라인 맨 처음 끝
-
+shift opt a 멀티 라인 주석
 
 같은 문자열 찾기
 cmd+d / cmd+u
