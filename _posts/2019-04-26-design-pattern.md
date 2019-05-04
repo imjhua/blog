@@ -142,5 +142,8 @@ Model, View, Controller 세 가지 부분으로 이루어져 있습니다.
 - Controller: 소프트웨어의 흐름을 제어하는 것으로 View와 Model 사이에서 관계를 설정하여 주는 부분을 말한다. Controller는 Model이나 View가 바뀌더라도 수정 없이 작동되어야 한다.
 
 
+
+
+----
 해당 내용은 다음 글을 참고 하였습니다.
 - https://gmlwjd9405.github.io/2018/07/06/design-pattern.html

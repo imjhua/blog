@@ -102,6 +102,9 @@ setState 호출을 통해 state가 업데이트될 때의 과정입니다. props
 | 데이터를 바꾸기 위해	| props에서 콜백을 호출	| Redux 액션을 보냄
 
 
+
+
+----
 해당 내용은 다음 글을 참고 하였습니다.
 - https://medium.com/little-big-programming/react%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-92c923011818
 - https://deminoth.github.io/redux/basics/UsageWithReact.html
