@@ -5,7 +5,7 @@ tags:
  - saas
  - iaas
  - paas
-categories: text
+categories: Cloud
 ---
 
 ## 소개
