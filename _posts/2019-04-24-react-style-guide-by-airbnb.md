@@ -5,7 +5,7 @@ tags:
     - react
     - react-style-guide
     - airbnb
-categories: text
+categories: React
 ---
 
 Airbnb에서 사용하는 React와 JSX에 대한 스타일 가이드에 대해 살펴 보자. 이는 가장 합리적인 접근 방법을 제시하고 있다.
