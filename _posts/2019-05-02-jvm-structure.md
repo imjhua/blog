@@ -45,6 +45,7 @@ JVM의 메모리 영역으로 자바 애플리케이션을 실행할 때 사용�
 
 
 
+----
 해당 내용은 다음 글을 참고 하였습니다.
 - https://jeong-pro.tistory.com/148
 - https://huelet.tistory.com/entry/JVM-%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B5%AC%EC%A1%B0

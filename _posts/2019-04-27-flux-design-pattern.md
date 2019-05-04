@@ -3,7 +3,7 @@ layout: post
 title: Flux Design Pattern  
 tags:
  - flux
-categories: text
+categories: Programming
 ---
 
 ## 소개
@@ -22,7 +22,7 @@ Flux 디자인 패턴에 대해 설명합니다. Flux는 MVC 의 한계로 인�
 중요한 점! 단방향 데이터 흐름을 기억하고 각각의 구성 요소에 대해 알아 봅시다.
 
 ### 액션(Action)
-사용자가 요청하는 변경 사항이다.
+사용자가 요청하는 변경 사항입니다.
 
 ### 액션 생성자(Action Creator)
 액션들을 미리 준비 하고 있습니다. 뷰로부터 사용자 입력이 들어 왔다는 것을 전달 받으면 디스페처에게 어떤 메시지를 보내야 할지 알려주면 액션 생성자는 나머지 시스템이 이해할 수 있는 포맷형식으로 바꿔주는 역할을 합니다. 액션 생성자가 액션 메시지를 생성한 뒤에는 디스패처(dispatcher) 로 해당 액션 메시지를 보내주게된다. 이렇게 하나의 시스템이 모든 가능한 액션들을 알게 됨으로써 갖는 효과가 있는데, 이 액션 생성자를 통해 시스템에서 제공하는 전체 API(모든 가능한 상태변경) 를 바로 확인할 수 있다는 점입니다.
@@ -75,6 +75,8 @@ Flux 에선 응용프로그램의 데이터 흐름이 필수요소이며 Dispatc
 단방향 흐름 : 모든 상태 변화는 Dispatcher에 의해 진행됩니다. store는 다른 store를 직접 변경할 수 없습니다. view와 action도 마찬가지입니다. 모든 변화는 action을 거쳐 Dispatcher에서 실행됩니다. MVC에선 양방향 흐름을 가지는 것이 매우 일반적입니다.
 Store은 model이 없더라도 응용프로그램과 관련된 모든 상태를 저장 할 수 있습니다. MVC에선 객체를 모델링합니다.
 
+
+----
 해당 내용은 다음 글을 참고 하였습니다.
 - https://m.blog.naver.com/backsajang420/221368106022
 - https://lunit.gitbook.io/redux-in-korean/
