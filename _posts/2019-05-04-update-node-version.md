@@ -16,6 +16,7 @@ nodejs 버전을 업데읕 해 봅시다.
 $ brew update
 $ brew uninstall node
 $ brew install node
+$ npm install -g node-gyp
 $ brew postinstall 
 ```
 
