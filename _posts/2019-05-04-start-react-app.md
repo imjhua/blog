@@ -225,6 +225,28 @@ export default class Contact extends React.Component {
     }
 }
 ```
+### 포커스 이벤트 추가 하기
+html에 정의된 Input의 ref속성을 이용하여 다음과 같이 포커스 이벤트를 추가 할 수 있습니다. 
+https://reactjs.org/docs/refs-and-the-dom.html 에서 좀더 자세한 내용을 확인 할 수 있습니다.
+
+```html
+
+        <input
+          type="text"
+          name="name"
+          palceholder="name"
+          value={this.state.name}
+          onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
+          ref={ref => (this.focusTextInput = ref)}
+        />
+```
+
+```js
+    this.focusTextInput.focus();
+```
+
+
 
 
 ----
