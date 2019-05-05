@@ -45,7 +45,8 @@ VSCode를 좀더 효율적으로 사용할 수 있도록 도와주는 다양한 
 {
     "editor.fontSize": 15,
     "editor.fontFamily": "monospace, Menlo, Monaco, 'Courier New'",
-    "editor.tabCompletion": "on"
+    "editor.tabCompletion": "on",
+    "editor.tabSize": 2,
 }
 ```
 
@@ -96,4 +97,5 @@ VSCode를 좀더 효율적으로 사용할 수 있도록 도와주는 다양한 
 
 - Keyboard Shortcut: editor.action.triggerSuggest 에 단축키 등록
 - Setting: "editor.tabCompletion": "on",
+    
 

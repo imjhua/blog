@@ -149,7 +149,7 @@ if(module.hot){module.hot.accept();}
 그러나, 이 모듈은 리로딩 될때 로컬 스테이트를 유지 하지 않고 날려버린다는 문제가 존재합니다. (아주 치명적입니다)
 
 ### react-hot-loader로 대체 하기
-실시간 react 컴포넌트를 변경하기 위해 webpack.config 에 reate-hot-loader 모듈을 추가하여 사용하겠습니다. 적용 후에 서버를 재 시작 하여 확인 합니다. https://github.com/gaearon/react-hot-loader 를 참고 할 수 있습니다.
+실시간 react 컴포넌트를 변경하기 위해 webpack.config 에 reate-hot-loader 모듈을 추가하여 사용하겠습니다. 적용 후에 서버를 재 시작 하여 확인 합니다. https://github.com/gaearon/react-hot-loader 를 참고 할 수 있습니다. 이떄 주의점은 리로딩시 컴포넌트의 construcor는 변경되지 않으므로 직접 새로고침 하여야 합니다.
 
 ```js
 
@@ -159,8 +159,75 @@ if(module.hot){module.hot.accept();}
             }
 ```
 
+### 컴포넌트에 이벤트 연결하기
+다음처럼 컴포넌트 렌더 부분에서 Change이벤트에 메소드를 연결하고자 합니다.
+```js
+
+export default class Contact extends React.Component {
+    constructor(props) {
+        ...
+    }
+
+    handleChange(e) {
+        this.setState({
+            keyword: e.target.value
+        });
+    }
+
+    render(){
+        return(
+            <input
+                name="keyword"
+                placeholder="search"
+                value={this.state.keyword}
+                onChange={this.handleChange}
+            />
+        )
+    }
+}
+```
+
+참고) 만약 handleChange 메소드가 파라미터를 받는다면 arrow function을 이용하여 실행시켜주어야 합니다.
+```js
+    onChange={() => {
+      this.handleChange(i);
+    }}
+```
+
+
+render() 메소드가 handleChange 부를 때 여기서는 메소드를 호출한 것이 아니라 함수를 호출한것입니다. 메소드란 ‘property의 값인 함수(function)’ 즉, Contact 객체 내에서 정의된 함수를 의미하는 단어입니다. (특히 Jacascript의 method에서 this는 method가 속한 객체를 의미합니다.) 따라서 onChange에 연결된 this.handleChange의 this는 this가 무엇을 가리키는지 정확히 정의되지 않았기때문에 바인딩을 통해 관계를 설정해주어야 할 필요가 있습니다. bind를 사용하여 this를 알려주도록 합니다. bind에서 오타가 있을 경우, 해당 함수에서는 state값을 읽지 못하는 경우가 있으니 해메지 말고 오타를 확인하도록 합니다.
+
+- render() 안에서 바인딩: onChange={ this.handleChange.bind( this ) }
+- constructor() 안에서 바인딩(추천): this.handleChange.bind(this);
+
+```js
+export default class Contact extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            keyword: "",
+            contactData: [
+                { name: "A", phone: "0" },
+                { name: "B", phone: "1" },
+                { name: "C", phone: "2" },
+                { name: "D", phone: "3" }
+            ]
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+     handleChange(e) {
+        ...
+    }
+
+    render(){
+        ...
+    }
+}
+```
 
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.
-- url
+- https://velopert.com/1174
+- https://wonong.wordpress.com/2016/05/17/javascript-functionmethodproperty-%EC%9D%98-%EC%B0%A8%EC%9D%B4-%EB%B0%8F-%EC%A0%95%EC%9D%98/

@@ -31,7 +31,7 @@ categories: VSCode
 - 같은 글자 검색: cmd + d
 - 같은 글자 검색 바로전 취소: cmd + u
 - 라인 이동: opt + 위아래 
-
+- 자동 정렬: shoft + opt + f
 - 찾는 문자열 앞으로 검색: 블록 / cmd + f / cmd +(shift) + g
 
 
