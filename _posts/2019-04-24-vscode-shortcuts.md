@@ -25,6 +25,7 @@ categories: VSCode
 - 맨 아래: cmd + 아래 화살표
 - 라인 맨 처음 끝: cmd + 좌우 화살표
 - 멀티 라인 주석: shift + opt + a 
+- 자동 정렬: shift + opt + f
 
 
 - 라인 복사: opt + shift + 위아래 화살표
