@@ -378,7 +378,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 
 
 ### 기능구현
-
+배경색을 랜덤색상으로 적용해보겟습니다.
 
 ```js
 
