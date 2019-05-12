@@ -6,16 +6,6 @@ permalink: /diaries/
 
 <ul class="archive">
   {% for diary in site.categories.diary %}
-    {% unless diary.next %}
-      <h2>{{ diary.date | date: '%Y' }}</h2>
-    {% else %}
-      {% capture year %}{{ diary.date | date: '%Y' }}{% endcapture %}
-      {% capture nyear %}{{ diary.next.date | date: '%Y' }}{% endcapture %}
-      {% if year != nyear %}
-        <h2>{{ diary.date | date: '%Y' }}</h2>
-      {% endif %}
-    {% endunless %}
-
     <li>
       <time>{{ diary.date | date: "%Y-%m-%d" }}</time>
       {% if diary.link %}
