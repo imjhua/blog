@@ -3,7 +3,7 @@ layout: post
 title: Flux Design Pattern  
 tags:
  - flux
-categories: Programming
+categories: React
 ---
 
 ## 소개
