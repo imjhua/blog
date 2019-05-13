@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 스타일 가이드
-categories: Style
+categories: style
 ---
 
 이 글은 스타일을 모아둔 것입니다. 소스 코드를 확인하여 스타일을 적용하는 방법을 알아보세요.
