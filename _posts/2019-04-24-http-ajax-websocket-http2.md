@@ -6,7 +6,7 @@ tags:
  - ajax
  - web-scocket
  - http/2
-categories: WEB
+categories: Web
 ---
 
 ## 소개

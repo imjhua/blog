@@ -1,5 +1,16 @@
 /* BLOG */
 
-.container {
+@media only screen and (min-width: 960px) {
+  .container {
     max-width: 940px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    overflow: hidden;
+  }
+  .archive time {
+    display: block;
+  }
 }
