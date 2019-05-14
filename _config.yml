@@ -22,8 +22,8 @@ avatar: https://avatars1.githubusercontent.com/u/49778658?s=460&v=4
 navigation:
   - name: Home
     url: /
-  - name: Blog
-    url: /blogs
+  - name: List
+    url: /list
   - name: About
     url: /about
   - name: Archive
