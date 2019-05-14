@@ -4,7 +4,7 @@ permalink: /list/
 ---
 
 {% for category in site.categories %}
-  {% if category[0] != 'style' or category[0] != 'diary' %}
+  {% if category[0] != 'style' and category[0] != 'diary' %}
 
   <h2>{{category[0]}}</h2>
 
