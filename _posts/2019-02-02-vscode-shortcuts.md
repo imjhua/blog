@@ -18,8 +18,12 @@ categories: VSCode
 - 탭 순서대로 이동: cmd + shift + [ ]
 - 다른 탭 모두 닫기: cmd + opt + t 
 
+----
+
 - GIT 소스 컨트롤 탐색기: ctrl + shift + g
 - 터미널 열고 닫기: ctrl + ` 
+
+----
 
 - 맨 위: cmd + 위 화살표
 - 맨 아래: cmd + 아래 화살표
@@ -27,6 +31,7 @@ categories: VSCode
 - 멀티 라인 주석: shift + opt + a 
 - 자동 정렬: shift + opt + f
 
+----
 
 - 라인 복사: opt + shift + 위아래 화살표
 - 같은 글자 검색: cmd + d

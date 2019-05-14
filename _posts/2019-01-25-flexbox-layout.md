@@ -20,7 +20,7 @@ box 모듈은 내용이 많고 새로운 속성들이 많이 추가되어 검토
 
 
 ## flexbox 속성
-flexbox속성도 box모델과 마찬가지로 컨테이너(container)와 항목(item)에 적용되는 속성이 각각 구분됩니다. 두 영역별로 적용할 수 있는 속성들과 컨테이너 안에 존재하는 항목들의 여유 공간을 분배(align-items, align-self, align-content , justify-content, order)하여 정렬 하는 방법들에 대해 알아 봅시다.
+flexbox속성도 box모델과 마찬가지로 컨테이너(container)와 항목(item)에 적용되는 속성이 각각 구분됩니다. 두 영역별로 적용할 수 있는 속성들과 컨테이너 안에 존재하는 항목들의 여유 공간을 분배(align-items, align-self, align-content , justify-content, order)하여 정렬 하는 방법들이 있습니다.
 
 ### flexbox 컨테이너에 적용할 수 있는 속성
 flexbox 컨테이너에 적용할 수 있는 속성들은 다음과 같습니다.
