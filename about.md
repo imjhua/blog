@@ -4,12 +4,26 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+### 소개
 
-### More Information
+김지혜입니다. 개발을 합니다.
 
-A place to include any other types of information that you'd like to include about yourself.
+다양한 경험을 하는 것과 그 경험에 대해 나누는 것을 좋아 합니다.
 
-### Contact me
+----
 
-[email@domain.com](mailto:email@domain.com)
+### 취미
+
+요가와 명상을 통해 스스로에게 집중하며 삶의 중심을 찾아 가고 있습니다.
+
+취미 생활로 골프를 즐기고 있습니다. (가끔씩 원스키 라이딩도..)
+
+----
+
+자기 개발에 소흘하지 않으려 다양한 경험들을 이곳에 기록합니다.
+
+이곳의 글들은 스스로의 공부 목적으로 작성된 내용입니다.
+
+저와의 연락이 필요하다면, 이곳으로 메일 주세요.
+
+[imjhua@naver.com](mailto:imjhua@naver.com)

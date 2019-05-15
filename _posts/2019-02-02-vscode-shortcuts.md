@@ -30,6 +30,7 @@ categories: VSCode
 - 라인 맨 처음 끝: cmd + 좌우 화살표
 - 멀티 라인 주석: shift + opt + a 
 - 자동 정렬: shift + opt + f
+- 라인 찾기: ctrl + g
 
 ----
 

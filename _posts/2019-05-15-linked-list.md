@@ -41,7 +41,7 @@ categories: Programming
 
 
 
-## 특징
+## 그외
 - Array List와는 다르게 엘리먼트와 엘리먼트 간의 연결(link)을 이용해서 리스트를 구현한 것
 - linked list에서 가장 중요한 것은 연결이 무엇인가를 파악하는 것
 - python 의 경우 list 기본 자료형에 linked list 기능이 함께 포함되어 있다.
