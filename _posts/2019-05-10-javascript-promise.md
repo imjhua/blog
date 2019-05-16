@@ -3,7 +3,7 @@ layout: post
 title: 자바스크립트 비동기 처리에 사용 Promise!
 tags:
  - promise
-categories: Javascript
+categories: JavaScript
 ---
 
 ## 소개

@@ -215,6 +215,8 @@ export function setColor(color) {
 사용할 액션 타입을 불러온 후 리듀서 초기 상태를 정의 합니다. 이전 상태와 액션값을 파라미터로 전달받기 전 초기 상태가 필요한다 이는 상수 형태의 객체입니다. ES6에서 제공되는 기본인수(default agrument) 기능으로 초기 상태 값을 적용하고 리듀서는 함수 이므로 내보내기도 함께 정의합니다. 스프레드 오퍼레이터를 통해 객체를 복사 합니다. 
 
 ```js
+// src/reducers/counter.js
+
 import * as types from "../actions/ActionTypes";
 
 const initialState = {
@@ -240,8 +242,33 @@ export default function counter(state = initialState, action) {
 
 ```
 
+색상을 변경하는 ui리듀서 입니다. 마찬가지로 액션 타입을 분기하여 새로운 상태를 만들어 반환합니다. 후에 사용자 로부터 color값을 액션으로 전달받아 상태를 업데이트 해주게 됩니다.
+```js
+// src/reducers/ui.js
+
+import * as types from "../actions/ActionTypes";
+
+const initialState = {
+  color: [2255, 255, 255]
+};
+
+export default function io(state = initialState, action) {
+  if (action.type === types.SET_COLOR) {
+    return {
+      color: action.color
+    };
+  } else {
+    return state;
+  }
+}
+
+```
+
+
 리듀서가 두개 이상인 경우 index 파일에서 합쳐줍니다.
 ```js
+// src/reducers/index.js
+
 import { combineReducers } from "redux";
 import counter from "./counter";
 import ui from "./ui";
@@ -280,7 +307,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 #### 하는 일
-- 디스패치를 통해 액션을 리듀서르 보낸다. (dispatch)
+- 디스패치를 통해 액션을 리듀서를 보낸다. (dispatch)
 - 현재 상태를 받환한다. (getStore)
 - 스토어의 변화가 있을때 마다, 즉 상태가 바뀔때마다 실행할 함수를 등록한다. (subscribe)
 

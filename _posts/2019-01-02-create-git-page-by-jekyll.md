@@ -100,5 +100,18 @@ Bundler는 Gemfile.lock 에 명시된 버전의 루비 젬을 사용해 Jekyll �
 
 웹 사이트: [https://imjhua.github.io/blog](https://imjhua.github.io/blog/)
 
+## 템플릿 수정
+Jekyll 은 템플릿 처리 작업을 위해 Liquid 템플릿 언어를 사용합니다. 표준 Liquid 태그와 필터를 모두 지원합니다. 빈도가 높은 작업을 더 쉽게하기 위해, Jekyll 에만 추가된 필터와 태그도 있으며 모두 이 페이지에 설명되어 있습니다. 게다가 플러그인을 사용하면 Jekyll 에 자신만의 태그도 만들 수 있습니다.
+
+http://jekyllrb-ko.github.io/docs/templates/ 페이지에서 지킬 템플릿에 대한 내용을 확인 할 수 있습니다.
+
+- 참고) Liquid는 Ruby로 작성된 오픈소스 템플릿 언어 입니다. https://shopify.github.io/liquid/basics/operators/ 사이트를 참고 하여 리퀴트 문법을 사용하여 템플릿의 컨텐츠 내용을 수정 및 개발 할 수 있습니다. 
+
+
 ## 마치며
 쉽게 Git Page를 만들어 보았습니다. 앞으로 개발 관련된 글을 게속 포스팅 하겠습니다.!
+
+
+----
+해당 내용은 다음 글을 참고 하였습니다.
+- http://jekyllrb-ko.github.io/docs/templates/

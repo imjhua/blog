@@ -3,7 +3,7 @@ layout: post
 title: 자바스크립트 기본 룰 
 tags:
  - rule
-categories: Javascript
+categories: JavaScript
 ---
 
 ## 소개

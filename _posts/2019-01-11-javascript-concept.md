@@ -3,7 +3,7 @@ layout: post
 title: Javascript 기본 개념
 tags:
   - javascript
-categories: Javascript
+categories: JavaScript
 ---
 
 
