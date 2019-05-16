@@ -3,7 +3,7 @@ layout: post
 title: 연결리스트(Linked List) 
 tags:
  - linked-list
-categories: Programming
+categories: TODO
 ---
 
 ## 소개
