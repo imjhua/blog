@@ -3,7 +3,7 @@ layout: post
 title: 개발 방법론
 tags:
  - 
-categories: text
+categories: TODO
 ---
 
 ## 소개
