@@ -87,8 +87,14 @@ Flux 에선 응용프로그램의 데이터 흐름이 필수요소이며 Dispatc
 Store은 model이 없더라도 응용프로그램과 관련된 모든 상태를 저장 할 수 있습니다. MVC에선 객체를 모델링합니다.
 
 
+## 단점
+Flux도 단점이 존재합니다. Store의 코드는 상태를 삭제하지 않고는 reloading이 불가능 하다는 것입니다. Flux에서는 Store가 상태와 상태변경을 위한 로직을 전부 가지고 있기 때문에 새로운 상태변경을 위한 로직을 위해 store 객체를 핫리로딩시 상태에 저장되어 있는 값조차 날아가 버린다는 단점이 생기는 것입니다. 또한 Flux에서는 시간여행디버깅을 구현하기가 매우 복잡합니다. Redux는 이러한 Flux의 단점을 보완하기 위한 아키텍쳐입니다. 즉 Flux의 기능에 hot leloading과 Time travel debugging 을 보완한 것입니다. 
+
+간단하게 설명하면 Redux는 상태와 상태 관리 로직을 분리하여 Reducer에서 상태관리를 하도록하고, 액션이 스토어에 전달되었을 때 기존 애플리케이션 상태를 수정하는 것이 아니라 그 상태를 복제한 뒤 복제본을 수정하여 저장함으로 위의 두가지 문제를 해결하여 Flux를 보완하게됩니다. Redux에서는 Flux에 있던 Dispatcher가 사라지고 Reducer란 개념이 등장합니다. 이야기 했듯이 Hotleloading을 위해 state와 state 변경 로직을 분리한 것이 Redux인데 store에서 action과 상태정보를 전달 받아 적절한 처리를 한 후 불변성을 유지한 채로 새로운 객체를 만들어 store로 다시 리턴해 주는 것이 Reducer의 역할입니다. Flux와 달리 Redux는 Store를 한 개만 가지며 하나의 store에서 오는 정보들을 Root Reducer가 계층구조를 따라 적절한 reducer에 보내고, 해당 reducer에서 처리를 하여 리턴합니다.
+
 ----
 해당 내용은 다음 글을 참고 하였습니다.
 - https://m.blog.naver.com/backsajang420/221368106022
 - https://lunit.gitbook.io/redux-in-korean/
 - https://dogbirdfoot.tistory.com/14
+- https://m.blog.naver.com/qwerchan/221262843543
