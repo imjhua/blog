@@ -27,8 +27,22 @@ export default Hello;
 ```
 
 ```js
-// ES6 에로우펀션 방식
+// ES6 arrowFn 방식
 
+import React from 'react';
+
+const Hello = (props) => {
+    return (
+        <div>Hello {props.name}</div>
+    );
+}
+
+export default Hello;
+```
+
+
+```js
+// ES6 ArrowFn + 비구조화 할당 방식
 import React from 'react';
 const Hello = ({name}) => {
     return (
