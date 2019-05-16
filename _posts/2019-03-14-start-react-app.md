@@ -225,9 +225,18 @@ export default class Contact extends React.Component {
     }
 }
 ```
+
 ### 포커스 이벤트 추가 하기
-html에 정의된 Input의 ref속성을 이용하여 다음과 같이 포커스 이벤트를 추가 할 수 있습니다. 
-https://reactjs.org/docs/refs-and-the-dom.html 에서 좀더 자세한 내용을 확인 할 수 있습니다.
+html에 정의된 Input의 ref속성을 이용하여 다음과 같이 포커스 이벤트를 추가 할 수 있습니다. ref는 리엑트에서 DOM에 직접적인 접근을 하는 경우 사용합니다. 직접접근의 경우는 다음과 같은 때가 있습니다.
+- input / textarea 등에 포커스를 해야 할때
+- 특정 DOM 의 크기를 가져와야 할 때
+- 특정 DOM 에서 스크롤 위치를 가져오거나 설정을 해야 할 때
+- 외부 라이브러리 (플레이어, 차트, 캐로절 등) 을 사용 할 때
+
+다른 컴포넌트끼리 직접 데이터를 전달하는것은 ref 를 사용할 수 있지만 상태가 꼬이는 문제가 발생하여 관리가 어려워지므로 가급적 지양 하여야 합니다. 그외 https://reactjs.org/docs/refs-and-the-dom.html 에서 좀더 자세한 내용을 확인 할 수 있습니다.
+
+
+그 대신에, 컴포넌트들은 부모를 통하여 대화를 하도록 합시다!
 
 ```html
 
@@ -243,9 +252,38 @@ https://reactjs.org/docs/refs-and-the-dom.html 에서 좀더 자세한 내용을
 ```
 
 ```js
+  handleClick() {
+    const contact = {
+      name: this.state.name,
+      phone: this.state.phone
+    };
+    this.props.onCreate(contact);
+    this.setState({
+      name: "",
+      phone: ""
+    });
+
     this.focusTextInput.focus();
+  }
 ```
 
+### KeyPress 이벤트 추가 하기
+이벤트의 charCode나 Key값으로 엔터키를 캐치하여 핸들링할수 있습니다.
+
+```js
+  handleKeyPress(e) {
+    if (e.charCode === 13) {
+      this.handleClick();
+    }
+  }
+
+
+  handleKeyPress=(e)=>{
+    if(e.key === 'Enter'){
+      this.handleCraete();
+    }
+  }
+```
 
 
 

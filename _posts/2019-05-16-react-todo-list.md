@@ -150,8 +150,157 @@ export default TodoItem;
 ```
 
 
+### 상태관리
+상태관리가 필요한 컴포넌트는 두개 입니다. Form에서 입력받는 데이터에 따라 TodoItemList가 변경되는 것이지요. 두 컴포넌트간에 데이터전달이 이루어 지지만 실제로 컴포넌트끼리 상태를 주고 받으면 안됩니다! 항상 컨테이너컴포넌트를 통해 상태를 주고 받아야 합니다. 오직 뷰만을 담당하는 컴포넌트와, 상태 관리를 담당하는 컴포넌트를 분리해야 합니다.
+
+#### 컨테이너 컴포넌트
+
+```js
+import React, { Component } from "react";
+import TodoListTemplate from "./components/TodoListTemplate";
+import Form from "./components/Form";
+import TodoItemList from "./components/TodoItemList";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.id = 3;
+    this.state = {
+      input: "",
+      todos: [
+        { id: 0, name: "안녕!", checked: false },
+        { id: 1, name: "나는", checked: true },
+        { id: 2, name: "지해다", checked: false }
+      ]
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  handleChange = e => {
+    this.setState({
+      input: e.target.value
+    });
+  };
+
+  handleCreate = () => {
+    const { input, todos } = this.state;
+
+    this.setState({
+      input: "",
+      todos: todos.concat({ id: this.id++, name: input, checked: false })
+    });
+  };
+  
+
+  handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      this.handleCreate();
+    }
+  };
+
+  render() {
+    const { input } = this.state;
+    const { handleChange, handleCreate, handleKeyPress } = this;
+    return (
+      <div>
+        <TodoListTemplate
+          form={
+            <Form
+              value={input}
+              onKeyPress={handleKeyPress}
+              onChange={handleChange}
+              onCreate={handleCreate}
+            />
+          }
+        >
+          <TodoItemList />
+        </TodoListTemplate>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+```
+
+handleCreate를 보면 concat 을 사용하여 배열안에 데이터를 추가했습니다. 자바스크립트로 보통 배열안에 새 데이터를 집어넣을땐 주로 push 를 사용하지만 리액트 state 에서 배열을 다룰 때는 절대로 push 를 사용하면 안됩니다. 그 이유는, push 를 통하여 데이터를 추가하면 배열에 값이 추가되긴 하지만 가르키고 있는 배열은 똑같기 때문에 비교를 할 수 없습니다. 나중에 최적화를 하게 될 때, 배열을 비교하여 리렌더링을 방지를 하게 되는데요, 만약에 push 를 사용한다면 최적화를 할 수 없게 됩니다. concat 의 경우엔 새 배열을 만들기 때문에 괜찮습니다.
 
 
+또한 render에서 this를 비구조화 할당함으로서, this.handleChange, this.handleCreate, this.handleKeyPress 이런식으로 계속 this 를 붙여줘야하는 작업을 생략 할 수 있습니다. 
+
+
+#### TodoItemList
+다음 전개연산자를 활용한 비구조화 할당을 적요하여 todo 프로퍼티를 맵핑합니다.
+```js
+
+// TodoItemList.js
+
+import React, { Component } from "react";
+import TodoItem from "./TodoItem";
+
+class TodoItemList extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { todos, onToggle, onRemove } = this.props;
+
+    const todoList = todos.map(todo =>
+      <TodoItem {...todo} onToggle={onToggle} onRemoeve={onRemove} />
+    );
+
+    return (
+      <div>
+        {todoList}
+      </div>
+    );
+  }
+}
+
+export default TodoItemList;
+
+```
+
+#### 토글 & 삭제 
+handleRemove 에서는 자바스크립트 배열의 내장함수인 filter 를 사용했습니다. 즉, 파라미터로 받아온 id 를 갖고있지 않는 배열을 새로 생성해낸것이죠. 이를 통하여 우리가 지정한 id 를 배제한 배열이 재탄생합니다. 이것을 todos 로 설정해주면, 원하는 데이터가 사라집니다.
+
+```js
+//Appjs
+
+  handleToggle(id){
+    console.log('handleToggle')
+    const {todos} = this.state;
+
+    const index = todos.findIndex(todo => todo.id === id);
+    const selected = todos[index];
+
+    const nextTodos = [...todos];
+
+    nextTodos[index] ={
+      ...selected,
+      checked: !selected.checked
+    };
+
+    this.setState({
+      todos: nextTodos
+    });
+  }
+
+
+  handleRemove(id) {
+    const { todos } = this.state;
+    this.setState({
+      todos: todos.filter(todo => todo.id !== id)
+    });
+  }
+
+
+```
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.

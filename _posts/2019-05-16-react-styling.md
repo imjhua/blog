@@ -1,9 +1,9 @@
 ---
 layout: post
-title: title 
+title: 리액트 컴포넌트 스타일링 방식 
 tags:
- - tag
-categories: categories
+ - styled-components
+categories: TODO
 ---
 
 ## 소개

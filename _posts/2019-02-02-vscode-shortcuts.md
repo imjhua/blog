@@ -31,6 +31,7 @@ categories: VSCode
 - 멀티 라인 주석: shift + opt + a 
 - 자동 정렬: shift + opt + f
 - 라인 찾기: ctrl + g
+- 탭 이동: ctrl + [number]
 
 ----
 
@@ -45,3 +46,4 @@ categories: VSCode
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.
+- https://huny7.wordpress.com/2018/05/04/vs-code-%EB%8B%A8%EC%B6%95%ED%82%A4/
