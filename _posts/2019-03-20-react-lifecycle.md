@@ -27,7 +27,7 @@ react의 컴포넌트에 대해 알아봅시다. 리엑트는 간단하게 정�
 - `componentWillUpdate`(v17 defrecated)
 - render
 - componentDidUpdate(prevProps, prevState)
-- componentWillUnMount
+- componentWillUnmount
 
 
 ### counstructor
@@ -41,7 +41,7 @@ react의 컴포넌트에 대해 알아봅시다. 리엑트는 간단하게 정�
 화면 렌더링을 담당 합니다.
 
 ### componentDidMount
-첫 렌더링 후 실행됩니다. 이 안에서 다른 js프레임웍 연동 및 setTimeout, setTinterval 및 Ajax를 사용합니다.
+첫 렌더링 후 실행됩니다. 이 안에서 다른 js프레임웍 연동 및 setTimeout, setInterval 및 Ajax를 사용합니다.
 
 ### componentwillReceiveProps(nextProps)
 props를 받을 때 실행됩니다. props에 따라 state를 업데이트 할 때 사용하면 유용합니다. 이 안에서 setState할 수 있지만 추가적인 렌더링은 발생하지 않습니다. 컴포넌트가 처음 마운트 되는 시점에서는 호출되지 않습니다. (v17 defrecated - getDerivedStateFromProps로 대체됨)
@@ -59,8 +59,51 @@ ex) return nextProps.id !== this.props.id (이때 JSON.stringify를 사용하여
 컴포넌트 업데이트 직후 실행됩니다. setState는 절대로 사용하면 안됩니다. 무한 루프에 빠질수 있습니다.
 
 
-### componentWillUnMount
+### componentWillUnmount
 컴포넌트가 DOM에서 사라진 후 실행됩니다. 컴포넌트 내부에서 타이머나 비동기 API를 사용하고 있을 때, 이를 제거하기에 유용합니다.
+
+
+### 사용예
+```js
+import React from "react";
+
+export default class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { date: new Date() };
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(() => {
+      this.tick();
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerId);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hi!</h1>
+        <h2>
+          It is {this.state.date.toLocaleTimeString()}
+        </h2>
+      </div>
+    );
+  }
+}
+
+```
+
 
 ## React v16.3 이후에 변경된 부분
 대체적으로 componentWill... 이 아에 삭제 되었거나 삭제되면서 대체 메서드가 추가되었습니다.
