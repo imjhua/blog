@@ -316,14 +316,17 @@ ReactDOM.render(<App />, document.getElementById('root'));
 컴포넌트에서 redux스토어 안에 있는 데이터를 사용하고 변화를 주려면 App 컴포넌트에 프롭스로 스토어를 넘겨 하위 컴포넌트에서 getState나 dispatch를 적용할수 있습니다. 그러나 이렇게 적용하는 경우 구조가 무척이나 복잡해 지는데요. 그래서 react-redux 뷰 레이어 바인딩 도구를 사용하여 스토어를 적용해 보도록 하곘습니다.
 
 ### react-redux 
-뷰 레이어 바인딩 도구 입니다.
+뷰 레이어 바인딩 도구 입니다. 바인딩 하기 위해 최상위 idnex.js 에서 리듀서로 스토어 생성 후 Provider로 전체 앱을 한 번 감싸줍니다. 후에 부모 컴포넌트에서  Provider Component가 제공하는 connect() 함수를 이용하여 Component와 Store를 연결합니다. 
+
 
 - Provider: 하나의 컴포넌트로써 컴포넌트에서 redux를 사용할수 있도록 한다. 
-- connetc[opt]: 똑똑한 컴포넌트에서 사용한다. 컴포넌트를 redux에 연결하는 또 다른 함수를 반환한다. 옵션이 없으면 this.props.store로 접근 가능하다.
+- connect[opt]: 똑똑한 컴포넌트에서 사용한다. 컴포넌트를 redux에 연결하는 또 다른 함수를 반환한다. 옵션이 없으면 this.props.store로 접근 가능하다.
 
 opt: [mapStateToProps], [mapDispatchToProps], [mergeProps], [options]
 options: pure=ture, withRef=false (withRef=true인경우 getWrappedInstance()를 사용)
 ```js
+// src/index.js
+
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
@@ -343,7 +346,9 @@ ReactDOM.render(
 
 ```
 
+부모컨테이너에서 연결합니다.
 ```js
+// src/components/Counter.js
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 

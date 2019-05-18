@@ -76,7 +76,11 @@ VSCode를 좀더 효율적으로 사용할 수 있도록 도와주는 다양한 
       "key": "ctrl+`",
       "command": "workbench.action.focusActiveEditorGroup",
       "when": "terminalFocus"
-   }
+   },
+   {
+      "key": "shift+cmd+c",
+      "command": "workbench.action.files.copyPathOfActiveFile"
+   },
 ]
 ```
 
