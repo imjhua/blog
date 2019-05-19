@@ -150,6 +150,7 @@ class 형태로 관리되던 컴포넌트를 function을 통해 만들수 있게
 - useContext: context관리
 - useReducer: action에 대한 state 처리
 - useMemo: 연산 최적화
+- useCallback: 리렌더링 최적화
 
 ### useState
 useState 는 가장 기본적인 Hook으로서, 함수형 컴포넌트에서도 가변적인 상태를 지니고 있을 수 있게 해줍니다. 만약에 함수형 컴포넌트에서 상태를 관리해야 되는 일이 발생한다면 이 Hook을 사용할 수 있습니다. 초기값을 지정해 주면 그 값에 대한 상태 업데이트를 자동으로 해주는 함수를 반환하여 반환된 함수를 호출하여 setState를 매번 사용하는 수고를 덜어 줄 수 있습니다.
@@ -193,6 +194,31 @@ const Info = () => {
 };
 
 export default Info;
+
+```
+
+또 다른 사용 예는 다음과 같다.
+```js
+
+  function useInput(defaultValue = "test") {
+    const [value, setValue] = useState(defaultValue);
+
+    const onChange = e => {
+      // const value = e.target.value;
+      const { target: { value } } = e;
+
+      setValue(value);
+    };
+
+    return { value, onChange };
+  }
+  const inputProps = useInput("");
+
+  return (
+    <div>
+        <input name="test" {...inputProps} placeholder="test" />
+    </div>
+  );
 
 ```
 
