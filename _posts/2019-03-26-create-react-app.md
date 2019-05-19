@@ -252,7 +252,7 @@ const initialState = {
   color: [2255, 255, 255]
 };
 
-export default function io(state = initialState, action) {
+export default function ui(state = initialState, action) {
   if (action.type === types.SET_COLOR) {
     return {
       color: action.color
