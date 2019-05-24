@@ -151,37 +151,7 @@ function* filter(test, iterable) {
 
 ```js
 
-function getId(phoneNumber, callback) { /* … */ }
-function getEmail(id, callback) { /* … */ }
-function getName(email, callback) { /* … */ }
-function order(name, menu, callback) { /* … */ }
 
-function orderCoffee(phoneNumber, callback) {
-    getId(phoneNumber, function(id) {
-        getEmail(id, function(email) {
-            getName(email, function(name) {
-                order(name, 'coffee', function(result) {
-                    callback(result);
-                });
-            });
-        });
-    });
-}
-
-function getId(phoneNumber) { /* … */ }
-function getEmail(id) { /* … */ }
-function getName(email) { /* … */ }
-function order(name, menu) { /* … */ }
-
-function orderCoffee(phoneNumber) {
-    return getId(phoneNumber).then(function(id) {
-        return getEmail(id);
-    }).then(function(email) {
-        return getName(email);
-    }).then(function(name) {
-        return order(name, 'coffee');
-    });
-}
 일단 가독성이 한결 나아 보인다. 뿐만 아니라, 이제 해당 함수가 처리를 성공적으로 완료했을 경우 항상 then()에 넘겨진 함수가 단 한번 실행될 거라는 신뢰가 생겼다. 어마어마한 발전이다. 여기서 만족하지 말자. 프라미스를 쓸 수 있다면 ES6의 시대에 살고 있을 테니 Arrow 함수를 써서 좀 더 세련되게 만들어 보도록 하겠다.
 
 function orderCoffee(phoneNumber) {
