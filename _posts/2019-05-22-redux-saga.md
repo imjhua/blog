@@ -1,4 +1,39 @@
 
+// saga: https://medium.com/@lavitr01051977/make-your-first-call-to-api-using-redux-saga-15aa995df5b6
+// generator: http://hacks.mozilla.or.kr/2015/08/es6-in-depth-generators/
+// generator: https://davidwalsh.name/es6-generators
+
+import { put, takeLatest, all } from "redux-saga/effects";
+
+function* fetchNews() {
+  const json = yield fetch(
+    "https://newsapi.org/v1/articles?source=cnn&apiKey=c39a26d9c12f48dba2a5c00e35684ecc"
+  ).then(response => response.json());
+
+  // NEWS_RECEIVED 액션을 디스 패치 한다.
+  yield put({ type: "NEWS_RECEIVED", json: json.articles });
+}
+
+//
+/*
+  takeEvery: 디스패치된 GET_NEWS 액션에 대해 실행. 동시에 news fetch 허용
+  또는 takeLatest를 사용할 수 있습니다.
+  동시에 news를 fetch하는 것을 허용하지 않습니다. 
+  만약 fetch가 이미 대기 상태일 때  "USER_FETCH_REQUESTED"가 dispatch가 되었다면 
+  대기 상태의 fetch는 취소되고 항상 최근 것만이 실행됩니다.
+*/
+
+// GET_NEWS 액션이 디스 패치 되면 fetchNews를 수행한다.
+function* actionWatcher() {
+  yield takeLatest("GET_NEWS", fetchNews);
+}
+
+export default function* rootSaga() {
+  console.log("rootSaga");
+  yield all([actionWatcher()]);
+}
+// export default rootSaga;
+
 
 
 Redux-Saga는 처음부터 사이드 이펙트를 관리하기 위해 만들어졌다. 리덕스가 처음 나왔을 때, 액션 생성자와 리듀서는 순수해야 하는데 사이드 이펙트는 어떻게 처리하는가에 대한 많은 의견이 있었다. 그리고 Redux-Saga가 등장했다.

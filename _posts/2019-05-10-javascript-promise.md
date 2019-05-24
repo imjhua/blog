@@ -5,6 +5,8 @@ tags:
  - promise
 categories: AAA
 ---
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Using_promises
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 ## 소개
 프로미스는 자바스크립트 비동기 처리에 사용되는 객체입니다. 여기서 자바스크립트의 비동기 처리란 '특정 코드의 실행이 완료될 때까지 기다리지 않고 다음 코드를 먼저 수행하는 자바스크립트의 특성'을 의미합니다. 자바스크립트 비동기 처리와 비동기 처리를 유연하게 하기 위한 콜백 함수로 인해 Promise를 사용합니다. 비동기처리와 Promise에 대해 알아 봅시다.
