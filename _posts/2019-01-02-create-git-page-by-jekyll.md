@@ -38,18 +38,29 @@ Jekyll을 이용하여 정적 웹사이트(static websites)를 만들어 보겠�
 Jekyll은 내부적으로 Ruby로 작성되어 있기 때문에 사전 작업으로 Ruby 설치가 필요합니다. 
 
 ```
-$ curl -L https://get.rvm.io bash -s stable –ruby # rvm 설치 
+$ curl -L https://get.rvm.io | bash -s stable --ruby # rvm 설치 
 $ source ~/.bash_profile # 설치 경로 적용 
 $ rvm -v  # rvm 설치 확인 
 $ rvm install <version> # ruby 특정 버전 설치 
 $ ruby -v # ruby 버전 확인
 $ gem install jekyll bundler # jekyll과 ruby 의존성 선언 및 의존성 분리 도구인 bundler 설치 
-$ vi Gemfile   # 의존성 선언을 위한 파일 생성
+$ cd [JEKYLL_PROJECT_PATH]
+$ bundle init # Gemfile 생성, 기존에 Gemfile이 있다면 지우고 다시 생성한다.
+$ bundle add jekyll # Jekyll 추가
+$ bundle install # 루비 젬 설치
+$ jekyll serve # 로컬호스트 서버 실행
+```
+
+플러그인관련 에러가 발생한다면 다음 플러그인을 설치 합니다.
+```sh
+$ bundle add jekyll-feed jekyll-feed jekyll-gist jekyll-paginate jekyll-sitemap
+
+$ vi Gemfile   # 의존성 선언을 위한 파일을 수동으로 생성할 수도 있습니다.
 `
 source 'https://rubygems.org' # Gem을 받아오는 서버 정의
 gem 'github-pages'
 `
-$ bundle install # ruby 의존성 설치 
+
 ```
 
 ## Jekyll 생성
