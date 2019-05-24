@@ -3,45 +3,46 @@ layout: post
 title: 자바스크립트 비동기 처리에 사용 Promise!
 tags:
  - promise
-categories: TODO
+categories: AAA
 ---
 
 ## 소개
-프로미스는 자바스크립트 비동기 처리에 사용되는 객체입니다. 여기서 자바스크립트의 비동기 처리란 '특정 코드의 실행이 완료될 때까지 기다리지 않고 다음 코드를 먼저 수행하는 자바스크립트의 특성'을 의미합니다. 자바스크립트 비동기 처리와 비동기 처리를 유연하게 하기 위한 콜백 함수로 인해 Promise를 사용합니다. 
-
-참고) 비동기 처리: 자바스크립트의 비동기 처리란 특정 코드의 연산이 끝날 때까지 코드의 실행을 멈추지 않고 다음 코드를 먼저 실행하는 자바스크립트의 특성.
-
+프로미스는 자바스크립트 비동기 처리에 사용되는 객체입니다. 여기서 자바스크립트의 비동기 처리란 '특정 코드의 실행이 완료될 때까지 기다리지 않고 다음 코드를 먼저 수행하는 자바스크립트의 특성'을 의미합니다. 자바스크립트 비동기 처리와 비동기 처리를 유연하게 하기 위한 콜백 함수로 인해 Promise를 사용합니다. 비동기처리와 Promise에 대해 알아 봅시다.
 
 ## 비동기 처리
-이렇게 특정 로직의 실행이 끝날 때까지 기다려주지 않고 나머지 코드를 먼저 실행하는 것이 비동기 처리입니다.
+비동기 처리란 자바스크립트의 비동기 처리란 특정 코드의 연산이 끝날 때까지 코드의 실행을 멈추지 않고 다음 코드를 먼저 실행하는 자바스크립트의 특성을 말합니다. 즉, 특정 로직의 실행이 끝날 때까지 기다려주지 않고 나머지 코드를 먼저 실행하는 것이 비동기 처리입니다.
 
+비동기 호출의 경우(ajax, setTimeout등)비동기 처리 방식에 의해 야기될 수 있는 문제들은 콜백(callback) 함수를 이용하여 처리 할 수 있습니다.그러나 비동기 처리 로직을 위해 콜백 함수를 연속해서 사용할 때 발생하는 콜백지옥에 빠져 버리는 문제가 발생합니다.
 
+콜백 지옥예는 다음과 같습니다.
 
-### 비동기 처리 방식의 문제점 (콜백지옥)
-비동기 처리 방식에 의해 야기될 수 있는 문제들은 콜백(callback) 함수를 이용하여 처리 할 수 있습니다.
-
-#### 콜백 지옥 (Callback hell)
-콜백 지옥은 비동기 처리 로직을 위해 콜백 함수를 연속해서 사용할 때 발생하는 문제입니다. 아마 아래와 같은 코드를 본 적이 있을 겁니다.
 ```js
-$.get('url', function (response) {
-	parseValue(response, function (id) {
-		auth(id, function (result) {
-			display(result, function (text) {
-				console.log(text);
-			});
-		});
-	});
-});
+function getId(phoneNumber, callback) { /* … */ }
+function getEmail(id, callback) { /* … */ }
+function getName(email, callback) { /* … */ }
+function order(name, menu, callback) { /* … */ }
+
+function orderCoffee(phoneNumber, callback) {
+    getId(phoneNumber, function(id) {
+        getEmail(id, function(email) {
+            getName(email, function(name) {
+                order(name, 'coffee', function(result) {
+                    callback(result);
+                });
+            });
+        });
+    });
+}
 
 ```
+
 웹 서비스를 개발하다 보면 서버에서 데이터를 받아와 화면에 표시하기까지 인코딩, 사용자 인증 등을 처리해야 하는 경우가 있습니다. 만약 이 모든 과정을 비동기로 처리해야 한다고 하면 위와 같이 콜백 안에 콜백을 계속 무는 형식으로 코딩을 하게 됩니다. 이러한 코드 구조는 가독성도 떨어지고 로직을 변경하기도 어렵습니다. 이와 같은 코드 구조를 콜백 지옥이라고 합니다.
 
 ### 비동기 처리 예
+이러한 다양한 비동기 처리 방법에 대해 자바스크립트는 꾸준히 발전하였습니다. 예들을 살펴 보겠습니다.
 
-다음 다양한 비동기 처리 방법에 대한 예들을 살펴 보겠습니다.
-
-### 기존 ajax방식 예
-비동기 처리의 가장 흔한 사례는 제이쿼리의 ajax입니다. 작동 방식은 다음과 같습니다. 보통 화면에 표시할 이미지나 데이터를 서버에서 불러와 표시해야 하는데 이때 ajax 통신으로 해당 데이터를 서버로부터 가져올 수 있기 때문입니다.
+#### 기존 ajax방식 예
+비동기 처리의 가장 흔한 사례는 jQuery의 ajax입니다. 작동 방식은 다음과 같습니다. 보통 화면에 표시할 이미지나 데이터를 서버에서 불러와 표시해야 하는데 이때 ajax 통신으로 해당 데이터를 서버로부터 가져올 수 있기 때문입니다.
 
 ```js
 function getData() {
@@ -55,7 +56,7 @@ function getData() {
 console.log(getData()); // undefined
 ```
 
-undefined으로 출력되는 문제가 바로 비동기 처리로 인하여 호출이 끝날때까지 기다리지 않고 다음 코드를 먼저 실행해 버리기 때문입니다. 이 문제를 콜백함수를 통해 다음과 같이 해결합니다.
+undefined으로 출력되는 문제가 바로 비동기 처리로 인하여 호출이 끝날때까지 기다리지 않고 다음 코드를 먼저 실행해 버리기 때문입니다. 이 문제를 콜백함수를 파라미터로 넘겨 다음과 같이 해결합니다.
 
 ```js
 function getData(callbackFunc) {
@@ -72,7 +73,7 @@ getData(function (tableData) {
 이렇게 콜백 함수를 사용하면 특정 로직이 끝났을 때 원하는 동작을 실행시킬 수 있습니다.
 
 
-### SetTimeout 예
+#### setTimeout 예
 setTimeout()은 Web API의 한 종류입니다. 코드를 바로 실행하지 않고 지정한 시간만큼 기다렸다가 로직을 실행합니다. 
 
 ```js
@@ -91,8 +92,24 @@ console.log('Hello Again');
 
 
 ### 프로미스 예
-다음 코드는 서버에서 제대로 응답을 받아오면 resolve() 메서드를 호출하고, 응답이 없으면 reject() 메서드를 호출하는 예제입니다. 호출된 메서드에 따라 then()이나 catch()로 분기하여 데이터 또는 오류를 출력합니다.
+Promise는 콜백 함수를 통해 서버에서 제대로 응답을 받아오면 resolve() 메서드를 호출하고, 응답이 없으면 reject() 메서드를 호출합니다. 호출된 메서드에 따라 then()이나 catch()로 분기하여 데이터 또는 오류를 출력합니다.
+
 ```js
+function getId(phoneNumber) { /* … */ }
+function getEmail(id) { /* … */ }
+function getName(email) { /* … */ }
+function order(name, menu) { /* … */ }
+
+function orderCoffee(phoneNumber) {
+    return getId(phoneNumber).then(function(id) {
+        return getEmail(id);
+    }).then(function(email) {
+        return getName(email);
+    }).then(function(name) {
+        return order(name, 'coffee');
+    });
+}
+
 function getData() {
   return new Promise(function (resolve, reject) {
     $.get('url 주소/products/1', function (response) {

@@ -101,12 +101,12 @@ Linkto를 앞서 사용할때는 해당 component의 주소값만을 넣어서 �
 ```js
 
           <Link
-            to={{
+            to={\{
               pathname: "/about",
               state: {
                 id: 12
               }
-            }}
+            \}}
           >
             about
           </Link>
