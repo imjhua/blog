@@ -1,0 +1,21 @@
+---
+layout: page
+title: TODO
+permalink: /todos/
+---
+
+<ul class="archive">
+  {% for todo in site.categories.TODO %}
+    <li>
+      <time>{{ todo.date | date: "%Y-%m-%d" }}</time>
+      {% if todo.link %}
+      <a href="{{ todo.link }}">
+      {% else %}
+      <a href="{{ site.baseurl }}{{ todo.url }}">
+      {% endif %}
+        {{ todo.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+

@@ -212,7 +212,7 @@ export class Third extends Component {
   render() {
     return (
       <div>
-        <Link to={`${this.props.match.url}/1`} style={{ marginRight: "5px" }}>
+        <Link to={`${this.props.match.url}/1`}>
           1번
         </Link>
         <Link to={`${this.props.match.url}/2`}>2번</Link>

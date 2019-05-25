@@ -30,6 +30,8 @@ navigation:
     url: /archive
   - name: Diary
     url: /diaries
+  - name: TODO
+    url: /todos
   - name: Style
     url: /style
   - name: Tags
