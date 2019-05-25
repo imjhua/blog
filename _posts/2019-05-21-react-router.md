@@ -85,6 +85,7 @@ NavLink 는 조금 특별한 Link입니다. to에 지정한 path와 URL이 매�
     About
   </Link>
 </li>
+
 ```
 참고 ) history.push 와 Link를 통해 URL을 이동 시킬 수 있습니다.
 - Link: a 태그와 같다. 하지만 SPA 특성상 a태그 처럼 새로고침이 발생하면 안되기에, a 태그를 기반으로 기능상의 개선을 통해 새로고침없이 다른 뷰를 렌더 하기위해 사용하는 것이다.
@@ -196,16 +197,6 @@ function App() {
 export default App;
 
 ```
-### withRouter
-withRouter HOC를 통해 히스토리 객체의 속성과 의 match에 액세스 할 수 있습니다. withRouter는 render props : {match, location, history}와 같은 props로써 ㅇ라우트가 변경할 때마다 해당 구성 요소를 다시 렌더링합니다.
-
-### Link
-HTML의 a태그와 유사합니다. 실제 동작은 페이지 전체를 리로드하지 않고
-필요한 부분만 리로드하게 됩니다.
-```js
-<Link to="/" />
-```
-s
 
 ## 중첩 라우팅
 ```js
