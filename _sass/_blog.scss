@@ -14,3 +14,10 @@
     display: block;
   }
 }
+
+pre, code {
+  font-family: "Nanum Gothic", "Spoqa Han Sans", self;
+}
+::selection {
+  background:#98a2ad;
+}
