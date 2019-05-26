@@ -117,6 +117,63 @@ try {
 예외(exception)는 호출자(caller) 방향으로 전파됩니다. 하지만 위에서 살펴본 바와 같이 setTimeout 함수의 콜백 함수를 호출한 것은 setTimeout 함수가 아닙니다. 따라서 setTimeout 함수의 콜백 함수 내에서 발생시킨 에러는 catch 블록에서 캐치되지 않아 프로세스는 종료되어 버립니다. 이러한 문제를 극복하기 위해 Promise가 제안되었습니다. Promise는 ES6에 정식 채택되어 IE를 제외한 대부분의 브라우저가 지원하고 있습니다.
 
 
+
+### 다양한 비동기 처리 방법들
+
+#### promise
+```js
+// Promise 객체를 반환하는 함수
+function delay(ms) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      console.log(`${ms} 밀리초가 지났습니다.`);
+      resolve();
+    }, ms);
+  });
+}
+
+delay(1000)
+  .then(() => delay(2000))
+  .then(() => Promise.resolve('끝'))
+  .then(console.log);
+
+console.log('시작');
+
+```
+
+
+#### async & await
+
+```js
+// Promise 객체를 반환하는 함수.
+function delay(ms) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      console.log(`${ms} 밀리초가 지났습니다.`);
+      resolve()
+    }, ms);
+  });
+}
+
+async function main() {
+  await delay(1000);
+  await delay(2000);
+  const result = await Promise.resolve('끝');
+  console.log(result);
+}
+
+main();
+```
+
+
+#### generator
+Generator
+Iterable 챕터에 다뤘던 generator 함수는 '함수를 잠시 멈춰둘 수 있다'는 특징을 갖고 있습니다. 이 특징으로 인해 generator가 비동기 프로그래밍을 위해 사용되기도 합니다. 실제로, ES2017에서 비동기 함수가 도입되기 전에는 generator가 비동기 프로그래밍을 위해 널리 사용되었습니다. 최근에는 언어에 내장되어 있고 더 쉬운 비동기 함수를 많이 사용하는 편입니다.
+
+다만 generator는 함수의 재개를 프로그래머가 직접 제어할 수 있다는 장점을 갖고 있기 때문에, 일부러 비동기 함수 대신 generator를 사용하는 경우도 있습니다. React에서 비동기 프로그래밍을 하기 위해 널리 사용되는 라이브러리인 redux-saga 역시 generator를 활용하고 있습니다.
+
+
+
 ----
 해당 내용은 다음 글을 참고 하였습니다.
 - https://poiemaweb.com/es6-promise
