@@ -287,6 +287,15 @@ doSomething()
 
 ```
 
+#### 쉬운 에러처리
+Promise 객체의 후속 처리 메소드를 사용하여 비동기 처리 결과에 대한 후속 처리를 수행한다. 비동기 처리 시 발생한 에러 메시지는 then 메소드의 두 번째 콜백 함수로 전달된다. Promise 객체의 후속 처리 메소드 catch을 사용하여도 에러를 처리할 수 있다.
+
+```js
+get(url)
+  .then(result => document.getElementById('result').innerHTML = result)
+  .catch(error => console.log(error));
+```
+
 #### 여러 프로미스 실행
 여러개의 비동기 작업들이 존재하고 이들이 모두 완료되었을떄 작업을 진행하고 싶다면, 각각의 비동기 작업들을 프로미스에서 처리 하고 여러 프로미스가 모두 완료될 때 all API를 호출합니다. all은 프로미스 객체를 인자로 전달 받습니다.
 
