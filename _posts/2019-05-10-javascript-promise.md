@@ -68,8 +68,8 @@ getData()
 프로미스를 사용하면 비동기 호출이 완료된후 실행될 콜백을 넘기지 않고도 프로미스가 끝난 후 호출될 콜백(성공,실패)을 then()을 사용하여 코드를 작성 할 수 있습니다. 프로미스를 사용하는 방법은 다양합니다.
 
 1. 프로미스 객체를 생성하여 변수에 할당하는 방법
-2. 함수 선언식(호이스팅 됨): 프로미스 객체를 함수 선언식을 통해 생성하는 방법 (파라미터를 넘길 수 있음)
-3. 함수 표현식: 프로미스 객체를 함수 표현식을 통해 생성하는 방법 (파라미터를 넘길 수 있음)
+2. 함수 선언식(호이스팅 됨): 프로미스 객체를 함수 선언식을 통해 나중에 생성하는 방법 (파라미터를 넘길 수 있음)
+3. 함수 표현식(할당 됨): 프로미스 객체를 함수 표현식을 통해 나중에 생성하는 방법 (파라미터를 넘길 수 있음)
 
 아래 코드를 보면 나중에 Promise객체를 생성하기 위해 Promise객체를 리턴하도록 함수로 감싸고 있습니다. Promise객체를 보면 파라미터로 익명함수(excutor)를 담고 있고 익형함수는 resolve와 reject를 파라미터로 받고 있습니다. 
 ```js
@@ -296,11 +296,100 @@ get(url)
   .catch(error => console.log(error));
 ```
 
+물론, 에러처리의 단점 또한 존재 합니다.
+
+먼저, 프로미스는 비동기 콜백 내 발생한 오류를 잡을 수 없습니다. 
+```js
+var p1 = new Promise(function(resolve, reject) {
+  throw 'Uh-oh!';
+});
+
+p1.catch(function(e) {
+  console.log(e); // "Uh-oh!"
+});
+
+
+var p2 = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    throw 'Uncaught Exception!';
+  }, 1000);
+});
+
+p2.catch(function(e) {
+  console.log(e); // 이는 전혀 호출되지 않음
+});
+```
+
+오류를 예측하고 reject를 호출해야만 then의 두번째 메소드를 통해 콜백 처리가 가능합니다.
+```js
+//Promise 선언
+var _promise = function (param) {
+
+	return new Promise(function (resolve, reject) {
+
+		// 비동기를 표현하기 위해 setTimeout 함수를 사용 
+		window.setTimeout(function () {
+
+			// 파라메터가 참이면, 
+			if (param) {
+
+				// 해결됨 
+				resolve("해결 완료");
+			}
+
+			// 파라메터가 거짓이면, 
+			else {
+
+				// 실패 
+				reject(Error("실패!!"));
+			}
+		}, 3000);
+	});
+};
+
+//Promise 실행
+_promise(true)
+.then(function (text) {
+	// 성공시
+	console.log(text);
+}, function (error) {
+	// 실패시 
+	console.error(error);
+});
+```
+
+
+promise의 경우, promise의 then에서 에러가 발생하면 try/catch로 에러를 잡을 수 없습니다. then 메소드 내부에서 발생한 에러 처리를 위해서는 .catch 를 호출해야하며, 에러를 처리하는 코드는 중복되고 복잡해 질 것입니다.
+
+```js
+const makeRequest = () => {
+  try {
+    getJSON()
+      .then(result => {
+        // this parse may fail
+        const data = JSON.parse(result)
+        console.log(data)
+      })
+      // uncomment this block to handle asynchronous errors
+      // .catch((err) => {
+      //   console.log(err)
+      // })
+  } catch (err) {
+    console.log(err)
+  }
+}
+```
+
+
+
+
+
+
 #### 여러 프로미스 실행
 여러개의 비동기 작업들이 존재하고 이들이 모두 완료되었을떄 작업을 진행하고 싶다면, 각각의 비동기 작업들을 프로미스에서 처리 하고 여러 프로미스가 모두 완료될 때 all API를 호출합니다. all은 프로미스 객체를 인자로 전달 받습니다.
 
 ```js
-ar promise1 = new Promise(function (resolve, reject) {
+var promise1 = new Promise(function (resolve, reject) {
 	// 비동기를 표현하기 위해 setTimeout 함수를 사용 
 	window.setTimeout(function () {
 		console.log("첫번째 Promise 완료");
@@ -322,6 +411,10 @@ Promise.all([promise1, promise2]).then(function (values) {
 	console.log("모두 완료됨", values);
 });
 ```
+
+## 정리
+Promise를 사용하면 기존 콜백함수 보다 깔끔하게 코드작성이 가능하지만, 실행 절차/순서가 복잡하여 가독성이 떨어집니다. 그래서 ES8에서 async/await가 등장 하였습니다. 후에 알아보도록 하겠습니다.
+
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.
