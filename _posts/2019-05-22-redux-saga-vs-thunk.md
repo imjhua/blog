@@ -1,3 +1,21 @@
+---
+layout: post
+title: 비동기 처리 redux-thunk 와 redux-saga 비교 
+tags:
+ - tag
+categories: TODO
+---
+
+## 소개
+text
+https://medium.com/@han7096/redux-saga%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC-5e39b72380af
+----
+해당 내용은 다음 글을 참고 하였습니다.
+- url
+
+https://velog.io/@dongwon2/Redux-Thunk-vs-Redux-Saga%EB%A5%BC-%EB%B9%84%EA%B5%90%ED%95%B4-%EB%B4%85%EC%8B%9C%EB%8B%A4-
+
+https://orezytivarg.github.io/from-redux-thunk-to-sagas/
 
 우리는 redux-thunk라는 미들웨어를 redux에 사용하여 함수 디스패치를 다룬다. 여기서 주목해야할 한 가지는 flux 표준 액션으로 변환할 수 있는 적절한 미들웨어가 있다면, redux를 사용해서 모든 것을 디스패치할 수 있다는 것이다.
 다룰 수 있는 적절한 redux 미들웨어가 있다면 Promises, Observables 혹은 심지어 Generators라도 디스패치할 수 있다. 비동기 작업을 기술할 때 thunks나 promises를 사용하는 것은 파악하기 어려울 수 있다.
