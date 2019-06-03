@@ -3,7 +3,7 @@ layout: post
 title: redux-saga 
 tags:
  - redux-saga
-categories: React
+categories: TODO
 ---
 
 ## 소개
