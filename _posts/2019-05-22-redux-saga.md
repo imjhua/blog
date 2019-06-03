@@ -57,7 +57,30 @@ sagaMiddleware.run(mySaga)
 // 애플리케이션을 render합니다.
 ```
 
-### generator 함수
+
+### saga
+saga는 헬퍼함수(helpers)를 사용하여 액션과 리스너를 등록하여, 등록한 액션을 계속 리스닝 하고 있습니다. 리스닝 하고 있는 액션이 발생하면 바로 캐치 하여 worker saga(제너레이터로 작성된 saga함수)를 실행합니다.
+
+```js
+// saga는 action을 listen(watch)한다.
+function* mySaga() {
+/*
+  각각의 dispatch 된 `FETCH_DATA` 액션에 대해 fetchUser를 실행합니다. 동시에 data를 fetch하는 것을 허용합니다. 여러개의 saga를 등록 할 수도 있습니다.
+*/
+  yield takeEvery("FETCH_DATA", getData);
+  // yield takeEvery("FETCH_DATA2", getData2);
+  // yield takeEvery("FETCH_DATA3", getData3);
+}
+
+export default mySaga;
+
+```
+
+
+### worker saga(genrator function)
+디스패치된 액션에 따라 수행되는 함수 입니다.
+
+#### generator 함수
 saga를 사용하기전 saga의 구성이 되는 제너레이터 함수를 이해할 필요가 있습니다. 제너레이터 함수는 iterable (돌리고 돌릴 수 있다)하며 비동기든 동기든 간에 yield 구문으로 순차적 처리가 가능합니다. saga에서는 이 제너레이터 함수를 활동하여 비동기를 순차적으로 처리 합니다. 
 
 #### Caller와 Callee
@@ -70,36 +93,92 @@ saga를 사용하기전 saga의 구성이 되는 제너레이터 함수를 이�
 
 Redux-Saga 입장으로 보면 미들웨어는 Caller(Saga 미들웨어 그 자체)이고, 우리가 작성한 Saga는 Callee(제너레이터 함수)로 표현할 수 있습니다. 계속해서 살펴 보겠지만, 이팩트라고  부르는 것들로 saga를 등록하고 수행시킵니다.
 
-```js
+#### 코드
 
-// worker Saga: USER_FETCH_REQUESTED 액션에 대해 호출될 것입니다
-function* fetchUser(action) {
+```js
+// worker Saga: FETCH_DATA 액션에 대해 호출될 것입니다.
+function* getData(action) {
    try {
-      const user = yield call(Api.fetchUser, action.payload.userId);
-      yield put({type: "USER_FETCH_SUCCEEDED", user: user});
+      const data = yield call(Api.fetchUser, action.payload.userId);
+      yield put({type: "FETCH_DATA_FULFILLED", data: data});
    } catch (e) {
-      yield put({type: "USER_FETCH_FAILED", message: e.message});
+      yield put({type: "FETCH_DATA_REJECTED", message: e.message});
    }
 }
 
+-----
 
-/*
-  각각의 dispatch 된 `USER_FETCH_REQUESTED` 액션에 대해 fetchUser를 실행합니다.
-  동시에 user를 fetch하는 것을 허용합니다.
-*/
+//action.js
+// action이 pure object만을 반환하는 것을 보고 있으면 아름답다는 생각이 저절로 든다.
+export const fetchData = () => ({
+    type: FETCH_DATA
+});
+
+// saga에서 호출하는 액션
+export const fetchDataFulfilled = DATA => ({
+    type: FETCH_DATA_FULFILLED,
+    payload: DATA
+});
+
+// saga에서 호출하는 액션
+export const fetchDataRejected = error => ({
+    type: FETCH_DATA_REJECTED,
+    error
+});
+```
+
+### 여러개의 saga 등록하기
+다른 액션들을 보고있는 여러개의 Saga 들을 등록해야 하는 경우에 처리 할수 있는 다양한 방법들이 존재 합니다. 내장 함수들을 사용해 여러개의 워쳐들을 만들 수 있습니다. 
+
+
+- yield 여러개의 helper fn
+
+- yield 여러개의 helper fn 을 담고 있는 watcher saga 여러번
+- yield 여러개의 helper fn 을 담고 있는 watcher saga 리스트
+
+- yield 여러개의 helper fn 을 담고 있는 fork 된 watcher saga 여러번
+- yield 여러개의 helper fn 을 담고 있는 fork 된 watcher saga 리스트
+
+
+- yield 여러개의 helper fn 을 담고 있는 spawn 된 watcher saga 여러번
+- yield 여러개의 helper fn 을 담고 있는 spawn 된 watcher saga 리스트
+
+
+참고) root saga: watcher saga 또는 helps fn 또는 worker saga 또는 비동기 처리를 담고 있음
+참고) watcher saga: helps fn 또는 worker saga 를 담고 있음
+참고) helps saga: worker saga 를 담고 있음
+참고) worker saga: 비동기 처리 담당 를 담고 있음
+
+단일 entry point를 rootSaga로 정의 하여 다양한 방법으로 호출 해 보겠습니다.
+
+
+
+
+
+/////////////
+
+
+
+
+
+
+
+
+
+```js
 function* helloSaga() {
   yield takeEvery("USER_FETCH_REQUESTED", fetchUser);
 }
 
-export default helloSaga;
-```
+function* watchIncrementAsync() {
+  yield takeEvery("OTHER_DATA_REQUESTED", fetchOtherData);
+}
 
-다른 액션들을 보고있는 여러개의 Saga 들을 등록해야 하는 경우, Saga들을 생성하기위해 사용된 fork 와 비슷한 동작을 하는 내장 함수 들과 함께 여러개의 워쳐들을 만들 수 있습니다. 
-```js
-// use them in parallel
 export default function* rootSaga() {
-  yield takeEvery('FETCH_USERS', fetchUsers)
-  yield takeEvery('CREATE_USER', createUser)
+  yield all([
+    helloSaga(),
+    watchIncrementAsync()
+  ])
 }
 ```
 
@@ -122,6 +201,9 @@ export default function* rootSaga() {
   ])
 }
 ```
+
+
+https://translate.googleusercontent.com/translate_c?depth=1&hl=ko&rurl=translate.google.co.kr&sl=en&sp=nmt4&tl=ko&u=https://github.com/redux-saga/redux-saga/issues/760&xid=17259,1500004,15700002,15700022,15700186,15700191,15700256,15700259&usg=ALkJrhjnqRsz5--eioIRw7-ntYx2naQHQw
 
 여러개의 이펙트를 처리 하기 위해 all을 다음과 같이 활용합니다. promise all 과 동일하게 동작합니다.
 ```js
