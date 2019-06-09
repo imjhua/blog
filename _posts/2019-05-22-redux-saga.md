@@ -59,13 +59,15 @@ sagaMiddleware.run(mySaga)
 
 
 ### saga
-saga는 헬퍼함수(helpers)를 사용하여 액션과 리스너를 등록하여, 등록한 액션을 계속 리스닝 하고 있습니다. 리스닝 하고 있는 액션이 발생하면 바로 캐치 하여 worker saga(제너레이터로 작성된 saga함수)를 실행합니다.
+saga는 헬퍼함수(helpers)를 사용하여 액션과 리스너를 등록하고, 등록한 액션을 계속 리스닝 하고 있습니다. 리스닝 하고 있는 액션이 발생하면 바로 캐치 하여 worker saga(제너레이터로 작성된 saga함수)를 실행합니다.
 
 ```js
 // saga는 action을 listen(watch)한다.
 function* mySaga() {
 /*
-  각각의 dispatch 된 `FETCH_DATA` 액션에 대해 fetchUser를 실행합니다. 동시에 data를 fetch하는 것을 허용합니다. 여러개의 saga를 등록 할 수도 있습니다.
+  각각의 dispatch 된 `FETCH_DATA` 액션에 대해 fetchUser를 실행합니다. 
+  동시에 data를 fetch하는 것을 허용합니다. 
+  여러개의 saga를 등록 할 수도 있습니다.
 */
   yield takeEvery("FETCH_DATA", getData);
   // yield takeEvery("FETCH_DATA2", getData2);
@@ -76,9 +78,49 @@ export default mySaga;
 
 ```
 
+용어 정리를 해 보면 이떄 사용되는 watch saga는 mySaga고, worker saga는 generator function으로 구현된 getData 입니다.
 
-### worker saga(genrator function)
-디스패치된 액션에 따라 수행되는 함수 입니다.
+
+### root saga
+sagaMiddleware.run(mySaga) 로 실행됩니다. 액션에 대한 비동기 처리를 담당하는 worker saga를 등록하여 리스닝 하고 있는  watcher saga를 호출합니다.
+```js
+// 단일 watcher saga를 호출
+function* mySaga() {
+  yield takeEvery("FETCH_DATA", getData);
+}
+export default mySaga;
+
+
+// 여러개의 watcher saga를 호출
+function* helloSaga() {
+  yield takeEvery("USER_FETCH_REQUESTED", fetchUser);
+}
+
+function* watchIncrementAsync() {
+  yield takeEvery("OTHER_DATA_REQUESTED", fetchOtherData);
+}
+
+export default function* rootSaga() {
+  yield all([
+    helloSaga(),
+    watchIncrementAsync()
+  ])
+}
+```
+
+### worker saga
+디스패치된 액션에 따라 수행되는 함수 입니다. 비동기 처리를 담당 하고 있습니다. 제너레이터 함수로 구현됩니다.
+```js
+function* getData(action) {
+   try {
+      const data = yield call(Api.fetchUser, action.payload.userId);
+      yield put({type: "FETCH_DATA_FULFILLED", data: data});
+   } catch (e) {
+      yield put({type: "FETCH_DATA_REJECTED", message: e.message});
+   }
+}
+```
+
 
 #### generator 함수
 saga를 사용하기전 saga의 구성이 되는 제너레이터 함수를 이해할 필요가 있습니다. 제너레이터 함수는 iterable (돌리고 돌릴 수 있다)하며 비동기든 동기든 간에 yield 구문으로 순차적 처리가 가능합니다. saga에서는 이 제너레이터 함수를 활동하여 비동기를 순차적으로 처리 합니다. 
@@ -127,104 +169,6 @@ export const fetchDataRejected = error => ({
 });
 ```
 
-### 여러개의 saga 등록하기
-다른 액션들을 보고있는 여러개의 Saga 들을 등록해야 하는 경우에 처리 할수 있는 다양한 방법들이 존재 합니다. 내장 함수들을 사용해 여러개의 워쳐들을 만들 수 있습니다. 
-
-
-- yield 여러개의 helper fn
-
-- yield 여러개의 helper fn 을 담고 있는 watcher saga 여러번
-- yield 여러개의 helper fn 을 담고 있는 watcher saga 리스트
-
-- yield 여러개의 helper fn 을 담고 있는 fork 된 watcher saga 여러번
-- yield 여러개의 helper fn 을 담고 있는 fork 된 watcher saga 리스트
-
-
-- yield 여러개의 helper fn 을 담고 있는 spawn 된 watcher saga 여러번
-- yield 여러개의 helper fn 을 담고 있는 spawn 된 watcher saga 리스트
-
-
-참고) root saga: watcher saga 또는 helps fn 또는 worker saga 또는 비동기 처리를 담고 있음
-참고) watcher saga: helps fn 또는 worker saga 를 담고 있음
-참고) helps saga: worker saga 를 담고 있음
-참고) worker saga: 비동기 처리 담당 를 담고 있음
-
-단일 entry point를 rootSaga로 정의 하여 다양한 방법으로 호출 해 보겠습니다.
-
-
-
-
-
-/////////////
-
-
-
-
-
-
-
-
-
-```js
-function* helloSaga() {
-  yield takeEvery("USER_FETCH_REQUESTED", fetchUser);
-}
-
-function* watchIncrementAsync() {
-  yield takeEvery("OTHER_DATA_REQUESTED", fetchOtherData);
-}
-
-export default function* rootSaga() {
-  yield all([
-    helloSaga(),
-    watchIncrementAsync()
-  ])
-}
-```
-
-모든 Saga들을 한번에 시작하기 위한 단일 entry point를 다음과 같이 제공 할 수 있습니다.
-```js
-function* helloSaga() {
-  yield takeEvery("USER_FETCH_REQUESTED", fetchUser);
-}
-
-
-function* watchIncrementAsync() {
-  yield takeEvery("OTHER_DATA_REQUESTED", fetchOtherData);
-}
-
-
-export default function* rootSaga() {
-  yield all([
-    helloSaga(),
-    watchIncrementAsync()
-  ])
-}
-```
-
-
-https://translate.googleusercontent.com/translate_c?depth=1&hl=ko&rurl=translate.google.co.kr&sl=en&sp=nmt4&tl=ko&u=https://github.com/redux-saga/redux-saga/issues/760&xid=17259,1500004,15700002,15700022,15700186,15700191,15700256,15700259&usg=ALkJrhjnqRsz5--eioIRw7-ntYx2naQHQw
-
-여러개의 이펙트를 처리 하기 위해 all을 다음과 같이 활용합니다. promise all 과 동일하게 동작합니다.
-```js
-function* mySaga() {
-  const [customers, products] = yield all([
-    call(fetchCustomers),
-    call(fetchProducts)
-  ])
-}
-
------
-
-function* mySaga() {
-  const { customers, products } = yield all({
-    customers: call(fetchCustomers),
-    products: call(fetchProducts)
-  })
-}
-
-```
-
 ### 이펙트
 이펙트는 Redux-Saga의 가장 중심이 되는 특징입니다. 이펙트는 미들웨어에 의해 수행되는 명령을 담고 있는 자바스크립트 객체라고 생각할 수 있습니다. call이나 put 같은 이펙트 생성자를 통해 이펙트를 생성하고, 생성된 이펙트는 모두 일반 자바스크립트 객체일 뿐입니다. 이펙트 생성자는 항상 일반 객체를 만들기만 하고, 어느 다른 동작도 수행하지 않습니다. 
 
@@ -236,7 +180,7 @@ redux-saga 는 스토어에 몇몇 지정된 액션들이 dispatch 되었을때 
 최초로 발생하게 되는 액션들을 미리 saga에 패턴으로 등록하여 액션이 스토어에 디스패치(dispatch) 될때 바로 수행될 수 있도록 합니다. 예를 들면 데이터 패치를 위한 비동기를 수행할 테스크의 시작을 알리는 FETCH_REQUESTED 액션이 있을 수 있습니다. 
 
 
-#### 비동기 액션의 시작점이 되는 패턴 등록
+#### watcher saga: 비동기 액션의 시작점이 되는 패턴 등록
 FETCH_REQUESTED 액션을 dispatch 하는 버튼이 있고, 서버로부터 받은 데이터를 fetch 시키는 비동기 액션의 태스크를 실행할 수 있도록 saga에 패턴을 다음과 같이 등록합니다.
 
 ```js
@@ -261,7 +205,7 @@ function* watchFetchData() {
 takeEvery와는 다르게, takeLatest는 어떤 순간에 실행되는 단 하나의 fetchData 작업만 허용합니다. 그리고 이것은 가장 마지막에 시작되었던 작업일 것입니다. 만약 다른 fetchData 작업이 시작되었을 때 이전의 작업이 여전히 실행 중이라면, 이전의 작업은 자동적으로 취소됩니다.
 
 
-#### 비동기 액션을 수행하는 태스크
+#### worker saga: 비동기 액션을 수행하는 태스크
 등록된 태스크를 실행해서 액션을 핸들링 해봅시다.
 
 ```js
@@ -275,6 +219,28 @@ export function* fetchData(action) {
       yield put({type: "FETCH_FAILED", error})
    }
 }
+```
+
+
+#### all()
+여러개의 이펙트를 처리 하기 위해 all을 다음과 같이 활용합니다. promise all 과 동일하게 동작합니다.
+```js
+function* mySaga() {
+  const [customers, products] = yield all([
+    call(fetchCustomers),
+    call(fetchProducts)
+  ])
+}
+
+-----
+
+function* mySaga() {
+  const { customers, products } = yield all({
+    customers: call(fetchCustomers),
+    products: call(fetchProducts)
+  })
+}
+
 ```
 
 
