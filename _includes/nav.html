@@ -16,7 +16,7 @@
         <a href="{{ nav.url }}">{{ nav.name }}</a>
         {% else %}
 
-        {% if site.url contains "imjhua.github.io" and (nav.name == 'Diary' or nav.name == 'TODO')%}
+        {% if site.url contains "imjhua.github.io" and (nav.name == 'List' or nav.name == 'Diary' or nav.name == 'TODO')%}
         {% else %}
         <a href="{{ site.baseurl }}{{ nav.url }}">{{ nav.name }} </a>
         {% endif %}

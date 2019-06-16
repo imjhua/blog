@@ -14,10 +14,56 @@
     display: block;
   }
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0;
+}
 
-pre, code {
-  font-family: "Nanum Gothic", "Spoqa Han Sans", self;
+h2 {
+  font-size: 22px;
+}
+
+ol, ul, dl {
+  margin: .5em;
+}
+
+// body,
+pre,
+code {
+  font-family: "Nanum Gothic Coding", "Nanum Gothic", "Spoqa Han Sans", self;
 }
 ::selection {
-  background:#98a2ad;
+  background: #98a2ad;
+}
+.wrapper-masthead {
+  margin-bottom: 10px;
+}
+
+.post > h1 {
+  // margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.posts > .post {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.posts > .post > h1 {
+  margin-top: .1em;
+  margin-bottom: .1em;
+}
+
+.entry > p {
+  margin: 4px 0;
+  display: inline;
+}
+
+.categories {
+  color: #333;
 }
