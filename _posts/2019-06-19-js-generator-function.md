@@ -1,4 +1,4 @@
-
+---
 layout: post
 title: ES6의 Generator Function
 categories: JavaScript
