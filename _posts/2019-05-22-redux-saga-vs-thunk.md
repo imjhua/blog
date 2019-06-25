@@ -1,12 +1,48 @@
 ---
 layout: post
 title: 비동기 처리 redux-thunk 와 redux-saga 비교 
-tags:
- - tag
 categories: TODO
 ---
 
-## 소개
+리덕스를 사용하면 데이터를 처리하는 비즈니스 로직을 컴포넌트로부터 분리할 수 있습니다.액션 생성자 함수에서 API 호출 같은 비동기 프로세스 구현을 위해 사용하는 리덕스 미들웨어로, redux-thunk 와 redux-saga 미들웨어가 있습니다. 두가지 미들웨어를 비교, 분석 해봅시다.
+
+
+
+## thunk
+thunk는 비동기 처리를 위해 Promise를 사용하면 resolve시점(성공)에서 객체를 직접 리턴 할 수 없다는 단점을 보안하여 비동기 처리를 할떄 액션 객체를 반환하는 대신 dispatch를 인자로 하는 함수를 리턴합니다. dispatch를 인자로 하는 함수를 리턴하면 이 함수 안에서 데이터 패치를 비롯한 네트워킹, 다수의 디스패치 등을 할 수 있습니다. 비동기 액션 처리의 대안으로 많이 사용됩니다. 주의할 점은, 클로저 패턴을 사용해야 하기에 복잡하고 어려울 수 있습니다. 코드는 다음과 같습니다.
+
+
+```js
+export function fetchCars() {
+   // dispatch를 인자로 하는 함수를 리턴 한다.
+  return dispatch => {
+    // 요청이 시작됨을 알린다.
+    dispatch({ type: FETCH_CARS_BEGIN });
+    // API 요청을 실행하며 완료 시 함수는 종결 된다
+    return axios
+      .get(`${API}/cars`)
+      // 성공 시 성공했음을 알리고 받아온 자료를 payload 에 담아 리듀서로 보낸다
+      .then(res =>
+         dispatch({ type: FETCH_CARS_SUCCESS, payload: res.data })
+      )
+      // 실패 시 실패했음을 알리고 받은 에러를 payload 에 담아 리듀서로 보낸다
+      .catch(err => 
+         dispatch({ type: FETCH_CARS_FAILURE, payload: err }));
+    };
+}
+```
+
+## saga
+saga의 가장 큰 장점은 action이 순수한 객체(Pure Object)만을 반환한다는 것입니다. 비동기 처리 같은 단순하지 않은 작업들은 saga 에 만들어놓고 누군가 발생시킨 액션중 일치하는 saga와 연결된 액션타입이 있으면 해당 saga를 실행시켜 줍니다. 
+
+- 액션엔 비동기 작업이 아닌 단순히 리듀서와만 통신하는 액션들만 있다.
+- API 통신을 하는 비동기 작업 같은 것들은 saga 에 작성한다. 
+- 액션타입명-작성한 제너레이터 함수를 연결 해놓는데 이때 액션을 계속 리스닝하다가 일치하는 액션타입명이 발생할 때 잽싸게 해당 제너레이터 함수를 실행시킨다.
+- 이 때 만약 data를 fetching 하는 비동기 액션이 였다면, 내부적으로 다시 단순히 리듀서에 받아온 data를 넣어주는 단순히 리듀서와만 통신하는 액션 이제너레이터 함수 안에 존재 할 것이다.
+
+
+
+
 text
 https://medium.com/@han7096/redux-saga%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC-5e39b72380af
 ----

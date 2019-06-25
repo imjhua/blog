@@ -219,6 +219,29 @@ const generator = sampleGFunction(1);
 console.log(generator.next()); // { value: 2, done: true }
 ```
 
+
+#### return()
+
+
+```js
+gen.return(79)
+
+```
+
+제너레이터 함수를 실행하지않는다, 따라서 yield를 수행하지 않는다.
+value를 77로, done을 true로 하여 yield 표현식이 남아 있음에도 이터레이터를 종료시킨다.
+
+
+#### throw()
+
+
+```js
+gen.throw("My Error!")
+
+```
+제너레이터 오브젝트의 throw를 호출하면 에러가 발생한다. 에러가 발생하면 제너레이터함수의 catch문에서 에러를 받는다. 중요한점은, 에러가 발생하여도 제너레이터가 이터레이터가 종료 되는 것이 아니라는 점이다. doen: false를 반환한다. 즉, 에러가 발생했지만 next를 호출하여 다음 yield 표현식을 수행한다.
+
+catch 블럭을 수행하지만 이터레이터가 종료된 것은 아니다. 
 #### 변수의 사용
 next() 를 해서 제너레이터 함수를 계속 호출하게 되는데, 이때 제너레이터 함수의 변수 값은 전 함수에서 설정된 값을 계속 유지 하고 있게 됩니다.
 
