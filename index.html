@@ -8,6 +8,7 @@ layout: default
 
 <div class="posts">
   {% for post in paginator.posts %}
+  {% unless post.categories contains 'TODO' %}
   <article class="post">
     <h1>
       <span class="categories">[{{ post.categories }}]</span>
@@ -38,6 +39,7 @@ layout: default
     </div>
 
   </article>
+  {% endunless %}
   {% endfor %}
 </div>
 
@@ -45,14 +47,14 @@ layout: default
   {% if paginator.previous_page %}
   <span class="prev">
     <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="prev">
-      &#xE000; Previous
+      < Previous
     </a>
   </span>
   {% endif %}
   {% if paginator.next_page %}
   <span class="next">
     <a href="{{ site.baseurl}}{{ paginator.next_page_path }}" class="next">
-      Next &#xE001;
+      Next >
     </a>
   </span>
   {% endif %}

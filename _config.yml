@@ -37,7 +37,7 @@ navigation:
   - name: About
     url: /about
   - name: Diary
-    url: /diaries
+    url: menu/diaries
   - name: List
     url: /menu/list
   - name: TODO
@@ -48,7 +48,7 @@ navigation:
   #   url: /menu/tags
 
 # Pagination
-paginate: 5
+paginate: 10
 
 # Includes an icon in the footer for each username you enter
 footer-links:
