@@ -1,7 +1,7 @@
 ---
 layout: post
 title: redux-saga 
-categories: TODO
+categories: React
 ---
 
 react 애플리케이션을 개발할 때 가장 어려운 부분은 아마도 사이드 이펙트를 처리하는 부분일 것입니다. 예를 들면 비동기 처리와 같은 데이터 패치(fetch)나 브라우저 캐시에 접근하는 등의 동작들이 있습니다. redux를 사용해봤다면 HTTP 리퀘스트나 타이머 같은 비동기 조작을 사용하여 상태를 변경할 때 문제를 겪어봤을 것입니다. Redux-Saga는 처음부터 이러한 사이드 이펙트를 관리하기 위해 만들어진 라이브러리 입니다. 
@@ -64,7 +64,7 @@ sagaMiddleware.run(mySaga)
 ```
 
 
-### Helper Function
+### Helper effect
 redux-saga는 몇몇 특정 액션들이 스토어에 보내질 때, 여러 task들을 함께 실행하기 위한 내부적인 함수를 감싸는 몇몇 helper effect들을 제공합니다. saga는 헬퍼함수(helpers)를 사용하여 액션과 리스너를 등록하고, 등록한 액션을 계속 리스닝 하고 있습니다. 리스닝 하고 있는 액션이 발생하면 바로 캐치 하여 worker saga(제너레이터로 작성된 saga함수)를 실행합니다.
 
 ```js
@@ -221,45 +221,8 @@ export function* fetchData(action) {
 ## 정리
 비동기 처리 같은 단순하지 않은 작업들은 saga에 만들어 놓을 수 있습니다. 누군가 발생시킨 액션중 일치하는 saga와 연결된 액션타입이 있으면 해당 saga를 실행시켜 처리 합니다. api 호출등의 비동기 처리 로직이 작성된 제너레이터 함수를 saga와 연결하는여 액션을 계속 리스닝할 수 있습니다. 일치하는 액션(타입)이 발생할 때 해당 제너레이터 함수를 실행시키고 다음 액션객체를 디스패치(put)하여 리듀서로 전달합니다.
 
-
 ----
 해당 내용은 다음 글을 참고 하였습니다.
-
-// generator: http://hacks.mozilla.or.kr/2015/08/es6-in-depth-generators/
-// generator: https://davidwalsh.name/es6-generators
-
-import { put, takeLatest, all } from "redux-saga/effects";
-
-function* fetchNews() {
-  const json = yield fetch(
-    "https://newsapi.org/v1/articles?source=cnn&apiKey=c39a26d9c12f48dba2a5c00e35684ecc"
-  ).then(response => response.json());
-
-  // NEWS_RECEIVED 액션을 디스 패치 한다.
-  yield put({ type: "NEWS_RECEIVED", json: json.articles });
-}
-
-//
-/*
-  takeEvery: 디스패치된 GET_NEWS 액션에 대해 실행. 동시에 news fetch 허용
-  또는 takeLatest를 사용할 수 있습니다.
-  동시에 news를 fetch하는 것을 허용하지 않습니다. 
-  만약 fetch가 이미 대기 상태일 때  "USER_FETCH_REQUESTED"가 dispatch가 되었다면 
-  대기 상태의 fetch는 취소되고 항상 최근 것만이 실행됩니다.
-*/
-
-// GET_NEWS 액션이 디스 패치 되면 fetchNews를 수행한다.
-function* actionWatcher() {
-  yield takeLatest("GET_NEWS", fetchNews);
-}
-
-export default function* rootSaga() {
-  console.log("rootSaga");
-  yield all([actionWatcher()]);
-}
-// export default rootSaga;
-
-
-
 - https://meetup.toast.com/posts/140
--  https://wkdtjsgur100.github.io/redux-saga/
+- https://wkdtjsgur100.github.io/redux-saga/
+  

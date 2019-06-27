@@ -13,7 +13,7 @@ Redux-Saga는 react 애플리케이션의 비동기 처리시 발생할 수 있�
 Saga에서 많이 사용되는 이펙트들을 다시 정리해 봅니다.
 
 - select: store에 저장된 데이터를 미들웨어에서 사용할 수 있도록 한다.
-- put stor에 Action을 디스패치 한다.
+- put store에 Action을 디스패치 한다.
 - call: 주어진 함수를 호출한다. 
 
 ## 테스트 
