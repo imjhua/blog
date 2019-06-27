@@ -1,8 +1,6 @@
 ---
 layout: post
-title: 객체의 불변과 가변 그리고 복사(복제) 
-tags:
- - immutability
+title: 객체의 불변(immutabe)과 가변 그리고 복사(복제) 
 categories: JavaScript
 ---
 
@@ -21,6 +19,7 @@ var init = function() {
 // 상수로 정의된 것이지 값이 변하지 않는 다는 불변하다는 것과는 다른 것입니다.
 // 값을 새로 할당 할 수는 없지만 내용에 대한 변경은 가능 합니다.
 // 즉, const선언은 value와의 재할당 불가능한 binding을 만들지만 const에 binding된 객체 안의 값들은 수정이 가능하다.
+// const 는 이름의 불면을 의미한다. 할당된 변수명을 바꿀 수 없음.
 
 const objConst = {
   name: "kim",
