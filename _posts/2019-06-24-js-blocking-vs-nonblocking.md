@@ -62,5 +62,4 @@ while(!ft.isDone()) {
 ---
 
 해당 내용은 다음 글을 참고 하였습니다.
-
 - https://homoefficio.github.io/2017/02/19/Blocking-NonBlocking-Synchronous-Asynchronous/

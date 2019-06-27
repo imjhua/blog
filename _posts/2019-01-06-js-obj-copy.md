@@ -19,7 +19,7 @@ var init = function() {
 // 상수로 정의된 것이지 값이 변하지 않는 다는 불변하다는 것과는 다른 것입니다.
 // 값을 새로 할당 할 수는 없지만 내용에 대한 변경은 가능 합니다.
 // 즉, const선언은 value와의 재할당 불가능한 binding을 만들지만 const에 binding된 객체 안의 값들은 수정이 가능하다.
-// const 는 이름의 불면을 의미한다. 할당된 변수명을 바꿀 수 없음.
+// const 는 이름의 불변을 의미한다. 할당된 변수명을 바꿀 수 없음.
 
 const objConst = {
   name: "kim",
@@ -39,6 +39,7 @@ test("Change objConst.name", () => {
 // Object.freeze() 는 속성-값 쌍에서만 적용됩니다.
 // freeze는 객체만을 인자로 받아서 객체들의 값이 바뀌는 것을 막는다. 하지만 예시와 같이 nested된 객체가 있다면 해당 객체의 value를 바꾸는 것은 가능하다.
 // 지금 현재로써는 Date, Map, Set과 같은 객체들을 완전히 불변적으로 만드는 방법은 없습니다.
+// const 는 값의 불변을 의미한다. 할당된 값을 바꿀 수 없음.
 
 const objFreeze = {
   name: "kim",
