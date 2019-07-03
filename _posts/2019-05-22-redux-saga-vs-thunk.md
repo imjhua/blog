@@ -1,16 +1,93 @@
 ---
 layout: post
 title: 비동기 처리 redux-thunk 와 redux-saga 비교 
+categories: React
 categories: TODO
 ---
 
 리덕스를 사용하면 데이터를 처리하는 비즈니스 로직을 컴포넌트로부터 분리할 수 있습니다.액션 생성자 함수에서 API 호출 같은 비동기 프로세스 구현을 위해 사용하는 리덕스 미들웨어로, redux-thunk 와 redux-saga 미들웨어가 있습니다. 두가지 미들웨어를 비교, 분석 해봅시다.
 
 
+## thunk (redux-thunk)
+thunk는 비동기 처리를 위해 Promise를 사용하면 resolve시점(성공)에서 객체를 직접 리턴 할 수 없다는 단점을 보안하여 비동기 처리를 할때 액션 객체를 반환하는 대신 dispatch를 인자로 하는 함수를 리턴합니다. dispatch를 인자로 하는 함수를 리턴하면 이 함수 안에서 데이터 패치를 비롯한 네트워킹, 다수의 디스패치 등을 할 수 있습니다. 이를 사용하여 비동기 작업을 관리하는건 매우 직관적이고 간단합니다. 비동기 액션 처리의 대안으로 많이 사용됩니다. 주의할 점은, 클로저 패턴을 사용해야 하기에 복잡하고 어려울 수 있습니다.
 
-## thunk
-thunk는 비동기 처리를 위해 Promise를 사용하면 resolve시점(성공)에서 객체를 직접 리턴 할 수 없다는 단점을 보안하여 비동기 처리를 할떄 액션 객체를 반환하는 대신 dispatch를 인자로 하는 함수를 리턴합니다. dispatch를 인자로 하는 함수를 리턴하면 이 함수 안에서 데이터 패치를 비롯한 네트워킹, 다수의 디스패치 등을 할 수 있습니다. 비동기 액션 처리의 대안으로 많이 사용됩니다. 주의할 점은, 클로저 패턴을 사용해야 하기에 복잡하고 어려울 수 있습니다. 코드는 다음과 같습니다.
+### thunk 란?
+thunk란, 특정 작업을 나중에 하도록 미루기 위해서 함수형태로 감싼것을 칭합니다.
 
+```js
+const x = 1 + 2; // 이 코드가 실행되면 1 + 2 의 연산이 바로 진행됩니다.
+const foo = () => 1 + 2; //1 + 2 의 연산이 코드가 실행 될 때 바로 이뤄지지 않고 나중에 foo() 가 호출 되어야만 이뤄집니다.
+```
+
+
+### 작동방식
+간단합니다. redux-thunk 미들웨어에서, 전달받은 액션이 함수 형태 일 때, 그 함수에 dispatch 와 getState 를 넣어서 실행해줍니다.
+
+```js
+function createThunkMiddleware(extraArgument) {
+  return ({ dispatch, getState }) => next => action => {
+    if (typeof action === 'function') {
+      return action(dispatch, getState, extraArgument);
+    }
+
+    return next(action);
+  };
+}
+
+const thunk = createThunkMiddleware();
+thunk.withExtraArgument = createThunkMiddleware;
+
+export default thunk;
+```
+
+리덕스에서는 기본적으로는 액션 객체를 디스패치합니다. 일반 액션 생성자는, 다음과 같이 파라미터를 가지고 액션 객체를 생성하는 작업만합니다.
+
+```js
+const actionCreator = (payload) => ({action: 'ACTION', payload});
+```
+
+만약에 특정 액션이 몇초뒤에 실행되게 하거나, 현재 상태에 따라 아예 액션이 무시되게 하려면, 액션객체만을 생성하는 일반 액션 생성자로는 할 수가 없습니다. 하지만, redux-thunk 미들웨어를 사용하면 가능합니다. `thunk는 객체 대신 함수를 생성하는 액션 생성함수를 작성` 할 수 있기 때문입니다. 다음 예제 코드를 살펴 봅시다.
+```js
+// store.dispatch(incrementAsync()); 로 호출하면
+// 1초뒤 액션이 디스패치 됨
+const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
+
+function increment() {
+  return {
+    type: INCREMENT_COUNTER
+  };
+}
+
+function incrementAsync() {
+  return dispatch => { // dispatch 를 파라미터로 가지는 함수를 리턴합니다.
+    setTimeout(() => {
+      // 1 초뒤 dispatch 합니다
+      dispatch(increment());
+    }, 1000);
+  };
+}
+
+
+// store.dispatch(incrementIfOdd()); 로 호출하면
+// 조건에 따라 액션을 디스패치하거나 무시함
+function incrementIfOdd() {
+  return (dispatch, getState) => {
+    const { counter } = getState();
+
+    if (counter % 2 === 0) {
+      return;
+    }
+
+    dispatch(increment());
+  };
+}
+
+```
+
+
+### 사용 예
+
+axios를 이용한 비동기 API 호출을 사용 하는 예는 다음과 같습니다.
 
 ```js
 export function fetchCars() {
@@ -94,4 +171,12 @@ call이든 put이든 모두 직접적인 처리를 하지 않는다(call, put은
 물론 Saga는 반드시 이펙트만을 yield 해야 하는 것은 아니다. 일반적인 Promise도 yield 할 수 있고, 미들웨어는 이 역시도 훌륭히 resolve나 reject를 기다려줄 것이다. 하지만 이런 비동기 로직을 Saga 내부에서 직접 처리하면 테스트, 여러 다른 이펙트들과의 상호작용이 어렵다. thunk에서 크게 달라지는 점이 없다. 때문에 되도록 이펙트만을 yield 하는 Saga를 작성하길 추천한다.
 
 
+
+
+## 정리
+
+보통의 액션생성자는 그냥 하나의 액션객체를 생성 할 뿐이지만 redux-thunk 를 통해 만든 액션생성자는 그 내부에서 여러가지 작업을 할 수 있습니다. 이 곳에서 네트워크 요청을 해도 무방하죠. 또한, 이 안에서 액션을 여러번 디스패치 할 수도 있습니다.
+----
+해당 내용은 다음 글을 참고 하였습니다.
 - https://meetup.toast.com/posts/140
+- https://velopert.com/3401
