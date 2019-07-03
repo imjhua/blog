@@ -37,7 +37,7 @@ navigation:
   - name: About
     url: /about
   - name: Diary
-    url: menu/diaries
+    url: /menu/diaries
   - name: List
     url: /menu/list
   - name: TODO
