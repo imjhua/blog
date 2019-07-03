@@ -5,7 +5,7 @@ categories: React
 categories: TODO
 ---
 
-리덕스를 사용하면 데이터를 처리하는 비즈니스 로직을 컴포넌트로부터 분리할 수 있습니다.액션 생성자 함수에서 API 호출 같은 비동기 프로세스 구현을 위해 사용하는 리덕스 미들웨어로, redux-thunk 와 redux-saga 미들웨어가 있습니다. 두가지 미들웨어를 비교, 분석 해봅시다.
+리덕스를 사용하면 데이터를 처리하는 비즈니스 로직을 컴포넌트로부터 분리할 수 있습니다.액션 생성자 함수에서 API 호출 같은 비동기 프로세스 구현을 위해 사용하는 리덕스 미들웨어로, redux-thunk 와 redux-saga 미들웨어가 있습니다. 구현의 측면에서는, Redux-Thunk 와 Redux-Saga는 많이 다릅니다. 하지만 미들웨어를 을 다루는 부분에서는 상당히 흡사합니다. 그러나 같지는 않습니다. 이들이 다른 몇 가지 중요한 점을 정리해보겠습니다. 
 
 
 ## thunk (redux-thunk)
@@ -46,7 +46,20 @@ export default thunk;
 const actionCreator = (payload) => ({action: 'ACTION', payload});
 ```
 
+### 구조
+추가적으로 표준 액션들을 디스패치할 때, Redux-Thunk 미들웨어는 thunks라고 불리는 특별한 함수를 디스패치하는 것을 허락합니다. Thunks(in Redux)는 일반적으로 다음 구조를 가집니다.
+
+```js
+export const thunkName = parameters => (dispatch, getState) => {
+  // 당신의 어플리케이션 로직을 여기에 적으세요
+};
+```
+thunk는 (선택적으로) 몇 가지의 parameters를 인수로 취하고 또 다른 함수를 return하는 함수입니다. 내부 함수는 dispatch 함수와 getState함수를 사용합니다. 두 함수다 Redux-Thunk 미들웨어에서 제공받습니다.
+
+
+### 적용
 만약에 특정 액션이 몇초뒤에 실행되게 하거나, 현재 상태에 따라 아예 액션이 무시되게 하려면, 액션객체만을 생성하는 일반 액션 생성자로는 할 수가 없습니다. 하지만, redux-thunk 미들웨어를 사용하면 가능합니다. `thunk는 객체 대신 함수를 생성하는 액션 생성함수를 작성` 할 수 있기 때문입니다. 다음 예제 코드를 살펴 봅시다.
+
 ```js
 // store.dispatch(incrementAsync()); 로 호출하면
 // 1초뒤 액션이 디스패치 됨
@@ -84,7 +97,6 @@ function incrementIfOdd() {
 
 ```
 
-
 ### 사용 예
 
 axios를 이용한 비동기 API 호출을 사용 하는 예는 다음과 같습니다.
@@ -109,24 +121,117 @@ export function fetchCars() {
 }
 ```
 
-## saga
-saga의 가장 큰 장점은 action이 순수한 객체(Pure Object)만을 반환한다는 것입니다. 비동기 처리 같은 단순하지 않은 작업들은 saga 에 만들어놓고 누군가 발생시킨 액션중 일치하는 saga와 연결된 액션타입이 있으면 해당 saga를 실행시켜 줍니다. 
+타입스크립트가 적용된 또다른 예제 입니다.
 
+```js
+import * as api from 'api';
+import {loginRequest, loginSuccess, loginFailure} from "./loginActions';
+
+export const loginThunk =
+  (name: string, password: string)=>
+    (dispatch: Function)=>{
+        dispatch(loginRequest());
+        try{
+          api.login(name, passwrod);
+        }
+        catch(err){
+          dispatch(loginFailure(err));
+          return;
+        }
+        dispatch(loginSuccess();)
+    };
+
+```
+
+
+### 단점
+클로저 패턴으로 사용되어 복잡하고 여럽습니다. 액션의 입장에서는, 액션을 생성할 뿐아니라 비동기에 대한 처리를 함께 해주어야 하기 때문에 액션을 생성하는 일과 더불어 추가적인 일을 해야 합니다.
+
+## saga (redux-saga)
+Redux-Saga 미들웨어는 sagas라고 불리는 순수함수로 복잡한 어플리케이션 로직을 표현할 수 있게 해줍니다. 순수 함수는 테스트 관점에서 바람직합니다. 왜냐하면, 상대적으로 테스트가 쉽고 반복적이고 예측가능하기 때문입니다.
+
+Sagas는 generator라고 불리는 특별한 함수로 구성되어져 있습니다. ES6의 새로운 특징인 generator함수는 기본적으로, yield구문을 본 때마다 안팎을 점프하며 실행됩니다. yield구문을 generatort가 멈추는 것과 yielded 된 value를 return 하는 것을 유발합니다. 후에 호출자는 yield를 따르는 구문에 generator를 재개할 수 있습니다.
+
+### saga 란?
+saga의 가장 큰 장점은 `action이 순수한 객체(Pure Object)만을 반환`한다는 것입니다. 비동기 처리 같은 단순하지 않은 작업들은 saga 에 만들어놓고 누군가 발생시킨 액션중 일치하는 saga와 연결된 액션타입이 있으면 해당 saga를 실행시켜 줍니다. 
+
+
+### 특징
 - 액션엔 비동기 작업이 아닌 단순히 리듀서와만 통신하는 액션들만 있다.
 - API 통신을 하는 비동기 작업 같은 것들은 saga 에 작성한다. 
 - 액션타입명-작성한 제너레이터 함수를 연결 해놓는데 이때 액션을 계속 리스닝하다가 일치하는 액션타입명이 발생할 때 잽싸게 해당 제너레이터 함수를 실행시킨다.
 - 이 때 만약 data를 fetching 하는 비동기 액션이 였다면, 내부적으로 다시 단순히 리듀서에 받아온 data를 넣어주는 단순히 리듀서와만 통신하는 액션 이제너레이터 함수 안에 존재 할 것이다.
 
+### 적용
+
+#### root saga
+```js
+// 단일 watcher saga를 호출
+function* mySaga() {
+  yield takeEvery("FETCH_DATA", getData);
+}
+export default mySaga;
 
 
+// 여러개의 watcher saga를 호출
+function* helloSaga() {
+  yield takeEvery("USER_FETCH_REQUESTED", getData);
+}
 
-text
-https://medium.com/@han7096/redux-saga%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC-5e39b72380af
+function* watchIncrementAsync() {
+  yield takeEvery("OTHER_DATA_REQUESTED", fetchOtherData);
+}
+
+export default function* rootSaga() {
+  yield all([
+    helloSaga(),
+    watchIncrementAsync()
+  ])
+}
+```
+#### worker saga
+
+```js
+function* getData(action) {
+   try {
+      const data = yield call(Api.fetchUser, action.payload.userId);
+      yield put({type: "FETCH_DATA_FULFILLED", data: data});
+   } catch (e) {
+      yield put({type: "FETCH_DATA_REJECTED", message: e.message});
+   }
+}
+```
+
+## 사용 예
+loginSaga는 Redux-Saga에 의해 등록되고 그것은 즉각적으로 실행될 것입니다. 그러나 yield는 'LOGIN_REQUEST'가 store에 디스패처 되기 전까지 첫벉재 행에서 처리된 yield는 멈춰질 것입니다. 그 이후 실행이 계속됩니다.
+
+```js
+import * as api from "api";
+import { LoginRequestAction, loginSuccess, loginFailure } from "./loginActions";
+
+function* loginSaga() {
+  const action: LoginRequestAction = yield take("LOGIN_REQUEST");
+  const { name, password } = aciton.payload;
+  try {
+    yield call(api.login, name, password);
+  } catch (err) {
+    yield put(loginFailure(err));
+    return;
+  }
+  yield put(loginSuccess());
+}
+```
+
+## 정리
+Redux-thunk와 Redux-saga는 둘 다 Redux의 미들웨어 라이브러리입니다. Redux 미들웨어는 dispatch()메소드를 통해 store로 가고 있는 액션을 가로채는 코드입니다.
+
+두 방식의 가장 큰 차이점을 문장 구조라고 생각되지만 더 큰 차이점이 존재하는데, `Thunks는 절대로 action에 응답을 줄 수 없습니다.` 반면 Redux-Saga는 store를 구독하고 특정 작업이 디스패치 될 때 saga가 실행되도록 유발할 수 있습니다.
+
+
 ----
 해당 내용은 다음 글을 참고 하였습니다.
-- url
+- https://medium.com/@han7096/redux-saga%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC-5e39b72380af
 
-https://velog.io/@dongwon2/Redux-Thunk-vs-Redux-Saga%EB%A5%BC-%EB%B9%84%EA%B5%90%ED%95%B4-%EB%B4%85%EC%8B%9C%EB%8B%A4-
 
 https://orezytivarg.github.io/from-redux-thunk-to-sagas/
 
