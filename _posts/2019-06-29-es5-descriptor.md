@@ -48,5 +48,10 @@ Object.defineProperty(a, 'b', {
 });
 는 불가능합니다.
 
+
+
+----
+해당 내용은 다음 글을 참고 하였습니다.
+
 - https://cinos81.bitbucket.io/blog/_site/javascript/2016/07/13/property-descriptor.html
 - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
