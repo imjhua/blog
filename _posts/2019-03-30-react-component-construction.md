@@ -1,8 +1,6 @@
 ---
 layout: post
 title: React 컴포넌트 구성 방법
-tags:
- - react-component
 categories: React
 ---
 
