@@ -1,11 +1,14 @@
 ---
 layout: post
-title: title
-categories: Test에서 Code Coverage란?
+title: Test에서 Code Coverage란?
 categories: Programming
+categories: TODO
 ---
+https://www.slideshare.net/genycho/basicofcodeleveltest-andcoverage
+http://blog.naver.com/PostView.nhn?blogId=suresofttech&logNo=220842159146
+https://ko.wikipedia.org/wiki/%EC%BD%94%EB%93%9C_%EC%BB%A4%EB%B2%84%EB%A6%AC%EC%A7%80
+http://www.jidum.com/jidums/view.do?jidumId=565
 
- 
 Code Coverage란 프로그램의 소스 코드가 얼마만큼 테스트가 되었는가를 나타내는 지표를 의미 합니다. 보통 오픈소스 테스트 커버리지 툴이 많으면 Statement, Decision, Condition 세가지 커버리지를 기본적으로 측정해 줍니다. 커버리지 측정 기준과 종류에 대해 알아 보겠습니다.
 
 ## 커버리지 측정 기준과 종류
