@@ -1,12 +1,17 @@
 ---
 layout: post
 title: create-react-app로 redux 프로젝트 시작하기
-tags:
- - create-react-app
 categories: React
+categories: TODO
 ---
 
-## 소개
+https://medium.com/@ca3rot/%EC%95%84%EB%A7%88-%EC%9D%B4%EA%B2%8C-%EC%A0%9C%EC%9D%BC-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-%EC%89%AC%EC%9A%B8%EA%B1%B8%EC%9A%94-react-redux-%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%9D%98-%EC%9D%B4%ED%95%B4-1585e911a0a6
+
+
+## React랑 React+Redux의 결정적 차이
+React는 React 컴포넌트 자신이 개별적으로 상태관리를 한다.
+React+Redux는 상태관리를 하는 전용 장소(store)에서 상태를 관리하고, React 컴포넌트는 그걸 보여주기만 하는 용도로 쓰인다.
+
 create-react-app 보일러플레이트(boilerplate)를 사용하여 간단한 애플리케이션을 시작 해 봅시다. 보일러플레이트란 반복되지만 자주쓰이는 형태를 자동해 놓은 것으로 다음고 같이 정의됩니다.
 
 - 최소한의 변경으로 재사용할 수 있는 것
@@ -318,12 +323,12 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ### react-redux 
 뷰 레이어 바인딩 도구 입니다. 바인딩 하기 위해 최상위 idnex.js 에서 리듀서로 스토어 생성 후 Provider로 전체 앱을 한 번 감싸줍니다. 후에 부모 컴포넌트에서  Provider Component가 제공하는 connect() 함수를 이용하여 Component와 Store를 연결합니다. 
 
-
 - Provider: 하나의 컴포넌트로써 컴포넌트에서 redux를 사용할수 있도록 한다. 
 - connect[opt]: 똑똑한 컴포넌트에서 사용한다. 컴포넌트를 redux에 연결하는 또 다른 함수를 반환한다. 옵션이 없으면 this.props.store로 접근 가능하다.
 
 opt: [mapStateToProps], [mapDispatchToProps], [mergeProps], [options]
 options: pure=ture, withRef=false (withRef=true인경우 getWrappedInstance()를 사용)
+
 ```js
 // src/index.js
 

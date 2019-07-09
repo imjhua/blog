@@ -1,22 +1,47 @@
 ---
 layout: post
 title: 함수형 컴포넌트(Functional Component) 
-tags:
- - functional-component
 categories: React
 ---
 
-## 소개
-React 에서 컴포넌트를 정의 할 때는 보통 EcmaScipt 6 에 도입된 class 문법을 사용합니다. 컴포넌트에서 라이프사이클 API를 사용해야 하거나, state를 사용하는 경우에는 꼭 이렇게 정의를 해야합니다.
+React는 두 종류의 컴포넌트 선언이 존재합니다. ES6 클래스 컴포넌트와 함수형 상태 없는 컴포넌트(functional stateless component)입니다. 함수형 상태 없는 컴포넌트는 props를 인자로 받고 JSX를 반환하는 단순한 함수입니다. 이 함수는 어떤 상태도 갖지 않으며 React의 생애주기(lifecycle) 메소드에도 접근하지 않습니다. 이 컴포넌트는 이름 붙여진 그대로 상태가 없습니다.
 
-그런데 만약 라이프사이클 API와 state를 사용할 필요가 없고 오로지 props를 전달 받은 뷰를 렌더링하는 역할만 한다면 함수형 컴포넌트를 만들면 더 간단하게 선언할 수 있는 방법이 있습니다. 바로 함수형 컴포넌트를 정의하는 방법입니다.
+
+## 함수형 컴포넌트
+React 에서 컴포넌트를 정의 할 때는 보통 EcmaScipt 6 에 도입된 class 문법을 사용합니다. 컴포넌트에서 라이프사이클 API를 사용해야 하거나, state를 사용하는 경우에는 기본 클래스 생성 문법으로 작성해야 합니다. 그런데 만약 라이프사이클 API와 state를 사용할 필요가 없고 오로지 props를 전달 받은 뷰를 렌더링하는 역할만 한다면 함수형 컴포넌트를 만들면 더 간단하게 선언할 수 있는 방법이 있습니다. 바로 함수형 컴포넌트를 정의하는 방법입니다.
+
+### 클래스 컴포넌트
+ ES6 클래스 컴포넌트는 지역 상태와 생애주기 메소드를 사용할 수 있습니다. 이 컴포넌트는 this.state와  this.setState() 메소드에 접근 가능합니다. ES6 클래스 컴포넌트는 상태 컴포넌트로 사용할 수 있다는 의미입니다. 물론 이 컴포넌트가 꼭 지역 상태를 사용해야 한다는 뜻은 아니며 상태 없는 컴포넌트로도 작성할 수 있습니다. 일반적으로 상태가 없는 ES6 클래스 컴포넌트라면 생애주기 메소드를 사용하기 위해 클래스 형태로 작성한 경우입니다.
+
+```js
+class FocusedInputField extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.input.focus();
+  }
+
+  render() {
+    return (
+      <input
+        type="text"
+        value={this.props.value}
+        ref={node => this.input = node}
+        onChange={event => this.props.onChange(event.target.value)}
+      />
+    );
+  }
+}
+```
+
 
 ### 함수형 컴포넌트
 순수한 함수만으로 컴포넌트를 선언하는 방법입니다. 번거롭게 class를 만들고 render()를 만들지 않아도 됩니다. 
 
 ```js
 // ES5 방식
-
 import React from 'react';
 function Hello(props){
     return (
@@ -51,10 +76,10 @@ const Hello = ({name}) => {
 }
  
 /*
- 또는 이런 식으로 {}를 생략할 수도 있다.
-    const Hello = ({name}) => (
-        <div> Hello {name}</div>
-    )
+또는 이런 식으로 {}를 생략할 수도 있다.
+const Hello = ({name}) => (
+    <div> Hello {name}</div>
+)
 */
  
 export default Hello;
@@ -74,4 +99,5 @@ export default Hello;
 ----
 해당 내용은 다음 글을 참고 하였습니다.
 - https://velopert.com/2994
-- https://backback.tistory.com/299 [Back Ground]
+- https://backback.tistory.com/299 
+- https://edykim.com/ko/post/learn-react-before-using-redux/
