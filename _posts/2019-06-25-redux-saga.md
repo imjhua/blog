@@ -211,7 +211,7 @@ import { call, put } from 'redux-saga/effects'
 export function* fetchData(action) {
    try {
       const data = yield call(Api.fetchUser, action.payload.url)
-      yield put({type: "FETCH_SUCCEEDED", data})
+      yield put({type: "FETCH_SUCCEEDED", data}) 
    } catch (error) {
       yield put({type: "FETCH_FAILED", error})
    }
@@ -220,6 +220,24 @@ export function* fetchData(action) {
 
 ## 정리
 비동기 처리 같은 단순하지 않은 작업들은 saga에 만들어 놓을 수 있습니다. 누군가 발생시킨 액션중 일치하는 saga와 연결된 액션타입이 있으면 해당 saga를 실행시켜 처리 합니다. api 호출등의 비동기 처리 로직이 작성된 제너레이터 함수를 saga와 연결하는여 액션을 계속 리스닝할 수 있습니다. 일치하는 액션(타입)이 발생할 때 해당 제너레이터 함수를 실행시키고 다음 액션객체를 디스패치(put)하여 리듀서로 전달합니다.
+
+또한, React + Redux만으로는 아직 불편한 경우가 많습니다. 'Reducer 안에 부작용이 생길 처리를 써선 안된다' 라는 원칙이 있기 때문입니다. 
+- 같은 입력에 대해 확률적으로 다른 결과가 나오는 처리
+- 지연처리
+- HTTP 리퀘스트 처리
+
+이런 것들은 기본적으로 순수함수를 추구하는 Reducer 안에서 쓸 수가 없습니다. 그럼 대안은 어디가 있을까요? 다음과 같은 곳에 처리하는게 좋을까요?
+- Component 안
+- Action Creator 안
+- mapDispatchToProps 안
+
+지금까지 redux만 사용하는 경우, 스토어와 디스패치를 연겷파기 위해 connect를 사용하였습니다. '연결된 Component로부터 action이 dispatch되면 그 Reducer를 향한다'라고만 하였는데, 여기에 새로운 방법을 제시하는 것이 Saga 입니다. Saga는 제너레이터 함수이기 때문에, 비동기처리를 간단히 다룰 수 있습니다.
+- yield take(ACTION_TYPE)으로 지정한 action의 발생을 감시한다
+- 가져온 action을 구워먹고 삶아먹고 마음대로 할 수 있다
+- yield put(action)의 결과를 다른 action으로 내보낼 수 있다
+기본적으론 이런 것들이 가능합니다. 내보낸 action은 Reducer를 향하게도 할 수 있고 자기 자신의 Saga에게 다시 올 수도 있고 자기 외의 다른 Saga에 보낼 수 있을지도 모릅니다.
+
+
 
 ----
 해당 내용은 다음 글을 참고 하였습니다.

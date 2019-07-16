@@ -1,13 +1,9 @@
 ---
 layout: post
 title: Gituhb page 만들기 (by Jekyll)
-tags:
-  - gitpage
-  - jekyll
-categories: Git
+categories: Web
 ---
 
-## 소개
 Github Page로 블로그 호스팅하는 방법에 대해 알아 봅시다. Github Page는 jekyll이라는 static 웹페이지 서비스를 제공해 주고 있습니다. GitHub Page는 내부 엔진으로 Jekyll을 사용하고 있기 때문인데 따라서 로컬환경에서 Jekyll을 사용하여 Makrdown으로 텍스트를 작성하여 Git에 올리면 GitHub Page 내부에 있는 Jekyll이 작성된 Markdown을 Html로 변환한 후 웹호스팅을 해주어 우리는 Git Page로 블로그를 사용할 수 있게 됩니다. 또한 Jekyll에서 제공되는 미리 만들어진 템플릿을 사용하면 .md(markdown)파일만 작성하여 Github에 commit하는 것 만으로도 쉽게 블로그 글을 올릴 수 있습니다. 
 
 즉, GitHub Pages는 내부적으로 Jekyll에 의해 작동되고 있으므로 Jekyll 기반의 웹사이트를 무료로 호스팅하기에 적절합니다.

@@ -1,12 +1,9 @@
 ---
 layout: post
 title: TODO List만들기 
-tags:
- - todo-list
 categories: React
 ---
 
-## 소개
 TODO List를 만들어 봅시다.
 
 ## 시작

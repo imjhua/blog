@@ -1,12 +1,9 @@
 ---
 layout: post
 title: 람다, 익명함수, 클로저 
-tags:
- - lambda
 categories: Programming
 ---
 
-## 소개
 람다, 익명함수, 클로저에 대해 상세하게 알아봅시다.
 
 ## 람다

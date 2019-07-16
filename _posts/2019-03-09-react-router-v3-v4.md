@@ -1,12 +1,9 @@
 ---
 layout: post
 title: React Router v3와 v4 비교
-tags:
- - react-router
-categories: TODO
+categories: React
 ---
 
-## 소개
 react-router v4 가 릴리즈 되면서 라우팅 적용 방식이 바뀌었습니다. 이전버전(v3)까지는 일반적으로 사용하는 정적 라우팅(Static Routing)이였다면, 동적 라우팅(Dynamic Routing)이 적용되었습니다.
 
 ## 정적 라우팅(v3) vs 동적 라우팅(v4)

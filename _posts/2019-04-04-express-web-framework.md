@@ -1,12 +1,9 @@
 ---
 layout: post
 title: Express 시작하기 
-tags:
- - express
 categories: Nodejs
 ---
 
-## 소개
 자바스크립트 런타임인 Nodejs를 사용할때에, HTTP서버를 직접 구현하는 대신 웹 서버에서 필요한 대부분의 기능이 이미 구현된 Express 웹프레임워크를 주로 사용합니다. Express에는 라우팅, 세션, 템플릿 등 웹 애플리케이션을 만들기 위해 필요한 기능들이 구현되어 있기 때문에 가져다만 쓰면 됩니다. (Express 이외에도 다양한 웹 프레임워크가 존재합니다)
 
 ## Express 서버 

@@ -1,13 +1,10 @@
 ---
 layout: post
 title: 비동기 작업처리를 위한 redux-thunk 사용해보기
-tags:
- - redux-thunk
+categories: React
 categories: TODO
 ---
 
-## 소개
-redux-thunk
 하나의 action에서 여러 개의 다른 action을 호출하던지, action이 dispatch되는 걸 조작할 수 있어, 비동기 처리에도 사용한다.
 멋진 라이브러리이지만 클로저 패턴을 사용해야하므로 소스가 지저분하다.
 (이게 깔끔하다고 생각하면 쓰면 된다. promise then promise then chaning도 깔끔하다고 생각하다면)

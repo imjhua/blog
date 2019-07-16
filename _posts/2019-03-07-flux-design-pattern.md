@@ -1,13 +1,11 @@
 ---
 layout: post
 title: Flux Design Pattern  
-tags:
- - flux
 categories: React
 ---
 
-## 소개
 Flux 디자인 패턴에 대해 설명합니다. Flux는 MVC 의 한계로 인해 등장하였습니다. 먼저 MVC패턴은 Model, View, Controller 세 가지 부분으로 이루어져 있고 기본 데이터 흐름은 다음과 같습니다.
+
 - Model: 자료(Data)를 생성, 저장, 처리하는 역할을 하는 부분이다. 
 - View: Model로부터 받은 자료를 여러 가지 형태로 사용자에게 보여주는 역할을 한다. 
 - Controller: 소프트웨어의 흐름을 제어하는 것으로 View와 Model 사이에서 관계를 설정하여 주는 부분을 말한다. Controller는 Model이나 View가 바뀌더라도 수정 없이 작동되어야 한다.

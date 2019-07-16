@@ -1,15 +1,14 @@
 ---
 layout: page
-permalink: /menu/list/
+permalink: /menu/list
 ---
 
-{% for category in site.categories %}
-  {% if category[0] != 'style' and category[0] != 'TODO' and category[0] != 'diary' %}
-
-  <h2>{{category[0]}}</h2>
+{% for categories in site.categories %}
+  {% unless categories[0] contains 'TODO' or categories[0] contains 'Diary' %}
+  <h2>{{categories[0]}}</h2>
 
   <ul class="archive">
-    {% for c in category[1] %}
+    {% for c in categories[1] %}
     <li>
         <time>{{ c.date | date: "%Y-%m-%d" }}</time>
         {% if c.link %}
@@ -22,5 +21,5 @@ permalink: /menu/list/
     </li>
     {% endfor %}
   </ul>
-  {% endif %}
+  {% endunless %}
 {% endfor %}

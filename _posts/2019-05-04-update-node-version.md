@@ -1,12 +1,9 @@
 ---
 layout: post
 title: Nodejs버전 업데이트 하기 
-tags:
- - nodejs
 categories: Nodejs
 ---
 
-## 소개
 nodejs 버전을 업데읕 해 봅시다.
 
 ## node 최초 설치

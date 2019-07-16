@@ -1,14 +1,9 @@
 ---
 layout: post
 title: SaaS와 IaaS 그리고 PaaS
-tags:
- - saas
- - iaas
- - paas
 categories: Cloud
 ---
 
-## 소개
 IT 인프라의 구성요소별 클라우드의 차이점에 대해 알아봅시다. 직접 관리해야 하는 부분이 어느 영역까지 인가를 기준으로 클라우드 서비스를 나눌 수 있습니다. 
 
 ## 클라우드 서비스

@@ -1,12 +1,9 @@
 ---
 layout: post
 title: 서버리스(Serverless) 아키텍처
-tags:
- - serverless
 categories: Programming
 ---
 
-## 소개
 서버리스는 "서버가 없다." 라는 뜻입니다. 사실상 서버가 없는 것은 아니고 특정 작업을 수행하기 위해서 컴퓨터 혹은 가상머신에 서버를 설정하고 이를 통해 처리하는 것이 아님을 의미합니다. 즉 하드웨어나 네트워크, 운영체제 등의 인프라를 담당하는 서버가 없다는 뜻이며 따라서 관리가 그만큼 줄어 든다는 장점이 있습니다. 서버가 없기 때문에 대신 BaaS(Backend as a Service)와 FaaS(Function as a Service)에 의존하여 작업을 처리하게 됩니다. 개발시에 서버를 통해 애플리케이션 환경을 구축하는 것이 아닌 BaaS와 FaaS에 의존하여 구성됩니다. 가상화 환경을 제공해 주는 IaaS(Infrastructure as a Service)와는 햇갈리지 말 것! 참고로 서버리스 아키텍쳐는 MSA(Micro Service Architecture)를 따르고 있습니다. 
 
 

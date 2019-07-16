@@ -1,12 +1,9 @@
 ---
 layout: post
 title: JAVA String, StringBuffer, StringBuilder 차이점
-tags:
- - stirng
 categories: JAVA 
 ---
 
-## 소개
 JAVA에서 문자열을 처리 하기 위한 String과 StringBuffer, StringBuilder 클래스 들의 차이점에 대해 알아 봅시다.
 
 ## String

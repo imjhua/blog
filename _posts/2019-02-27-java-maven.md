@@ -1,16 +1,12 @@
 ---
 layout: post
 title: Maven 
-tags:
- - maven
 categories: JAVA
 ---
 
-## 소개
+Maven은 무엇인가? Maven은 자바 프로젝트의 빌드(build)를 자동화 해주는 빌드 툴(build tool)이다. 즉, 자바 소스를 compile하고 package해서 deploy하는 일을 자동화 해주는 것이다.
 
-Maven은 무엇인가?
-Maven은 자바 프로젝트의 빌드(build)를 자동화 해주는 빌드 툴(build tool)이다. 즉, 자바 소스를 compile하고 package해서 deploy하는 일을 자동화 해주는 것이다.
-
+## 설정파일
 Maven 전체를 보기보다 프로그래밍에 직접적인 연관이 있는 두 개의 설정파일을 알아보면 된다.
 1) settings.xml
 settings.xml은 maven tool 자체에 관련된 설정을 담당한다. MAVEN_HOME/conf/ 아래에 있다. ( * MAVEN_HOME은 환경변수에 설정한 경로) Maven 자체에 설정 값을 바꾸는 일은 일단 잘 없으므로 넘어가고 기획한대로 pom.xml을 살펴본다.

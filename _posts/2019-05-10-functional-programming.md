@@ -1,12 +1,9 @@
 ---
 layout: post
 title: 함수형 프로그래밍이란 
-tags:
- - functional-programming
 categories: Programming
 ---
 
-## 소개
 함수형 프로그래밍이란?
 
 

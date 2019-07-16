@@ -5,6 +5,8 @@ categories: React
 categories: TODO
 ---
 
+https://velog.io/@jeonghoheo/Redux-React-%EC%9A%94%EC%95%BD#provider
+
 https://medium.com/@ca3rot/%EC%95%84%EB%A7%88-%EC%9D%B4%EA%B2%8C-%EC%A0%9C%EC%9D%BC-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-%EC%89%AC%EC%9A%B8%EA%B1%B8%EC%9A%94-react-redux-%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%9D%98-%EC%9D%B4%ED%95%B4-1585e911a0a6
 
 
@@ -320,7 +322,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 컴포넌트에서 redux스토어 안에 있는 데이터를 사용하고 변화를 주려면 App 컴포넌트에 프롭스로 스토어를 넘겨 하위 컴포넌트에서 getState나 dispatch를 적용할수 있습니다. 그러나 이렇게 적용하는 경우 구조가 무척이나 복잡해 지는데요. 그래서 react-redux 뷰 레이어 바인딩 도구를 사용하여 스토어를 적용해 보도록 하곘습니다.
 
-### react-redux 
+## react-redux 
 뷰 레이어 바인딩 도구 입니다. 바인딩 하기 위해 최상위 idnex.js 에서 리듀서로 스토어 생성 후 Provider로 전체 앱을 한 번 감싸줍니다. 후에 부모 컴포넌트에서  Provider Component가 제공하는 connect() 함수를 이용하여 Component와 Store를 연결합니다. 
 
 - Provider: 하나의 컴포넌트로써 컴포넌트에서 redux를 사용할수 있도록 한다. 
@@ -328,6 +330,69 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 opt: [mapStateToProps], [mapDispatchToProps], [mergeProps], [options]
 options: pure=ture, withRef=false (withRef=true인경우 getWrappedInstance()를 사용)
+
+https://velog.io/@jeonghoheo/Redux-React-%EC%9A%94%EC%95%BD#provider
+
+### mapStateToProps
+Store가 가진 state를 어떻게 props에 엮을지 정합니다. 인수로 전달된 state는 전체를 의미한다는 것에 주의해야 합니다.
+
+
+
+
+
+### mapDispatchToProps
+Reducer에 action을 알리는 함수 dispatch를 어떻게 props에 엮을지 정합니다. Action Creator에서 action을 만든다고 해도, 그것으론 아무 일도 일어나지 않습니다. Reducer를 향해 통지를 할 수 있게 만들기 위해서는 만든 action을 dispatch라는 함수에 넘겨줘야만 합니다. 이렇게 하면 모든 Reducer가 실행 됩니다. Reducer에 switch문으로 분기를 나눈 것은 바로 이 때문입니다. Reducer는 관계없는 action을 무시하고, 자기에게 주어진 action만을 처리하도록 되어있어야만 합니다. 또 Component 쪽에 하나하나 수동으로 dispatch하는 처리를 하지 않아도 되도록, 여기서 action의 생성부터 dispatch의 실행까지 한번에 이뤄질 수 있도록 함수를 정의하여 props에 넘겨주도록 한다는 멋진 존재 의의도 엿볼 수 있습니다.
+
+
+### bindActionCreators
+하지만 무려 mapDispatchToProps를 이용하여 위와 같은 코드를 짜는 것에서도 도망칠 수 있습니다. bindActionCreators라는 함수를 제공하기 때문입니다. 이걸 쓰면 아래와 같은 생략이 가능합니다.
+
+
+```js
+// react-redux의 connect 사용
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addValue } from './actions';
+​
+​
+const Counter = ({ value, addValue }) => (
+    <div>
+        Value: {value}
+        <a href="#" onClick={e => addValue(1)}>+1</a>
+        <a href="#" onClick={e => addValue(2)}>+2</a>
+    </div>
+);
+​
+export default connect(
+    state => ({ value: state.value }),
+    { addValue }
+)(Counter)
+
+
+// redux의 bindActionCreators 사용
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { addValue } from './actions';
+​
+​
+const Counter = ({ value, addValue }) => (
+    <div>
+        Value: {value}
+        <a href="#" onClick={e => addValue(1)}>+1</a>
+        <a href="#" onClick={e => addValue(2)}>+2</a>
+    </div>
+);
+​
+export default connect(
+    state => ({ value: state.value }),
+    dispatch => bindActionCreators({ addValue }, dispatch)
+)(Counter)
+
+```
+
+
+#### 적용
 
 ```js
 // src/index.js
@@ -444,3 +509,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 ----
 해당 내용은 다음 글을 참고 하였습니다.
 - https://www.youtube.com/watch?v=dmxA42uXo0I&list=PL9FpF_z-xR_GMujql3S_XGV2SpdfDBkeC&index=27
+- https://medium.com/@ca3rot/%EC%95%84%EB%A7%88-%EC%9D%B4%EA%B2%8C-%EC%A0%9C%EC%9D%BC-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-%EC%89%AC%EC%9A%B8%EA%B1%B8%EC%9A%94-react-redux-%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%9D%98-%EC%9D%B4%ED%95%B4-1585e911a0a6

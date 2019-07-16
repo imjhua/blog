@@ -1,12 +1,9 @@
 ---
 layout: post
 title: FlexBox 레이아웃 
-tags:
-  - flexbox
-categories: CSS
+categories: Web
 ---
 
-## 소개
 레이아웃 모듈중 가장 포괄적인 격자 레이아웃과 함께 유동적인 레아이웃을 구성할 수 있는 flexbox에 대해 다루고자 합니다. 
 
 ## 배경 

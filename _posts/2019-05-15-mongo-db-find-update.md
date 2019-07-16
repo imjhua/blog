@@ -1,12 +1,9 @@
 ---
 layout: post
 title: MongoDB find() 활용과 update()
-tags:
- - mongo-db
 categories: DB
 ---
 
-## 소개
 find() 메소드만 사용하면 criteria 에 일치하는 모든 document 들을 전체 다 출력해주기 때문에 데이터 양이 많은 경우 효율적이지 않을 수 있습니다. 결과값을 프로젝션(projection)으로 필터링 할 수는 있지만 개수나 정렬 등을 할 수는 없습니다. 이를 위해 find() 메소드를 활용하는 sort(), limit(), skip() 에 대해 알아보겠습니다.
 
 

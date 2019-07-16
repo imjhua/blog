@@ -1,11 +1,7 @@
 ---
 layout: post
 title: Visual Studio Code 기본 설정
-tags:
- - vscode
- - visual-studio-code
- - setting
-categories: VSCode
+categories: Etc
 ---
 
 저는 Front-End개발시 VSCode(Visual Studio Code)를 주로 사용합니다. 무료 오픈소스이면서 굉장히 빠른 것이 큰 장점입니다. 다양항 패키지들을 설치하여 함께 사용하면서 개발 생산성을 충분히 높힐 수 있습니다. 처음 이 툴을 익힐때 참고했던 내용을 공유하고자 합니다. (MacOSX기준으로 작성되었습니다.)

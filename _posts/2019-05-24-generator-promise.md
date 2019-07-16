@@ -1,3 +1,13 @@
+---
+layout: post
+title: Generator 와 Promise
+categories: JavaScript
+categories: TODO
+---
+
+Generator 와 Promise 를 활용하여 비동기를 처리해 봅시다.
+
+
 function* orderCoffee(phoneNumber) {
     const id = yield getId(phoneNumber);
     const email = yield getEmail(id);

@@ -1,18 +1,10 @@
 ---
 layout: post
 title: 브라우저 동작 방식
-tags:
- - browser
-categories: TODO
+categories: Web
 ---
 
-https://medium.com/@bestseob93/javascript-60fps-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0-86ca008fc974
-https://developers.google.com/web/fundamentals/performance/rendering/?hl=ko
-https://m.post.naver.com/viewer/postView.nhn?volumeNo=8431285
-
-## 소개
 웹페이지 성능을 개선하려면 먼저 브라우저가 웹페이지를 어떻게 처리하는지 알아야 합니다. 웹브라우저는 선택된 자원을 서버에 요청하고 화면에 표시합니다. 
-
 
 ## 브라우저
 브라우저의 주요 기능은 사용자가 선택한 자원을 서버에 요청하고 브라우저에 표시하는 것입니다. 자원은 보통 HTML 문서지만 PDF나 이미지 또는 다른 형태일 수 있습니다. 자원의 주소는 URI(Uniform Resource Identifier)에 의해 정해집니다.

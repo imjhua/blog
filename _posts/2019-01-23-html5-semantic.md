@@ -1,13 +1,9 @@
 ---
 layout: post
 title: HTML5 Semantic
-tags:
-  - html5
-  - semantic-tag
 categories: HTML5
 ---
 
-## 소개
 HTML5에 새로 추가된 문서 규격과 관련된 태그들과 문서의 구조화에 대해서 살펴봅시다.
 
 

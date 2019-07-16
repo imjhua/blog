@@ -1,6 +1,7 @@
 ---
 layout: post
 title: arrow 함수와 일반적인 함수의 차이점
+categories: JavaScript
 categories: TODO
 ---
 

@@ -32,8 +32,14 @@ navigation:
     url: /menu/cloud
   - name: Java
     url: /menu/java
+  - name: Nodejs
+    url: /menu/nodejs
+  - name: DB
+    url: /menu/db
   - name: Programming
     url: /menu/programming
+  - name: Etc
+    url: /menu/etc
   - name: About
     url: /about
   - name: Diary
@@ -48,7 +54,7 @@ navigation:
   #   url: /menu/tags
 
 # Pagination
-paginate: 10
+paginate: 20
 
 # Includes an icon in the footer for each username you enter
 footer-links:

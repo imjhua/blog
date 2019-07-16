@@ -1,12 +1,9 @@
 ---
 layout: post
 title: JVM(Java Virtual Machine) 메모리 구조
-tags:
- - jvm
 categories: JAVA
 ---
 
-## 소개
 JVM(Java Virtual Machine) 메모리 구조에 대해 알아 봅시다.
 
 ## 메모리

@@ -1,12 +1,60 @@
 ---
 layout: post
 title: Jest 단위 테스트 
-tags:
- - jest
 categories: JavaScript
+categories: TODO
 ---
 
-## 소개
+
+https://github.com/facebook/jest/tree/master/examples/snapshot/__tests__
+
+
+왜 Jest인가
+매우 빠름
+스냅샷 테스트
+변경 사항에 관련된 테스트만 재실행하는 인터렉티브(interactive)한 감시 모드
+
+유용한 실패(fail) 메세지
+간단한 설정
+목(Mocks)과 스파이(spies)
+단일 커맨드 라인을 이용한 커버리지 리포트
+적극적(active)인 개발
+Chai에서 expect(foo).to.be.a('function') 대신에 expect(foo).to.be.a.function과 같은 잘못된 assert를 쓰는 것은 불가능하다. 왜내하면, (correct)expect(foo).to.be.true 다음에  쓰는 것이 자연스럽기 때문이다.
+
+
+
+기본 컴포넌트 렌더링 테스트
+대부분의 non-interactive 컴포넌트에는 충분하다:
+
+
+
+it('should render a label', () => {
+    const wrapper = shallow(
+        <Label>Hello Jest!</Label>
+    );
+    expect(wrapper).toMatchSnapshot();
+});
+it('should render a small label', () => {
+    const wrapper = shallow(
+        <Label small>Hello Jest!</Label>
+    );
+    expect(wrapper).toMatchSnapshot();
+});
+it('should render a grayish label', () => {
+    const wrapper = shallow(
+        <Label light>Hello Jest!</Label>
+    );
+    expect(wrapper).toMatchSnapshot();
+});
+
+
+---
+
+해당 내용은 다음 글을 참고 하였습니다.
+- 
+
+
+
 Jest는 페이스북에 만든 테스트 프레임워크입니다. 
 
 ## 단위 테스트란?
@@ -147,3 +195,5 @@ test('adding positive numbers is not zero', () => {
 해당 내용은 다음 글을 참고 하였습니다.
 - https://codingwalk.tistory.com/63
 - https://medium.com/@jinseok.choi/jest%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-unit-test-%EC%A0%81%EC%9A%A9%EA%B8%B0-420049c16cc8
+
+

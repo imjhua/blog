@@ -4,7 +4,6 @@ title: 다양한 배포 방식
 categories: Programming
 ---
 
-
 서비스가 배포(deployment/release)되는 방법에는 여러가지 방식이 존재 합니다. 웹 서비스에서 많이 사용되는 방식을 소개하고자 합니다.
 
 ## 롤링 업데이트(rolling update / Ramped)

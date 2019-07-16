@@ -1,15 +1,9 @@
 ---
 layout: post
 title: 웹에서의 서버와 클라이언트 통신 (HTTP/Ajax/WebSocket/Http2)
-tags:
- - http
- - ajax
- - web-scocket
- - http/2
 categories: Web
 ---
 
-## 소개
 웹(www)에서 서버와 통신할 수 있는 다양한 방법들이 있습니다. 그중 웹에서 시각적으로, 정보의 양으로 멋진 문서를 주고 받을 수 있도록 등장한 HTTP부터 HTTP의 제약을 조금은 해결한 Ajax, 그리고 HTTP와 Ajax의 제약에서 벗어나 새로운 해결책이 된 WebSocket에 대해 알아 보겠습니다.
 - HTTP는 통신 제약이 있는 약속입니다.
 - AJAX로 HTTP의 통신 제약으로부터 조금 벗어날 수 있었습니다.

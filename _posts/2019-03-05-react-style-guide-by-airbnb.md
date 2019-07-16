@@ -1,10 +1,7 @@
 ---
 layout: post
 title: React Style Guide (by Airbnb)
-tags:
-    - react
-    - react-style-guide
-    - airbnb
+categories: React
 categories: TODO
 ---
 

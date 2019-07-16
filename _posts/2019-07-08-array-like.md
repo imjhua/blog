@@ -1,3 +1,13 @@
+---
+layout: post
+title: 유사배열 (Array Like)
+categories: JavaScript
+categories: TODO
+---
+
+유사배열
+
+다음과 같은 특징
 
 ```js
 var myMap = new Map();

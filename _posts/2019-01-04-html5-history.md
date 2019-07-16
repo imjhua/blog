@@ -1,12 +1,9 @@
 ---
 layout: post
 title: HTML5 History
-tags:
-  - html5
 categories: HTML5
 ---
 
-## 소개
 HTML의 간단한 역사와 등장 배경 그리고 현재의 HTML5 표준화 상황에 대해서 알아봅시다.
 
 ## HTML (Hyper Text Markup Language)

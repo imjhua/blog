@@ -1,12 +1,9 @@
 ---
 layout: post
 title: ES8 async/await 
-tags:
- - async
 categories: JavaScript
 ---
 
-## 소개
 ES8에서 등장한 snyc/await 는 비동기 코드를 작성하는 새로운 방법입니다. async/await는 C#에서는 이미 몇년 전부터 있었던 기능이며 이에 친숙한 사람들도 분명 있을 것입니다. ES8 이전에는 비동기코드를 작성하기 위해 callback이나 promise를 사용해야 했습니다. async/await는 promise처럼 non-blocking 이며, 사용방법이 간단하고 직관적이기 때문에 활용도가 높습니다. `async/await는 비동기 코드의 겉모습과 동작을 좀 더 동기 코드와 유사하게 만들어준다는 장점`이 있습니다. 
 
 es8이전의 비동기 프로그래밍 방식은 콜백패턴을 사용하거나 es6에 새로 추가된 Promise를 사용하였습니다. es8에서 새로 도입된 비동기 함수(async function)를 사용하여 동기식 코드와 거의 같은 구조를 갖는 비동기식 코드를 짤 수 있습니다. async/await이 모든 메이저 브라우저에서 지원됩니다.

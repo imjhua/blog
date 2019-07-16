@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 
+title: redux 정리 (redux 와 react-redux)
 categories: React
 categories: TODO
 ---
@@ -91,6 +91,32 @@ export default function configureStore() {
 }
 
 ```
+
+## 스토어 넘겨주기
+모든 container 컴포넌트는 Redux 스토어에 접근하거나 스토어를 구독할 수 있어야 합니다. 이렇게 만들 수 있는 한 가지 방법은 모든 container 컴포넌트의 속성에다가 스토어를 넘겨주는 것입니다. 하지만 이 방법은 너무 진이 빠지는 방법이고, 컴포넌트 트리 하부에 있는 container 컴포넌트에 스토어를 넘겨주기 위해 presentational 컴포넌트에까지 스토어를 넘겨주어야 합니다.
+저희가 권장하는 방법은 React Redux가 제공하는 특별한 컴포넌트인 <Provider>를 사용하는 것입니다. 이 컴포넌트는 명시적으로 스토어를 넘겨주지 않더라도 마법처럼 모든 container 컴포넌트에서 스토어를 사용할 수 있도록 해줍니다. 이 컴포넌트는 최상단 컴포넌트를 렌더링할 때 한 번만 사용해주면 됩니다.
+
+```js
+// index.js
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import todoApp from './reducers'
+import App from './components/App'
+
+let store = createStore(todoApp)
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+
+```
+
+
 ----
 해당 내용은 다음 글을 참고 하였습니다.
 - 

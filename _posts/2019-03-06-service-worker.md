@@ -1,8 +1,7 @@
 ---
 layout: post
 title: React registerServiceWorker 
-tags:
- - tag
+categories: React
 categories: TODO
 ---
 

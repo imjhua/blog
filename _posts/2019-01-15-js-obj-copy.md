@@ -4,9 +4,9 @@ title: 객체의 불변(immutabe)과 가변 그리고 복사(복제)
 categories: JavaScript
 ---
 
+자바스크립트는 원시타입과 참조 타입이 존재합니다. 각 타입의 불변과 가변은 다르게 동작합니다. 마찬가지로 복사도요. 데이터 타입에 따른 동작에 대해 살펴봅니다.
+
 ## 코드
-
-
 ```js
 var init = function() {
   return { name: "kim", score: [1, 2] };

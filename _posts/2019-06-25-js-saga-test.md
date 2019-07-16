@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Testing the Saga Generator Function
-categories: TODO
+categories: React
 ---
 
 Redux-Saga는 react 애플리케이션의 비동기 처리시 발생할 수 있는 사이드 이펙트를 관리하기 위해 만들어진 라이브러리 입니다. Saga 이펙트는 일반 자바스크립트 객체를 반환합니다. 이 객체들은 이펙트를 표현 또는 설명하고, redux-saga는 이를 실행합니다. 마찬가지로 테스트 또한 yield된 객체를 우리가 원하는 이펙트를 설명하는지 비교하면 되니, 쉽게 테스트를 할 수 있습니다.

@@ -1,12 +1,10 @@
 ---
 layout: post
 title: DevSecOps 
-tags:
- - dev-sec-ops
 categories: Programming
+categories: TODO
 ---
 
-## 소개
 DevSevOps
 
 ----

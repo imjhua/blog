@@ -1,13 +1,9 @@
 ---
 layout: post
 title: Visual Studio Code 단축키
-tags:
- - visual-studio-code
- - vscode-shortcut
-categories: VSCode
+categories: Etc
 ---
 
-## 소개
 개발 효율성을 높일수 있는 VSCode의 단축키들에 대해 알아보자.
 
 

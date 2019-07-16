@@ -1,13 +1,10 @@
 ---
 layout: post
 title: 웹 최적화(Web Optimization) 
-tags:
- - web-optimization
 categories: Web
 ---
 
-## 소개
-웹을 최적화 하는 다양한 방법을 소개 합니다.
+웹을 최적화 하는 다양한 방법들을 소개 합니다.
 
 
 ## HTTP 요청줄이기

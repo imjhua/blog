@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 
+title: React 컨셉 정리
 categories: React
 categories: TODO
 ---
