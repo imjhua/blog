@@ -22,6 +22,8 @@ avatar: https://avatars1.githubusercontent.com/u/49778658?s=460&v=4
 navigation:
   - name: Home
     url: /
+  - name: List
+    url: /menu/list
   - name: JavaScript
     url: /menu/javascript
   - name: React
@@ -30,22 +32,12 @@ navigation:
     url: /menu/web
   - name: Cloud
     url: /menu/cloud
-  - name: Java
-    url: /menu/java
-  - name: Nodejs
-    url: /menu/nodejs
-  - name: DB
-    url: /menu/db
   - name: Programming
     url: /menu/programming
-  - name: Etc
-    url: /menu/etc
   - name: About
     url: /about
   - name: Diary
     url: /menu/diaries
-  - name: List
-    url: /menu/list
   - name: TODO
     url: /menu/todos
   # - name: Archive

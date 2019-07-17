@@ -4,6 +4,8 @@ permalink: /menu/list
 ---
 
 {% for categories in site.categories %}
+{% if categories[0] contains '2019' %}
+{% else %}
   {% unless categories[0] contains 'TODO' or categories[0] contains 'Diary' %}
   <h2>{{categories[0]}}</h2>
 
@@ -20,6 +22,7 @@ permalink: /menu/list
         </a>
     </li>
     {% endfor %}
-  </ul>
-  {% endunless %}
+    </ul>
+    {% endunless %}
+  {% endif %}
 {% endfor %}
