@@ -1,6 +1,6 @@
 ---
 layout: post
-title: redux-actions 를 통한 더 쉬운 액션관리 (createAction/)
+title: redux-actions 를 통한 더 쉬운 액션관리 (createAction)
 categories: React
 ---
 
