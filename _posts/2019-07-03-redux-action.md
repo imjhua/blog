@@ -1,6 +1,6 @@
 ---
 layout: post
-title: redux-actions 를 통한 더 쉬운 액션관리 (createAction/)
+title: redux-actions 를 통한 더 쉬운 액션관리 (createAction)
 categories: React
 ---
 
@@ -38,7 +38,7 @@ increment(3);
 /* 생성된 액션 객체는 다음과 같다.
 {
     type: 'INCREMENT',
-    payload: 5
+    payload: 3
 }
 */
 
