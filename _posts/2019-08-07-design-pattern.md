@@ -2,7 +2,10 @@
 layout: post
 title: 소프트웨어 디자인 패턴 
 categories: Programming
+categories: TODO
 ---
+
+https://gdtbgl93.tistory.com/143?category=755764
 
 소프트웨어 디자인 패턴의 개념, 구조, 분류, 종류에 대해 각각 알아 보는 시간을 가져 보고자 합니다. 디자인 패턴이란 소프트웨어를 설계할 때 특정 맥락에서 자주 발생하는 고질적인 문제들이 있는데 이런 문제들이 또 발생했을 때 재사용할 수 있는 해결책들을 디자인 패턴이라고 정의하여 개발시에 사용하고 있습니다. 각기 다른 소프트웨어 모듈이나 기능을 가진 다양한 응용소프트웨어 시스템들을 개발할 때도 서로간의 공통되는 설계 문제가 존재하며 이를 처리하는 해결책 사이에도 공통점이 있습니다. 이런 유사점을 패턴이라하며 패턴은 갭라시의 의사소통을 원활하게 해주는 중요한 역할을 합니다. 다만, 디자인 패턴을 맹신한 나머지 모든 문제를 패턴을 써서 해결하려 드는 패턴병에 걸리지 않도록 조심해야 합니다. 
 
@@ -100,9 +103,91 @@ ex) 쓰레드풀, 캐시, 대화상자, 사용자 설정, 레지스트리 설정
 - 하나의 인스턴스를 반환하는 getInstance() 메서드를 사용한다.
 
 ### 컴포지트(Composite Pattern)
-어러개의 객체들로 구성된 복합 객체와 단일 객체를 클라이언트에서 구분 없이 다루게 하는 패턴입니다. 전체-부분 관계(Ex. Directory-File)를 갖는 객체들 사이의 관계를 정의할 때 유용합니다.
+컴포지트 패턴이란 객체들의 관계를 트리 구조로 구성하여 부분-전체 계층을 표현하는 패턴으로, 여러개의 객체들로 구성된 복합 객체와 단일 객체를 클라이언트에서 구분 없이 다룰수 있습니다. 전체-부분 관계(Ex. Directory-File)를 갖는 객체들 사이의 관계를 정의할 때 유용합니다. 컴포지트 패턴은 아래와 같이 3가지의 요소에 의해 이루어진다.
 
-#### 예
+#### 적용 포인트
+컴포지트 패턴은 트리 같은 구조가 필요할 때 사용할 수 있습니다. 트리메뉴를 컴포지트 패턴을 이용해서 구성해 보는 것이 도움이 많이 됩니다. 컴포지트 패턴은 단일 객체처럼 행동하는 다수의 객체(인터페이스가 똑같거나, 비슷한 객체)가 있는 경우 적용시킬 수 있습니다.
+
+```
+Composite = Composite + Leaf.
+```
+즉 재귀적인(reculsive) 요소를 가지고 있습니다. 이 말은 다음 단계를 탐색하면서 하위 노드의 탐색이 끝나면 다시 자기자신으로 돌아옴을 뜻합니다.  
+
+이런 특성을 가지고 있으므로 하나의 인터페이스를 통해 서로 다른 종류의 하위 노드에 접근 할 수 있다면, 탐색시에 많은 편리함을 느낄 수 있습니다.
+
+#### 컴포지트 구성요소
+- Component (Interface) : 복합 객체내에 들어있는 모든 객체들에 대한 인터페이스를 제공합니다. 복합노드, 리프노드에 대한 메소드를 정의함. 
+- Leaf : 그 안에 들어있는 원소에 대한 행동을 정의. Component를 구현하는 클래스요소. leaf 클래스에서는 base component 외에는 다른 컴포넌트를 섞지 않는다.
+- Composite (=복합객체) : 자식이 있는 구성요소의 행동을 정의하고 자식 구성요소를 저장하는 역할을 맡음. 다수의 leaf 클래스를 컨트롤 할 수 있는 클래스로 인터페이스는 Component부터 얻어 공통된 인터페이스로 작업을 할 수 있는 클래스이다.
+- Client : Component 인터페이스를 사용해 복합 객체 내의 객체들을 조작할 수 있음.
+
+
+
+#### 예제 코드
+간단히 삼각형, 원, 선의 객체 오브젝트를 생성하고 이 모든 객체를 빨강색으로 칠하는 작업을 컴포지트 패턴을 통해서 해보도록 한다.
+
+```js
+// base component
+public interface Shape {
+    public void draw(String color);
+}
+
+// leaf
+// 삼각형
+public class Triangle implements Shape {
+    @Override
+    public void draw(String color) {
+        System.out.print("triangle color: " + color);
+    }
+}
+
+// 원
+public class Circle implements Shape {
+    @Override
+    public void draw(String color) {
+        System.out.print("circle color: " + color);
+    }
+}
+
+// 라인
+public class Line implements Shape {
+    @Override
+    public void draw(String color) {
+        System.out.print("line color: " + color);
+    }
+}
+
+// composite
+public class Drawing implements Shape {
+    private List<Shape> shapes = new ArrayList<Shape>();
+
+    @Override
+    public void draw(String color) {
+        for (Shape sh : shapes) {
+            sh.draw(color);
+        }
+    }
+
+    // 아래서부터는 헬퍼 성격의 메소드이다. 추가/제거/전체제거
+    public void add (Shape s) {
+        this.shapes.add(s);
+    }
+
+    public void remove (Shape s) {
+        this.shapes.remove(s);
+    }
+
+    public void clear () {
+        this.shapes.clear();
+    }
+}
+```
+- base component: 뼈대가 되는 클래스로 아래와 같이 draw 메소드를 가지는 인터페이스로 구성되었다. 컴포지트 패턴을 사용하기 위해서는 아래의 클래스를 구현하는 방법으로 진행된다.
+- leaf: 위의 base component를 구현하여 만들어진 클래스들이다. leaf로 구성된 클래스를 이용하여 다수의 객체를 생성할 수 있다. 위에서 설명했듯이 base component 외에는 다른 메소드를 사용할 수 없다.
+- composite: leaf의 객체 그룹을 컨트롤 하는 역활을 한다.
+
+
+#### 사용 예
 컴퓨터에 추가 장치 지원하는 경우 각각의 부품은 마우스, 키보드, 본체, 모니터가 되고 컴퓨터는 구성 장치로서 합성 관계가 된다.
 
 - 주의사항: 컴푸터 클래스에 속한 부품의 구체적인 객체를 가리키면 OCP(Open-Close-Principle)를 위반하게 된다는 것이다.

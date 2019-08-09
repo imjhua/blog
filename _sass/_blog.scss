@@ -24,14 +24,22 @@ h6 {
   margin-bottom: 0;
 }
 
-h2 {
-  font-size: 22px;
-  border-bottom: solid 3px #423f3f;
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h3 + h4 {
+  margin-top: 0;
 }
 
 h3 {
   font-size: 20px;
-  color: #3e3a3aba;
+  color: #4d4e50;
+}
+h4 {
+  font-size: 18px;
+  color: #898e92;
 }
 
 ol, ul, dl {

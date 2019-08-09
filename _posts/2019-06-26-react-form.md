@@ -4,6 +4,11 @@ title: Form 이벤트 처리하기
 categories: React
 categories: TODO
 ---
+https://blog.coderifleman.com/2015/06/27/learning-react-3/
+
+https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/
+
+https://ko.reactjs.org/docs/uncontrolled-components.html
 
 https://reactjs.org/docs/forms.html#the-select-tag
 
