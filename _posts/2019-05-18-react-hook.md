@@ -243,6 +243,8 @@ const Info = () => {
 
 ```
 
+주의해야 할점은 useEffect는 componentDidMount + componentDidUpdate + componentWillUnmount가 아니라는 점 입니다. useEffect 훅을 사용하기 전에 고려해야 하는 점이 있습니다. 이 훅은 조금 특별하고 다르고 멋지기 때문인데, 클래스 컴포넌트에서 훅(hook)으로 변경할 때에 componentDidMount, componentDidUpdate, componentWillUnmount를 하나 이상의 useEffect 콜백 함수로 바꾸게 될 겁니다. (컴포넌트의 수명주기에 포함된 컴포넌트의 관심사에 따라 다릅니다.)  이 코드는 리팩토링이 아닙니다. 리팩토링은 사용자가 볼 수 있는 변화를 만들지 않고 내부 구현을 바꾸는 것을 의미 합니다. 코드 리팩토링은 존재하는 컴퓨터 코드를 구조를 조정하는 과정으로 외부 동작을 바꾸지 않고 팩토링 즉, 분해(decomposition)를 수행하는 일을 의미하기 떄문입니다.
+
 
 #### 마운트 될 때만 실행하고 싶을 때(가장 처음 렌더링 될 때만 실행)
 만약 useEffect 에서 설정한 함수가 컴포넌트가 화면에 가장 처음 렌더링 될 때만 실행되고 업데이트 할 경우에는 실행 할 필요가 없는 경우엔 함수의 두번째 파라미터로 비어있는 배열을 넣어주면 됩니다.
@@ -301,6 +303,9 @@ useEffect 는 기본적으로 렌더링 되고난 직후마다 실행되며, 두
   }, []);
 
 ```
+
+### useLayoutEffect
+componentDidMount나 componentDidUpdate와 다르게 useEffect로 예정한 효과는 브라우저가 화면을 업데이트하는 것을 막지 않습니다. 앱이 더 높은 응답성을 제공할 수 있도록 이렇게 동작합니다. 대부분의 효과는 동기적으로 구동될 필요가 없습니다. 동기적으로 동작하는 경우는 레이아웃을 측정해야 한다거나 하는 등 특수한 경우에 해당합니다. 이런 코드는 useLayoutEffect에 넣을 수 있으며 useEffect와 동일하게 동작하는 API입니다.
 
 ### useContext
 이 Hook 을 사용하면 함수형 컴포넌트에서 Context 를 보다 더 쉽게 사용 할 수 있습니다.
