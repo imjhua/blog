@@ -2,7 +2,15 @@
 layout: post
 title: React PureComponent
 categories: React
+categories: TODO
 ---
+
+
+이것은 React.memo ()가하는 일과 정확히 일치하기 때문에 의미가 있습니다! 예정된 렌더링이 이전 렌더링과 다른지 확인하십시오. 동일한 경우 이전을 유지하십시오.
+
+이 질문은 트위터에서도 요청되었으며 Dan은 왜 PureComponent가 memo아닌 pure다른 이유를 설명했습니다 .
+
+https://scotch.io/tutorials/react-166-reactmemo-for-functional-components-rendering-control
 
 
 React 컴포넌트를 사용하면 UI를 독립적이고 재사용할 수 있는 부분으로 나누고 각 부분을 분리하여 생각할 수 있습니다. React컴포넌트는 일반 Component와, PureComponent로 세부적으로 나누어 정의 할 수 있습니다. 성능을 최적화 하는데 활용되는 PureComponent에 대해 알아보겠습니다. 순수함수가 무엇인지, 어떻게 사용하는지, 왜 우리가 사용해야 하는지에 대해서요.
