@@ -5,6 +5,8 @@ categories: React
 categories: TODO
 ---
 
+https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html
+
 https://ko.reactjs.org/docs/dom-elements.html
 
 

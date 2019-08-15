@@ -12,6 +12,7 @@ https://ko.reactjs.org/docs/uncontrolled-components.html
 
 https://reactjs.org/docs/forms.html#the-select-tag
 
+- https://orezytivarg.github.io/using-forms-in-react-redux-tips-and-tricks/
 
 
 ```js
