@@ -6,6 +6,10 @@ categories: Etc
 
 개발 효율성을 높일수 있는 Mac활용법에 대해 알아보자.
 
+
+
+- 경로 복사: cmd + option + c
+
 ```sh
 # chrome 열기 (+disalbe security)
 $ open -a Google\ Chrome --args --disable-web-security --user-data-dir=""

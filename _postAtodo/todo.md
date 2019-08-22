@@ -6,6 +6,35 @@ tags:
 categories: TODO
 ---
 
+확장성을 고려한 컴포넌트 
+https://velog.io/@kyusung/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B5%90%EA%B3%BC%EC%84%9C-%ED%99%95%EC%9E%A5%EC%84%B1%EC%9D%84-%EA%B3%A0%EB%A0%A4%ED%95%9C-React-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8
+
+스토리북 입문 가이드
+https://hyunseob.github.io/2018/01/08/storybook-beginners-guide/
+
+컴포넌트 제대로 만들기
+https://hyunseob.github.io/2019/06/02/react-component-the-right-way/
+
+리엑트 모듈
+https://gloriajun.github.io/frontend/2019/04/11/react-code-splitting.html#the-async-component-hoc
+
+
+8-point 그리드란?
+http://uidesignguides.com/8-point-%EA%B7%B8%EB%A6%AC%EB%93%9C%EB%A1%9C-%EB%94%94%EC%9E%90%EC%9D%B8%ED%95%98%EA%B8%B0/
+https://brunch.co.kr/@blackindigo-red/8
+https://spec.fm/specifics/8-pt-grid
+
+React를 이용해 재사용성을 갖춘 디자인 시스템 구축하기
+https://code.tutsplus.com/ko/tutorials/build-a-reusable-design-system-with-react--cms-29954
+
+Babel과 Webpack을 이용한 ES6 환경 구축 
+https://poiemaweb.com/es6-babel-webpack-1
+https://poiemaweb.com/es6-babel-webpack-2
+
+
+Webpack4 for React (리액트를 위한 웹팩4) - 1
+https://velog.io/@padakim/Webpack4-for-React-%EB%A6%AC%EC%95%A1%ED%8A%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%9B%B9%ED%8C%A94-1-
+
 ## 블로그
 https://www.robinwieruch.de/conditional-rendering-react/
 https://blog.logrocket.com/how-to-use-react-createref-ea014ad09dba/
