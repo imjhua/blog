@@ -7,6 +7,8 @@ categories: TODO
 
 https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html
 
+https://github.com/wonism/TIL/blob/master/front-end/reactjs/etc/components-elements-instances.md
+
 https://ko.reactjs.org/docs/dom-elements.html
 
 
