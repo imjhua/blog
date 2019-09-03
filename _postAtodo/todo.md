@@ -6,6 +6,23 @@ tags:
 categories: TODO
 ---
 
+
+
+
+
+
+
+
+
+
+
+프로그래밍 패러다임
+어떻게가 아닌 무엇을.
+
+
+https://velog.io/@kyusung/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9A%94%EC%95%BD
+
+
 확장성을 고려한 컴포넌트 
 https://velog.io/@kyusung/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B5%90%EA%B3%BC%EC%84%9C-%ED%99%95%EC%9E%A5%EC%84%B1%EC%9D%84-%EA%B3%A0%EB%A0%A4%ED%95%9C-React-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8
 

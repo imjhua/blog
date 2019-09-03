@@ -18,7 +18,7 @@ $ open -a Google\ Chrome --args --disable-web-security --user-data-dir=""
 $ open -na Google\ Chrome --args --incognito 
 
 # chrome private mode 열기 (+disalbe security)
-$ pen -na Google\ Chrome --args --disable-web-security --user-data-dir="" --incognito
+$ open -na Google\ Chrome --args --disable-web-security --user-data-dir="" --incognito
 ```
 ----
 
