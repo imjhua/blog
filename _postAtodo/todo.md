@@ -164,7 +164,6 @@ Composition을 지원하는 컴포넌트를 최적화 하고 싶으면 특수화
 
 
 
-============
 
 Specialization
 WelcomeDialog라는 컴포넌트를 하나 더 만들었어요. PureComponent로요. Dialog는 Component로 고치고요. WelcomeDialog의 render 메소드내에서는 ReactNode를 그냥 생성하고 있죠. 왜냐하면 WelcomeDialog는 PureComponent이고, Props를 전혀 받지 않고 있기 때문에 render 가 다시 실행될 일이 없거든요. 따라서 Dialog도 다시 render 되지 않습니다.
@@ -179,6 +178,50 @@ https://reactjs.org/docs/composition-vs-inheritance.html#specialization
 
 
 https://velog.io/@kyusung/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9A%94%EC%95%BD
+=======
+테스트?  tdd bdd ddd
+https://asfirstalways.tistory.com/296
+
+리덕스 사가 모달?
+
+클라이언트 사이드렌더링 서버 사이드 렌더링 차이점과 리엑트의 우수한점????
+
+
+코드 커버리지
+https://afrobambacar.github.io/2018/10/code-coverage-with-jest.html
+
+https://medium.com/@pakss328/%EC%BD%94%EB%93%9C%EC%BB%A4%EB%B2%84%EB%A6%AC%EC%A7%80-code-coverage-991e79da9e5f
+
+https://medium.com/@rinae/%EB%B2%88%EC%97%AD-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%A6%AC%EB%8D%95%EC%8A%A4-%EC%95%B1%EC%9D%84-jest%EC%99%80-enzyme%EC%9C%BC%EB%A1%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%95%98%EB%A9%B0-%EC%96%BB%EC%9D%80-%EA%B5%90%ED%9B%88-8fc3e2c6615d
+
+dummy stub mock
+
+https://m.blog.naver.com/PostView.nhn?blogId=palfuni&logNo=120154483985&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+
+https://www.jpstory.net/2013/07/26/know-your-test-doubles/
+
+1. 모든 프로그램이 개발하고 테스트할 때 완성되어 있는 것은 아니다. 그래서 필요한 것이 Stub이다.
+
+Dummy
+가장 기본적인 유형으로, 매개변수 값과 같이 작업을 수행하는 메소드가 없는, 값 전달만을 위한 객체를 말한다.
+
+Stub은 로직이 없고 단지 원하는 값을 반환합니다. 테스트시에 “이 객체는 무조건 이 값을 반환한다”고 가정할 경우 사용할 수 있습니다. Stub은 보통 작성하기 쉽지만 불필요한 boilerplate 코드를 줄이기 위해서 Mocking Framework을 이용하는게 편합니다.
+
+Mock은 “어떤 메소드가 호출 될 것이다”라는 행위에 대한 예상을 가지고 있습니다. 만약 그 예상대로 메소드가 호출 되지 않을 경우 테스트는 실패합니다. 이렇듯 Mock은 객체 사이의 행위(interaction)를 테스트하기 위해 사용합니다. 식별 할 수 있는 상태 변경이 없거나 반환 값으로 확인 할 수 없는 경우에 유용합니다. 예를 들면 어떤 코드가 디스크에서 read 작업을 하는데 하나 이상의 디스크에서 read 작업을 수행하지 않도록 하려는 경우, read 작업을 수행하는 메소드가 한번만 호출 되었는지 검증하기 위해 Mock을 사용할 수 있습니다.
+
+
+
+
+테스트 코드를 정말 작성해야 하는가?
+https://blog.outsider.ne.kr/1275
+
+UI오ㅓ UX
+https://m.blog.naver.com/moolsaess/221159385304
+
+웹앱? 웹뷰?
+
+웹팩
+http://jeonghwan-kim.github.io/js/2017/05/15/webpack.html
 
 
 확장성을 고려한 컴포넌트 
