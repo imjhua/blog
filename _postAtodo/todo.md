@@ -6,6 +6,11 @@ tags:
 categories: TODO
 ---
 
+면접
+https://www.freecodecamp.org/news/grabs-front-end-guide-for-large-teams-484d4033cc41/
+https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Korean/questions/javascript-questions.md
+
+
 https://basarat.gitbooks.io/typescript/docs/tips/barrel.html
 
 barrel
