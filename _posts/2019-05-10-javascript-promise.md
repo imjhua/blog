@@ -194,11 +194,15 @@ const delay = (ms) => new Promise(res => setTimeout(res, ms))
 ### 프로미스의 상태(states)
 프로미스를 사용할 때 알아야 하는 가장 기본적인 개념이 바로 프로미스의 상태(states)입니다. 여기서 말하는 상태란 프로미스의 처리 과정을 의미합니다. new Promise()로 프로미스를 생성하고 종료될 때까지 다음 상태를 갖습니다.
 
-- Pending(대기): 비동기 처리 로직이 아직 완료되지 않은 상태. 수행중
-- Fulfilled(이행): 비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태. 작업이 끝나서 약속이 잘 지켜졌다.
-- Rejected(실패): 비동기 처리가 실패하거나 오류가 발생한 상태. 약속이 어떤 이유에서 지켜지지 못함.
-- Settled: 작업이 끝나 결론(성공이든 실패든)이 난 상태 
+프로미스는 아래의 3가지 상태를 가지게 됩니다.
+- 대기 pending : 아직 실행되지 않음.
+- 성공 fulfilled : 성공
+- 실패 rejected : 실패
 
+그리고 이 3가지 상태에 모두 속하지 않은 경우 정체 라고한다.
+- 정체 settled : 실행은 되었으나 성공도 실패도 아님. executor 가 어떤 함수도 호출하지 않음.
+
+정체가 생기지 않도록 예외 처리를 해주어야 합니다.
 ###  사용법
 프로미스를 사용하면 비동기 호출이 완료된후 실행될 콜백을 넘기지 않고도 프로미스가 끝난 후 호출될 콜백(성공,실패)을 then()을 사용하여 코드를 작성 할 수 있습니다. 프로미스를 사용하는 방법은 다양합니다.
 
@@ -523,7 +527,7 @@ const makeRequest = () => {
 ```
 
 
-#### 여러 프로미스 실행
+#### 여러 프로미스 실행 (all)
 여러개의 비동기 작업들이 존재하고 이들이 모두 완료되었을떄 작업을 진행하고 싶다면, 각각의 비동기 작업들을 프로미스에서 처리 하고 여러 프로미스가 모두 완료될 때 all API를 호출합니다. all은 프로미스 객체를 인자로 전달 받습니다.
 
 ```js
@@ -549,6 +553,31 @@ Promise.all([promise1, promise2]).then(function (values) {
 	console.log("모두 완료됨", values);
 });
 ```
+
+#### reject & resolve
+무조건 성공이나 실패로 값을 전달하는 Promise 입니다.
+
+```js
+
+// 값을 실패로 전달
+Promise.reject(1).then(function(value)
+{ 
+	console.log('성공', value);
+}).catch(function(value)
+{ 
+	console.log('실패', value);
+});
+
+// 값을 성공으로 전달
+Promise.resolve(2).then(function(value)
+{ 
+	console.log('성공', value);
+}).catch(function(value)
+{ 
+	console.log('실패', value);
+});
+```
+
 ## 정리
 Promise를 사용하면 기존 콜백함수 보다 깔끔하게 코드작성이 가능하지만, 실행 절차/순서가 복잡하여 가독성이 떨어집니다. 그래서 ES8에서 async/await가 등장 하였습니다. 후에 알아보도록 하겠습니다.
 
