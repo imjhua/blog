@@ -6,6 +6,40 @@ tags:
 categories: TODO
 ---
 
+면접
+https://hackernoon.com/10-react-js-articles-every-web-developer-should-read-f5b745a348dc
+https://www.freecodecamp.org/news/grabs-front-end-guide-for-large-teams-484d4033cc41/
+https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Korean/questions/javascript-questions.md
+
+
+https://basarat.gitbooks.io/typescript/docs/tips/barrel.html
+
+barrel
+
+
+```js
+// demo/foo.ts
+export class Foo {}
+
+// demo/bar.ts
+export class Bar {}
+
+// demo/baz.ts
+export class Baz {}
+Without a barrel, a consumer would need three import statements:
+import { Foo } from '../demo/foo';
+import { Bar } from '../demo/bar';
+import { Baz } from '../demo/baz';
+You can instead add a barrel demo/index.ts containing the following:
+// demo/index.ts
+export * from './foo'; // re-export all of its exports
+export * from './bar'; // re-export all of its exports
+export * from './baz'; // re-export all of its exports
+Now the consumer can import what it needs from the barrel:
+import { Foo, Bar, Baz } from '../demo'; // demo/index.ts is implied
+
+
+```
 
 이것은 왜 typeof가 안전하지 않은가(typeof is no longer safe)를 알고있는 것이 중요합니다.
 
