@@ -1,3 +1,5 @@
+http://hacks.mozilla.or.kr/2016/03/es6-in-depth-let-and-const/
+
 브라우저 동작방식
 
 애니메이션 동작원리

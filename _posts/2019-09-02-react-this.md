@@ -1,6 +1,6 @@
 ---
 layout: post
-title: React 의 this
+title: React의 this
 categories: React
 ---
 
@@ -19,9 +19,7 @@ fn.a = 'test';
 fn(); 
 ```
 
-fn(); 호출시의 context는  전역 객체입니다. 따라서 fn안의 this는 전역이 되고, 전역에는 a  가 없으므로 에러입니다.
-
-this.a를 출력하려면 `this 에 해당하는 객체의 메서드`를 호출하면 this.value 값을 가져올 수 있습니다. 
+fn(); 호출시의 context는 전역 객체입니다. 따라서 fn안의 this는 전역이 되고, 전역에는 a  가 없으므로 에러입니다. this.a를 출력하려면 `this 에 해당하는 객체의 메서드`를 호출하면 this.value 값을 가져올 수 있습니다. 
 
 ```js
 const thisTest = function() {
@@ -36,7 +34,6 @@ thisTest.func()
 ```
 
 ## react 의 this
-
 컴포넌트의 render()함수가 실행되면 DOM 이 그려질것입니다. 이때 this 는 WithoutBindTest 객체를 가리키는것이 맞습니다. 하지만 handleClick()함수가 호출될때의 this 는 WithoutBindTest 가 아닌 전역객체(Window)를 의미합니다. 왜냐하면 this 라는 값은 호출하는 문맥(context)에의해 좌우되는데 `클릭이 실행되는 문맥이 바로 전역(window)객체이기 때문`입니다.
 
 ```jsx
@@ -45,7 +42,6 @@ render() {
 }
 ```
  
-
 ## 화살표 함수 (Arrow Function)
 귀차니즘을 해결해보겠습니다. click, change 등의 이벤트 리스너를 붙여줄때마다 bind()함수를 작성하는건 귀찮은 일입니다. ES6 의 화살표함수를 사용하면 이 문제를 간단히 해결할 수 있습니다. BindTest 를 화살표 함수를 이용해 새로 작성해보았습니다.
 

@@ -7,6 +7,10 @@ categories: TODO
 ---
 
 
+이것은 왜 typeof가 안전하지 않은가(typeof is no longer safe)를 알고있는 것이 중요합니다.
+
+
+
 ```js
 <form onSubmit={this.handleSubmit}>
         <input
