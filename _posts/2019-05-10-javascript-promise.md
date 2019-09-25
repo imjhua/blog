@@ -2,7 +2,15 @@
 layout: post
 title: 자바스크립트 Promise!
 categories: JavaScript
+categories: TODO
 ---
+
+프로미스 처리 흐름 중심에서 볼 때 중요한것은
+executer가 실행된다는 것과 resolve()가 호출되지 않는다는 점입니다. 바로 resolve()를 호출하지 않고 호출할 수 있는 환경이 되었을때 호출합니다.
+
+
+호출할수 있는환경이되었을떄 호출하는것과 댄을 실행하지 않고 아래 코드로 이동하는 것이 프로미스비동기 처리의핵심입니다.
+
 
 프로미스는 자바스크립트 비동기 처리에 사용되는 객체입니다. 여기서 자바스크립트의 비동기 처리란 '특정 코드의 실행이 완료될 때까지 기다리지 않고 다음 코드를 먼저 수행하는 자바스크립트의 특성'을 의미합니다. 자바스크립트는 비동기 처리를 위한 하나의 패턴으로 콜백 함수를 사용하는데, 이런 콜백 패턴은 가독성이 나쁘고 비동기 처리 중 발생한 에러의 예외처리가 곤란하며 여러개의 비동기 처리 로직을 한거번에 처리하는 것에도 한계가 있습니다. ES6에서 비동기 처리를 위한 또 다른 패턴으로 프로미스(Promise)를 도입하였습니다. 콜백패턴이 가진 단점을 보완하며 비동기 처리 시점을 명활하게 표현 할 수 있습니다. Promise 패턴을 사용한 라이브러리로는 jQuery Deffered, Q, Bluebird 등이 있습니다. 자바스크립트 비동기 처리를 유연하게 하기 위한 콜백 함수로 인해 Promise에 대해 알아 봅시다.
 
@@ -73,9 +81,9 @@ async1(start)
 ```
 
 ### Promise.resolve()
-같은 내용을 Promise.resolve() 로 사용하면 아래와 같습니다.
-```js
+같은 내용을 Promise.resolve([value, promise, thenable]) 로 사용하면 아래와 같습니다.
 
+```js
 function async1 (param) {
     return Promise.resolve(param*2);
 }
@@ -97,6 +105,35 @@ async1(start)
 ```
 return new Promise() 보다 간결한 것 같습니다. new Promise 에서 받는 reject를 처리하지 않는 경우에는 더욱 Promise.resolve() 패턴이 좋아 보입니다. 
 
+#### Promise.resolve()
+Promise.resolve()를 호출하면 Promise 인스턴스를 생성합니다.
+
+```js
+Promise.resolve(['a', 'b']).then((param)=>{ console.log(param);});
+
+let a = Promise.resolve({'a':'a', 'b':'b'});
+a.then((param)=>{ 
+  for(let name in param){
+    console.log(name, param[name]);
+  }
+});
+```
+#### Promise.resolve(thenable)
+
+```js
+const a = Promise.resolve({
+  // thenable객체 생성. 이 시점에서는 Promise인스턴스만 생성하고 then은 실행하지 않는다.
+  // 맨 마지막에 thenable객체가 실행된다.
+  then(resolve){
+  console.log('1');
+  resolve('send param');
+}});
+
+a.then((param)=>{
+  console.log('2');
+  console.log(param); // 'send param'
+});
+```
 
 ### new Promise와 Promise.resolve()비교 (함수안에 async가 존재 하는 경우)
 Promise는 thenable객체(then() 함수를 포함하는 객체)를 반환하기 때문에 then() 이나 catch() 로 받아서 연속적인 동작을 하는 구조입니다. 다른 말로 하면, Promise 에 의해 thenable 객체가 반환되지 않았다면 Promise 종료 타이밍이 애매해질 수 있습니다.
@@ -153,6 +190,12 @@ resolve콜백을 이용하는 경웨,  Promise 실행 컨텍스트를 벗어나�
 
 Promise.resolve()를 이용하여 호출할때에는 result는 undefined 입니다. request() 함수에서 xhr.send() 를 실행하면 해당 컨텍스트에서의 작업은 끝나고 Promise 컨텍스트도 종료됩니다. xhr이 완료되었을 때 반환하는 객체를 받을 타이밍에는 이미 이전 함수가 끝나있기 때문입니다.
 
+
+참고) thenable객체구조는 다음과 같습니다.
+
+```js
+let obj = { then(resolve,rect){ ... }}
+```
 
 ## Promise 구조
 Promise는 콜백 함수를 통해 서버에서 제대로 응답을 받아오면 resolve() 메서드를 호출하고, 응답이 없으면 reject() 메서드를 호출합니다. 호출된 메서드에 따라 then()이나 catch()로 분기하여 데이터 또는 오류를 출력합니다. 
