@@ -5,6 +5,12 @@ tags:
   - new
 categories: TODO
 ---
+react 상속 합성
+
+https://ko.reactjs.org/docs/composition-vs-inheritance.html
+https://blog.sonim1.com/186
+
+
 
 면접
 https://hackernoon.com/10-react-js-articles-every-web-developer-should-read-f5b745a348dc
