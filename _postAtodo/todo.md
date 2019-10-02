@@ -5,6 +5,12 @@ tags:
   - new
 categories: TODO
 ---
+
+클라이언트 사이드 서버사이드
+
+https://www.popit.kr/react-%EC%84%9C%EB%B2%84%EC%82%AC%EC%9D%B4%EB%93%9C-%EB%A0%8C%EB%8D%94%EB%A7%81/
+
+
 네이티브앱 vs 모바일웹앱 vs 하이브리드앱
 
 https://m.blog.naver.com/acornedu/221012420292
