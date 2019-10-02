@@ -1,10 +1,24 @@
 ---
 layout: post
 title: TODO
-tags:
-  - new
 categories: VSCODE
+categories: TODO
 ---
+
+
+Open the ~/.bashrc file using vi/vim $ vi ~/.bashrc
+
+Enter the following by pressing i to insert:
+
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+Save the file using :wq
+
+Reflect the settings in ~/.bashrc using the following command:
+
+source ~/.bashrc
+shareimprove this answer
+
+
 
 $ code --list-extensions
 2gua.rainbow-brackets
