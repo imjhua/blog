@@ -192,7 +192,7 @@ Promise.resolve()를 이용하여 호출할때에는 result는 undefined 입니�
 
 
 참고) thenable객체구조는 다음과 같습니다.
-
+object{} 안에 then()을 작성한 형태
 ```js
 let obj = { then(resolve,rect){ ... }}
 ```

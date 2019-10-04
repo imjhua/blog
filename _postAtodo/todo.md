@@ -6,6 +6,12 @@ tags:
 categories: TODO
 ---
 
+프록시를 사용하는이유
+찰스 피들러
+https://withpg.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9D%EC%8B%9C-%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95
+
+
+
 클라이언트 사이드 서버사이드
 
 https://www.popit.kr/react-%EC%84%9C%EB%B2%84%EC%82%AC%EC%9D%B4%EB%93%9C-%EB%A0%8C%EB%8D%94%EB%A7%81/
