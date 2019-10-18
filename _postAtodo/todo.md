@@ -6,6 +6,22 @@ tags:
 categories: TODO
 ---
 
+
+
+S.I.T(Site Integration Test) : 현장 통합 시험
+
+S.A.T(Site Acceptance Test) : 현장 인수 시험
+
+F.A.T(Factory Acceptance Test) : 공장 인수 시험
+
+UAT(User Acceptance Testing)
+
+: 새로운 시스팀이나 변경된 시스템의 공식적 승락을 받는 시험.
+
+최종 사용자들이 시스템을 사용해 보고 만족해야 UAT에 통과할 수 있다.
+
+
+
 프록시를 사용하는이유
 찰스 피들러
 https://withpg.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9D%EC%8B%9C-%EC%84%A4%EC%A0%95%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95
