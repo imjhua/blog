@@ -36,6 +36,8 @@ navigation:
     url: /menu/programming
   - name: About
     url: /about
+  - name: Resume
+    url: /resume
   - name: Diary
     url: /menu/diaries
   - name: TODO
