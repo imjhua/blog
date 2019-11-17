@@ -1,8 +1,6 @@
 ---
 layout: post
 title: React 프로젝트 시작하기 
-tags:
- - react
 categories: React
 ---
 

@@ -4,12 +4,10 @@ title: ES6(ECMA2015)의 새로운 기능들
 categories: JavaScript
 ---
 
-현재 javascript는 1999년 ES3를 시작이래로 비동기 프로그래밍이 가능한 async, await가 추가된 ES8(ECMA2017)이 최신입니다. 이 글에서는 ES5(ECMA2009)이후 가장 많은 업데이트가 일어난 ES6(ECMA2015)에 추가된 새로운 기능들을 정리하고자 합니다. 문법의 큰 변화로 인해 진입장벽이 높다면 높을 수 있기 때문에 front 개발자라면 꼭 공부해야 합니다. ES6의 새로운 기능들을 살펴 봅시다!
-
+ES5(ECMA2009)이후 가장 많은 업데이트가 일어난 ES6(ECMA2015)에 추가된 새로운 기능들을 정리하고자 합니다. 문법의 큰 변화로 인해 진입장벽이 높다면 높을 수 있기 때문에 front 개발자라면 꼭 공부해야 합니다. ES6의 새로운 기능들을 살펴 봅시다.
 
 ## ES6의 도입
 ES6는 객체지향 언어의 장점을 적극적으로 도입했으며, 효율적인 메모리 사용에 중점을 두었다고 할 수 있습니다. ES5가 프로그램 언어의 기본 기증에 중점을 두었다면, ES6는 이를 바탕으로 활용 기능에 중점을 두었다고 할 수 있습니다. 다른 언어의 장점을 자바스크립트 아키텍쳐에 맞추어 적용하였으며, ES5의 함수형을 발전시켰다고 할 수 있습니다. 
-
 
 ## 기능 목록 
 ES6의 기능들을 정리하면 다음과 같습니다.
@@ -25,6 +23,7 @@ var link = function (height, color, url) {
     ...
 }
 ```
+
 ### 템플릿 리터럴
 변수와 문자열의 +연산자의 복잡한 조합 대신 `(back-ticed) 안에 ${NAME} 로 구문을 정리하여 간단하게 사용 가능합니다.
 ```js
@@ -39,7 +38,6 @@ var name = `Your name is ${first} ${last}.`
   </div>
 </div>
 ```
-
 
 ### 멀티 라인 문자열
 기존 멀티라인을 처리하기 위해 사용하던 +'\n' 대신 `(back-ticed) 문자열로 멀티 라인을 묶어 주면 간단하게 처리 할 수 있습니다.
@@ -109,12 +107,68 @@ console.log(rest_a); // { a3: 30, a4: 40 }
 ```
 
 ### Spread 문법 (전개 연산자: ...)
-스프레드 연산자를 사용하면 다양한 기능들을 사용 할 수 있습니다. 
+전개 연산자는 배열인 어떤 값을 함수의 파라미터 순서대로 전달해주는 걸 의미합니다.
+
+
+```js
+var param = ["A", "B", "V."];
+function func(a, b, c) {
+  console.log(a + " " + b + " " + c);
+}
+
+func(param); // 함수의 파라미터는 3개를 받으므로, 배열 하나만 넘기면 정상동작 하지 않음.
+```
+
+배열을 파라미터로 넘기는 경우, 과거에는 다음과 같이 해결하였습니다. 하지만 불필요하게 구문이 많아 지는 단점이 있습니다.
+
+```js
+function func2(arr) {
+  // 가변인자에 대한 함수 호출시에 apply 메서드를 이용한다. 인자의 배열을 받아 그 배열의 각 요소가 개별 인자인 것처럼 함수를 호출한다. 또한, 첫 번째 인자로 this로 바인딩 될 객체를 명시할 수 있다.
+  return func.apply(null, arr); // fun.apply(thisArg, [argsArray])
+}
+func2(param);
+```
+
+다음과 같이 전개 연산자를 사용하여 간단하게 배열을 파라미터로 넘길 수 있습니다.
+
+```js
+func(...param);
+func(1, ...[2, 3]);
+```
+
+전개연산자는 여러가지 응용이 가능합니다. 예를들어 array의 push를 이용하여 concat의 효과를 낼 수 있습니다.
+
+```js
+var concat = [10, 11, 12];
+var arr = [1, 2, 3];
+
+arr.push(4, 5, 6);
+console.log(arr); // 1, 2, 3, 4, 5, 6
+
+arr.push(...concat);
+console.log(arr); // 1, 2, 3, 4, 5, 6, 10, 11, 12
+```
+
+정리해봅시다.
+
 - 개별 요소로 분리: 배열 또는 이터러블 대상
 - 매개 변수로 전달: 배열 또는 이터러블 대상
 - 비구조화 할당: 오브젝트 대상, 명시적으로 할당되지 않은 나머지 배열은 새로운 배열로, 객체는 새로운 객체로 할당된다.
 - 깊은 복사: 오브젝트 대상, ... 연산자를 사용해 개별 요소들을 할당할 때, 혹은 할당 후에 다시 []혹은 {}로 묶어준다.
-- 가변 파라미터 (Rest 파라미터: Rest Parameter): 나머지 파라미터를 배열로 받는다.
+- 햇갈릴수 있는! 가변 파라미터 (Rest 파라미터: Rest Parameter): 나머지 파라미터를 배열로 받는다.
+
+#### 기본 파라미터
+undefined 대신 기본값을 설정할 수 있습니다. 함수 호출시 인자가 없거나 undefined 인 경우에 기본값을 적용합니다.
+
+```js
+function test(a, b = "test", c = 30) {
+  console.log(a, b, c);
+}
+test("a");
+test("a", "b");
+test("a", "b", "c");
+test("a", undefined, "c");
+```
 
 #### 개별 요소로 분리
 Spread 연산자는 연산자의 대상 배열 또는 이터러블(iterable)을 "개별" 요소로 분리합니다. 내장된 생성자 중 iterable 객체를 만들어내는 생성자에는 아래와 같은 것들이 있습니다.
@@ -254,6 +308,15 @@ foo(1, 2); // { '0': 1, '1': 2 }
 ### 화살표 함수 (arrow function)
 일반 함수의 자신을 호출하는 객체를 가리키는 dynamic this와 달리 arrows 함수는 코드의 상위 스코프(lexical scope)를 가리키는 lexical this를 가집니다. 화살표 함수는 항상 익명함수로 정의되며 this의 값을 `현재 문맥에 바인딩` 시킵니다. 자신을 포함한 외부 scop에서 this를 계승(lexical scope) 받습니다. 따라서 주의 사항으로는, 객체의 메소드 정의시 화살표 함수를 사용하게 되면 함수안의 this는 전역객체를 바인딩하게 되므로 객체의 메소드 정의 방법으로 정의하여 실행 문맥에 의하여 함수를 소유하고 있는 객체를 가리키도록 해야 합니다. 생성자 함수정의시에도 마찬가지 이유로 사용하지 않습니다.  
 
+화살표 함수의 this는 자신이 선언된 위치의 this를 마치 call(현재는 보통 function.bind 라고함) 된 것과 같이 그대로 this로 가지고 있는 특성이 있습니다.
+
+```js
+// 일반함수
+testobj.testCallback(function(){ console.log('hello'); });
+// 화살표함수
+testobj.testCallback(() => { console.log('hello'); });
+```
+
 
 ```js
 // Lexical this
@@ -301,7 +364,7 @@ var messages = ids.map(value => `ID is ${value}`) // implicit return
 prototype에 화살표 함수를 연결하면 화살표 함수 블록에서 this가 인스턴스를 참조하지 못합니다. 이때에는 this가 인스턴스를 가리키지 않고 window오브젝트를 가리킵니다. 따라서 화살표 함수가 아닌 function 키워드 함수를 prototype에 연결해야 합니다. 
 
 ### 프로미스(Promise)
-프로미스(Promise)는 비동기 프로그래밍을 위한 라이브러리입니다. 프로미스는 자바스크립트 비동기 처리에 사용되는 객체입니다. 여기서 자바스크립트의 비동기 처리란 ‘특정 코드의 실행이 완료될 때까지 기다리지 않고 다음 코드를 먼저 수행하는 자바스크립트의 특성’을 의미합니다. 콜백지옥에서 벗어 날 수 있습니다.
+프로미스(Promise)는 비동기 프로그래밍을 위한 라이브러리입니다. 프로미스는 자바스크립트 비동기 처리에 사용되는 객체입니다. 여기서 자바스크립트의 비동기 처리란 ‘특정 코드의 실행이 완료될 때까지 기다리지 않고 다음 코드를 먼저 수행하는 자바스크립트의 특성’을 의미합니다. Promise 개체는 비동기 작업이 맞이할 미래의 완료 또는 실패와 그 결과 값을 나타냅니다. 콜백지옥에서 벗어 날 수 있습니다.
 
 ```js
 function getData() {
@@ -324,10 +387,48 @@ getData()
 var wait1000 =  new Promise((resolve, reject)=> {
   setTimeout(resolve, 1000)
 }).then(()=> {
-  console.log('Yay!')
+  console.log('hi!')
 })
 ```
  
+```js
+var promise1 = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    resolve('foo');
+  }, 300);
+});
+
+promise1.then(function(value) {
+  console.log(value);
+  // expected output: "foo"
+});
+
+console.log(promise1);
+// expected output: [object Promise]
+
+```
+
+
+```js
+// 값을 실패로 전달
+Promise.reject(1).then(function(value)
+{ 
+	console.log('성공', value);
+}).catch(function(value)
+{ 
+	console.log('실패', value);
+});
+
+// 값을 성공으로 전달
+Promise.resolve(2).then(function(value)
+{ 
+	console.log('성공', value);
+}).catch(function(value)
+{ 
+	console.log('실패', value);
+});
+```
+
 
 ### 블록 레벨 스코프 let, const
 ES5까지 변수를 선언할 수 있는 유일한 방법은 var 키워드를 사용하는 것이었습니다. var는 다음과 같은 특징이 있습니다. 
@@ -380,13 +481,78 @@ console.log(x); // global
 ### 클래스(Class)
 ES6 클래스는 포로토타입 기반 객체지향 패턴을 더 쉽게 사용할 수 있는 대체재입니다. 클래스 패턴 생성을 더 쉽고 단순하게 생성할 수 있어서 사용하기도 편하고 상호운용성도 증가됩니다. class 키워드를 사용하여 protorype기반 상속 보다 명확하게 클래스를 정의할 수 있습니다(객체 지향 패턴). get과 set, static 키워드를 사용해 메소드 정의가 가능하며 상속시 부모생성자를 호출하기 위해 super()를 사용할 수 있습니다. static 키워드를 사용하여 메서드를 선언 할 수 있는데, 이는 Class오브젝트 프로퍼티로 작성하며, 오브젝트로 생성한 인스턴스에 할당되지 않습니다. 인스턴스의 prototype에 연결된 함수는 new연산자를 사용해 생성한 인스턴스에서 호출합니다. function키워드를 사용한 함수와의 구분을 위해 static 메서드는 정적 메소드라고도 구분할 수 있습니다. 
 
-예) 함수는 Array.isArry() / 메서드는 [1,2,3].forEach(..)
+```js
+// class 이름
+class Saro
+{
+	constructor()
+	{
+		console.log('생성자');
+		this.host = 'me';
+	}
+	
+	* genFunc() { /* ... */ }
+	get propertyValue()
+	{
+		return '호스트 : ' + this.host;
+	}
+	set propertyValue(host)
+	{
+		console.log('호스트는 바꿀수 없습니다.');
+	}
+	getHost()
+	{
+		return this.host;
+	}
+	static staticFunction()
+	{
+		console.log('스테틱 함수입니다.');
+	}
+};
+```
+
+참고) 함수는 Array.isArry() / 메서드는 [1,2,3].forEach(..)
+
+#### {} 내에서 단축된 문법과 get set 프로퍼티
+
+클래스에서 사용하는 문법과 거의 동일합니다. 구분자(,)만 추가하면 똑같이 사용할 수 있습니다.
+
+```js
+var temp = {
+  get pname() {
+    return "고정값";
+  },
+  set pname(name) {
+    console.log(name + "변경불가");
+  },
+  func() {
+    console.log("함수");
+  },
+  *genFn() {
+    console.log("제네레이터 함수");
+    yield null;
+  }
+};
+
+temp.func();
+console.log(temp.pname);
+temp.pname = "input!!!";
+console.log(temp.pname);
+temp.genFn().next().value;
+```
 
 ### 모듈 
 컴포넌트 정의를 위한 모듈을 지원합니다. 기존에는 모듈사용에 대한 공식적인 방법이 없었기 때문에 비공식적으로 JavaScript 모듈 로더들 AMD, CommonJS(module.eports로 모듈 정의후 require()로 모듈을 불러와 사용)의 패턴을 사용하였데 새롭게 import와 export 가 제공됩니다.
 
 ### for ...of 반복문
-foreach 반복문은 오직 Array 객체에서만 사용가능한 메서드입니다. for ...in 반복문은 객체의 속성을 반복하여 작업할 수 있었으나 key만 접근 가능하고 value에는 접근할 수 없었습니다. for of 반복문은 [Symbol.iterator] 속성을 가지는 컬렉션(prototype까지 접근 가능) 전용으로 사용 가능합니다.
+기존 for in 의 경우 프로퍼티를 가져왔다면, for of 는 반복자를 가져옵니다. 배열, DOM 컬렉션, generator function 에서도 사용할 수 있습니다.  foreach 반복문은 오직 Array 객체에서만 사용가능한 메서드입니다. for ...in 반복문은 객체의 속성을 반복하여 작업할 수 있었으나 key만 접근 가능하고 value에는 접근할 수 없었습니다. for of 반복문은 [Symbol.iterator] 속성을 가지는 컬렉션(prototype까지 접근 가능) 전용으로 사용 가능합니다.
+
+```js
+var arr = [1, 2, 3];
+for (var val of arr) {
+  console.log(val);
+}
+```
 
 - foreach 반복문: 오직 Array만 가능 
 - for ...in 반복문: 객체의 모든 열거 가능한 속성에 대해 반복 
@@ -466,8 +632,169 @@ for (var n of fibonacci) {
 }
 ```
 
+### generator & generator function
+Generators는 function와 yield 키워드를 이용하여 iterator 선언을 단순하게 작성할 수 있게 합니다. function로 선언한 함수는 Generator 객체를 반환합니다. Generators는 iterator의 하위 타입이며 next와 throw 메서드를 가지고 있습니다. 이 메서드들로 인해 yield 키워드로 반환된 값은 다시 generator에 주입거나 예외처리를 할 수 있게 되었습니다. Generator 객체는 generator function 으로부터 반환된 값이며 반복자와 반복자 프로토콜을 준수합니다.
+
+```js
+function* gen() { 
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+var g = gen(); // "Generator { }"
+
+```
+
+
+#### Number.isNaN()
+글로벌 isNaN 과 달리 정확히 Number 타입의 isNaN인지 구분합니다. 이유는 글로벌 isNaN은 다음과 같은 예상치 못한 결과를 받기 때문입니다.
+```js
+isNaN(null)      // false
+isNaN('0') // false
+```
+
+실제로 isNaN()의 내부적인 작동 방식을 살펴 보면 isNaN() 함수는 넘어오는 인수를 먼저 숫자로 변환을 시도합니다. 그리고 그 결과값을 통해 NaN 여부를 확인하게 됩니다. 다음과 같은 코드를 실행하는 것으로 이해할 수 있습니다.
+```js
+isNaN(Number(null)) // 0
+```
+
+다음 글로벌 inNaN과 Number.isNaN을 비교해 보겠습니다. 
+```js
+isNaN('aaa'); // true
+isNaN('34234'); // false
+isNaN(34234); // false
+
+Number.isNaN('aaa'); // false - 스트링 타입이기때문에 정확히 Number 타입의 NaN만 유효
+Number.isNaN(NaN); // true
+Number.isNaN(0 / 0); // true : 무한도 NaN에 속한다.
+Number.isNaN(231); // false
+```
+
+둘의 차이점을 정리해보자면, 
+- 글로벌 isNaN은 값을 받아 숫자로 변환을 시도 헌 후 not a number를 체크 한다.
+- Number.isNaN은 정확히 숫자(Number) 타입에서만 not a number를 체크 한다.
+
+
+#### Object.is()
+완전 동일한 객체 인지 확인합니다. 동일하다는 기준은, 결과값이면서 동일한 참조를 가지는 값입니다. 이 경우, 원시자료형은 그대로 복사가 이루어지기 때문에 같을 것이고, 동일해 보이지면 참조형 객체(object, class)인 경우는 참조되는 공간이 다르므로 다를 것입니다.
+
+
+
+```js
+Object.is(null, null); // true
+Object.is(undefined, undefined); // true
+Object.is(1, 1); // true
+
+Object.is(1, 3); // false
+Object.is(1, true); // false
+
+var abc1 = { a : 1, b : 2 };
+var abc2 = { a : 1, b : 2 };
+Object.is(abc1, abc2 ); // false : 같아보이지만 다른 객체이다.
+
+var Cl = function()
+{
+	this.a = 1;
+	this.b = 2;
+}
+var cl1 = new Cl();
+var cl2 = new Cl();
+Object.is(cl1, cl2); // false: object / class 의 경우 참조가 다름.
+Object.is(cl1, cl1); // true : 완전히 같다.
+
+// 특별한 경우
+Object.is(0, -0); // false
+Object.is(-0, -0); // true
+Object.is(NaN, 0/0); // true
+// 하나는 NaN 또하나는 무한이지만 무한도 NaN에 속하므로, 같은 NaN으로 취급함.
+```
+
+#### 배열형 추가기능
+Array에 기본 메소드가 추가되었습니다.
+
+- fill(채울값)
+- fill(채울값, 시작위치)
+- fill(채울값, 시작위치, 종료위치)
+
+```js
+
+([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).fill(99);
+// [99, 99, 99, 99, 99, 99, 99, 99, 99, 99]
+
+([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).fill(99, 3);
+// [1, 2, 3, 99, 99, 99, 99, 99, 99, 99]
+
+([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).fill(99, 3, 7);
+// [1, 2, 3, 99, 99, 99, 99, 8, 9, 10]
+```
+
+
+- @@iterator
+String, Array, Map, Set, TypedArray오브젝트의 프로토타입에는 Symbol.iterator이 연결되어 있습니다. 배열처리를 위한 이터레이터 오브젝트입니다. 위 for of는 iterator 가 있는 객체에서 작동합니다.  
+
+```js
+var arr = [3, 7, 11];
+var iter = arr[Symbol.iterator]();
+var node;
+while (!(node = iter.next()).done)
+{
+	console.log(node.value);
+}
+```
+
+- Array.prototype.entries()
+- Array.prototype.keys()
+
+
+
+#### import / export
+import 문은 외부 모듈이나 다른 스크립트 등으로부터 export 된 기능을 가져오는데 사용됩니다.
+
+```js
+import name from "module-name";
+import * as name from "module-name";
+import { member } from "module-name";
+import { member as alias } from "module-name";
+import { member1 , member2 } from "module-name";
+import { member1 , member2 as alias2 , [...] } from "module-name";
+import defaultMember, { member [ , [...] ] } from "module-name";
+import defaultMember, * as alias from "module-name";
+import defaultMember from "module-name";
+import "module-name"; //어떠한 바인딩 없이 모듈 전체의 사이드 이펙트만 가져옴
+``` 
+
+export 문은 JavaScript 모듈에서 함수, 객체, 원시 값을 내보낼 때 사용합니다. 내보낸 값은 다른 프로그램에서 import 문으로 가져가 쓸 수 있습니다.
+```js
+export { name1, name2, …, nameN };
+export { variable1 as name1, variable2 as name2, …, nameN };
+export let name1, name2, …, nameN; // var, const에서 동일
+export let name1 = …, name2 = …, …, nameN; // var, const에서 동일
+export function FunctionName(){...}
+export class ClassName {...}
+
+export default expression;
+export default function (…) { … } // class, function* 에서 동일
+export default function name1(…) { … } // class, function* 에서 동일
+export { name1 as default, … };
+
+export * from …;
+export { name1, name2, …, nameN } from …;
+export { import1 as name1, import2 as name2, …, nameN } from …;
+export { default } from …; // import 와 export 를 한 번에 처리할 수 있는 export - from
+// 이 문법은 주로 패키지의 다른 모듈들을 한 데 모아
+// 일관된 형태로 내보내거나 관리하고자 할 때 사용합니다
+```
+
+
+참고) 모듈을 불러오는 다양한 방법
+- ES6 Modules(ESM): import
+- CommonJS: require
+- AMD: define - require
+- Browser: <script src="...">
+(이 외에도 System.js, Require.js 등의 모듈 로더등이 있다)
+
 ### 그외
-- Generators는 function와 yield 키워드를 이용하여 iterator 선언을 단순하게 작성할 수 있게 한다.. function로 선언한 함수는 Generator 객체를 반환한다. Generators는 iterator의 하위 타입이며 next와 throw 메서드를 가지고 있다. 이 메서드들로 인해 yield 키워드로 반환된 값은 다시 generator에 주입거나 예외처리를 할 수 있게 되었다.
 - Unicode: 완전한 유니코드를 지원하기 위해 문자열에 새로운 유니코드 리터럴과 정규닉식에 u 모드가 추가되었다. 또한 21비트 형식까지 처리하기 위한 신규 API가 추가되었다. 추가된 기능은 JavaScript로 글로벌 앱을 만드는 것이 가능하다.
 - Modules: 언어 차원에서 컴포넌트 정의를 위한 모듈을 지원한다. 유명한 JavaScript 모듈 로더들(AMD, CommonJS)의 패턴을 적용시켰다. 런타임 동작은 호스트에 정의된 기본 로더에 의해 정의된다. 묵시적 비동기 형태로 요구되는 모듈들이 정상적으로 로드되기 전까지 코드가 실행되지 않는다. 
 - Module 로더: 모듈 로더는 주요 모듈 포맷으로 작성된 모듈을 해석하고 로드한다. 모듈 로더는 런타임에 실행된다.
@@ -521,3 +848,4 @@ ES6(ECMA2015)는 확정되었지만 아직 모든 브라우저에서 완전하�
 - https://jeong-pro.tistory.com/117
 - https://poiemaweb.com/es6-block-scope
 - https://jsdev.kr/t/es6/2944
+- https://gs.saro.me/dev?tn=432

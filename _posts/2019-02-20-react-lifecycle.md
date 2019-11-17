@@ -1,8 +1,6 @@
 ---
 layout: post
 title: React 컴포넌트의 생명주기(Lifecycle)
-tags:
- - react-life-cycle
 categories: React
 ---
 

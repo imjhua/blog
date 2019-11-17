@@ -1,8 +1,6 @@
 ---
 layout: post
 title: state와 prop (+ Redux활용)
-tags:
- - react
 categories: React
 ---
 
