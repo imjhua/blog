@@ -1,3 +1,17 @@
+https://meetup.toast.com/posts/110
+
+https://velog.io/@kyusung/React-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0
+
+https://reactjs-kr.firebaseapp.com/docs/thinking-in-react.html
+
+https://velopert.com/900
+
+https://www.holaxprogramming.com/2018/04/15/react-optimizing-virtual-dom-explained/
+
+
+
+https://hyunseob.github.io/2019/06/02/react-component-the-right-way/
+
 
 mock stub
 http://www.incodom.kr/Mock

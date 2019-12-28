@@ -30,10 +30,12 @@ import React from 'react'
 
 class BindTest extends React.Component {
   handleClick() {
+    // 1번 this
     console.log(this, 'handleClick');
   }
   render() {
     return (
+      // 2번 this
       <button type="button" onClick={this.handleClick}>
         Goodbye bind
       </button>
@@ -42,8 +44,7 @@ class BindTest extends React.Component {
 }
 export default BindTest
 ```
-
-this.handleClick가 호출되어 실행되는 순간에는 다음과 같은 코드가 실행됩니다. 따라서 전역객체가 실행 문맥이 됩니다.
+1번 this와 2번 this는 다릅니다. this.handleClick가 호출되어 실행되는 순간에는 다음과 같은 코드가 실행됩니다. 따라서 전역객체가 실행 문맥이 됩니다.
 
 ```js
 (function() { console.log(this, 'handleClick'); })(); 
@@ -110,7 +111,7 @@ class BindTest extends React.Component {
 export default BindTest
 ```
 
-## 결론
+## 정리
 React에서 class로 컴포넌트를 생성할때에, render에서 사용되는 이벤트 핸들러에서 실행되는 this는 전역객체를 가리킵니다. 이때 컴포넌트 객체를 bind()함수를 사용하여 전달하거나 실행문맥을 가지지 않는 화살표 함수를 사용하여 컴포넌트 객체의 메소드를 실행 할 수 있습니다. 
 
 ```jsx
