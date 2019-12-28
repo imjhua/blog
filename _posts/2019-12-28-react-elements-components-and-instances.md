@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Elements, Components And Instances
-categories: TODO
+categories: React
 ---
 
 React를 사용하여 화면을 구성할때 그려진것을 나타내는 세가지 용가 존재합니다. 바로 엘리먼트(Element), 컴포넌트(Component), 인스턴스(Instance)입니다. 이 용어들은 비슷하지만 서로 다른 의미를 가집니다. 이들의 차이로 인해 혼란스럽기도 합니다. 화면에 그려진 것을 나타내는 세가지용어의 의미에 대해 알아봅니다.
