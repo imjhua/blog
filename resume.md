@@ -3,6 +3,21 @@ layout: page
 title: Resume
 permalink: /resume/
 ---
+개발자 스럽다
+
+다양한 경험을 해보고싶은 찰나
+
+
+- 코드 생산성 ㅂ소모적인 논쟁 따옴표...
+- 퍼블과 협업
+
+- 카카오게임즈 PC부문 웹개발
+
+- 배틀그라운드 Path of Exile, Air등의 퍼블리싱 웹개발 및 개발사와 연동 작업
+
+- 카카오게임즈 멤버쉽/빌링 플랫폼 개발
+
+  
 
 리엑트 면접 준비
 https://velog.io/@kyusung/react-summary

@@ -136,8 +136,9 @@ categories: Programming
 - 모든 메시지가 동일한 이벤트 버스를 통해 전달되기 때문에 확장성 문제가 발생할 수 있다.
 
 ### 모델-뷰-컨트롤러 패턴(Model-view-controller pattern)
-MVC 패턴이라고도 하는 이 패턴은 대화형 애플리케이션(interactive application)을 다음의 3 부분으로 나눕니다.
+MVC(Model-View-Controller) Pattern의 목표는 사용자 인터페이스로부터 비즈니스 로직 과 프레젠테이션 로직 의 분리입니다. 분리를 통해 비즈니스 로직은 재사용이 가능하도록 존재하며 뷰(View)또한 쉽게 고칠 수 있는 장점이 있습니다.
 
+MVC 패턴이라고도 하는 이 패턴은 대화형 애플리케이션(interactive application)을 다음의 3 부분으로 나눕니다.
 - 모델(model): 핵심 기능과 데이터를 포함한다
 - 뷰(view): 사용자에게 정보를 표시한다(하나 이상의 뷰가 정의될 수 있음)
 - 컨트롤러(controller): 사용자로부터의 입력을 처리한다

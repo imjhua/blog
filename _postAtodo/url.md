@@ -1,4 +1,3 @@
-https://meetup.toast.com/posts/110
 
 https://velog.io/@kyusung/React-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0
 

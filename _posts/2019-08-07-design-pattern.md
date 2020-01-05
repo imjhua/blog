@@ -241,6 +241,8 @@ public class Drawing implements Shape {
 
 
 ### MVC(Model View Contoroller Pattern)
+MVC(Model-View-Controller) Pattern의 목표는 사용자 인터페이스로부터 비즈니스 로직 과 프레젠테이션 로직 의 분리입니다. 분리를 통해 비즈니스 로직은 재사용이 가능하도록 존재하며 뷰(View)또한 쉽게 고칠 수 있는 장점이 있습니다.
+
 Model, View, Controller 세 가지 부분으로 이루어져 있습니다.
 - Model: 자료(Data)를 생성, 저장, 처리하는 역할을 하는 부분이다. 
 - View: Model로부터 받은 자료를 여러 가지 형태로 사용자에게 보여주는 역할을 한다. 
