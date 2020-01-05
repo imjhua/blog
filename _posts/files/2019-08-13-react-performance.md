@@ -24,11 +24,14 @@ https://hyunseob.github.io/2019/06/02/react-component-the-right-way/
 3
 4
 5
+```js
 class Parent extends React.Component {
+  x = { bar: "baz" };
   render() {
-    return <Child foo={{ bar: "baz" }} />;
+    return <Child foo={x} />;
   }
 }
+```
 또 한 가지 정말 쉽게 실수할 수 있는 케이스는 ReactNode를 넘길 때, children등을 사용할 때 인데요, 이 부분은 조금 이따가 Component Composition을 할 때 다뤄보겠습니다.
 
 
