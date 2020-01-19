@@ -231,7 +231,7 @@ export function* fetchData(action) {
 - Action Creator 안
 - mapDispatchToProps 안
 
-지금까지 redux만 사용하는 경우, 스토어와 디스패치를 연겷파기 위해 connect를 사용하였습니다. '연결된 Component로부터 action이 dispatch되면 그 Reducer를 향한다'라고만 하였는데, 여기에 새로운 방법을 제시하는 것이 Saga 입니다. Saga는 제너레이터 함수이기 때문에, 비동기처리를 간단히 다룰 수 있습니다.
+지금까지 redux만 사용하는 경우, 스토어와 디스패치를 연결하기 위해 connect를 사용하였습니다. '연결된 Component로부터 action이 dispatch되면 그 Reducer를 향한다'라고만 하였는데, 여기에 새로운 방법을 제시하는 것이 Saga 입니다. Saga는 제너레이터 함수이기 때문에, 비동기처리를 간단히 다룰 수 있습니다.
 - yield take(ACTION_TYPE)으로 지정한 action의 발생을 감시한다
 - 가져온 action을 구워먹고 삶아먹고 마음대로 할 수 있다
 - yield put(action)의 결과를 다른 action으로 내보낼 수 있다

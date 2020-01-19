@@ -28,6 +28,6 @@ https://velog.io/@kyusung/react-summary
 
 ### React 의 미래
 
-- 전부터 React를 계속 다루었고, 프론트 앤드 영역에 그동안 다양한 언어들( Jquery, Backbone, AngularJS)이 존재 하였지만 앞으로의 10년, 가능성
+- 전부터 React를 계속 다루었고, 프론트엔드 영역에 그동안 다양한 언어들( Jquery, Backbone, AngularJS)이 존재 하였지만 앞으로의 10년, 가능성
 
 ### OOP? 기본에 충실한대매
