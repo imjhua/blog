@@ -4,7 +4,8 @@ title: Rest? RestAPI? RestFul?
 categories: Programming
 ---
 
-Rest? RestAPI? RestFull? 햇갈리는 이 용어들에 대해 알아 봅시다.
+RESTful은 리소스와 행위를 명시적이고 직관적으로 분리합니다. Rest? RestAPI? RestFull? 햇갈리는 이 용어들에 대해 알아 봅시다.
+
 
 ## Rest(Representational State Transfer)란
 REST는 Representational State Transfer라는 용어의 약자로서 `자원을 이름(자원의 표현)으로 구분하여 해당 자원의 상태(정보)를 주고 받는 모든 것`을 의미합니다. 2000년도에 로이 필딩(Roy Fielding)의 박사학위 논문에서 최초로 소개되었습니다. 로이 필딩은 HTTP의 주요 저자 중 한 사람으로 그 당시 웹(HTTP) 설계의 우수성에 비해 제대로 사용되어지지 못하는 모습에 안타까워하며 웹의 장점을 최대한 활용할 수 있는 `아키텍처`로써 REST를 발표했다고 합니다. 
