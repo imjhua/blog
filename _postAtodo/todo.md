@@ -5,6 +5,50 @@ tags:
   - new
 categories: TODO
 ---
+oAuth 로그인
+
+https://tansfil.tistory.com/60
+
+쉽게 알아보는 서버 인증 3편(SNS 로그인, OAuth 2.0)
+
+OAuth 프로토콜의 기능 중 하나로 SNS 로그인이 있는겁니다!
+
+
+
+지금부터 OAuth 의 정의를 시작으로 어떤 방식으로 SNS 로그인이 작동되는지 차근차근 알아보도록 하겠습니다. 
+
+
+
+참고 포스팅
+
+
+
+ http://tansfil.tistory.com/58 (세션/쿠키, JWT를 이용한 인증)
+
+ http://tansfil.tistory.com/59 (Access Token + Refresh Token을 이용한 인증)
+
+
+
+ 
+고차 함수(higher-order function)의 정의는 무엇인가요?
+고차 함수는 다른 함수를 매개 변수로 사용하여 어떤 데이터를 처리하거나, 결과로 함수를 반환하는 함수입니다. 고차 함수는 반복적으로 수행되는 어떤 연산을 추상화하기 위한 것입니다. 전형적인 예시는 배열과 함수를 인수로 취하는 map입니다. map은 고차 함수를 사용하여 배열의 각 항목을 변환하고, 변환된 데이터로 새로운 배열을 반환합니다. JavaScript에서 흔히 볼 수 있는 다른 예로 forEach, filter, reduce가 있습니다. 다른 함수에서 함수를 반환하는 많은 사용사례가 있기 때문에 고차 함수는 배열을 조작할 필요가 없습니다. Array.prototype.bind는 JavaScript에서 그러한 예시 중 하나입니다.
+
+Map
+
+
+ttribute"와 "property"의 차이점은 무엇인가요?
+attribute는 HTML 마크업에 정의되지만 property는 DOM에 정의됩니다. 차이점을 설명하기 위해 HTML에 다음 텍스트 필드가 있다고 가정해 봅시다: <input type="text" value="Hello">.
+
+const input = document.querySelector('input')
+console.log(input.getAttribute('value')) // Hello
+console.log(input.value) // Hello
+그러나 텍스트 필드에 "World!"를 추가하면 이렇게 될것입니다.
+
+console.log(input.getAttribute('value')) // Hello
+console.log(input.value) // Hello World!
+
+
+////
 
 
 
