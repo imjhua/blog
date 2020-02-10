@@ -46,7 +46,7 @@ ECMA스크립트(ECMAScript, 또는 ES)는 Ecma 인터내셔널의 ECMA-262 기�
 - 제곱연산 ** (Exponentiation infix operator)
 
 ### ES8
-- async await
+- async & await
 - Object.values(): Object.values() 는 object.keys() 와 비슷하지만 keys와 달리 모든 값을 반환하는 특징을 가지고 있다.
 - Object.entires(): 위와 비슷한 entires()는 위와 같이 역시 Object.keys와 관련이 있지만 키만 반환하는 대신 배열 방식으로 키와 값을 반환한다.
 - String padding: String.prototype.padStart와 String.prototype.padEnd를 통해서 String에 각각의 인스턴스를 추가하는 것으로 앞 뒤에 문자열을 추가 할 수 있다.
