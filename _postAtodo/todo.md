@@ -1,10 +1,25 @@
 ---
 layout: post
 title: TODO
-tags:
-  - new
 categories: TODO
 ---
+
+네이티브앱에서 웹앱으로: 모바일 웹앱의 현주소
+프로그레시브 웹 앱 : 탭에서 벗어나기
+https://d2.naver.com/helloworld/179084
+
+
+REST API 액세스 토큰(access token)
+https://devhaks.github.io/2019/05/31/oauth2/
+https://tansfil.tistory.com/59
+https://docs.iamport.kr/tech/access-token
+아임포트 REST API서비스는 여러분의 가맹점의 결제 상세정보를 조회하거나 환불 요청 또는 에스크로 결제를 처리할 수 있는 기능을 제공합니다. 하지만 이는 가맹점의 사적 리소스(private resource)를 다루기 때문에 해당 리소스의 소유권을 인증한 후 접근할 수 있습니다.
+이때 액세스 토큰(aceess token)을 발급받고 API 요청에 포함하여 가맹점의 소유권을 증명하고 사적 리소스(private resource)에 접근할 수 있습니다.
+액세스 토큰(access token)이란?
+아임포트 REST API서비스는 토큰 기반 인증을 사용합니다. 사적 리소스(private resource)에 접근하는 아임포트 REST API에 대한 모든 요청에 토큰이 포함되어 있는지, 또 해당 토큰이 유효한지의 여부를 검증함으로써 인증 절차를 수행합니다.
+이때 사용하는 토큰을 액세스 토큰(access token)이라 부릅니다.
+
+
 oAuth 로그인
 
 https://tansfil.tistory.com/60
