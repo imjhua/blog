@@ -4,7 +4,55 @@ title: TODO
 categories: TODO
 ---
 
-네이티브앱에서 웹앱으로: 모바일 웹앱의 현주소
+### 그외
+#### 태국어 골프정리
+#### 올림포스 12신
+#### 요가..
+
+
+### 공유키 비밀키 암호화
+헬만?
+
+
+### http 1/1.2 차이
+https://medium.com/@shlee1353/http1-1-vs-http2-0-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0-5727b7499b78
+
+### 해상도에 따른 디자인
+http://styleguide.co.kr/content/resolution-grid/ratio-design.php
+http://suiux.com/gui_specification/
+https://brunch.co.kr/@plusx/6
+
+### sass
+사용해보기
+
+
+### nextjs
+https://velog.io/@rjs1197/NextJS-%EC%9E%85%EB%AC%B8%ED%95%98%EA%B8%B0
+https://velog.io/@rjs1197/SSR%EA%B3%BC-CSR%EC%9D%98-%EC%B0%A8%EC%9D%B4%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90
+
+### 덕타이핑
+https://ko.wikipedia.org/wiki/%EB%8D%95_%ED%83%80%EC%9D%B4%ED%95%91
+
+
+### 노드 & 런타임
+https://asfirstalways.tistory.com/99
+
+
+### webpack
+https://gompro.postype.com/post/1699968
+
+https://brightparagon.wordpress.com/2018/06/27/webpack-v4-development-configuration/
+
+https://perfectacle.github.io/2016/11/14/Webpack-devtool-option-Performance/
+
+
+### js 인터뷰
+http://www.bloter.net/archives/245529
+https://github.com/ParkSB/javascript-style-guide
+https://github.com/airbnb/javascript/tree/master/react/
+
+
+### 네이티브앱에서 웹앱으로: 모바일 웹앱의 현주소
 프로그레시브 웹 앱 : 탭에서 벗어나기
 https://d2.naver.com/helloworld/179084
 

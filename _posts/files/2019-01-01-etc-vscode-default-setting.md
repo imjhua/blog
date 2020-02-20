@@ -39,10 +39,25 @@ VSCode를 좀더 효율적으로 사용할 수 있도록 도와주는 다양한 
 
 ```js
 {
-    "editor.fontSize": 15,
-    "editor.fontFamily": "monospace, Menlo, Monaco, 'Courier New'",
-    "editor.tabCompletion": "on",
-    "editor.tabSize": 2,
+  "editor.fontSize": 14,
+  "editor.fontFamily": "Menlo, monospace, source-code-pro, NanumGothicCoding , monospace, Menlo, 'Courier New'    ",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 0,
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": true,
+  "terminal.integrated.rendererType": "dom",
+  "explorer.confirmDragAndDrop": false,
+  "workbench.list.horizontalScrolling": true,
+  "editor.wordWrap": "on"
 }
 ```
 
@@ -58,25 +73,54 @@ VSCode를 좀더 효율적으로 사용할 수 있도록 도와주는 다양한 
 ```js
 // Place your key bindings in this file to override the defaults
 [
-    {
-       "key": "cmd+shift+u",
-       "command": "editor.action.transformToUppercase",
-       "when": "editorTextFocus"
-    },
-    {
-       "key": "cmd+shift+l",
-       "command": "editor.action.transformToLowercase",
-       "when": "editorTextFocus"
-    },
-    {
-      "key": "ctrl+`",
-      "command": "workbench.action.focusActiveEditorGroup",
-      "when": "terminalFocus"
+   {
+     "key": "cmd+shift+u",
+     "command": "editor.action.transformToUppercase",
+     "when": "editorTextFocus"
    },
    {
-      "key": "shift+cmd+c",
-      "command": "workbench.action.files.copyPathOfActiveFile"
+     "key": "cmd+shift+l",
+     "command": "editor.action.transformToLowercase",
+     "when": "editorTextFocus"
    },
+   {
+     "key": "ctrl+`",
+     "command": "workbench.action.focusActiveEditorGroup",
+     "when": "terminalFocus"
+   },
+   {
+     "key": "shift+cmd+c",
+     "command": "workbench.action.files.copyPathOfActiveFile"
+   },
+   { 
+      "key": "cmd+\\", 
+      "command": "workbench.action.splitEditor" 
+   },
+   {
+     "key": "shift+cmd+\\",
+     "command": "workbench.action.splitEditorOrthogonal"
+   },
+   { 
+      "key": "alt+cmd+[", 
+     "command": "editor.fold", 
+     "when": "editorTextFocus" 
+   },
+   {
+     "key": "ctrl+alt+cmd+[",
+     "command": "editor.foldAll",
+     "when": "editorTextFocus"
+   },
+ 
+   { 
+    "key": "alt+cmd+]", 
+     "command": "editor.unfold", 
+     "when": "editorTextFocus" 
+   },
+   {
+     "key": "ctrl+alt+cmd+]",
+     "command": "editor.unfoldAll",
+     "when": "editorTextFocus"
+   }
 ]
 ```
 
