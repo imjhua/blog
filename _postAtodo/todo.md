@@ -4,10 +4,26 @@ title: TODO
 categories: TODO
 ---
 
+### js 스터디
+https://learn.freecodecamp.org/front-end-libraries/sass/store-data-with-sass-variables/ 
+
+
+
+### js 인터뷰
+http://www.bloter.net/archives/245529
+https://github.com/ParkSB/javascript-style-guide
+https://github.com/airbnb/javascript/tree/master/react/
+https://github.com/FEDevelopers/tech.description/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-this%EC%97%90-%EB%8C%80%ED%95%9C-%EC%84%A4%EB%AA%85-2#71-%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C%EC%9D%98-this
+
+
 ### 그외
 #### 태국어 골프정리
 #### 올림포스 12신
 #### 요가..
+
+
+### 클래스 로더
+https://javacan.tistory.com/entry/1
 
 
 ### 공유키 비밀키 암호화
@@ -28,7 +44,51 @@ https://brunch.co.kr/@plusx/6
 
 ### nextjs
 https://velog.io/@rjs1197/NextJS-%EC%9E%85%EB%AC%B8%ED%95%98%EA%B8%B0
+
+### CSR & SSR
 https://velog.io/@rjs1197/SSR%EA%B3%BC-CSR%EC%9D%98-%EC%B0%A8%EC%9D%B4%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90
+
+
+https://velog.io/@zansol/%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0-%EC%84%9C%EB%B2%84%EC%82%AC%EC%9D%B4%EB%93%9C%EB%A0%8C%EB%8D%94%EB%A7%81SSR-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8%EC%82%AC%EC%9D%B4%EB%93%9C%EB%A0%8C%EB%8D%94%EB%A7%81CSR
+
+ 
+
+ 
+
+클라이언트 사이드렌더링.Simgle Page Application
+
+ 
+
+SPA는 최초 한 번 페이지 전체를 로딩한 후 데이터만 변경하여 사용할 수 잇는 애플리케이션.
+
+ 
+
+ 
+
+SPA 는 클라이언트사이드 렌더링 방식. 기본적으로 페이지 로드가 없고 모든 페이지는 단순히 HTML5 History에 의해 렌더링 된다.
+
+그래서 언제 새로운 데이터를 불러와야 할지 스스로 정해서 구현해야 한다.
+
+ 
+
+전통적인 웹방식 SSR 은 이 SPA 방식에 비해 성능 문제 이슈가 있었다.
+
+전통적인 웹 대부분은 서버사이드 렌더링 방식인데. 브라우저에 나타나는 형태 그대로를 HTML로 만들어 제공하고
+
+브라우저는 HTML을 표시하는 방식이었다.
+
+ 
+
+웹에서 제공되는 정보가 정말 많기 때문에 전통적인 방식은 성능 문제에 이슈를 낳았다. 요청시마다 새로고침이 일어나며 페이지를 로딩할때마다 서버로부터 리소스를 전달받아 해석하고 화면에 렌더링 하는 방식이기 때문에.
+
+ 
+
+이것은! 사용자와 인터랙션이 많은 요즘 웹앱에게 충분하지 않는 방법일 수 있다. 
+
+렌더링을 서버쪽에서 하는 것은 그만큼 렌더링을 위한 서버자원이 사용되는 것이고 불필요한 트래픽도 낭비되는것.
+
+ 
+
 
 ### 덕타이핑
 https://ko.wikipedia.org/wiki/%EB%8D%95_%ED%83%80%EC%9D%B4%ED%95%91
@@ -45,11 +105,24 @@ https://brightparagon.wordpress.com/2018/06/27/webpack-v4-development-configurat
 
 https://perfectacle.github.io/2016/11/14/Webpack-devtool-option-Performance/
 
+https://zuminternet.github.io/ZUM-Webpack-dev-proxy-part1/
 
-### js 인터뷰
-http://www.bloter.net/archives/245529
-https://github.com/ParkSB/javascript-style-guide
-https://github.com/airbnb/javascript/tree/master/react/
+
+
+### useMemo
+https://medium.com/@iamssen/react-16-7-useeffect-usememo-usecallback-%EC%9D%98-second-parameter-inputs-775298f2d291 
+
+ 
+
+https://nikgrozev.com/2019/04/07/reacts-usecallback-and-usememo-hooks-by-example/ 
+
+ 
+
+https://www.codebeast.dev/usestate-vs-useref-re-render-or-not/ 
+
+ 
+
+https://www.codebeast.dev/react-memoize-hooks-useRef-useCallback-useMemo/ 
 
 
 ### 네이티브앱에서 웹앱으로: 모바일 웹앱의 현주소

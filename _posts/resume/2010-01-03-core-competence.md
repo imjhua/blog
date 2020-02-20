@@ -16,3 +16,25 @@ categories: Resume
 - 외국계 기업에서의 업무경력을 통한 글로벌 프로젝트 경험
 - Git, Jira, Wiki 등 협업 툴 사용에 익숙
 - 코드 리뷰 경험
+
+
+### 클라이언트 사이드 관심사
+Client-Side Concerns 
+
+Package Management 
+Mock API framework 
+Bundling 
+Component libraries 
+Minification 
+Development 
+Webserver 
+Sourcemaps 
+Linting 
+Transpiling 
+Cache Busting 
+Dynamic HTML Generation 
+Bundle Splitting 
+Centralized HTTP 
+Automated testing 
+Module format 
+Automated build 
