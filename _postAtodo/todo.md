@@ -15,6 +15,22 @@ https://github.com/ParkSB/javascript-style-guide
 https://github.com/airbnb/javascript/tree/master/react/
 https://github.com/FEDevelopers/tech.description/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-this%EC%97%90-%EB%8C%80%ED%95%9C-%EC%84%A4%EB%AA%85-2#71-%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C%EC%9D%98-this
 
+### axios & fectch
+https://hoorooroob.tistory.com/entry/React-React-Naive-TIPS-axios-%EC%99%80-fetch-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C
+
+
+### mvc1 2 차이
+https://lalwr.blogspot.com/2016/02/mvc1-mvc2-spirng-mvc.html
+
+### 아토믹 디자인
+https://velog.io/@marvin-j/%EC%95%84%ED%86%A0%EB%AF%B9-%EB%94%94%EC%9E%90%EC%9D%B8
+https://www.smoh.kr/276
+
+리엑트 파일 구조
+https://ko.reactjs.org/docs/faq-structure.html
+
+완전히 난관에 봉착해있다면, 모든 파일을 하나의 폴더에 보관하는 방법으로 우선 시작해보세요. 결국에는 프로젝트가 충분히 커져서 일부 파일을 나머지로부터 분리해 보관하기 원하게 될 것입니다. 그 시점까지 어떤 파일들을 가장 자주 묶어서 수정하는지 충분히 알 수 있게 될 것입니다. 일반적으로, 자주 함께 변경되는 파일들을 같이 보관하는 것이 좋은 방법입니다. 이러한 원칙을 “코로케이션(colocation)“이라고 부릅니다.
+
 
 ### 그외
 #### 태국어 골프정리
