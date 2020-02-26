@@ -4,9 +4,6 @@ title: 기술 면접 질문
 categories: Resume
 ---
 
-## js 알고리즘
-http://www.koistudy.net/?mid=prob_page&NO=1890
-
 
 ## 세션 스토리지 쿠키 차이
 웹사이 정보를 저장하기위한 클라이언트 로컬 저장공간. 각각의 목적과 차이!
@@ -72,7 +69,7 @@ RESTful은 리소스와 행위를 명시적이고 직관적으로 분리합니�
 - 행위(Verb): HTTP METHOD
 - 표현(Representations): 상태 또는 정보 전달 JSON, XML, TEXT, RSS 등 
 
-PUT과 PATHC
+### PUT과 PATHC
 - PUT: 자원의 전체 교체, 자원내 모든 필드 필요. 만약 전체가 아닌 일부만 전달할 경우, 전달한 필드외 모두 null or 초기값 처리되니 주의
 - PATCH: 자원의 부분 교체, 자원내 일부 필드 필요
 
