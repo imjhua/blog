@@ -4,23 +4,8 @@ title: TODO
 categories: TODO
 ---
 
-### js 스터디
-https://learn.freecodecamp.org/front-end-libraries/sass/store-data-with-sass-variables/ 
 
 
-
-### js 인터뷰
-http://www.bloter.net/archives/245529
-https://github.com/ParkSB/javascript-style-guide
-https://github.com/airbnb/javascript/tree/master/react/
-https://github.com/FEDevelopers/tech.description/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-this%EC%97%90-%EB%8C%80%ED%95%9C-%EC%84%A4%EB%AA%85-2#71-%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C%EC%9D%98-this
-
-### axios & fectch
-https://hoorooroob.tistory.com/entry/React-React-Naive-TIPS-axios-%EC%99%80-fetch-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C
-
-
-### mvc1 2 차이
-https://lalwr.blogspot.com/2016/02/mvc1-mvc2-spirng-mvc.html
 
 ### 아토믹 디자인
 https://velog.io/@marvin-j/%EC%95%84%ED%86%A0%EB%AF%B9-%EB%94%94%EC%9E%90%EC%9D%B8

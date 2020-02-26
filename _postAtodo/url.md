@@ -1,3 +1,19 @@
+## 코딩 공부
+https://www.freecodecamp.org/learn
+
+
+## js 면접
+### js 기본 개념
+https://github.com/FEDevelopers/tech.description/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-this%EC%97%90-%EB%8C%80%ED%95%9C-%EC%84%A4%EB%AA%85-2
+
+### js 스타일 가이드
+https://github.com/ParkSB/javascript-style-guide
+
+
+### React 스타일 가이드
+https://github.com/airbnb/javascript/tree/master/react/
+
+
 
 https://velog.io/@kyusung/React-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0
 
