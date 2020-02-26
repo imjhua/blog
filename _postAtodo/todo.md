@@ -11,10 +11,6 @@ categories: TODO
 #### 요가..
 
 
-### 클래스 로더
-https://javacan.tistory.com/entry/1
-
-
 ### 공유키 비밀키 암호화
 헬만?
 
