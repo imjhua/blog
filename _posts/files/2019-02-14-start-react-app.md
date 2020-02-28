@@ -147,7 +147,7 @@ if(module.hot){module.hot.accept();}
 그러나, 이 모듈은 리로딩 될때 로컬 스테이트를 유지 하지 않고 날려버린다는 문제가 존재합니다. (아주 치명적입니다)
 
 ### react-hot-loader로 대체 하기
-실시간 react 컴포넌트를 변경하기 위해 webpack.config 에 reate-hot-loader 모듈을 추가하여 사용하겠습니다. 적용 후에 서버를 재 시작 하여 확인 합니다. https://github.com/gaearon/react-hot-loader 를 참고 할 수 있습니다. 이떄 주의점은 리로딩시 컴포넌트의 construcor는 변경되지 않으므로 직접 새로고침 하여야 합니다.
+실시간 react 컴포넌트를 변경하기 위해 webpack.config 에 reate-hot-loader 모듈을 추가하여 사용하겠습니다. 적용 후에 서버를 재 시작 하여 확인 합니다. https://github.com/gaearon/react-hot-loader 를 참고 할 수 있습니다. 이때 주의점은 리로딩시 컴포넌트의 construcor는 변경되지 않으므로 직접 새로고침 하여야 합니다.
 
 ```js
 

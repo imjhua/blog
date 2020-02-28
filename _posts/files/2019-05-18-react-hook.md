@@ -243,7 +243,7 @@ const Info = () => {
 
 ```
 
-주의해야 할점은 useEffect는 componentDidMount + componentDidUpdate + componentWillUnmount가 아니라는 점 입니다. useEffect 훅을 사용하기 전에 고려해야 하는 점이 있습니다. 이 훅은 조금 특별하고 다르고 멋지기 때문인데, 클래스 컴포넌트에서 훅(hook)으로 변경할 때에 componentDidMount, componentDidUpdate, componentWillUnmount를 하나 이상의 useEffect 콜백 함수로 바꾸게 될 겁니다. (컴포넌트의 수명주기에 포함된 컴포넌트의 관심사에 따라 다릅니다.)  이 코드는 리팩토링이 아닙니다. 리팩토링은 사용자가 볼 수 있는 변화를 만들지 않고 내부 구현을 바꾸는 것을 의미 합니다. 코드 리팩토링은 존재하는 컴퓨터 코드를 구조를 조정하는 과정으로 외부 동작을 바꾸지 않고 팩토링 즉, 분해(decomposition)를 수행하는 일을 의미하기 떄문입니다.
+주의해야 할점은 useEffect는 componentDidMount + componentDidUpdate + componentWillUnmount가 아니라는 점 입니다. useEffect 훅을 사용하기 전에 고려해야 하는 점이 있습니다. 이 훅은 조금 특별하고 다르고 멋지기 때문인데, 클래스 컴포넌트에서 훅(hook)으로 변경할 때에 componentDidMount, componentDidUpdate, componentWillUnmount를 하나 이상의 useEffect 콜백 함수로 바꾸게 될 겁니다. (컴포넌트의 수명주기에 포함된 컴포넌트의 관심사에 따라 다릅니다.)  이 코드는 리팩토링이 아닙니다. 리팩토링은 사용자가 볼 수 있는 변화를 만들지 않고 내부 구현을 바꾸는 것을 의미 합니다. 코드 리팩토링은 존재하는 컴퓨터 코드를 구조를 조정하는 과정으로 외부 동작을 바꾸지 않고 팩토링 즉, 분해(decomposition)를 수행하는 일을 의미하기 때문입니다.
 
 
 #### 마운트 될 때만 실행하고 싶을 때(가장 처음 렌더링 될 때만 실행)

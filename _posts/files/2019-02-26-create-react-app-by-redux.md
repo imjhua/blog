@@ -26,7 +26,7 @@ javaScript나 html에서의 보일러플레이트라고 하면 보통 크로스 
 $ npm install -g create-react-app
 ```
 
-바벨(babel)이나 웹팩(webpack) 설정을 자동으로 해줍니다. 설정을 오버라이드 할때는 직접 설정파일을 추가 하여야 하는데 이떄에는 eject 모듈을 이용히여 추가 하는 것을 권장하며 서버 포트는 기본으로 3000입니다.
+바벨(babel)이나 웹팩(webpack) 설정을 자동으로 해줍니다. 설정을 오버라이드 할때는 직접 설정파일을 추가 하여야 하는데 이때에는 eject 모듈을 이용히여 추가 하는 것을 권장하며 서버 포트는 기본으로 3000입니다.
 ```sh
 $ create-react-app [PROJECT_NAME]
 ```

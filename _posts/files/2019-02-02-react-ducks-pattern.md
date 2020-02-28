@@ -55,7 +55,7 @@ export function removeWidget(widget) {
 
 
 ### 파일 구조
-이전에 관리하던 types, actions, reducers 대신 이들을 하나로 합쳐 modules 라고 정의 합니다. 모듈을 불러 올떄는 다음과 같이 사용합니다.
+이전에 관리하던 types, actions, reducers 대신 이들을 하나로 합쳐 modules 라고 정의 합니다. 모듈을 불러 올때는 다음과 같이 사용합니다.
 
 ```js
 import reducers from '@modules';
