@@ -11,13 +11,6 @@ categories: TODO
 #### 요가..
 
 
-### 공유키 비밀키 암호화
-헬만?
-
-
-### http 1/1.2 차이
-https://medium.com/@shlee1353/http1-1-vs-http2-0-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0-5727b7499b78
-
 ### 해상도에 따른 디자인
 http://styleguide.co.kr/content/resolution-grid/ratio-design.php
 http://suiux.com/gui_specification/
