@@ -4,6 +4,10 @@ title: 네트워크 OSI 7계층과 TCP/IP 모델
 categories: Etc
 ---
 
+OSI 7계층과 TCP/IP 모델을 정리해봅니다.
+
+## 간단 표
+
 | OSI 계층 | TCP/IP 모델 |
 | Application <br/> Presentation <br/> Setting | Application |  
 | Transport | Host-to-Host Transport |  

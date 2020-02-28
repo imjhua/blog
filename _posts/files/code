@@ -143,3 +143,80 @@ length:2
 
 
 }
+
+
+
+---
+
+
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+const INSERT_VALUE = 5;
+
+function solution(N) {
+    // write your code in JavaScript (Node.js 8.9.4)
+
+let result = [];
+
+let Nstr = N.toString();
+let arr = Nstr.split('');
+
+/*
+if(N<0){
+let [_, ...x] = arr;
+arr = x.map(v=>'-'+v);
+}
+*/
+
+let isInsert = false;
+arr.forEach((el, i)=>{
+if(!isInsert){
+
+if(N<0 && parseInt(el)>INSERT_VALUE){
+result.push(INSERT_VALUE.toString());
+isInsert = true;
+} 
+
+if(N>=0 && parseInt(el)<INSERT_VALUE){
+result.push(INSERT_VALUE.toString());
+isInsert = true;
+} 
+}
+
+result.push(el);
+});
+if(!isInsert){
+result.push(INSERT_VALUE.toString());
+isInsert = true;
+}
+
+
+return parseInt(result.join(''));
+}
+
+
+
+---
+
+
+const MULTIPLICATION_NUMBER = 17;
+function solution(A) {
+    // write your code in JavaScript (Node.js 8.9.4)
+
+let numberValue = parseInt(A.reverse().join(''));
+console.log(numberValue);
+
+let multi = MULTIPLICATION_NUMBER * numberValue;
+console.log(multi);
+
+
+let reuslt = 0;
+multi.toString().split('').map((v, i)=>{
+
+reuslt=+v;
+
+}); 
+return result;
+}
+}
