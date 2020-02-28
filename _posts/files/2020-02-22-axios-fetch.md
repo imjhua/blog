@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Axiot & Fetch
+title: Axiox & Fetch
 categories: Etc
 ---
 
