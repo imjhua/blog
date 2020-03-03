@@ -31,7 +31,12 @@ body {
   width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.7;
   margin: 1em 0 15px;
   padding: 0;
@@ -41,7 +46,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-h1, h2, h3, h5 {
+h1,
+h2,
+h3,
+h5 {
   font-weight: bold;
 }
 
@@ -78,16 +86,19 @@ a {
   color: $link-color;
   text-decoration: none;
   cursor: pointer;
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: $link-color;
   }
 }
 
-em, i {
+em,
+i {
   font-style: italic;
 }
 
-strong, b {
+strong,
+b {
   font-weight: bold;
 }
 
@@ -110,7 +121,8 @@ hr {
 // Yeun's list style
 // https://gist.github.com/yeun/d824fc7b04b756508f4b0143535cec30
 
-ol, ul {
+ol,
+ul {
   > li {
     &:before {
       position: absolute;
@@ -146,7 +158,8 @@ ol {
   }
 }
 
-ol, ul {
+ol,
+ul {
   > li {
     margin: 0 auto $li-bottom-space $li-bullets-width;
     line-height: $li-line-height;
@@ -163,7 +176,8 @@ li {
   > ul {
     > li {
       font-size: ($li-child-size-ratio * 1em);
-      margin: 0 auto ($li-bottom-space * $li-child-size-ratio) ($li-bullets-width * $li-child-size-ratio);
+      margin: 0 auto ($li-bottom-space * $li-child-size-ratio)
+        ($li-bullets-width * $li-child-size-ratio);
     }
   }
 }
@@ -201,8 +215,9 @@ table {
   border-collapse: collapse;
 }
 
-td, th {
-  padding: .25rem .5rem;
+td,
+th {
+  padding: 0.25rem 0.5rem;
   border: 1px solid $table-border-color;
 }
 
@@ -216,7 +231,7 @@ blockquote {
   font-weight: 300;
   padding: 0 0 0 1.4rem;
   margin: 0 2rem 1rem 0;
-  border-left: .2em solid $blockquote-border-color;
+  border-left: 0.2em solid $blockquote-border-color;
 
   p {
     color: $blockquote-color;
@@ -281,12 +296,12 @@ img {
 // http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix:before,
 .clearfix:after {
-    content: " ";
-    display: table;
+  content: " ";
+  display: table;
 }
 
 .clearfix:after {
-    clear: both;
+  clear: both;
 }
 
 // Alignment
@@ -300,7 +315,7 @@ img {
 }
 
 .right {
-  text-align: right
+  text-align: right;
 }
 
 /*********************/
@@ -411,7 +426,7 @@ nav {
 
 .post {
   h1 {
-    margin-bottom: .1em;
+    margin-bottom: 0.1em;
   }
 
   .date {
@@ -427,7 +442,7 @@ nav {
     font-size: $small-font-size;
 
     li:before {
-      content: '';
+      content: "";
     }
 
     li {
@@ -436,7 +451,7 @@ nav {
 
       > a {
         margin: 3px 3px 3px 0;
-        padding: .5px 4px;
+        padding: 0.5px 4px;
         color: $tag-index-label-color;
         background-color: $tag-index-label-background-color;
         border-radius: 3px;
@@ -468,7 +483,8 @@ nav {
     width: 50%;
     a {
       color: $pagination-color;
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: $pagination-over-color;
       }
     }
@@ -480,7 +496,8 @@ nav {
     width: 50%;
     a {
       color: $pagination-color;
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: $pagination-over-color;
       }
     }
@@ -521,7 +538,7 @@ nav {
 
       span {
         float: left;
-        padding: .5px 5px;
+        padding: 0.5px 5px;
 
         &.count {
           background-color: $tag-index-count-background-color;
@@ -580,7 +597,7 @@ footer {
     em {
       font-size: 18px;
       line-height: 1.5;
-      margin-top: -.75em;
+      margin-top: -0.75em;
       position: absolute;
       text-align: center;
       top: 50%;
@@ -591,9 +608,21 @@ footer {
   }
 }
 
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
+// @import "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css";
+
+
+.highlight,
+pre.highlight,
+pre.highlight code {
+  font-family: "D2 coding", "Consolas", monospace;
+  // background: #222222;
+  // color: #aab1bf;
+}
+
 
 /* override blog css */
 @import "blog";
