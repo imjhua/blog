@@ -4,42 +4,42 @@ title: TODO
 categories: TODO
 ---
 
+리엑트 프로젝트
+
+http call lib
+Axios? fetch? fetch data?
+await?
+
+리덕스 활용 프로젝트 목록
+https://velopert.com/3365
+
+멀티 카운트
+https://velopert.com/3346
+
+리덕스 플래인 프로젝트 (생활코딩)
+https://www.youtube.com/watch?v=bn-8isrtx0k&list=PLuHgQVnccGMB-iGMgONoRPArZfjRuRNVc&index=6
 
 
-Javascript로부터 생존하기
-1) Trends
+리엑트 배열 다루기
+(튜토리얼 전체 목록) https://velopert.com/3613
+https://velopert.com/3638#comment-1968
 
-Github Trending: 새로운/떠오르는 프로젝트 확인
-FE Tech Mailings: 최신 소식 업데이트
-2) Browsers Update: Chrome / WebKit / MS Edge / Firefox
+제스트 테스트 케이스
+https://velopert.com/3587
 
-3) 다른 사람들은 어떻게 생각하나?
-
-State of JS
-Stack overflow annual developer survey
-Medium’s js posts.
-4) Conferences
-
-JSConf
-Fluent
-dotJS
-JS Kongress
-Netflix JavaScript Talks
+react-hooks 훅 프로젝트활용 promise 개선
+https://velog.io/@velopert/react-hooks
 
 
-## amd
-https://medium.com/@chullino/%EC%9B%B9%ED%8C%A9-3-4-js%EB%AA%A8%EB%93%88%ED%99%94-%EC%97%AD%EC%82%AC-%EB%8F%8C%EC%95%84%EB%B3%B4%EA%B8%B0-1-9df997f82002
 
-(1) CJS 모듈화 기법의 웹 부적합성 문제
-CJS처럼 sync한 방식으로 로드할 때의 문제는 여러 번의 http request가 필요하다, 즉 request/response에 너무 많은 시간이 걸린다는 점이었습니다. 그 문제를 해결하고자 AMD 측에서는 async하게 모듈들을 로드할 수 있는 방법을 고안했습니다.
-(2) AMD 모듈화 기법이 대세를 거스르는 문제
-하지만 그 상황에서 또 발생했던 문제는 투트랙 개발이었습니다. 개발자들이 서버사이드용 코드, 브라우저용 코드를 따로 작성해나가고 있다는 점이 문제였습니다. CJS 스타일 기반의 nodeJS로 자바스크립트기반 서버를 개발하고, npm으로 패키지를 모듈로 장착하고 싶었던 개발자들에게 AMD는 계륵이었습니다.
-(3) CJS 모듈화 기법을 쓰면서도, 퍼포먼스를 확보하려면?
-nodeJS의 모듈화기법에서 벗어나지 않으면서도 request / response에 걸리는 시간을 획기적으로 줄일 수는 없었을까요.
-입코딩을 해보자면, 여러 차례 http request 날리는 것이 문제라면 한 번 날리는 것으로 바꿔주면 됩니다. 대신, 한 번의 request를 통해서 모든 모듈들을 한꺼번에 로드하면 됩니다.
-입코딩은 참 쉽지만, 어디서부터 시작해야하는 것인지 당황스러운데요. 방금 입코딩을 실제 코드로 구현한 집단은 2012년도에 등장합니다. CJS, AMD가 탄생했던 2009년으로부터 3년 후였고, nodeJS가 등장한지 약 2년 후였고, Node Package Manager가 등장한지 약 1년 후였습니다. 바로, Browserify입니다.
+
 
 ## react
+
+지금까지는 모든 것을 해결해주는 프레임워크가 대세였지만, 앞으로는 필요한 모듈만 가져다 사용하는 시대가 올 것으로 예상된다
+
+
+재사용 가능한 UI 컴포넌트. 
 React의 가장 좋은 점은 모듈의 단위가 컴포넌트라는 것이죠. 따라서 React에서는 컴포넌트 단위로 코드를 재사용할 수 있습니다.
 
 일반적인 OOP에서는 상속이라는 기법을 통해 코드를 재사용하는데요. React에서는 상속이 굳이 필요할 만한 유즈케이스가 없다고 여기고, 상속을 지원하고 있지 않습니다. 대신 Composition, 합성을 지원하죠. 이 합성이라는 개념은 간단합니다. 컴포넌트에 다른 컴포넌트를 가져다 붙이는 거에요. 사실 그리고 children을 지원하는 컴포넌트는 합성도 지원한다고 볼 수도 있죠.
