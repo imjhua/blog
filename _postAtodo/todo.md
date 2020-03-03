@@ -4,6 +4,29 @@ title: TODO
 categories: TODO
 ---
 
+
+
+Javascript로부터 생존하기
+1) Trends
+
+Github Trending: 새로운/떠오르는 프로젝트 확인
+FE Tech Mailings: 최신 소식 업데이트
+2) Browsers Update: Chrome / WebKit / MS Edge / Firefox
+
+3) 다른 사람들은 어떻게 생각하나?
+
+State of JS
+Stack overflow annual developer survey
+Medium’s js posts.
+4) Conferences
+
+JSConf
+Fluent
+dotJS
+JS Kongress
+Netflix JavaScript Talks
+
+
 ## amd
 https://medium.com/@chullino/%EC%9B%B9%ED%8C%A9-3-4-js%EB%AA%A8%EB%93%88%ED%99%94-%EC%97%AD%EC%82%AC-%EB%8F%8C%EC%95%84%EB%B3%B4%EA%B8%B0-1-9df997f82002
 
