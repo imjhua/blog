@@ -4,6 +4,38 @@ title: TODO
 categories: TODO
 ---
 
+## 코딩테스트 개선
+- 리버스 100만자리 성능
+- 데이터 인피니티처리 
+
+
+## 인터뷰 질문
+- SEO 검색엔진 최적화: 서버사이드렌더링
+- 웹브라우저 작동원리
+- 브라우저 최적화
+- 웹서버 통신
+- 브라우저 캐시 304
+- 네트워크
+- dns
+- 스프라이트 기법 이미지배율
+- 브라우저 레이아웃 페인팅 리플로우 리드로우
+- 이벤트 루프
+- 유저에이전트
+- SEO
+- 모빅스
+
+## 인터뷰 프론트 엔드 기술
+- 리엑트 생명주기 / 퓨어컴포넌트
+https://www.vobour.com/%EB%A6%AC%EC%95%A1%ED%8A%B8-react-%EC%9D%B4%ED%95%B4-%EA%B8%B0%EC%B4%88-component-vs-purecomp
+- 클로저
+-
+
+## 인터뷰 백앤드 엔드 기술 
+- 노드란
+- 노드 타입스크립트
+- 백앤드 캐시처리
+
+
 ## 웹지엘
 
 ## JavaScript HTML5 Canvas Animated Background
