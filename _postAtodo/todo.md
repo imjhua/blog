@@ -4,6 +4,183 @@ title: TODO
 categories: TODO
 ---
 
+## 웹지엘
+
+## JavaScript HTML5 Canvas Animated Background
+keyword: javascript canvas-bg
+https://onaircode.com/javascript-html5-canvas-animated-background/
+https://codepen.io/jkiss/pen/OVEeqK
+https://codepen.io/VincentGarreau/pen/pnlso
+
+## 웹 워커
+웹 워커
+ 무거운 연산 작업 시 웹워커를 도입하여 스레드를 나눠서 렌더링을 동시에 진행할 수 있습니다.
+자바스크립트는 싱글스레드이지만, 브라우저에서 멀티 쓰레드를 사용할 수 있도록 웹워커 (html5)를 지원합니다.
+각 브라우저 엔진에 따라 쓰레드의 개수가 다르지만, 크롬은 5개, 파이어폭스는 4개로 알려져 있습니다.
+브라우저 버전별로 웹워커를 사용 유무는 다르기 때문에 웹워커를 통해 분산하여 연산 및 비동기처리를 하기 위해서는 브라우저별 처리가 필요합니다.
+internet explorer는 10 이상 지원합니다. webpack을 쓰는 프로젝트의 경우는 worker-loader(https://www.npmjs.com/package/worker-loader)플러그인을 사용할 수 있습니다.
+
+
+## offsetWidth
+??
+https://ohgyun.com/571
+https://github.com/jinyowo/JS-Calendar/wiki/**offsetHeight,-innerWidth-%EC%99%80-%EB%B9%84%EC%8A%B7%ED%95%9C-%EC%86%8D%EC%84%B1%EB%93%A4-%EC%A0%95%EB%A6%AC
+
+일반적으로 엘리먼트의 전체 크기를 알고 싶다면, `offsetWidth`와 `offsetHeight` 속성을 가져오면 된다.
+이 속성은 엘리먼트의 패딩과 보더, 스크롤바의 사이즈를 포함한 값을 리턴한다.
+
+
+clientWidth, clientHeight
+
+만약, 실제로 보여지고 있는 컨텐츠가 얼마만큼의 공간을 차지하고 있는지 확인하고 싶다면,
+`clientWidth`와 `clientHeight` 속성을 사용하는 것이 좋다.
+
+이 속성은 보더와 스크롤바의 크기를 제외한 실제 컨텐츠의 크기를 리턴한다. (패딩은 포함하고 있다)
+
+scrollWidth, scrollHeight
+
+만약, 보이는 것과 상관 없이 실제 컨텐츠 영역이 얼마만큼의 크기를 갖고 있는지 확인하고 싶다면,
+`scrollWidth`와 `scrollHeight` 속성을 확인하면 된다.
+
+이 속성은 전체 스크롤바를 사용하게 되어 숨겨진 영역까지 포함한 크기를 리턴한다.
+
+## 최적화 방안
+https://medium.com/myrealtrip-product/fe-website-perf-part2-e0c7462ef822
+
+웹사이트 성능 측정 및 최적화 Part 2. 렌더링
+
+
+사람의 눈은 1초당 60개 이상의 프레임(60 fps, 프레임당 16.7ms)으로 이뤄진 애니메이션을 볼 때 움직임이 자연스럽다고 느낍니다. 반대로 60 fps를 초과할수록 움직임이 버벅인다는걸 느끼게 됩니다.
+
+화면에 프레임을 추가하는 순서
+Javascript: 가장 먼저 Part 1의 데모와 같이 자바스크립트로 스타일을 변경하는 구문이 있는지 확인한 뒤 해당되는 DOM 요소에 CSS class 또는 inline 스타일로 반영합니다.
+Style: 현재 버전의 CSS를 어떤 DOM 요소에 적용해야 할지 계산합니다.
+Layout: 각 요소의 너비나 위치를 갱신에 화면 상에 배치합니다.
+Paint: 각 요소에 배경색, 글자 색과 같이 픽셀을 채우는 과정입니다.
+Composite: 이전 과정에서 생성된 레이어를 병합합니다.
+위 과정의 처리 시간이 16.7ms 을 초과하는 횟수가 늘어날수록 전체 렌더링 시간이 지연됩니다. 결국 앞서 나온 애니메이션 예제와 같이 여행자가 인지할만큼 반응이 느려지는 결과를 가져옵니다.
+
+애플리케이션에 많은 부담을 주는 경우 레이아웃 트리거를 완전히 피하려고 노력해야 합니다!
+
+크고 복잡한 레이아웃 및 레이아웃 스래싱 피하기 / 강제 동기식 레이아웃 레이아웃 스레싱
+https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing?hl=ko
+
+https://thisblogfor.me/web/raf_perform/
+
+### 강제 동기식 레이아웃
+
+
+자바스크립트가 실행할 때 이전 프레임의 모든 이전 레이아웃 값은 알려져 있고 쿼리에 사용할 수 있습니다. 따라서 예를 들어, 프레임 시작 시 요소('상자'라고 합시다)의 높이를 기록하려면 다음과 같은 코드를 작성할 수 있습니다.
+
+브라우저가 열심히 스타일을 계산해 위치를 정하고 있는데 스타일 정보를 조회하거나 변경하는 경우 (강제 동기식 레이아웃, Forced Synchronous Layout)
+
+자바스크립트를 실행한 후 스타일 계산을 수행한 후 에 레이아웃을 실행합니다. 하지만 자바스크립트를 사용하여 브라우저가 레이아웃을 더 일찍 수행하도록 하는 것도 가능합니다. 이를 강제 동기식 레이아웃이라고 합니다.
+
+높이를 요청하기 전에 상자의 스타일을 변경한 경우 문제가 발생할 수 있습니다.
+
+
+언제든 DOM을 수정되면, 직전 레이아웃은 효력이 없어지며(invalidated) reflow가 일어납니다. 브라우저는 일반적으로 현재작업이나 프래임이 끝날때까지 기다리지만, 현재 작업이나 프래임이 완료되기 전에 javscript를 통해 기하학적인 값(geometric value)을 묻는다면, 브라우저는 즉시 레이아웃을 reflow해야 한다. 이것을 강제 동기식 레이아웃 이라 하며, 이것이 반복됨(레이아웃 스레싱)으로서 성능 저하가 유발된다.
+
+데스크탑 브라우저에서 레이아웃 스레싱의 부작용은 심하지 않지만,
+모바일에서는 심각한 성능 저하가 있다.
+
+function logBoxHeight() {
+
+  box.classList.add('super-big');
+
+  // Gets the height of the box in pixels
+  // and logs it out.
+  console.log(box.offsetHeight);
+}
+
+이제 높이 질문에 답변하기 위해 브라우저는 먼저 스타일 변경을 적용한 후에(super-big 클래스를 추가했기 때문에), 레이아웃을 실행해야 합니다. 그래야만 정확한 높이를 반환할 수 있습니다. 이는 불필요하고 잠재적으로 비용이 많이 드는 작업입니다.
+
+이 때문에 항상 스타일 읽기를 일괄 처리하고 먼저 수행한 다음(이때 브라우저가 이전 프레임의 레이아웃 값을 사용할 수 있음) 쓰기를 수행해야 합니다.
+
+
+이때 rAF를 사용하여 DOM을 읽는 로직은 현재 프레임에서 실행하고, DOM을 수정하기 위한 로직은 rAf와 함께 사용해 다음 프레임에서 함께 실행하도록 예약하여 레이아웃 스레싱이 줄일 수 있다.(데모)
+
+이 패턴은 아주 훌륭하기 때문에, 다음과 같이 헬퍼 메서드를 만들어 사용하는 것을 제안한다.
+
+
+
+### 레이아웃 스래싱
+많은 레이아웃을 연속적으로 빠르게 실행 하면 강제 동기식 레이아웃이 더 악화됩니다. 다음 코드를 살펴봅시다.
+
+반복문과 같이 빠른 주기로 실행되는 코드에 픽셀 파이프라인을 유발하는 부분이 있는 경우 (레이아웃 스래싱, Layout Thrashing)
+이 코드는 단락 그룹을 반복 실행하고 각 단락의 너비를 “box” 요소의 너비와 일치하도록 설정합니다. 
+
+function resizeAllParagraphsToMatchBlockWidth() {
+
+  // Puts the browser into a read-write-read-write cycle.
+  for (var i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].style.width = box.offsetWidth + 'px';
+  }
+}
+
+
+
+다음으로 개선
+ 샘플을 수정하려면 값을 다시 읽은 다음 써야 합니다.
+// Read.
+var width = box.offsetWidth;
+
+function resizeAllParagraphsToMatchBlockWidth() {
+  for (var i = 0; i < paragraphs.length; i++) {
+    // Now write.
+    paragraphs[i].style.width = width + 'px';
+  }
+}
+
+
+
+---
+
+
+## position
+absolute
+
+## 지원
+엔지 / 카카오
+
+## 터치 스타트 무브? 차이
+
+## css
+transform translate willchange 
+
+트랜스폼으로 이동?
+
+## 차트 라이브러리
+
+## 지원하기
+
+## 프론트앤드 프래임
+rAF v-sync
+https://thisblogfor.me/web/raf_perform/
+
+https://medium.com/myrealtrip-product/fe-website-perf-part2-e0c7462ef822
+https://cyberx.tistory.com/38
+
+1초당 60개 이상의 프레임
+
+## 모달
+
+## 캔버스 공부
+
+## 개발
+- 타입스크립트 & 스토리북: https://velog.io/@velopert/design-system-using-typescript-and-storybook
+- 캔버스 스네이크: https://www.youtube.com/watch?v=9TcU2C1AACw&t=252s
+
+
+## 서비스 워커
+https://developer.mozilla.org/ko/docs/Web/Progressive_web_apps/%EC%86%8C%EA%B0%9C
+https://developers.google.com/web/fundamentals/primers/service-workers/
+
+## 웹앱 매니페스트
+https://web.dev/add-manifest/
+
+
+
 리엑트 프로젝트
 
 http call lib
@@ -143,17 +320,7 @@ https://kim6394.tistory.com/217
 #### 요가..
 
 
-### 해상도에 따른 디자인
-http://styleguide.co.kr/content/resolution-grid/ratio-design.php
-http://suiux.com/gui_specification/
-https://brunch.co.kr/@plusx/6
 
-### sass
-사용해보기
-
-
-### nextjs
-https://velog.io/@rjs1197/NextJS-%EC%9E%85%EB%AC%B8%ED%95%98%EA%B8%B0
 
 ### CSR & SSR
 https://velog.io/@rjs1197/SSR%EA%B3%BC-CSR%EC%9D%98-%EC%B0%A8%EC%9D%B4%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90
