@@ -24,4 +24,4 @@ Chrome은 대표적인 에버그린 브라우저이며, Firefox나 근래의 IE�
 ---
 
 해당 내용은 다음 글을 참고 하였습니다.
-- https://jins-dev.tistory.com/entry/에버그린-브라우저Evergreen-Browser란 [Jins' Dev Inside]
+- https://jins-dev.tistory.com/entry/%EC%97%90%EB%B2%84%EA%B7%B8%EB%A6%B0-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80Evergreen-Browser%EB%9E%80

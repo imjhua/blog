@@ -210,26 +210,6 @@ https://velog.io/@velopert/react-hooks
 
 
 
-
-## react
-
-지금까지는 모든 것을 해결해주는 프레임워크가 대세였지만, 앞으로는 필요한 모듈만 가져다 사용하는 시대가 올 것으로 예상된다
-
-
-재사용 가능한 UI 컴포넌트. 
-React의 가장 좋은 점은 모듈의 단위가 컴포넌트라는 것이죠. 따라서 React에서는 컴포넌트 단위로 코드를 재사용할 수 있습니다.
-
-일반적인 OOP에서는 상속이라는 기법을 통해 코드를 재사용하는데요. React에서는 상속이 굳이 필요할 만한 유즈케이스가 없다고 여기고, 상속을 지원하고 있지 않습니다. 대신 Composition, 합성을 지원하죠. 이 합성이라는 개념은 간단합니다. 컴포넌트에 다른 컴포넌트를 가져다 붙이는 거에요. 사실 그리고 children을 지원하는 컴포넌트는 합성도 지원한다고 볼 수도 있죠.
-
-
-Portal 컴포넌트는 논리적으로 하위 컴포넌트지만 시각적으로는 상위 컴포넌트여야 할 때 사용한다.
-React에서는 합성, Composition을 통해 컴포넌트를 재사용할 수 있다.
-Composition을 지원하는 컴포넌트의 경우 PureComponent를 사용하면 성능이 나쁠 수 있다.
-Composition을 지원하는 컴포넌트를 최적화 하고 싶으면 특수화를 적용한다.
-
-https://hyunseob.github.io/2019/06/02/react-component-the-right-way/
-
-
 ## Preload, Prefetch And Priorities in Chrome
 
 What is the caching behavior for <link rel=”preload”> and <link rel=”prefetch”>?
