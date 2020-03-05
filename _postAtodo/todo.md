@@ -4,37 +4,21 @@ title: TODO
 categories: TODO
 ---
 
-## 코딩테스트 개선
-- 리버스 100만자리 성능
-- 데이터 인피니티처리 
+## 다른 준비
+- amp
+https://d2.naver.com/news/8185757
+https://byline.network/2016/05/1-169/
 
 
-## 인터뷰 질문
-- SEO 검색엔진 최적화: 서버사이드렌더링
-- 웹브라우저 작동원리
-- 브라우저 최적화
-- 웹서버 통신
-- 브라우저 캐시 304
-- 네트워크
-- dns
-- 스프라이트 기법 이미지배율
-- 브라우저 레이아웃 페인팅 리플로우 리드로우
-- 이벤트 루프
-- 유저에이전트
-- SEO
-- 모빅스
+https://kakaomobility.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=23180
+https://kakaomobility.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=16131
 
-## 인터뷰 프론트 엔드 기술
-- 리엑트 생명주기 / 퓨어컴포넌트
-https://www.vobour.com/%EB%A6%AC%EC%95%A1%ED%8A%B8-react-%EC%9D%B4%ED%95%B4-%EA%B8%B0%EC%B4%88-component-vs-purecomp
-- 클로저
--
+- 메신저 pim 기능
 
-## 인터뷰 백앤드 엔드 기술 
-- 노드란
-- 노드 타입스크립트
-- 백앤드 캐시처리
 
+## rel
+https://m.blog.naver.com/PostView.nhn?blogId=zoomen1004&logNo=220693042851&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+https://linuxism.ustd.ip.or.kr/633
 
 ## 웹지엘
 
@@ -85,7 +69,7 @@ https://medium.com/myrealtrip-product/fe-website-perf-part2-e0c7462ef822
 사람의 눈은 1초당 60개 이상의 프레임(60 fps, 프레임당 16.7ms)으로 이뤄진 애니메이션을 볼 때 움직임이 자연스럽다고 느낍니다. 반대로 60 fps를 초과할수록 움직임이 버벅인다는걸 느끼게 됩니다.
 
 화면에 프레임을 추가하는 순서
-Javascript: 가장 먼저 Part 1의 데모와 같이 자바스크립트로 스타일을 변경하는 구문이 있는지 확인한 뒤 해당되는 DOM 요소에 CSS class 또는 inline 스타일로 반영합니다.
+자바스크립트로 스타일을 변경하는 구문이 있는지 확인한 뒤 해당되는 DOM 요소에 CSS class 또는 inline 스타일로 반영합니다.
 Style: 현재 버전의 CSS를 어떤 DOM 요소에 적용해야 할지 계산합니다.
 Layout: 각 요소의 너비나 위치를 갱신에 화면 상에 배치합니다.
 Paint: 각 요소에 배경색, 글자 색과 같이 픽셀을 채우는 과정입니다.
@@ -99,70 +83,11 @@ https://developers.google.com/web/fundamentals/performance/rendering/avoid-large
 
 https://thisblogfor.me/web/raf_perform/
 
-### 강제 동기식 레이아웃
-
-
-자바스크립트가 실행할 때 이전 프레임의 모든 이전 레이아웃 값은 알려져 있고 쿼리에 사용할 수 있습니다. 따라서 예를 들어, 프레임 시작 시 요소('상자'라고 합시다)의 높이를 기록하려면 다음과 같은 코드를 작성할 수 있습니다.
-
-브라우저가 열심히 스타일을 계산해 위치를 정하고 있는데 스타일 정보를 조회하거나 변경하는 경우 (강제 동기식 레이아웃, Forced Synchronous Layout)
-
-자바스크립트를 실행한 후 스타일 계산을 수행한 후 에 레이아웃을 실행합니다. 하지만 자바스크립트를 사용하여 브라우저가 레이아웃을 더 일찍 수행하도록 하는 것도 가능합니다. 이를 강제 동기식 레이아웃이라고 합니다.
-
-높이를 요청하기 전에 상자의 스타일을 변경한 경우 문제가 발생할 수 있습니다.
-
-
-언제든 DOM을 수정되면, 직전 레이아웃은 효력이 없어지며(invalidated) reflow가 일어납니다. 브라우저는 일반적으로 현재작업이나 프래임이 끝날때까지 기다리지만, 현재 작업이나 프래임이 완료되기 전에 javscript를 통해 기하학적인 값(geometric value)을 묻는다면, 브라우저는 즉시 레이아웃을 reflow해야 한다. 이것을 강제 동기식 레이아웃 이라 하며, 이것이 반복됨(레이아웃 스레싱)으로서 성능 저하가 유발된다.
-
-데스크탑 브라우저에서 레이아웃 스레싱의 부작용은 심하지 않지만,
-모바일에서는 심각한 성능 저하가 있다.
-
-function logBoxHeight() {
-
-  box.classList.add('super-big');
-
-  // Gets the height of the box in pixels
-  // and logs it out.
-  console.log(box.offsetHeight);
-}
-
-이제 높이 질문에 답변하기 위해 브라우저는 먼저 스타일 변경을 적용한 후에(super-big 클래스를 추가했기 때문에), 레이아웃을 실행해야 합니다. 그래야만 정확한 높이를 반환할 수 있습니다. 이는 불필요하고 잠재적으로 비용이 많이 드는 작업입니다.
-
-이 때문에 항상 스타일 읽기를 일괄 처리하고 먼저 수행한 다음(이때 브라우저가 이전 프레임의 레이아웃 값을 사용할 수 있음) 쓰기를 수행해야 합니다.
-
 
 이때 rAF를 사용하여 DOM을 읽는 로직은 현재 프레임에서 실행하고, DOM을 수정하기 위한 로직은 rAf와 함께 사용해 다음 프레임에서 함께 실행하도록 예약하여 레이아웃 스레싱이 줄일 수 있다.(데모)
 
 이 패턴은 아주 훌륭하기 때문에, 다음과 같이 헬퍼 메서드를 만들어 사용하는 것을 제안한다.
 
-
-
-### 레이아웃 스래싱
-많은 레이아웃을 연속적으로 빠르게 실행 하면 강제 동기식 레이아웃이 더 악화됩니다. 다음 코드를 살펴봅시다.
-
-반복문과 같이 빠른 주기로 실행되는 코드에 픽셀 파이프라인을 유발하는 부분이 있는 경우 (레이아웃 스래싱, Layout Thrashing)
-이 코드는 단락 그룹을 반복 실행하고 각 단락의 너비를 “box” 요소의 너비와 일치하도록 설정합니다. 
-
-function resizeAllParagraphsToMatchBlockWidth() {
-
-  // Puts the browser into a read-write-read-write cycle.
-  for (var i = 0; i < paragraphs.length; i++) {
-    paragraphs[i].style.width = box.offsetWidth + 'px';
-  }
-}
-
-
-
-다음으로 개선
- 샘플을 수정하려면 값을 다시 읽은 다음 써야 합니다.
-// Read.
-var width = box.offsetWidth;
-
-function resizeAllParagraphsToMatchBlockWidth() {
-  for (var i = 0; i < paragraphs.length; i++) {
-    // Now write.
-    paragraphs[i].style.width = width + 'px';
-  }
-}
 
 
 
