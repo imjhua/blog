@@ -89,6 +89,8 @@ background background-image background-position background-repeat background-siz
 border-radius border-style box-shadow color line-style
 outline outline-color outline-style outline-width text-decoration
 visibility ....
+
+
 또한 Reflow Repaint가 일어나지 않는 transform, opacitiy와 같은 속성도 있습니다. 따라서 left, right, width, height 보다 transform을, visibility/display 보다 opacitiy를 사용하는 것이 성능 개선에 도움이 됩니다.
 
 #### 영향을 주는 노드 줄이기

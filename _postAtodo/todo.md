@@ -4,6 +4,23 @@ title: TODO
 categories: TODO
 ---
 
+## will-change
+애니메이션 성능 향상시키기
+https://riptutorial.com/ko/css/example/1930/-will-change--%EC%86%8D%EC%84%B1%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EC%84%B1%EB%8A%A5-%ED%96%A5%EC%83%81%EC%8B%9C%ED%82%A4%EA%B8%B0
+
+## transition
+?? GPU가속을 사용합니다.
+
+
+
+## vsync
+화면의 디스플레이 주기 tick
+프레임 버퍼에 있는 내용을 어떤 주기로 가져올거냐 fetch
+
+## 크롤링
+??
+
+
 ## 다른 준비
 - amp
 https://d2.naver.com/news/8185757
