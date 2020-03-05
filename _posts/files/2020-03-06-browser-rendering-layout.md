@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 브라우저 Reflow & Repaint
+title: 브라우저 렌더링시의 Layout
 categories: Web
 ---
 

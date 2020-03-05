@@ -91,7 +91,6 @@ outline outline-color outline-style outline-width text-decoration
 visibility ....
 또한 Reflow Repaint가 일어나지 않는 transform, opacitiy와 같은 속성도 있습니다. 따라서 left, right, width, height 보다 transform을, visibility/display 보다 opacitiy를 사용하는 것이 성능 개선에 도움이 됩니다.
 
-
 #### 영향을 주는 노드 줄이기
 
 Javascript + Css를 조합하여 애니메이션이 많거나 레이아웃 변화가 많은 요소의 경우 position을 absolute 또는 fixed를 사용하여 영향을 받는 주변 노드들을 줄일 수 있습니다. fixed와 같이 영향을 받는 노드가 전혀 없는 경우 reflow과정이 전혀 필요가 없어지기 때문에 Repaint 연산비용만 들게 됩니다.
@@ -102,9 +101,9 @@ Javascript + Css를 조합하여 애니메이션이 많거나 레이아웃 변�
 
 단순히 생각하면 0.1초에 1px씩 이동하는 요소보다 3px씩 이동하는 요소가 Reflow, Repaint 연산비용이 3배가 줄어든다고 볼 수 있습니다. 따라서 부드러운 효과를 조금 줄여 성능을 개선할 수 있습니다.
 
+#### cssText 및 클래스를 활용해 Reflow or Repaint 최소화.
 
-
-
+DOM과 스타일 변경을 하나로 묶어 리플로우 수행을 최소화 한다.
 
 ## 브라우저 렌더링 과정
 
@@ -143,8 +142,6 @@ Javascript + Css를 조합하여 애니메이션이 많거나 레이아웃 변�
 
 - 루트 렌더러의 위치는 0,0이고 치수는 브라우저 윈도우에서 보이는 부분의 크기(뷰포트)이다.
 - 레이아웃 시작은 각 노드에 화면에 표시되어야 하는 정확한 좌표를 전달하는 것을 의미한다.
-
-
 
 ---
 

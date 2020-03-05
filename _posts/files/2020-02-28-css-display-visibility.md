@@ -30,7 +30,7 @@ display 속성에는 inline, block, none가 있습니다. display는 요소의 �
 
 ## visibility 속성
 
-visibility 속성엔느 visible, hidden, collapse가 있습니다. visibility 속성은, 어떤 요소를 보이게 할지 숨길지를 결정합니다.  요소가 보이지 않게 하는 경우에도 여전히 투명하게 공간을 차지 합니다. 이 속성은 상속됩니다.
+visibility 속성엔느 visible, hidden, collapse가 있습니다. visibility 속성은, 어떤 요소를 보이게 할지 숨길지를 결정합니다. 요소가 보이지 않게 하는 경우에도 여전히 투명하게 공간을 차지 합니다. 이 속성은 상속됩니다.
 
 - visibility: visible: 기본값으로 요소가 그대로 보입니다.
 - visibility: hidden: 요소가 보이지 않지만, 여전히 그 공간을 차지하며 투명하게 남습니다.
