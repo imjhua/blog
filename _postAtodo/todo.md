@@ -4,6 +4,31 @@ title: TODO
 categories: TODO
 ---
 
+## 웹서버통신
+https://ho1234c.github.io/2016/09/12/2016-09-12-until_webpage_load/index.html
+https://yoonjaepark.github.io/2019-01-01/how-to-request-browser
+
+https://velog.io/@onikss793/%EC%84%9C%EB%B2%84-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%9B%B9-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80
+
+## 웹서버 캐시
+http res 304?
+https://developer.mozilla.org/ko/docs/Web/HTTP/Conditional_requests
+
+리소스가 변경되지 않았다면, 서버는 304 Not Modified 응답을 회신하게 되는데, 이는 캐시를 다시 신선한 것으로 만들어주며 클라이언트는 그 캐시된 리소스를 사용하게 됩니다. 비록 어떤 리소스를 소비하는 응답/요청 라운드 트립이 있다고 하더라도, 연결을 통해 다시 전체 리소스를 전송하는 것보다는 더 효율적입니다.
+
+
+https://pjh3749.tistory.com/264
+https://www.zerocho.com/category/HTTP/post/5b594dd3c06fa2001b89feb9
+https://goddaehee.tistory.com/171
+https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=ko
+
+
+## http tcp
+https://medium.com/@chrisjune_13837/web-http-tcp-ip-%EB%A9%94%EC%8B%9C%EC%A7%80%EB%9E%80-4b2721fe296f
+클라이언트로부터 특정 주소로 요청이 들어오면 DNS 상에서 IP주소를 받아옵니다 → HTTP 계층에서 HTTP 메시지를 작성합니다 → TCP 계층에서 HTTP 메시지를 패킷으로 분해합니다. → IP계층에서 전송위치를 확인하고 → 네트워크를 통하여 전송합니다. 그 이후는 위의 과정의 역순으로 진행하여 처리합니다.
+
+https://asfirstalways.tistory.com/85
+
 ## will-change
 애니메이션 성능 향상시키기
 https://riptutorial.com/ko/css/example/1930/-will-change--%EC%86%8D%EC%84%B1%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EC%84%B1%EB%8A%A5-%ED%96%A5%EC%83%81%EC%8B%9C%ED%82%A4%EA%B8%B0
