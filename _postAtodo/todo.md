@@ -4,8 +4,44 @@ title: TODO
 categories: TODO
 ---
 
+
+## 반응형 이미지
+https://developer.mozilla.org/ko/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+
+에셋의 배율
+http://suiux.com/gui_specification/
+
+도트 퍼 인치(Dots per inch, DPI)는 인쇄와 디스플레이 해상도의 측정 단위이며, 특히 1 제곱인치 (2.54 제곱센티미터) 공간 안에 만들어진 점이나 화소의 수를 말한다.
+<p>Low density (120dpi) (0.75x): ldpi<br>
+Medium density (160dpi) (baseline) : mdpi<br>
+High density (240dpi) (1.5x) : hdpi<br>
+Extra High density (320dpi) (2x) : xhdpi<br>
+Extra Extra High density (480dpi) (3x) : xxhdpi<br>
+Extra Extra Extra High density (480dpi) (4x) : xxhdpi</p>
+
+## 크롤링
+https://www.fun-coding.org/crawl_basic2.html
+
+## mainfest json
+https://developer.mozilla.org/ko/docs/Web/Progressive_web_apps/Installable_PWAs
+
+https://ko.wikipedia.org/wiki/%EB%A7%A4%EB%8B%88%ED%8E%98%EC%8A%A4%ED%8A%B8_%ED%8C%8C%EC%9D%BC
+매니페스트 파일(manifest file)은 컴퓨팅에서 집합의 일부 또는 논리정연한 단위인 파일들의 그룹을 위한 메타데이터를 포함하는 파일이다. 예를 들어, 컴퓨터 프로그램의 파일들은 이름, 버전 번호, 라이선스, 프로그램의 구성 파일들을 가질 수 있다.
+
+
+## http 분석 요청 응답 헤더
+https://developer.mozilla.org/ko/docs/Web/HTTP/Overview
+https://goddaehee.tistory.com/169?category=281064
+
+## 캐시
+https://goddaehee.tistory.com/171
+https://hahahoho5915.tistory.com/33
+
+## 에러코드
+https://joshua1988.github.io/web-development/http-part1/
+
 ## 웹서버통신
-https://ho1234c.github.io/2016/09/12/2016-09-12-until_webpage_load/index.html
+
 https://yoonjaepark.github.io/2019-01-01/how-to-request-browser
 
 https://velog.io/@onikss793/%EC%84%9C%EB%B2%84-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%9B%B9-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80

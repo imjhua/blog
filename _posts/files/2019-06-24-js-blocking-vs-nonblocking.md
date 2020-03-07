@@ -43,8 +43,13 @@ while(!ft.isDone()) {
 
 ## 정리
 
+### 호출 및 처리 방식에서의 구분
+- Blocking/NonBlocking은 호출한 입장에서의 호출되는 함수가 바로 리턴하는지 하지않는지/하는지
+- Sync/Async는 처리되는 방식은 함수완료여부를 신경쓰는지/쓰지않는지
+
 ### 관심사의 구분 
 비슷한 동작인것만 같은 Blocking/NonBlocking 과 Synchronous/Asynchronou를 각자의 관심사로 구분할 수 있습니다.
+
 - Blocking: 호출되는 함수가 바로 리턴하지 않는다.
 - NonBlocking: 호출되는 함수는 바로 리턴한다.
 - Synchronous: 호출하는 함수는 작업 완료 여부를 신경쓴다.
@@ -55,9 +60,6 @@ while(!ft.isDone()) {
 - NonBlocking은 제어문 수준에서 지체없이 반환하는 것
 - Asynchronous는 별도의 쓰레드로 빼서 실행하고, 완료되면 호출하는 측에 알려주는 것
 
-### 호출 및 처리 방식에서의 구분
-- Blocking/NonBlocking은 호출한 입장에서의 특징
-- Sync/Async는 처리되는 방식의 특징
 
 ---
 
