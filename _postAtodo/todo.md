@@ -4,6 +4,16 @@ title: TODO
 categories: TODO
 ---
 
+## 웹워커
+https://developer.mozilla.org/ko/docs/Web/API/Web_Workers_API
+
+Web Worker는 script 실행을 메인 쓰레드가 아니라 백그라운드 쓰레드에서 실행할 수 있도록 해주는 기술 입니다. 이 기술을 통해 무거운 작업을 분리된 쓰레드에서 처리할 수 있으며, 이를 통해 메인 쓰레드(일반적으로 UI 쓰레드)는 멈춤, 속도저하 없이 동작할 수 있게 됩니다.
+
+네이티브에서 웹으로 접근
+웹에서 네이티브(하이드브리드인 경우 많이 사용됨
+
+Web Worker의 개념과 활용
+Worker는 Worker() 생성자를 통해 생성되며 지정된 Javascript 파일에 포함된 코드를 Worker 쓰레드에서 실행합니다. (Worker는 현재 Window와 분리된 DuplicatedWorkerGlobalScope라는 별도의 Global context에서 동작합니다.) Worker 쓰레드에서 어떠한 코드도 실행할 수 있지만, 몇가지 예외가 있습니다. 예를들어 Worker 내에서는 DOM을 직접 다룰 수 없습니다. 또한 Window의 기본 메서드와 속성을 사용할 수 없습니다. 보다 자세한 정보는 Functions and classes available to workers를 참조해주세요.)
 
 ## 웹서버 통신
 https://owlgwang.tistory.com/1
