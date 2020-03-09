@@ -5,13 +5,21 @@ categories: TODO
 ---
 
 
+## 웹서버 통신
+https://owlgwang.tistory.com/1
+
 ## Cache-Control Header
 https://kdevkr.github.io/archives/2018/understanding-cache-control/
 
 ## 반응형 이미지
 https://developer.mozilla.org/ko/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 
-에셋의 배율
+## ppi & dpi
+https://blank2.tistory.com/3
+
+
+
+## 에셋의 배율
 http://suiux.com/gui_specification/
 
 도트 퍼 인치(Dots per inch, DPI)는 인쇄와 디스플레이 해상도의 측정 단위이며, 특히 1 제곱인치 (2.54 제곱센티미터) 공간 안에 만들어진 점이나 화소의 수를 말한다.
