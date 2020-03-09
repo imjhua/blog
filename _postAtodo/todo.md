@@ -5,6 +5,9 @@ categories: TODO
 ---
 
 
+## Cache-Control Header
+https://kdevkr.github.io/archives/2018/understanding-cache-control/
+
 ## 반응형 이미지
 https://developer.mozilla.org/ko/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 
