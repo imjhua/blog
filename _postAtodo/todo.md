@@ -4,8 +4,24 @@ title: TODO
 categories: TODO
 ---
 
+## URLSearchParams
+
+URLSearchParams 생성자는 전체 URL을 분석하지 않습니다. 그러나, 맨 앞의 ?는 제거합니다.
+https://developer.mozilla.org/ko/docs/Web/API/URLSearchParams
+
+
+## set
+let difference = arr1.filter(x => !arr2.includes(x)); 
+
+let difference = arr1.filter(x => arr2.includes(x)); 
+https://p-iknow.netlify.com/data-structure/set
+
+읽어봐 3개
+https://www.zerocho.com/category/HTML&DOM/post/5b3ae84fb3dabd001b53b9ab
+
 ## 웹워커
 https://developer.mozilla.org/ko/docs/Web/API/Web_Workers_API
+https://medium.com/@pks2974/web-worker-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-4ec90055aa4d
 
 Web Worker는 script 실행을 메인 쓰레드가 아니라 백그라운드 쓰레드에서 실행할 수 있도록 해주는 기술 입니다. 이 기술을 통해 무거운 작업을 분리된 쓰레드에서 처리할 수 있으며, 이를 통해 메인 쓰레드(일반적으로 UI 쓰레드)는 멈춤, 속도저하 없이 동작할 수 있게 됩니다.
 
@@ -14,6 +30,19 @@ Web Worker는 script 실행을 메인 쓰레드가 아니라 백그라운드 쓰
 
 Web Worker의 개념과 활용
 Worker는 Worker() 생성자를 통해 생성되며 지정된 Javascript 파일에 포함된 코드를 Worker 쓰레드에서 실행합니다. (Worker는 현재 Window와 분리된 DuplicatedWorkerGlobalScope라는 별도의 Global context에서 동작합니다.) Worker 쓰레드에서 어떠한 코드도 실행할 수 있지만, 몇가지 예외가 있습니다. 예를들어 Worker 내에서는 DOM을 직접 다룰 수 없습니다. 또한 Window의 기본 메서드와 속성을 사용할 수 없습니다. 보다 자세한 정보는 Functions and classes available to workers를 참조해주세요.)
+
+다음과 같은 롱 타임 스크립트 작업에 웹워커는 안성맞춤일 것이다.
+
+- 매우 복잡한 수학적 계산 작업
+
+- 원격지에 있는 리소스에 대한 액세스 작업(또는 로컬 스토리지를 액세스 하는 경우)
+
+- 백그라운드에서 조용히 오랜시간 작업애햐 하는 경우
+
+- UI 쓰레드에 방해 없이 지속적으로 수행해야 하는 작업 등
+
+예제 
+https://iamawebdeveloper.tistory.com/105
 
 ## 웹서버 통신
 https://owlgwang.tistory.com/1
