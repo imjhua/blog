@@ -712,6 +712,7 @@ style는 head에, javascript는 body 최하단에 위치.
 ---
 
 ## React
+가장 중요한것은 리엑트 상태의 불변
 
 ### 생명주기
 
