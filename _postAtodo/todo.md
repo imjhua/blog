@@ -4,6 +4,14 @@ title: TODO
 categories: TODO
 ---
 
+## 최슨 브라우저 동작 및 내부
+https://d2.naver.com/helloworld/9274593
+
+## 프로세스 소통 ipc
+
+https://jhnyang.tistory.com/24
+
+
 ## URLSearchParams
 
 URLSearchParams 생성자는 전체 URL을 분석하지 않습니다. 그러나, 맨 앞의 ?는 제거합니다.

@@ -9,12 +9,12 @@ categories: Etc
 
 ## 간단 표
 
-| OSI 계층 | TCP/IP 모델 |
-| Application <br/> Presentation <br/> Setting | Application |  
-| Transport | Host-to-Host Transport |  
-| Network | Internet |
-| Data Link | Network Interface|  
-| Physical | Hardware |
+| OSI 계층 | TCP/IP 모델 | . |
+| Application <br/> Presentation <br/> Setting | Application |   |
+| Transport(TCP) | Host-to-Host Transport | 어떻게 전송? |
+| Network(IP) | Internet | |
+| Data Link | Network Interface|   |
+| Physical | Hardware | |
 
 ## OSI 7계층과 TCP/IP 모델
 
