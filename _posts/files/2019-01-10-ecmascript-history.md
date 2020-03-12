@@ -20,6 +20,7 @@ ECMA스크립트(ECMAScript, 또는 ES)는 Ecma 인터내셔널의 ECMA-262 기�
 | 7   | 2016년 6월 | ECMAScript 2016 (ES2016) |
 | 8   | 2017년 6월 | ECMAScript 2017 (ES2017) |
 | 9   | 2018년 6월 | ECMAScript 2018 (ES2018) |
+| 10   | 2019년 6월 | ECMAScript 2019 (ES2019) |
 
 ## 버전별 추가된 새로운 기능들
 
@@ -44,6 +45,7 @@ ECMA스크립트(ECMAScript, 또는 ES)는 Ecma 인터내셔널의 ECMA-262 기�
 ### ES7
 - Array.prototype.includes
 - 제곱연산 ** (Exponentiation infix operator)
+- Decorator
 
 ### ES8
 - async & await
@@ -56,6 +58,9 @@ ECMA스크립트(ECMAScript, 또는 ES)는 Ecma 인터내셔널의 ECMA-262 기�
 - 정규식의 많은 변화
 - Promise에 finally 추가: 성공 여부에 관계없이 반드시 수행되는 항목
 -  비동기 반복: 반복문에도 await 사용 가능
+
+### ES10
+- Object.fromEntries( ), trimStart( ), trimEnd(), flat(), flatMap()
 
 
 ---
