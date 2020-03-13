@@ -4,6 +4,33 @@ title: TODO
 categories: TODO
 ---
 
+## TIL / eject
+https://helloinyong.tistory.com/174
+https://medium.com/@jsh901220/create-react-app%EC%97%90%EC%84%9C-eject%EC%82%AC%EC%9A%A9%EC%95%88%ED%95%98%EA%B8%B0-customize-cra-react-app-rewired-10a83522ace0
+
+## oAuth 로그인(인증+권한)
+- https://minwan1.github.io/2018/02/24/2018-02-24-OAuth/
+- http://blog.weirdx.io/post/39955
+
+OAuth는 Open Authorization, Open Authentication 뜻하는 것으로 애플리케이션(페이스북,구글,트위터)(Service Provider)의 유저의 비밀번호를 Third party앱에 제공 없이 인증,인가를 할 수 있는 오픈 스탠다드 프로토콜이다. OAuth 인증을 통해 애플리케이션 API를 유저대신에 접근할 수 있는 권한을 얻을 수 있다. OAuth가 사용되기 전에는 외부 사이트와 인증기반의 데이터를 연동할 때 인증방식의 표준이 없었기 때문에 기존의 기본인증인 아이디와 비밀번호를 사용하였는데, 이는 보안상 취약한 구조였다. 유저의 비밀번호가 노출될 가망성이 크기 때문이다. 그렇기 때문에 이 문제를 보안하기 위해 OAuth의 인증은 API를 제공하는 서버에서 진행하고, 유저가 인증되었다는 Access Token을 발급하였다. 그 발급된 Access token으로 Third party(Consumer)애플리케이션에서는 Service Provider의 API를 안전하고 쉽게 사용할 수 있게 되었다.
+
+OpenID로 개발된 표준 인증 방식, API인증과 사용자인증에 사용된다. Oauth는 외부서비스의 인증 및 권한부여를 관리하는 범용적인 프로토콜입니다. OAuth는 인증뿐만 아니라 권한도 관리합니다. 사용자의 권한에 따라 접근할 수 있는 데이터가 다르도록 설정이 가능합니다.
+
+[그외 인증 방법]
+
+- 세션/쿠키, JWT를 이용한 인증
+- Access Token + Refresh Token을 이용한 인증
+- SNS 로그인은 간단하게 봤을 때 OAuth2.0 + 서버 인증(세션/쿠키, 토큰기반 인증)으로 구성
+
+(사용자 <-> 어플리케이션 서버) 인증 절차였던 세션/쿠키, 토큰 기반 인증 방식을 완전히 대체하는게 아니라는 점입니다. 즉 SNS 로그인 기능을 넣더라도 결국은 세션/쿠키 방식이나 토큰을 활용해 인증을 거쳐야 합니다.
+
+### Authorization Code Grant 방식을 예
+
+- Resource Owner: User, 즉 일반 사용자를 칭합니다.
+- Client: 우리가 관리하는 어플리케이션 서버(User와 혼동될 수 있는데 아닙니다!)
+- Authorization Server: 권한을 관리하는 서버입니다. Access Token, Refresh Token을 발급, 재발급 해주는 역할을 합니다.
+- Resource Server: OAuth2.0을 관리하는 서버(Google, Facebook, Naver 등) 의 자원을 관리하는 서버입니다. 주의할 점은 우리가 만드는 서버의 자원을 관리하는 곳이 아닙니다. Oauth 2.0 관리 서버의 자체 API를 의미합니다.
+
 ## 최슨 브라우저 동작 및 내부
 https://d2.naver.com/helloworld/9274593
 

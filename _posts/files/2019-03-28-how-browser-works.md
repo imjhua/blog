@@ -2,6 +2,7 @@
 layout: post
 title: 브라우저 동작 방식
 categories: Web
+categories: TODO
 ---
 
 웹페이지 성능을 개선하려면 먼저 브라우저가 웹페이지를 어떻게 처리하는지 알아야 합니다. 웹브라우저는 선택된 자원을 서버에 요청하고 화면에 표시합니다. 
