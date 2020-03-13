@@ -93,9 +93,7 @@ scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]
 
 3. URL이 문법에 맞으면 Punycode encoding을 url의 host부분에 적용한다.
 
-4. HSTS (HTTP Strict Transport Security)목록을 로드해서 확인한다. HSTS는 Web Site에 접속할 때, 강제적으로 HTTPS Protocol로만 접속하게 하는 기능입니다. 즉 HTTPS Protocol을 지원하는 Web Site 에서, 자신은 HTTPS Protocol만 사용해서 통신할 수 있음을, 접속하고자 하는 Web Browser에게 알려 주는 기능입니다. 요약하면, 보안을 강화시킬 목적으로, Web Browser에게 HTTPS Protocol만 사용하도록 강제하는 기능입니다.
-
-5. HSTS (HTTP Strict Transport Security)목록을 로드해서 확인한다. HSTS는 Web Site에 접속할 때, 강제적으로 HTTPS Protocol로만 접속하게 하는 기능입니다. 즉 HTTPS Protocol을 지원하는 Web Site 에서, 자신은 HTTPS Protocol만 사용해서 통신할 수 있음을, 접속하고자 하는 Web Browser에게 알려 주는 기능입니다. 요약하면, 보안을 강화시킬 목적으로, Web Browser에게 HTTPS Protocol만 사용하도록 강제하는 기능입니다. HSTS 기능을 사용하려면, Web Server 및 Web Browser 둘 다 기능을 지원해야 합니다. HSTS 기능을 지원하는 Web Server 를 "HSTS enabled Server" 라고 부릅니다.
+4. HSTS (HTTP Strict Transport Security)목록을 로드해서 확인한다. HSTS는 Web Site에 접속할 때, 강제적으로 HTTPS Protocol로만 접속하게 하는 기능입니다. 즉 HTTPS Protocol을 지원하는 Web Site 에서, 자신은 HTTPS Protocol만 사용해서 통신할 수 있음을, 접속하고자 하는 Web Browser에게 알려 주는 기능입니다. 요약하면, 보안을 강화시킬 목적으로, Web Browser에게 HTTPS Protocol만 사용하도록 강제하는 기능입니다. HSTS 기능을 사용하려면, Web Server 및 Web Browser 둘 다 기능을 지원해야 합니다. HSTS 기능을 지원하는 Web Server 를 "HSTS enabled Server" 라고 부릅니다.
 
 - Web Browser는 먼저 HTTP Protocol("http://" 사용)로 해당 도메인에 접속을 시도합니다.
 - 해당 도메인이 HTTPS Protocol만을 지원하는 Web Site라면, "301 Redirect" 또는 "302 Redirect" response를 보내고,
@@ -109,6 +107,9 @@ scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]
 
 6. ARP 주소결정프로토콜을 통하여 대상의 IP와 MAC address를 알아낸다.
 
+[MAC 주소(Media Access Control Address)]
+네트워크 상에서 서로를 구분하기 위하여 Device 마다 할당된 물리적인 주소를 말합니다. 네트워크 세그먼트의 데이터 링크 계층에서 통신을 위한 네트워크 인터페이스에 할당된 고유 식별자이며 네트워크 노드는 여러 개의 NIC를 가질 수 있으며, 각 NIC는 고유한 MAC 주소를 가집니다.
+
 [IP]
 
 리소스들에게 접근하기 위해서는 해당하는 리소스가 어디있는지 알아야한다. 클라이언트가 인터넷에 연결된 기기를 식별하기 위해 기기들이 가지고 있는 유일한 번호이다.
@@ -119,14 +120,13 @@ IPv4 & IPv6.
 - IPv6: 16bit씩 8부분의 128bit, 16진수표현
 
 [네트워크주소와 호스트주소]
+
 주소의 클래스별 구분과 서브넷마스크를 통해 두개의 주소를 구분한다.
 
 - 네트워크주소: 네트워크와 또 다른 네트워크를 구분
 - 호스트주소: 같은 네트워크 속에서 기기를 식별하는데 사용
 
-* 참고 Prefix
-
-Prefix 표기란 서브넷 마스크 맨 앞의 비트부터 1의 개수를 표기하는 방식을 말한다. 즉 맨 앞에 비트부터 공통 비트 개수를 표기하는 방식이다. 예를 들어 서브넷 마스크가 255.255.255.0인 경우 맨 앞의 비트부터 1이 24개가 있으므로 /24로 표기한다. (네트워크주소: 255.255.255 / 호스트주소: 0~255 이며, 이때 prefix가 24인 이유는 8비트.8비트.8비트.8비트 에서 마지막만 호스트 주소이므로 나머지 8비트.8비트.8비트는 24비트이므로)
+참고) Prefix 표기란 서브넷 마스크 맨 앞의 비트부터 1의 개수를 표기하는 방식을 말한다. 즉 맨 앞에 비트부터 공통 비트 개수를 표기하는 방식이다. 예를 들어 서브넷 마스크가 255.255.255.0인 경우 맨 앞의 비트부터 1이 24개가 있으므로 /24로 표기한다. (네트워크주소: 255.255.255 / 호스트주소: 0~255 이며, 이때 prefix가 24인 이유는 8비트.8비트.8비트.8비트 에서 마지막만 호스트 주소이므로 나머지 8비트.8비트.8비트는 24비트이므로)
 
 - 클래스 A: IP 1~126.xxx.xxx.xxx 국가이상의 큰 통신망에서 사용한다.
 - 클래스 B: IP 128~191.0~255.xxx.xxx 학교등 중대규모 통신망에서 사용한다.
@@ -166,8 +166,6 @@ TCP Socket 연결을 하여, 데이터를 전송하기 위해서 발생한다.
 | Data Link | Network Interface| |
 | Physical | Hardware | |
 
-참고) MAC 주소(Media Access Control Address)는 네트워크 상에서 서로를 구분하기 위하여 Device 마다 할당된 물리적인 주소를 말합니다. 네트워크 세그먼트의 데이터 링크 계층에서 통신을 위한 네트워크 인터페이스에 할당된 고유 식별자이며 네트워크 노드는 여러 개의 NIC를 가질 수 있으며, 각 NIC는 고유한 MAC 주소를 가집니다.
-
 네트워크에서 전달하는 데이터의 최소단위를 패킷이라고 하는데 이 패킷은 이쪽 네트워크에서 저쪽 네트워크로 날로 던지지 않는다. 패킷이 전달되기 위해서는 포장하는 과정을 거쳐야하는데 TCP는 패킷을 어떻게 포장할것인가에 대한 약속이다. 패킷은 일련의 순서로 포장되어 보내지고, 받을 때는 반대로 해석된다.
 
 - TCP/IP는 네트워크를 상호연결시켜 정보를 전송 할 수있도록하는 기능을 가진 다수의 프로토콜이 모여있는 프로토콜 집합
@@ -183,7 +181,7 @@ TCP Socket 연결을 하여, 데이터를 전송하기 위해서 발생한다.
 인터넷(또는 목적지)에 도달할 때까지 거치는 게이트웨이 개수이다. 일반적으로 네트워크에서 홉 수가 많으면(즉 게이트웨이 수가 많으면) 네트워크 부하가 발생해 전송 속도가 저하될 수 있다.
 
 [DNS]
-IP는 위에서 설명한것처럼 12개의 숫자로 이루어져 있다. 하지만 사용자들은 의미도 없는 12개의 숫자를 항상 외우고 다니지 않는다. 따라서 특정 단어(google, facebook)와 실제 IP 주소를 매핑시켜주는 시스템이 필요하고 그것이 DNS이다.
+IP는 12개의 숫자로 이루어져 있다. 하지만 사용자들은 의미도 없는 12개의 숫자를 항상 외우고 다니지 않는다. 따라서 특정 단어(google, facebook)와 실제 IP 주소를 매핑시켜주는 시스템이 필요하고 그것이 DNS이다.
 
 - 순서(역트리): 루트네임서버 -> 최상위도메인(국가명) -> 2단계네임서버
 
