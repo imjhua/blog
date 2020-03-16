@@ -3,6 +3,9 @@ layout: post
 title: TODO
 categories: TODO
 ---
+## 자바스크립트 개발자라면 알아야 할 33가지 개념
+
+https://www.google.com/search?q=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8+%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%9D%BC%EB%A9%B4+%EC%95%8C%EC%95%84%EC%95%BC+%ED%95%A0+33%EA%B0%80%EC%A7%80+%EA%B0%9C%EB%85%90&oq=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8+%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%9D%BC%EB%A9%B4+%EC%95%8C%EC%95%84%EC%95%BC+%ED%95%A0+33%EA%B0%80%EC%A7%80+%EA%B0%9C%EB%85%90&aqs=chrome..69i57j69i60l2j69i61.118j0j4&sourceid=chrome&ie=UTF-8
 
 ## 리소스 우선순위 정하기
 https://beomy.github.io/tech/browser/preload-preconnect-prefetch/
