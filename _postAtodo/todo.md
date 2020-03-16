@@ -4,6 +4,18 @@ title: TODO
 categories: TODO
 ---
 
+## 인증서 동작
+https://medium.com/@icehongssii/%EA%B9%9C%EC%B0%8D%ED%95%9C-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B0%84%EB%8B%A8%ED%95%9C-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%83%81%EC%8B%9D-4-https-%EC%99%80-ssl-%EA%B2%89%ED%95%A5%EA%B8%B0-78ff41071720
+
+https://blog.naver.com/PostView.nhn?blogId=alice_k106&logNo=221468341565&parentCategoryNo=&categoryNo=16&viewDate=&isShowPopularPosts=true&from=search
+
+## 스누핑
+https://limkydev.tistory.com/191
+
+## 리디렉션 301 & 302
+http://www.japong.com/tutorials/seo/301_redirect.html
+301과 302는 사용자가 브라우저를 통해 웹서버에 요청했을때 돌려받는 웹서버의 상태코드인데, 301은 요청한 정보가 새로운 주소로 영구적으로 옮겨갔다는 신호이고, 302는 일시적으로 옮겨갔다는 신호이다. 표면상으로는 둘 다 자동으로 페이지를 이동하게 하므로 육안으로는 구별할수 없으나 검색엔진의 크롤러는 그 차이를 알수 있고, 이 두가지가 검색엔진 최적화에 미치는 영향은 꽤 크다.
+
 ## TIL / eject
 https://helloinyong.tistory.com/174
 https://medium.com/@jsh901220/create-react-app%EC%97%90%EC%84%9C-eject%EC%82%AC%EC%9A%A9%EC%95%88%ED%95%98%EA%B8%B0-customize-cra-react-app-rewired-10a83522ace0
@@ -266,9 +278,78 @@ absolute
 ## 터치 스타트 무브? 차이
 
 ## css
+
+“브라우저에서 하나의 애니메이션 프레임을 처리한다는 것은 애니메이션 구현에 필요한 모든 계산 과정과 계산을 통해 얻어진 픽셀 자리를 업데이트 하는 것까지 포함합니다. 목표는 브라우저가 이 과정에서 할일을 최대로 줄여서 초당 60프레임 정도의 부드러운 애니메이션을 만드는 것입니다. CSS 애니메이션 구현 비용과 직접적으로 연관되어 있는 것은 재조정(reflow)와 재색칠(repaint)를 일으키지 않는 속성들입니다.”
+즉, 부드러운 애니메이션을 적용하려면 reflow와 repaint를 최소화 시켜야 합니다.
+
 transform translate willchange 
 
-트랜스폼으로 이동?
+### transform
+http://tcpschool.com/css/css3_transform_2Dtransform
+
+CSS3에서는 transform 속성을 사용하여 HTML 요소의 모양, 크기, 위치 등을 자유롭게 바꿀 수 있습니다. transform 속성은 HTML 요소에 대해 다음과 같은 동작을 제공합니다.
+
+- 해당 요소를 움직입니다.
+- 해당 요소를 회전시킵니다.
+- 해당 요소의 크기를 변경합니다.
+- 해당 요소를 기울입니다.
+- 해당 요소에 위의 네 가지 동작 중 원하는 동작들을 한 번에 적용시킵니다.
+
+CSS3에서는 transform 속성을 사용하여 2D 변형(transform)과 3D 변형(transform)을 모두 제공합니다.
+
+1. translate()
+2. rotate()
+3. scale()
+4. skew()
+5. matrix()
+
+
+rotate // 회전하기
+scale // 크기변경
+translate // 이동
+skew // 기울이기
+(matrix // a,b,c,d,x,y를 기준)
+
+###  will-change
+https://wit.nts-corp.com/2017/06/05/4571
+
+will-change는 변화가 예상되는 요소를 브라우저에게 미리 알려줍니다. 브라우저는 실제 요소가 변화되기 전에 적절하게 최적화를 할 수 있습니다. 큰 비용이 드는 변화도 최적화로 인해 페이지의 반응성을 증가시킬 수 있습니다. will-change 속성을 사용하면 해당 레이어는 GPU에 업로드 됩니다.
+
+
+
+will-change 속성은 4가지가 있습니다.
+```
+will-change: auto;
+will-change: scroll-position;
+will-change: contents;
+will-change: transform;
+will-change: top, left;
+```
+
+주의사항. 브라우저는 모든 요소에 대해 이미 최적화를 시키려고 시도하고 있습니다. will-change 속성이 사용된 요소는 최적화를 하기 위해 많은 자원을 소모하기 때문입니다. 과도한 메모리 사용과 더 복잡한 렌더링으로 성능이 더 안좋아 질 수 있습니다.
+
+#### 사용법
+브라우저에게 미리 will-change 사용을 알려주어야 합니다.
+변화가 일어날 요소에 will-change를 직접 선언하면 적용이 되지 않습니다.
+
+/* 변화할 요소와 will-change가 같이 있으므로 적용이 안 됨 */
+.box {
+    transform: rotate(180deg);
+    transition: transform 1s linear;
+    will-change: transform;
+}
+그러므로 선택자 :hover, 자바스크립트 mouseenter 등을 통하여 미리 알려주어야 합니다.
+
+/* hover를 통해서 will-change를 선언 했으므로 적용 */
+.box:hover {
+    will-change: transform;
+}
+.box {
+    transition: transform 1s linear;
+}
+.box:active {
+    transform: rotate(180deg);
+}
 
 ## 차트 라이브러리
 
