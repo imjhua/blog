@@ -17,12 +17,12 @@ react의 컴포넌트에 대해 알아봅시다. 리엑트는 간단하게 정�
 ### React v16.3 이전의 라이프 사이클 이벤트
 
 - counstructor
-- `componentWillMount`(v17 defrecated)
+- `componentWillMount`(v17 deprecated)
 - render
 - componentDidMount
-- `componentwillReceiveProps(nextProps)`(v17 defrecated)
+- `componentwillReceiveProps(nextProps)`(v17 deprecated)
 - shouldComponentUpdate(nextProps, nextState)
-- `componentWillUpdate`(v17 defrecated)
+- `componentWillUpdate`(v17 deprecated)
 - render
 - componentDidUpdate(prevProps, prevState)
 - componentWillUnmount
@@ -33,7 +33,7 @@ react의 컴포넌트에 대해 알아봅시다. 리엑트는 간단하게 정�
 
 
 ### componentWillMount
-컴포넌트가 DOM위에 만들어지기 전에 실행 됩니다. 따라서 DOM을 처리할 수 없습니다. render가 호출되기 전이기 때문에 setState를 사용해도 render가 호출하지 않습니다. (v17 defrecated에서 삭제)
+컴포넌트가 DOM위에 만들어지기 전에 실행 됩니다. 따라서 DOM을 처리할 수 없습니다. render가 호출되기 전이기 때문에 setState를 사용해도 render가 호출하지 않습니다. (v17 deprecated에서 삭제)
 
 ### render
 화면 렌더링을 담당 합니다.
@@ -42,7 +42,7 @@ react의 컴포넌트에 대해 알아봅시다. 리엑트는 간단하게 정�
 첫 렌더링 후 실행됩니다. 이 안에서 다른 js프레임웍 연동 및 setTimeout, setInterval 및 Ajax를 사용합니다.
 
 ### componentwillReceiveProps(nextProps)
-props를 받을 때 실행됩니다. props에 따라 state를 업데이트 할 때 사용하면 유용합니다. 이 안에서 setState할 수 있지만 추가적인 렌더링은 발생하지 않습니다. 컴포넌트가 처음 마운트 되는 시점에서는 호출되지 않습니다. (v17 defrecated - getDerivedStateFromProps로 대체됨)
+props를 받을 때 실행됩니다. props에 따라 state를 업데이트 할 때 사용하면 유용합니다. 이 안에서 setState할 수 있지만 추가적인 렌더링은 발생하지 않습니다. 컴포넌트가 처음 마운트 되는 시점에서는 호출되지 않습니다. (v17 deprecated - getDerivedStateFromProps로 대체됨)
 
 
 ### shouldComponentUpdate(nextProps, nextState)
@@ -51,7 +51,7 @@ props/state가 변경되었을때 리 렌더링을 할지 말지를 결정합니
 ex) return nextProps.id !== this.props.id (이때 JSON.stringify를 사용하여 여러 field를 편하게 비교 할 수 있습니다.)
 
 ### componentWillUpdate(prevProps, prevState)
-컴포넌트 업데이트 직전 실행됩니다. setState는 절대로 사용하면 안됩니다. 무한 루프에 빠질수 있습니다. (v17 defrecated - getSnapshotBeforeUpdate로 대체됨)
+컴포넌트 업데이트 직전 실행됩니다. setState는 절대로 사용하면 안됩니다. 무한 루프에 빠질수 있습니다. (v17 deprecated - getSnapshotBeforeUpdate로 대체됨)
 
 ### componentDidUpdate(prevProps, prevState)
 컴포넌트 업데이트 직후 실행됩니다. setState는 절대로 사용하면 안됩니다. 무한 루프에 빠질수 있습니다.

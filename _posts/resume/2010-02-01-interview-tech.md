@@ -12,7 +12,6 @@ https://github.com/yangshun/front-end-interview-handbook/blob/master/Translation
 
 https://d2.naver.com/helloworld/5237120
 
-
 ## 실행컨텍스트(EC: Execution Context)
 
 실행 컨텍스트는 실행 가능한 코드를 형상화하고 구분하는 추상적인 개념이지만 물리적으로는 객체의 형태를 갖는다. 전역EC와 함수별EC를 가질수 있다. 3가지 프로퍼티를 가진다.
@@ -280,9 +279,9 @@ SSL 프로토콜은 암호화 중심 프로토콜로 정착시킨 기술로 정�
 
 ## DOCTYPE선언
 
-DOCTYPE선언은 어떤 버전의 HTML문서로 작성했는지 브라우저에게 알려주는 것으로 웹브라우저가 내용을 올바르게 출력하도록 도와줍니다. DOCTYPE 선언은 HTML 태그는 아니지만, 선언된 페이지의 HTML 버전이 무엇인지를 웹 브라우저에 알려주는 역할을 하는 선언문으로, 대소문자를 구분하지 않습니다. DOCTYPE선언을 하면 표준 모드로 작동되고 선언하지 않으면 호환모드로 작동해 의도와 다르게 표시될 수 있습니다. 
+DOCTYPE선언은 어떤 버전의 HTML문서로 작성했는지 브라우저에게 알려주는 것으로 웹브라우저가 내용을 올바르게 출력하도록 도와줍니다. DOCTYPE 선언은 HTML 태그는 아니지만, 선언된 페이지의 HTML 버전이 무엇인지를 웹 브라우저에 알려주는 역할을 하는 선언문으로, 대소문자를 구분하지 않습니다. DOCTYPE선언을 하면 표준 모드로 작동되고 선언하지 않으면 호환모드로 작동해 의도와 다르게 표시될 수 있습니다.
 
-HTML 4.01에서 DOCTYPE 선언은 SGML을 기반으로 하기 때문에 문서형정의(DTD:Document Type Definition)를 참조해야 합니다. DTD는 브라우저가 콘텐츠를 정확하게 표현하도록 마크업 언어에 대한 규칙을 명시합니다. 
+HTML 4.01에서 DOCTYPE 선언은 SGML을 기반으로 하기 때문에 문서형정의(DTD:Document Type Definition)를 참조해야 합니다. DTD는 브라우저가 콘텐츠를 정확하게 표현하도록 마크업 언어에 대한 규칙을 명시합니다.
 
 참고) SGML(Standard Generalized Markup Language)? 문서용 마크업 언어를 정의하기 위한 메타 언어이다.
 
@@ -325,6 +324,7 @@ HTML 4.01에서 DOCTYPE 선언은 SGML을 기반으로 하기 때문에 문서�
 - outline
 
 [정리]
+
 - DOM 및 CSSOM 트리는 결합되어 렌더링 트리를 형성합니다.
 - 렌더링 트리에는 페이지를 렌더링하는 데 필요한 노드만 포함됩니다.
 - 레이아웃은 각 객체의 정확한 위치 및 크기를 계산합니다.
@@ -333,14 +333,14 @@ HTML 4.01에서 DOCTYPE 선언은 SGML을 기반으로 하기 때문에 문서�
 [성능 저하 최소화하기]
 
 1. 클래스 변경을 통해 스타일을 변경할 경우, 최대한 말단의 노드의 클래스를 변경한다. 최대한 말단에 있는 노드를 변경함으로써, 리플로우의 영향을 최소화한다.
-   
+
 2. 인라인 스타일을 사용하지 않는다. 스타일 속성을 통해 스타일을 설정하면, 리플로우가 발생한다. 엘리먼트의 클래스가 변경될 때 엘리먼트는 하나의 리플로우만 발생시킨다. 인라인 스타일은 HTML 이 다운로드될 때, 레이아웃에 영향을 미치면서 추가 리플로우를 발생시킨다. 코드 가독성이점 추가.
 
-3.  애니메이션이 들어간 엘리먼트는 가급적 position: fixed 또는 position: absolute로 지정하기(영향을 주는 노드 줄이기). Javascript + Css를 조합하여 애니메이션이 많거나 레이아웃 변화가 많은 요소의 경우 position을 absolute 또는 fixed를 사용하여 영향을 받는 주변 노드들을 줄일 수 있다. fixed와 같이 영향을 받는 노드가 전혀 없는 경우 reflow과정이 전혀 필요가 없어지기 때문에 Repaint 연산비용만 들게 된다. absolute 또는 fixed 위치인 엘리먼트는 다른 엘리먼트의 레이아웃에 영향을 미치지 않는다. (리플로우가 아닌 리페인트가 발생하는데, 이것은 훨씬 적은 비용이 든다.) 다른 요소에는 영향을 끼치지 않으므로 페이지 전체가 아닌 해당 요소만 reflow가 발생한다.
+3. 애니메이션이 들어간 엘리먼트는 가급적 position: fixed 또는 position: absolute로 지정하기(영향을 주는 노드 줄이기). Javascript + Css를 조합하여 애니메이션이 많거나 레이아웃 변화가 많은 요소의 경우 position을 absolute 또는 fixed를 사용하여 영향을 받는 주변 노드들을 줄일 수 있다. fixed와 같이 영향을 받는 노드가 전혀 없는 경우 reflow과정이 전혀 필요가 없어지기 때문에 Repaint 연산비용만 들게 된다. absolute 또는 fixed 위치인 엘리먼트는 다른 엘리먼트의 레이아웃에 영향을 미치지 않는다. (리플로우가 아닌 리페인트가 발생하는데, 이것은 훨씬 적은 비용이 든다.) 다른 요소에는 영향을 끼치지 않으므로 페이지 전체가 아닌 해당 요소만 reflow가 발생한다.
 
 4. 부드러운 애니메이션이 성능을 저하시킨다. 한 번에 1px 씩 엘리먼트를 이동하면 부드러워 보이지만, 성능이 떨어지는 디바이스는 말썽일 수 있다. 엘리먼트를 한 프레임당 4px 씩 이동하면 덜 부드럽게 보이겠지만, 리플로우 처리의 1/4만 필요하다.
 
-5. 레이아웃을 위한 <table> 은 피한다. <table> 은 점진적으로 렌더링되지 않고, 모두 불려지고 계산된 다음에서야 렌더링이 된다. 또한, 작은 변경만으로도 테이블의 다른 모든 노드에 대한 리플로우가 발생한다. 레이아웃 용도가 아닌 데이터 표시 용도의 <table> 을 사용하더라고, table-layout: fixed 속성을 주는 것이 좋다. table-layout: fixed 를 사용하면, 열 너비가 머리글 행 내용을 기반으로 고정되어 계산되기 때문이다. 
+5. 레이아웃을 위한 <table> 은 피한다. <table> 은 점진적으로 렌더링되지 않고, 모두 불려지고 계산된 다음에서야 렌더링이 된다. 또한, 작은 변경만으로도 테이블의 다른 모든 노드에 대한 리플로우가 발생한다. 레이아웃 용도가 아닌 데이터 표시 용도의 <table> 을 사용하더라고, table-layout: fixed 속성을 주는 것이 좋다. table-layout: fixed 를 사용하면, 열 너비가 머리글 행 내용을 기반으로 고정되어 계산되기 때문이다.
 
 6. CSS 에서 JavaScript 표현식을 사용하지 않는다. IE 와 FF 는 모두 CSS 에서 Javascript 를 실행할 수 있다. IE 에서는 표현 기법과 HTC 동작 방법이 있고, FF 에서는 XBL 을 사용하는 방법이 있다. (이 방법은 CSS 에서 Javascript 를 직접 실행하지는 않지만, 그 효과는 동일하다.) 문서가 리플로우될 때마다 JavaScript 표현식이 다시 계산된다.
 
@@ -348,7 +348,7 @@ HTML 4.01에서 DOCTYPE 선언은 SGML을 기반으로 하기 때문에 문서�
 
 8. gulp-uncss, grunt-uncss 와 같은 도구로 스타일 정의 및 파일 크기를 줄인다.
 
-9. 숨겨진 엘리먼트를 변경한다. display: none; 으로 숨겨진 엘리먼트는 변경될 때, 리페인트나 리플로우를 일으키지 않는다. 그렇기 때문에 엘리먼트를 표시하기 전에 엘리먼트를 변경한다. (display: none 속성이 설정된 노드는 화면에 어떠한 공간도 차지하지 않기 때문에 Render Tree를 만드는 과정에서 제외된다.) visibility invisible은 레이아웃 공간을 차지하기 때문에 reflow의 대상이 되지만  display none은 Layout 공간을 차지하지 않아 Render Tree에서 아예 제외된다.
+9. 숨겨진 엘리먼트를 변경한다. display: none; 으로 숨겨진 엘리먼트는 변경될 때, 리페인트나 리플로우를 일으키지 않는다. 그렇기 때문에 엘리먼트를 표시하기 전에 엘리먼트를 변경한다. (display: none 속성이 설정된 노드는 화면에 어떠한 공간도 차지하지 않기 때문에 Render Tree를 만드는 과정에서 제외된다.) visibility invisible은 레이아웃 공간을 차지하기 때문에 reflow의 대상이 되지만 display none은 Layout 공간을 차지하지 않아 Render Tree에서 아예 제외된다.
 
 10. 합성만을 발생시키는 요소 사용하기. 스타일 속성 중 position, width, height 등과 같이 기하적 변화를 유발하는 속성을 변경하면 레이아웃이 발생한다. transform을 사용한 엘리먼트는 `레이어로 분리`되기 때문에 영향받는 엘리먼트가 제한되어 레이아웃과 페인트를 줄일 수 있다. 그리고 `합성만 발생`시키기 때문에 애니메이션에서 사용 시 렌더링 속도가 향상할 수 있다. 때에 따라 하드웨어가 지원될 경우 GPU를 사용할 수 있으므로 성능이 빠르다. 예를 들어 left, top을 사용하면 모든 프레임마다 엘리먼트와 배경이 합성되어 많은 시간이 걸리므로, transform: translate()를 사용해야 한다.
 
@@ -367,16 +367,15 @@ HTML 4.01에서 DOCTYPE 선언은 SGML을 기반으로 하기 때문에 문서�
 
 Background Thread에서 스크립트를 실행하는 방법으로 UI Thread와는 별개의 Thread를 실행시켜 사용자 인터페이스(UI)를 방해하지 않고 작업을 수행할 수 있습니다.
 
-
 ## React
 
 - 단방향 데이터 플로우이다. 스테이트 관리 패턴. 스테이트가 꼬이지 않고 명료하게 나타난다.
 - 단순 뷰레이어가 아닌 새 패턴의 한 부분이다.
-- 상태가변하면 화면이 업데이트(변경)된다.
-- 화면 갱신 상태에 의존 셀렉터 필요 없음
 - React는 프레임워크가 아닌 라이브러리기 때문에 다른 프레임워크와 혼용 가능
+- 상태가 변하면 화면이 업데이트(변경)된다.
+- 화면 갱신 상태에 의존 셀렉터 필요 없음
 - 부작용(Side-Effect)없이 프로그래밍 하는 좋은 방법 중 하나는 커다란 코드를 작은 단위로 쪼개서 작성하는 것이다. (함수나 클래스를 사용하기도 하고, React에서는 컴포넌트라는 개념)
-- 컴포넌트의 역할을 분리해 각각 고유한 책임을 부여함으로서 재사용성을 높이고, 디버깅을 쉽게하는데 그 목적이 있다. 
+- 컴포넌트의 역할을 분리해 각각 고유한 책임을 부여함으로서 재사용성을 높이고, 디버깅을 쉽게하는데 그 목적이 있다.
 - Component 의 가독성이 매우 높고 간단하여 쉬운 유지보수, 간편한 UI 수정 및 재사용 용이
 - 모듈의 단위가 컴포넌트다. 컴포넌트 단위로 코드를 재사용 할 수 있다.
 - 재사용 가능한 UI 컴포넌트. 레고블럭 조립
@@ -398,16 +397,18 @@ Background Thread에서 스크립트를 실행하는 방법으로 UI Thread와�
 컴포넌트의 역할을 분리해 각각 고유한 책임을 부여함으로서 재사용성을 높이고, 디버깅을 쉽게하는데 그 목적이 있다. 컴포넌트나 state를 재활용하기 위해 HOC를 많이 사용하게 된다면 Wrapper Hell을 마주하게 된다.
 
 [Presentational 컴포넌트]
+
 보여주는데 초점을 맞춘 이 컴포넌트는 스타일 정보만을 가지며 화면을 그리는데만 집중한다. 이 컴포넌트는 보여주는데 집중하기 때문에 복잡한 비지니스 로직을 가지지 않으므로 state를 가질 필요가 없다. 따라서 함수형 컴포넌트(Functional Component)로 많이 구현을 한다.
 
 [Container 컴포넌트]
+
 비지니스 로직을 가지고 있으며, Presentational Component들을 가지고 화면을 그리는 최소한의 스타일 정보만 가지고 있다.
 
 [hook 장점]
 
-- useState라는 Hook을 사용하면 state를 재사용 할 수 있게 해줄 뿐만 아니라, 비교적 덜 무거운 함수형 컴포넌트에도 state를 사용할 수 있다. 재사용하기 쉽게 모듈화 되었고, 가독성도 훨씬 좋아진 것을 알 수 있다.
-- 컴포넌트를 개발하다보면 라이프 사이클에 중복된 로직을 사용하는 경우가 상당히 빈번하다. useEffect는 componentDidMount, componentDidUpdate, 그리고 componentWillUnmount를 합친 기능을 한다.
-- Class안에서 사용하는 this 문제해결. this는 호출패턴에 따라 달라진다. 바인딩이 필요하고 따라서 바인딩 작업 때문에 코드가 장황해진다.
+- useState라는 Hook을 사용하면 `state를 재사용` 할 수 있게 해줄 뿐만 아니라, 비교적 덜 무거운 함수형 컴포넌트에도 state를 사용할 수 있다. 재사용하기 쉽게 모듈화 되었고, 가독성도 훨씬 좋아진 것을 알 수 있다.
+- 컴포넌트를 개발하다보면 라이프 사이클에 중복된 로직을 사용하는 경우가 상당히 빈번하다. useEffect는 componentDidMount, componentDidUpdate, 그리고 componentWillUnmount를 합친 기능으로 중복된 로직을 피할 수 있게 한다.
+- Class안에서 사용하는 this 문제해결. this는 호출패턴에 따라 달라진다. class컴포넌트는 바인딩이 필요하고 따라서 바인딩 작업 때문에 코드가 장황해진다.
 
 참고) 컴포넌트의 render()함수가 실행되면 DOM이 그려집니다. render에서 사용되는 this는 컴포넌트 객체를 가리키는 것이 맞습니다. 그러나! React 클래스에서의 this는 클래스가 아닌, 전역객체를 의미합니다. 무슨말인고 하니 자바스크립트에서의 this는 호출하는 문맥(context)에 의해 좌우되는데 클래스의 메소드에서 호출되는 this는 컴포넌트가 아닌 전역객체를 가리킨다는 것입니다.
 
@@ -420,12 +421,12 @@ Background Thread에서 스크립트를 실행하는 방법으로 UI Thread와�
 ### 생명주기
 
 - counstructor
-- `componentWillMount`(v17 defrecated)
+- `componentWillMount`(v17 deprecated)
 - render
 - componentDidMount
-- `componentwillReceiveProps(nextProps)`(v17 defrecated -> getDerivedStateFromProps)
+- `componentwillReceiveProps(nextProps)`(v17 deprecated -> getDerivedStateFromProps)
 - shouldComponentUpdate(nextProps, nextState)
-- `componentWillUpdate`(v17 defrecated -> getSnapshotBeforeUpdate)
+- `componentWillUpdate`(v17 deprecated -> getSnapshotBeforeUpdate)
 - render
 - componentDidUpdate(prevProps, prevState)
 - componentWillUnmount
@@ -440,7 +441,7 @@ Background Thread에서 스크립트를 실행하는 방법으로 UI Thread와�
 컴포넌트가 처음 만들어 질때 실행됩니다. 기본 state를 설정할 수 있습니다.
 
 [componentWillMount]
-컴포넌트가 DOM위에 만들어지기 전에 실행 됩니다. 따라서 DOM을 처리할 수 없습니다. render가 호출되기 전이기 때문에 setState를 사용해도 render가 호출하지 않습니다. (v17 defrecated에서 삭제)
+컴포넌트가 DOM위에 만들어지기 전에 실행 됩니다. 따라서 DOM을 처리할 수 없습니다. render가 호출되기 전이기 때문에 setState를 사용해도 render가 호출하지 않습니다. (v17 deprecated에서 삭제)
 
 [render]
 화면 렌더링을 담당 합니다.
@@ -449,7 +450,7 @@ Background Thread에서 스크립트를 실행하는 방법으로 UI Thread와�
 첫 렌더링 후 실행됩니다. 이 안에서 다른 js프레임웍 연동 및 setTimeout, setInterval 및 Ajax를 사용합니다.
 
 [componentwillReceiveProps(nextProps)]
-props를 받을 때 실행됩니다. props에 따라 state를 업데이트 할 때 사용하면 유용합니다. 이 안에서 setState할 수 있지만 추가적인 렌더링은 발생하지 않습니다. 컴포넌트가 처음 마운트 되는 시점에서는 호출되지 않습니다. (v17 defrecated - getDerivedStateFromProps로 대체됨)
+props를 받을 때 실행됩니다. props에 따라 state를 업데이트 할 때 사용하면 유용합니다. 이 안에서 setState할 수 있지만 추가적인 렌더링은 발생하지 않습니다. 컴포넌트가 처음 마운트 되는 시점에서는 호출되지 않습니다. (v17 deprecated - getDerivedStateFromProps로 대체됨)
 
 [shouldComponentUpdate(nextProps, nextState)]
 props/state가 변경되었을때 리 렌더링을 할지 말지를 결정합니다. 실제로 사용할때는 필요한 비교를 하고 값을 반환해야 합니다. 쓸데없는 렌더링을 걸러낼 수 있습니다.
@@ -461,14 +462,13 @@ props/state가 변경되었을때 리 렌더링을 할지 말지를 결정합니
 ex) return nextProps.id !== this.props.id (이때 JSON.stringify를 사용하여 여러 field를 편하게 비교 할 수 있습니다.)
 
 [componentWillUpdate(prevProps, prevState)]
-컴포넌트 업데이트 직전 실행됩니다. setState는 절대로 사용하면 안됩니다. 무한 루프에 빠질수 있습니다. (v17 defrecated - getSnapshotBeforeUpdate로 대체됨)
+컴포넌트 업데이트 직전 실행됩니다. setState는 절대로 사용하면 안됩니다. 무한 루프에 빠질수 있습니다. (v17 deprecated - getSnapshotBeforeUpdate로 대체됨)
 
 [componentDidUpdate(prevProps, prevState)]
 컴포넌트 업데이트 직후 실행됩니다. setState는 절대로 사용하면 안됩니다. 무한 루프에 빠질수 있습니다.
 
 [componentWillUnmount]
 컴포넌트가 DOM에서 사라진 후 실행됩니다. 컴포넌트 내부에서 타이머나 비동기 API를 사용하고 있을 때, 이를 제거하기에 유용합니다.
-
 
 ### React - Redux
 
@@ -555,7 +555,6 @@ component 에서 action의 상태에 따른 후 처리를 대응하기 위함.
 2. 액션의 상태 및 결과(success, response)에 대해서 후처리를 component에서 하고 싶다.
 
 ---
-
 
 ## 서버사이드렌더링
 
