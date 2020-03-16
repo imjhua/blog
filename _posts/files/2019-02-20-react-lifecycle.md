@@ -20,7 +20,7 @@ react의 컴포넌트에 대해 알아봅시다. 리엑트는 간단하게 정�
 - `componentWillMount`(v17 deprecated)
 - render
 - componentDidMount
-- `componentwillReceiveProps(nextProps)`(v17 deprecated)
+- `componentWillReceiveProps(nextProps)`(v17 deprecated)
 - shouldComponentUpdate(nextProps, nextState)
 - `componentWillUpdate`(v17 deprecated)
 - render
@@ -41,7 +41,7 @@ react의 컴포넌트에 대해 알아봅시다. 리엑트는 간단하게 정�
 ### componentDidMount
 첫 렌더링 후 실행됩니다. 이 안에서 다른 js프레임웍 연동 및 setTimeout, setInterval 및 Ajax를 사용합니다.
 
-### componentwillReceiveProps(nextProps)
+### componentWillReceiveProps(nextProps)
 props를 받을 때 실행됩니다. props에 따라 state를 업데이트 할 때 사용하면 유용합니다. 이 안에서 setState할 수 있지만 추가적인 렌더링은 발생하지 않습니다. 컴포넌트가 처음 마운트 되는 시점에서는 호출되지 않습니다. (v17 deprecated - getDerivedStateFromProps로 대체됨)
 
 
