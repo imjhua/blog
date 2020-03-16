@@ -414,35 +414,6 @@ Background Thread에서 스크립트를 실행하는 방법으로 UI Thread와�
 
 비지니스 로직을 가지고 있으며, Presentational Component들을 가지고 화면을 그리는 최소한의 스타일 정보만 가지고 있다.
 
-[하나의 컴포넌트 파일에서 구조]
-
-- 외부 라이브러리 및 모듈 import
-- component function 선언
-- useSelector나 useState를 통하여 state 초기화 및 store값 가져오기
-- useEffect를 통한 component의 lifecycle 구현
-- return을 통한 JSX 구현
-- 컴포넌트의 propTypes, defaultProps 작성
-- 컴포넌트 export
-
-[HOC]
-Cross Cutting Concerns의 경우, 개발을 하다 보면 다음과 같은 상황에 직면하는 경우가 종종 있습니다.
-
-- 개발 전반에 걸쳐 반복해서 등장하는 로직
-- 그럼에도 불구하고 모듈화가 쉽지 않은 로직
-
-예를 들면 유저 인증과 에러 처리의 과정. 코드 디자인적인 측면에서 공통적으로 발생하지만 쉽게 분리를 시키지 못하는 문제를 Cross Cutting Concerns라고 합니다. 이 문제를 끌어안고 가면 프로젝트의 코드는 쉽게 스파게티가 되고 나중에는 유지 보수를 하기 힘들어집니다. HOC와 Decorator가 있고 이를 이용해 이 문제를 쉽게 해결할 수 있습니다.
-
-HOC는 하나의 부품처럼 특정 컴포넌트에 기능 하나를 추가해주는 역할을 한다.
-
-[state를 API의 응답으로 맞추는 이유]
-action에 맞추어 status를 관리하고 response를 저장한다.
-component 에서 action의 상태에 따른 후 처리를 대응하기 위함.
-
-1. component에서 어떠한 액션과 관련있는지 알고 싶다.
-2. 액션의 상태 및 결과(success, response)에 대해서 후처리를 component에서 하고 싶다.
-
-
-
 
 [hook 장점]
 
@@ -457,6 +428,36 @@ component 에서 action의 상태에 따른 후 처리를 대응하기 위함.
 - bind 메소드는 this의 대상을 지정해주는 역할을 합니다. 화살표함수는 실행문맥을 가지지 않기 때문에 컴포넌트 객체의 메소드를 실행하고자 하는경우 유용하게 사용할 수 있다.
 
 - 화살표 함수: 화살표 함수는 함수를 선언할 때 this에 바인딩할 객체가 정적으로 결정된다. 동적으로 결정되는 일반 함수와는 달리 화살표 함수의 this 언제나 상위 스코프의 this를 가리킨다. 이 함수 표현은 메소드 함수가 아닌 곳에 가장 적합하다. 그래서 생성자로서 사용할 수 없다.
+
+[하나의 컴포넌트 파일에서 구조]
+
+- 외부 라이브러리 및 모듈 import
+- component function 선언
+- useSelector나 useState를 통하여 state 초기화 및 store값 가져오기
+- useEffect를 통한 component의 lifecycle 구현
+- return을 통한 JSX 구현
+- 컴포넌트의 propTypes, defaultProps 작성
+- 컴포넌트 export
+
+[HOC]
+
+Cross Cutting Concerns의 경우, 개발을 하다 보면 다음과 같은 상황에 직면하는 경우가 종종 있습니다.
+
+- 개발 전반에 걸쳐 반복해서 등장하는 로직
+- 그럼에도 불구하고 모듈화가 쉽지 않은 로직
+
+예를 들면 유저 인증과 에러 처리의 과정. 코드 디자인적인 측면에서 공통적으로 발생하지만 쉽게 분리를 시키지 못하는 문제를 Cross Cutting Concerns라고 합니다. 이 문제를 끌어안고 가면 프로젝트의 코드는 쉽게 스파게티가 되고 나중에는 유지 보수를 하기 힘들어집니다. HOC와 Decorator가 있고 이를 이용해 이 문제를 쉽게 해결할 수 있습니다.
+
+HOC는 하나의 부품처럼 특정 컴포넌트에 기능 하나를 추가해주는 역할을 한다.
+
+[state를 API의 응답으로 맞추는 이유]
+
+action에 맞추어 status를 관리하고 response를 저장한다.
+component 에서 action의 상태에 따른 후 처리를 대응하기 위함.
+
+1. component에서 어떠한 액션과 관련있는지 알고 싶다.
+2. 액션의 상태 및 결과(success, response)에 대해서 후처리를 component에서 하고 싶다.
+
 
 ### 생명주기
 
