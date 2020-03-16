@@ -4,6 +4,9 @@ title: TODO
 categories: TODO
 ---
 
+## 리소스 우선순위 정하기
+https://beomy.github.io/tech/browser/preload-preconnect-prefetch/
+
 ## 인증서 동작
 https://medium.com/@icehongssii/%EA%B9%9C%EC%B0%8D%ED%95%9C-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B0%84%EB%8B%A8%ED%95%9C-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%83%81%EC%8B%9D-4-https-%EC%99%80-ssl-%EA%B2%89%ED%95%A5%EA%B8%B0-78ff41071720
 
