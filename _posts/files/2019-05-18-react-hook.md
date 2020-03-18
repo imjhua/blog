@@ -632,7 +632,14 @@ state초기화시 여러개가 생시면서 선언부가 복잡해지고 여러�
 
 useState와 useEffect를 이용해서 분리를 하면 sate구현에 관련된 부분의 상단에 필요한 state 만 불러오고 선언하는 부분만 생깁니다. state관리 로직들을 각각의 state별로 나누어 life cycle과 state를 관리하는 함수들을 따로 정의하고 해당 state와 관련된 부분들을 모두 분리해서 필요한 것들을 내보내주는 식으로 관리 할 수 있습니다. 
 
+React에 제공하는 기능을 함수 형태로 사용하는 API이다.
 
+- useState: 상태 관리
+- useEffect: 라이프 사이클
+- useContext: 컨텍스트 사용
+- useRef: 돔 접근
+- useMemo, useCallback: 메모이제이션
+- useReducer: 리듀서
 
 
 
