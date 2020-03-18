@@ -4,6 +4,34 @@ title: TODO
 categories: TODO
 ---
 
+## history api
+History API 를 위해서는 세션 히스토리(Session History) 개념을 이해하는 것이 좋다.
+
+세션 히스토리 개념을 위해 간단하게 브라우저 로딩부터 설명하겠다.
+
+
+https://falsy.me/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98-%EC%9D%B4%ED%95%B4-2-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EA%B7%B8%EB%A6%AC%EA%B3%A0-history-api/
+https://mygumi.tistory.com/299
+https://developer.mozilla.org/ko/docs/Web/API/History_API
+
+```js
+window.onpopstate = function(event) {
+  alert(`location: ${document.location}, state: ${JSON.stringify(event.state)}`)
+}
+
+history.pushState({page: 1}, "title 1", "?page=1")
+history.pushState({page: 2}, "title 2", "?page=2")
+history.replaceState({page: 3}, "title 3", "?page=3")
+history.back() // alerts "location: http://example.com/example.html?page=1, state: {"page":1}"
+history.back() // alerts "location: http://example.com/example.html, state: null"
+history.go(2)  // alerts "location: http://example.com/example.html?page=3, state: {"page":3}"
+```
+
+## 웹팩 플러그인
+https://lazymankook.tistory.com/82
+
+http://jeonghwan-kim.github.io/js/2017/05/15/webpack.html
+
 ## 웹 프론트엔드 프래임웍
 앵귤러 리엑트 뷰
 
