@@ -43,6 +43,7 @@ link태그는 head태그 안에 위치하여 media 속성 안 조건에 만족�
 ```
 
 그 후 다음 스타일 시트(.css)내에서 @media 를 사용합니다. 결과는 위와 동일한 조건이고, 그 조건이 맞으면 {...}  안의 스타일이 적용됩니다.
+
 ```css
 @media screen and (max-width: 768px) {
     body {
