@@ -4,6 +4,8 @@ title: TODO
 categories: TODO
 ---
 
+## 호출스택 쌓이는 순서
+지역변수 흐름 파악 필요
 
 ## 키프레임
 ??

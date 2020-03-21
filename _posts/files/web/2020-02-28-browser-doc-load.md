@@ -39,7 +39,7 @@ window.onload = function() {
 <body onload="실행될 코드"></body>
 ```
 
-위와 같이 사용된 경우, window.onload로 지정된 것은 무시되ㅏ며 window 객체뿐만 아니라 원하는 객체(object)가 로드되었을때 실행될 코드를 설정할 수 있습니다.
+위와 같이 사용된 경우, window.onload로 지정된 것은 무시되며 window 객체뿐만 아니라 원하는 객체(object)가 로드되었을때 실행될 코드를 설정할 수 있습니다.
 
 #### onload 속성 적용
 

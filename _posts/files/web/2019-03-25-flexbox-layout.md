@@ -2,7 +2,9 @@
 layout: post
 title: FlexBox 레이아웃 
 categories: Web
+categories: TODO
 ---
+https://d2.naver.com/helloworld/8540176
 
 레이아웃 모듈중 가장 포괄적인 격자 레이아웃과 함께 유동적인 레아이웃을 구성할 수 있는 flexbox에 대해 다루고자 합니다. 
 

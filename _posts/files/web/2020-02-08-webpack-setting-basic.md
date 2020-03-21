@@ -5,6 +5,14 @@ categories: JavaScript
 categories: TODO
 ---
 
+
+질문에 대한 답으로 Grunt, Gulp는 오로지 리소스들에 대한 툴로 사용되며 dependency graph에 대한 개념이 없습니다.
+Browsify는 비슷한 도구이지만 속도면에서 webpack이 더 우월합니다.
+
+
+출처: https://haviyj.tistory.com/17 [What do you want?]
+
+
 http://jeonghwan-kim.github.io/js/2017/05/15/webpack.html
 
 웹팩은 기본적으로 모듈 번들러다.

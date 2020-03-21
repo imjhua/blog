@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 재귀함수 (Recursion)
-categories: Algorithm
+categories: Programming
 ---
 
 ## 재귀 알고리즘
