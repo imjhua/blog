@@ -12,6 +12,8 @@ REST는 Representational State Transfer라는 용어의 약자로서 `자원을 
 
 REST는 월드 와이드 웹(www)과 같은 분산 하이퍼미디어 시스템을 위한 소프트웨어 개발 아키텍처의 한 형식으로, 기본적으로 웹의 기존 기술과 HTTP프로토콜을 그대로 활용하기 때문에 웹의 장점(캐시, HTTP 표준 프로토콜에 따르는 모든 플랫폼에서 사용이 가능)을 최대한 활용할 수 있는 아키텍처 스타일입니다. 네트워크 상에서 Client와 Server 사이의 통신 방식 중 하나로 사용됩니다.
 
+리소스 자체를 전송하는 것이 아닌 리소스 표현을 전송합니다.
+
 - 소프트웨어 아키텍처(software architecture): 소프트웨어의 구성요소들 사이에서 유기적 관계를 표현하고 소프트웨어의 설계와 업그레이드를 통제하는 지침과 원칙이다. 구조, 행위, 더 많은 뷰를 정의하는 개념적 모형이다.
 
 ### 구성요소
@@ -115,6 +117,10 @@ REST 기반의 서비스 API를 구현한 것으로 API는 데이터와 기능�
 
 ### 설계 기본 규칙
 
+- 동사보다는 명사를
+- 대문자보다는 소문자로
+- 밑줄보다는 하이픈을
+
 #### 기본용어
 
 기본용어를 정리합니다.
@@ -204,6 +210,17 @@ RESTful은 일반적으로 REST라는 아키텍처를 구현하는 웹 서비스
 Ex1) CRUD 기능을 모두 POST로만 처리하는 API
 Ex2) route에 resource, id 외의 정보가 들어가는 경우(/students/updateName)
 
+### Safe Methods
+리소스를 수정하지 않는 메소드를 Safe 하다고 한다. 그 예는 GET, HEAD, OPTIONS 등이다. idempotent를 만족하면 대부분 safe 하다. 그러나 DELETE의 경우 idempotent 하지만 리소스를 삭제하므로 safe 하지 않다. 
+
+- HEAD: Resposne-Body 를 제외한 Header 를 요청하는 메소드
+- OPTIONS: 해당 리소스의 연산(operation)이 무엇이 있는지 응답을 요청하는 메소드. 응답 헤더의 Allow 에 가능한 operation 이 온다. 정보가 아니므로 캐싱되지 않는다.
+
+### Trace, Connect
+TRACE 는 클라이언트가 방금 보낸 요청을 다시 달라고, 서버에게 요청하는 것이고 CONNECT 는 HTTP 터널링을 할때 쓰인다. 중간의 프록시 서버를 위해서는 CONNECT 로 요청하고, 마지막 프록시에서 end-point 로는 GET 또는 CONNECT 를 날린다. HTTPS 라면 CONNECT 를, HTTP 라면 둘 중 아무거나 써도 상관 없다.
+
+
+
 ---
 
 ## 결론
@@ -235,3 +252,4 @@ Ex2) route에 resource, id 외의 정보가 들어가는 경우(/students/update
 - https://jhc9639.blog.me/221005860507
 - https://meetup.toast.com/posts/92
 - https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
+- https://itchipmunk.tistory.com/156

@@ -4,7 +4,7 @@ title: 브라우저 Reflow & Repaint
 categories: Web
 ---
 
-렌더링 과정에 레이아웃을 다시 그리거나 렌터트리를 다시 그리는 단계가 반복되는 경우 각각을 Reflow, Repaint라고 합니다. Reflow & Repaint사용을 줄여 브라우저를 최적화 할 수도 있습니다.
+렌더링 과정에 레이아웃을 다시 그리거나 렌터트리를 다시 그리는 단계가 반복되는 경우 각각을 Reflow, Repaint라고 합니다. Reflow & Repaint사용을 줄여 브라우저를 최적화 할 수도 있습니다. `reflow`와 `repaint`는 수정된 렌더 트리를 다시 렌더링하는 과정에서 발생하는 것으로 웹 애플리케이션의 성능을 떨어뜨리는 주된 요인입니다. 극단적인 경우, CSS 효과로 인해 Javascript 의 실행 속도가 느려질 수도 있습니다.
 
 ## Reflow & Repaint
 
@@ -19,6 +19,8 @@ Reflow와 Repaint는 다음 단계를 반복하는 경우를 말합니다.
 
 ## Reflow
 
+리플로우는 모든 엘리먼트의 `위치와 길이, 크기 등을 다시 계산`하는 것으로 문서의 일부 혹은 전체를 다시 렌더링합니다. 단일 엘리먼트 하나를 변경해도, 하위 엘리먼트나 상위 엘리먼트 등에 영향을 미칠 수 있습니다.
+
 다음 코드는 리플로우를 발생시킵니다.
 
 ```js
@@ -32,9 +34,7 @@ function reFlow() {
 
 - 노드의 추가 또는 제거
 - 요소의 위치 변경
-- 요소의 크기 변경 
-
-(margin, padding, border, width, height…) -> 인크리멘탈 레이아웃(비동기)
+- 요소의 크기 변경 (margin, padding, border, width, height…) -> 인크리멘탈 레이아웃(비동기)
 - 폰트 변경과(텍스트 내용) 이미지 크기 변경 (크기가 다른 이미지로 변경 시) -> 글로벌 레이아웃(동기)
 - 페이지 초기 랜더링최초 Layout 과정)
 - 윈도우 리사이징 -> 글로벌 레이아웃(동기)
@@ -56,7 +56,12 @@ function reFlow() {
 
 ## Repaint
 
-reflow만 수행되면 실제 화면에 반영되지 않습니다. 위에서 언급된 렌더링 과정과 같이 Render Tree를 다시 화면에 그려주는 과정이 필요합니다. 결국은 Paint 단계가 다시 수행되는 것이며 이를 Repaint 라고 합니다. 하지만 무조건 Reflow가 일어나야 Repaint가 일어나는것은 아닙니다. background-color, visibility와 같이 레이아웃에는 영향을 주지 않는 스타일 속성이 변경되었을 때는 Reflow를 수행할 필요가 없기 때문에 Repaint만 수행하게 됩니다.
+reflow만 수행되면 실제 화면에 반영되지 않습니다. 위에서 언급된 렌더링 과정과 같이 Render Tree를 다시 화면에 그려주는 과정이 필요합니다. 결국은 Paint 단계가 다시 수행되는 것이며 이를 Repaint 라고 합니다. 하지만 무조건 Reflow가 일어나야 Repaint가 일어나는것은 아닙니다. background-color, visibility와 같이 레이아웃에는 영향을 주지 않는 스타일 속성이 변경되었을 때는 Reflow를 수행할 필요가 없기 때문에 Repaint만 수행하게 됩니다. 리페인트는 레이아웃에는 영향을 주지 않지만, `가시성에는 영향`을 주는 엘리먼트가 변경되면 발생합니다.
+
+- opacity
+- background-color
+- visibility
+- outline
 
 다음은 Repaint 발생 코드입니다.
 
@@ -91,7 +96,6 @@ background background-image background-position background-repeat background-siz
 border-radius border-style box-shadow color line-style
 outline outline-color outline-style outline-width text-decoration
 visibility ....
-
 
 또한 Reflow Repaint가 일어나지 않는 transform, opacitiy와 같은 속성도 있습니다. 따라서 left, right, width, height 보다 transform을, visibility/display 보다 opacitiy를 사용하는 것이 성능 개선에 도움이 됩니다.
 
@@ -146,6 +150,37 @@ DOM과 스타일 변경을 하나로 묶어 리플로우 수행을 최소화 한
 
 - 루트 렌더러의 위치는 0,0이고 치수는 브라우저 윈도우에서 보이는 부분의 크기(뷰포트)이다.
 - 레이아웃 시작은 각 노드에 화면에 표시되어야 하는 정확한 좌표를 전달하는 것을 의미한다.
+
+## 정리
+
+- DOM 및 CSSOM 트리는 결합되어 렌더링 트리를 형성합니다.
+- 렌더링 트리에는 페이지를 렌더링하는 데 필요한 노드만 포함됩니다.
+- 레이아웃은 각 객체의 정확한 위치 및 크기를 계산합니다.
+- 마지막 단계는 최종 렌더링 트리에서 수행되는 페인트이며, 픽셀을 화면에 렌더링합니다.
+
+[성능 저하 최소화하기]
+
+1. 클래스 변경을 통해 스타일을 변경할 경우, 최대한 말단의 노드의 클래스를 변경한다. 최대한 말단에 있는 노드를 변경함으로써, 리플로우의 영향을 최소화한다.
+
+2. 인라인 스타일을 사용하지 않는다. 스타일 속성을 통해 스타일을 설정하면, 리플로우가 발생한다. 엘리먼트의 클래스가 변경될 때 엘리먼트는 하나의 리플로우만 발생시킨다. 인라인 스타일은 HTML 이 다운로드될 때, 레이아웃에 영향을 미치면서 추가 리플로우를 발생시킨다. 코드 가독성이점 추가.
+
+3. 애니메이션이 들어간 엘리먼트는 가급적 position: fixed 또는 position: absolute로 지정하기(영향을 주는 노드 줄이기). Javascript + Css를 조합하여 애니메이션이 많거나 레이아웃 변화가 많은 요소의 경우 position을 absolute 또는 fixed를 사용하여 영향을 받는 주변 노드들을 줄일 수 있다. fixed와 같이 영향을 받는 노드가 전혀 없는 경우 reflow과정이 전혀 필요가 없어지기 때문에 Repaint 연산비용만 들게 된다. absolute 또는 fixed 위치인 엘리먼트는 다른 엘리먼트의 레이아웃에 영향을 미치지 않는다. (리플로우가 아닌 리페인트가 발생하는데, 이것은 훨씬 적은 비용이 든다.) 다른 요소에는 영향을 끼치지 않으므로 페이지 전체가 아닌 해당 요소만 reflow가 발생한다.
+
+4. 부드러운 애니메이션이 성능을 저하시킨다. 한 번에 1px 씩 엘리먼트를 이동하면 부드러워 보이지만, 성능이 떨어지는 디바이스는 말썽일 수 있다. 엘리먼트를 한 프레임당 4px 씩 이동하면 덜 부드럽게 보이겠지만, 리플로우 처리의 1/4만 필요하다.
+
+5. 레이아웃을 위한 <table> 은 피한다. <table> 은 점진적으로 렌더링되지 않고, 모두 불려지고 계산된 다음에서야 렌더링이 된다. 또한, 작은 변경만으로도 테이블의 다른 모든 노드에 대한 리플로우가 발생한다. 레이아웃 용도가 아닌 데이터 표시 용도의 <table> 을 사용하더라고, table-layout: fixed 속성을 주는 것이 좋다. table-layout: fixed 를 사용하면, 열 너비가 머리글 행 내용을 기반으로 고정되어 계산되기 때문이다.
+
+6. CSS 에서 JavaScript 표현식을 사용하지 않는다. IE 와 FF 는 모두 CSS 에서 Javascript 를 실행할 수 있다. IE 에서는 표현 기법과 HTC 동작 방법이 있고, FF 에서는 XBL 을 사용하는 방법이 있다. (이 방법은 CSS 에서 Javascript 를 직접 실행하지는 않지만, 그 효과는 동일하다.) 문서가 리플로우될 때마다 JavaScript 표현식이 다시 계산된다.
+
+7. CSS 하위 셀렉터를 최소화한다. 사용하는 규칙이 적을수록 리플로우가 빠르다.
+
+8. gulp-uncss, grunt-uncss 와 같은 도구로 스타일 정의 및 파일 크기를 줄인다.
+
+9. 숨겨진 엘리먼트를 변경한다. display: none; 으로 숨겨진 엘리먼트는 변경될 때, 리페인트나 리플로우를 일으키지 않는다. 그렇기 때문에 엘리먼트를 표시하기 전에 엘리먼트를 변경한다. (display: none 속성이 설정된 노드는 화면에 어떠한 공간도 차지하지 않기 때문에 Render Tree를 만드는 과정에서 제외된다.) visibility invisible은 레이아웃 공간을 차지하기 때문에 reflow의 대상이 되지만 display none은 Layout 공간을 차지하지 않아 Render Tree에서 아예 제외된다.
+
+10. 합성만을 발생시키는 요소 사용하기. 스타일 속성 중 position, width, height 등과 같이 기하적 변화를 유발하는 속성을 변경하면 레이아웃이 발생한다. transform을 사용한 엘리먼트는 `레이어로 분리`되기 때문에 영향받는 엘리먼트가 제한되어 레이아웃과 페인트를 줄일 수 있다. 그리고 `합성만 발생`시키기 때문에 애니메이션에서 사용 시 렌더링 속도가 향상할 수 있다. 때에 따라 하드웨어가 지원될 경우 GPU를 사용할 수 있으므로 성능이 빠르다. 예를 들어 left, top을 사용하면 모든 프레임마다 엘리먼트와 배경이 합성되어 많은 시간이 걸리므로, transform: translate()를 사용해야 한다.
+
+결론, left, right, width, height 보다 transform을, visibility/display 보다 opacitiy를 사용하여 리플로우와 리패인트를 줄인다.
 
 ---
 

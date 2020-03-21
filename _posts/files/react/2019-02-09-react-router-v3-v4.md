@@ -17,12 +17,11 @@ react-router v4 가 릴리즈 되면서 라우팅 적용 방식이 바뀌었습�
 ## React Router v3와 v4
 두 버전의 차이점을 간단하게 살펴보면 다음과 같습니다.
 
-| v3	| v4 |
-|-----|----| 
+| - | v3 | v4 |
+|-----|----|----| 
 | 모듈 | react-router | react-router, react-router-dom, react-router-native |
 | 라우팅	| 정적(static) 라우팅	| 동적(dynamic) 라우팅 |
-| Route 컴포넌트	| 라우트 정보를 프로젝트 최상단에 모두 정의	코드 어디에나 사용 가능 |
-| 계층구조	라우트 정보를 계층구조로 표현	계층구조 대신 렌더링 되는 컴포넌트에 직접 구현 (계층구조 표현 안됨) |
+| Route 컴포넌트	| 라우트 정보를 프로젝트 최상단에 모두 정의	코드 어디에나 사용 가능 |	라우트 정보를 계층구조로 표현	계층구조 대신 렌더링 되는 컴포넌트에 직접 구현 (계층구조 표현 안됨) |
 | 히스토리	| browserHistory 에 저장하여 Router 객체에 props 로 삽입	| BrowserRouter 객체에 내장
 
 ### React Router v3
