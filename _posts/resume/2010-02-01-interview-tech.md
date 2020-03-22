@@ -804,6 +804,7 @@ https://goddaehee.tistory.com/171
 - REQUEST: If-Modified-Since / If-None-Match
 
 (응답 LAST-MODIFIED -> 요청 If-Modified-Since)
+(응답 Etag -> 요청 If-None-Match)
 
 1. 브라우저는 최초 응답 시 받은 Last-Modified 값을 If-Modified-Since 라는 헤더에 포함 시켜 페이지를 요청합니다.
 2. 서버는 요청 파일의 수정 시간을 If-Modified-Since값과 비교하여 동일하다면 304 Not Modified로 응답하고 다르다면 200 OK와 함께 새로운 Last-Modified값을 응답 헤더에 전송합니다.
