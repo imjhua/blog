@@ -561,6 +561,8 @@ Background Thread에서 스크립트를 실행하는 방법으로 UI Thread와�
 
 [HOC]
 
+장단점? 레퍼헬
+
 Cross Cutting Concerns의 경우, 개발을 하다 보면 다음과 같은 상황에 직면하는 경우가 종종 있습니다.
 
 - 개발 전반에 걸쳐 반복해서 등장하는 로직

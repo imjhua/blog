@@ -199,6 +199,7 @@ app.use('/', express.static('public')); // '/'경로의 우선권을 갖는다.
 ```
 
 public 디렉토리의 html은 다음과 같이 브라우저에서 접근 할 수 있습니다.
+
 ```
 http://localhost:3000/about.html
 ```

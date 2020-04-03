@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Axiox & Fetch
-categories: Etc
+categories: JavaScript
 ---
 
 
