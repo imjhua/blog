@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HTML5 History
-categories: HTML5
+categories: Web
 ---
 
 HTML의 간단한 역사와 등장 배경 그리고 현재의 HTML5 표준화 상황에 대해서 알아봅시다.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CSS dispaly와 visibility속성
-categories: HTML5
+categories: Web
 ---
  
 

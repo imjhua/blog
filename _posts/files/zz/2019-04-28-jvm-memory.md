@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JVM(Java Virtual Machine) 메모리 구조
-categories: JAVA
+categories: Programming
 ---
 
 JVM(Java Virtual Machine) 메모리 구조에 대해 알아 봅시다.

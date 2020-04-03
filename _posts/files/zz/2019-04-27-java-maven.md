@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Maven 
-categories: JAVA
+categories: Programming
 ---
 
 Maven은 무엇인가? Maven은 자바 프로젝트의 빌드(build)를 자동화 해주는 빌드 툴(build tool)이다. 즉, 자바 소스를 compile하고 package해서 deploy하는 일을 자동화 해주는 것이다.

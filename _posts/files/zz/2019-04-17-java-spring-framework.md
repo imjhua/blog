@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java Spring Framework 
-categories: JAVA
+categories: Programming
 ---
 
 스프링 프레임워크(Spring Framework)는 자바 플랫폼을 위한 오픈소스 애플리케이션 프레임워크로서 간단히 스프링(Spring)이라고도 불립니다. 동적인 웹 사이트를 개발하기 위한 여러 가지 서비스를 제공하고 있는데 대한민국에서는 공공기관의 웹 서비스 개발 시 사용을 권장하고 있는 전자정부 표준프레임워크의 기반 기술로서 쓰이고 있습니다.

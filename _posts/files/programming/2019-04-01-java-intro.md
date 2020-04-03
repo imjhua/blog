@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JAVA란?
-categories: JAVA
+categories: Programming
 ---
 
 자바는 썬에서 개발한 객체지향 언어다. 가정용 단말기에 적용하려는 목적으로 1992년에 만든 ‘오크(OAK)’언어에서 비롯되었다.

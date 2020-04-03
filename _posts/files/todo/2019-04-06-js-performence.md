@@ -5,6 +5,8 @@ categories: JavaScript
 categories: TODO
 ---
 
+https://joshuajangblog.wordpress.com/2016/08/21/javascript-pattern-literal-constructor/
+
 ## 소개
 성능을 높이는 코드 스타일
 

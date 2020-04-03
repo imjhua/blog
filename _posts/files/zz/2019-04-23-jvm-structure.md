@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JVM 구조 
-categories: JAVA
+categories: Programming
 ---
 
 JVM(Java Virtual Machine)은 자바 가상 머신으로 자바 바이트 코드를 실행할 수 있는 주체입니다. CPU나 운영체제(플랫폼)의 종류와 무관하게 실행이 가능합니다. 즉, 운영체제 위에서 동작하는 프로세스로 자바 코드를 컴파일해서 얻은 바이트 코드를 해당 운영체제가 이해할 수 있는 기계어로 바꿔 실행시켜주는 역할을 합니다.

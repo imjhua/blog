@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 클래스 로더 
-categories: JAVA
+categories: Programming
 ---
 
 

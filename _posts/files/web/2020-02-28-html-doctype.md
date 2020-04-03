@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HTML DOCTYPE선언
-categories: HTML5
+categories: Web
 ---
 
 DOCTYPE선언은 어떤 버전의 HTML문서로 작성했는지 브라우저에게 알려주는 것으로 웹브라우저가 내용을 올바르게 출력하도록 도와줍니다. DOCTYPE 선언은 HTML 태그는 아니지만, 선언된 페이지의 HTML 버전이 무엇인지를 웹 브라우저에 알려주는 역할을 하는 선언문으로, 대소문자를 구분하지 않습니다. DOCTYPE선언을 하면 표준 모드로 작동되고 선언하지 않으면 호환모드로 작동해 의도와 다르게 표시될 수 있습니다.

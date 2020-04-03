@@ -1,7 +1,7 @@
 ---
 layout: post
 title: FlexBox 레이아웃 
-categories: HTML5
+categories: Web
 ---
 
 레이아웃 모듈중 가장 포괄적인 격자 레이아웃과 함께 유동적인 레아이웃을 구성할 수 있는 flexbox에 대해 다루고자 합니다. 구현이 어려운 레이아웃을 간단하게 구현할 수 있게 CSS3에 추가된 레이아웃 방식이 flexbox입니다. flexbox를 사용하면 요소의 크기와 순서를 유연하게 배치할 수 있습니다.
