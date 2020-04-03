@@ -8,7 +8,10 @@ layout: default
 
 <div class="posts">
   {% for post in paginator.posts %}
-  {% unless post.categories contains 'TODO' or post.categories contains 'Diary' %}
+  {% unless post.categories contains 'List' or post.categories contains 'Diary' or post.categories contains 'TODO' or post.categories contains
+    'Resume' or post.categories contains
+    'List' or post.categories contains
+    'Etc' %}
   <article class="post">
     <h1>
       <span class="categories">[{{ post.categories }}]</span>
