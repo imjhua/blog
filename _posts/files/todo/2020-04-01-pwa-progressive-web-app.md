@@ -5,6 +5,32 @@ categories: WEB
 categories: TODO
 ---
 
+Progressive Web Apps(이하 PWA)은 웹의 기능과 앱의 품질을 결합하여 어플리케이션을 개발하는 새로운 접근방식입니다. 기존의 네이티브앱 또는 하이브리드 앱과는 다릅니다. 브라우저상에서 지원하는 앱이라고 이해할 수 있습니다.
+
+
+PWA는 설치없이 브라우저를 통해서 서비스를 제공, 모바일 앱아이콘을 추가할 수 있고, 푸시알람을 보낼 수 있고, 오프라인에서도 접근할 수 있습니다.
+큰 규모의 서비스에 이를 도입하는데 시간이 걸리겠지만, 자연스러운 변화의 흐름이라고 생각합니다. PWA에서 Progressive한 부분은 Front-end 개발보다는 Web worker API(Native Browser API)과의 상호작용에 좀더 가깝습니다
+기존의 웹앱은 큰 영향은 없겠지만, PWA를 사용할 수록 시간과 비용을 절감할 수있다는 것을 경험할 것입니다.
+
+
+## 시작하기
+모든 PWA에는 manifest.json파일이 필요 합니다. 웹 응용 프로그램 매니페스트는 웹 응용 프로그램 및 방법은 사용자의 모바일 장치 또는 데스크톱에 설치할 때 행동해야에 대해 브라우저를 알려주는 간단한 JSON 파일입니다.
+
+```json
+{
+  "name": "My PWA!",  
+  "short_name": "PWA", 
+  "start_url": ".",
+  "display": "standalone"
+}
+
+// name -- PWA name
+// short_name -- Show underneath the mobile app icon
+// start_url -- If the user taps on the icon, this url is launched
+// display -- Customize what browser UI is shown when your app is launched.
+```
+
+
 https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/?hl=ko
 
 
@@ -68,3 +94,5 @@ PWA는 웹사이트이지만, 스마트폰, 태블릿, 노트북, 데스크톱�
 - https://medium.com/@MadeDesignbyMe/%EA%B5%AC%EA%B8%80%EC%9D%98-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%A0%88%EC%8B%9C%EB%B8%8C-%EC%9B%B9-%EC%95%B1%EC%8A%A4%EB%A5%BC-%EC%95%84%EC%8B%AD%EB%8B%88%EA%B9%8C-8116f2766004
 - http://www.ciokorea.com/column/39944#csidxa41dd797c889a8da5267637e120b581
 - https://altenull.github.io/2018/02/25/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%A0%88%EC%8B%9C%EB%B8%8C-%EC%9B%B9-%EC%95%B1-Progressive-Web-Apps-%EB%9E%80/
+- https://medium.com/@chrisjune_13837/2020%EB%85%84-%EA%BC%AD-%EC%95%8C%EC%95%84%EC%95%BC-%ED%95%A0-%EA%B8%B0%EC%88%A0-%ED%8A%B8%EB%A0%8C%EB%93%9C-1d6f60b38361
+- https://medium.com/better-programming/everything-you-need-to-know-about-pwas-8e41a7e745aa
