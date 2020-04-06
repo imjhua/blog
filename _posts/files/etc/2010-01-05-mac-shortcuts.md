@@ -20,7 +20,9 @@ $ open -na Google\ Chrome --args --incognito
 # chrome private mode 열기 (+disalbe security)
 $ open -na Google\ Chrome --args --disable-web-security --user-data-dir="" --incognito
 ```
-----
 
+
+
+----
 해당 내용은 다음 글을 참고 하였습니다.
-- 
+- https://huny7.wordpress.com/2018/05/04/vs-code-%EB%8B%A8%EC%B6%95%ED%82%A4/
