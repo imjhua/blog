@@ -4,6 +4,61 @@ title: TODO
 categories: TODO
 ---
 
+## NODE JS - 모듈이란? , module.export 와 exports의 차이
+
+출처: https://dydals5678.tistory.com/97 [아빠개발자의 노트] 
+https://programmingsummaries.tistory.com/340
+
+## npm Dependencies devDependencies
+
+package.json 파일 내의 dependencies, devDependencies의 차이를 알기 위해서 구글링을 하던 중, 보아도 잘 모르겠는 부분이 있어서 우리 drfts프로젝트인 lib-tz의 package.json파일을 보았지만.. 잘 모르겠어서 구글링의 도움을 받았습니다.
+
+결과 1 => 프로젝트를 개발/테스트하려는 것이 아니라 활용만 하려는 목적이라면 개발의존성을 설치하는 것이 불필요하므로, devDependencies의 패키지를 제외하고 설치할 수도 있다. 
+
+결과 2 => dependencies, devDependencies는 해당 패키지가 다른 패키지에 의존할 경우 의존성에 대한 항목이다
+
+결과 3 => dependencies와 devDependencies의 차이는 배포용 패키지(실제 상품에서 사용할 패키지)와 개발용 패키지(목, 테스트 패키지 등)의 차이다.
+
+결과 4 => dependencies 는 이 패키지에 의존하는 `다른 프로젝트에서 구동`시키기 위한 의존성이다. `즉, 이 패키지를 활용할 때 필요한 의존성을 명시`한다. npm install --save 명령을 통해 패키지를 설치하면 이 항목에 프로젝트 정보가 저장된다.
+
+devDependencies 에는 `이 패키지를 테스트하거나 개발할 때 필요한 패키지들을 명시`한다. npm install --save-dev 명령을 통해 패키지를 설치하면 이 항목에 프로젝트 정보가 저장된다.
+
+
+
+::: 결론 ::: 우리가 개발 시 필요한 (컴파일러 같은) 라이브러리들은 devDependencies에 적어주고, 진짜 우리 프로젝트에서 기술스펙으로 사용되어야할 라이브러리들은 dependencies에 적어줍니다.
+
+
+어떤 라이브러리가 프로젝트의 컴파일(빌드) 타임에 필요하면 devDependencies에 넣고, 런타임에도 계속 쓰이는 것이면 dependencies에 넣어야 합니다.
+
+원래는 컴파일을 하면 컴퓨터는 알아듣지만, 인간이 이해하기에 상당히 난해한, 바이너리(0,1)로 결과가 나오는데, 트랜스파일은 컴퓨터가 알아들을 수 있는 형태가 아닌 브라우저가 알아들을 수 있는 형태로 코드를 바꿉니다. 근데 그 결과를 인간이 딱히 못알아보는 것도 아니예요. 결과가 바이너리도 아니고요. 사실 번역하는 과정에 가깝죠. 번역한다는 말의 translate 와 compile을 그냥 합쳐서 만들어둔 단어입니다.
+
+https://github.com/saeromCho/shumblr/wiki/package.json-%ED%8C%8C%EC%9D%BC-%EB%82%B4%EC%9D%98-dependencies%EC%99%80-devDependencies%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90%EA%B3%BC-%EC%B6%94%EA%B0%80%EC%A0%81%EC%9D%B8-%EA%B3%B5%EB%B6%80(About-Babel)
+
+
+## npm 버전
+틸트 캐럿 골벵이
+틸트는 첨부터 끝까지
+캐럿은 API호환성이 깨지는 경우를 대비해 1점때 2점때만 자동 버전업
+
+
+~(틸트)와 ^(캐럿)의 차이는 아래와 같다.
+
+~(틸트)는 패치 버전 범위 내에서 업데이트한다. :
+
+~0.0.1 : 0.0.1 <= version < 0.1.0
+~0.1.1 : 0.1.1 <= version < 0.2.0
+^(캐럿)는 마이너 버전 범위 내에서 업데이트한다. :
+
+^1.0.2 : 1.0.2 <= version < 2.0
+npm semver calculator에 방문하면 패키지 별로 버전 표기법을 사용하여 업데이트 버전 범위를 확인할 수 있다.
+
+버전에 대한 보다 자세한 사항은 semver : The semantic versioner for npm를 참조하기 바란다.
+
+
+
+https://blog.outsider.ne.kr/1041
+
+
 ## UX와 CX는 어떻게 다른가?
 - UX: User 제품/시스템/서비스를 이용하는 데 있어 사용자의 인지 반응, 사용상 기대하는 바
 User: 무언가를 이용하거나 사용하는 사람. 고객일수도 고객은 아닐 수도 있음
