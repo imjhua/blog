@@ -2,6 +2,7 @@
 layout: post
 title: Storybook
 categories: React
+categories: TODO
 ---
 
 Storybook v5.2 부터는 Component Story Format (CSF) 형식을 사용하여 문서를 작성합니다. (현재 기준 최신 버전 v5.2.3) -> 기존에는 API로 작성. 보다 깔끔함
