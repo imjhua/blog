@@ -3,6 +3,10 @@ layout: post
 title: TODO
 categories: TODO
 ---
+https://appear.github.io/2018/11/23/REACT/react-translate-13/
+
+https://www.robinwieruch.de/react-function-component
+
 
 ## NODE JS - 모듈이란? , module.export 와 exports의 차이
 
