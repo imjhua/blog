@@ -3,6 +3,16 @@ layout: post
 title: TODO
 categories: TODO
 ---
+
+## enzyme
+https://www.vobour.com/jest%EC%99%80-enzyme%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A6%AC%EC%95%A1%ED%8A%B8-react-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-te
+
+https://shs400.github.io/2019/01/23/enzyme/
+
+\\\
+
+
+
 https://appear.github.io/2018/11/23/REACT/react-translate-13/
 
 https://www.robinwieruch.de/react-function-component
