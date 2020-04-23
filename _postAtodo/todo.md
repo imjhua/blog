@@ -4,6 +4,8 @@ title: TODO
 categories: TODO
 ---
 
+## 바벨로더
+
 ## unhandled promise reject
 async함수 안에서 예상치 못한 에러가 발생하는 경우, 프로미스를 반환하여 에러처리를 하지 않는 경우, 내부적으로는 서비스는 실행되나 unhandled promise rejction 문구를 출력한다. express 는 에러발생을 인식하지 못한채 응답만 지연되게 한다.
 
