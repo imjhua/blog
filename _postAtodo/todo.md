@@ -4,6 +4,40 @@ title: TODO
 categories: TODO
 ---
 
+## unhandled promise reject
+async함수 안에서 예상치 못한 에러가 발생하는 경우, 프로미스를 반환하여 에러처리를 하지 않는 경우, 내부적으로는 서비스는 실행되나 unhandled promise rejction 문구를 출력한다. express 는 에러발생을 인식하지 못한채 응답만 지연되게 한다.
+
+해결안, express에서 라우팅핸들러함수에서 오류가 발생한경우 내부적으로 미들웨어의 세번째 파라메터인 next함수를 호출하여 error를 전달하여 마지막 에러처리 미들웨어에서 받아 적절하게 처리할 수 있도록 한다.
+
+async awiat 함수는 기본적으로 promise를 리턴해주는 구조이다. 그렇다는 건 그안에서 발생한 오류를 단순하게 바깥으로 던져서 잡는게 아니라 promise의 catch함수를 통해 처리해주어야 한다는 의미이다. 
+라우팅 핸들러함수가 리턴한 reject된 promise를 적절하게 처리해주지 않고 있어서 발생
+
+https://programmingsummaries.tistory.com/?page=3
+async await 는 try catch 로 에러가 잡히지 않는가?
+async함수에서 발생한 오류는 일반 함수내에서 try/catch로 잡을 수 없다. 해결안으로 함수를 또 async에서 호출한당.. 아니면 프로미스를 받아 catch로 reject처리
+
+
+async function err () {
+   throw new Error('오류 발생');
+}
+
+(function () {
+    try {
+        err();
+    }
+    catch (e) {
+        console.log('에러', e);
+    }
+}) ();
+// Uncaught (in promise) Error
+
+## node 하모니 옵션
+https://nodejs.org/ko/docs/es6/
+https://stackoverflow.com/questions/13351965/what-does-node-harmony-do
+이전 버전의 nodejs에서 ECMAScript 6 기능을 실행하려는 경우 --harmony 플래그를 사용할 수 있습니다. 최신 버전의 노드는 ES6을 지원하므로 --harmony 플래그가 필요하지 않습니다.
+
+
+
 ## enzyme
 https://www.vobour.com/jest%EC%99%80-enzyme%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A6%AC%EC%95%A1%ED%8A%B8-react-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-te
 
