@@ -4,6 +4,13 @@ title: TODO
 categories: TODO
 ---
 
+## webpack 설정
+https://trustyoo86.github.io/webpack/2018/01/10/webpack-configuration.html
+https://okchangwon.tistory.com/3
+https://www.zerocho.com/category/Webpack/post/58aa916d745ca90018e5301d
+https://medium.com/@simsimjae/webpack4-splitchunksplugin-%EC%98%B5%EC%85%98-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B0-19f5de32425a
+https://programmingsummaries.tistory.com/401
+https://hyeribo.github.io/frontend/react-quick-starter/#
 
 ## preset
 https://velog.io/@pop8682/%EB%B2%88%EC%97%AD-%EC%99%9C-babel-preset%EC%9D%B4-%ED%95%84%EC%9A%94%ED%95%98%EA%B3%A0-%EC%99%9C-%ED%95%84%EC%9A%94%ED%95%9C%EA%B0%80-yhk03drm7q
