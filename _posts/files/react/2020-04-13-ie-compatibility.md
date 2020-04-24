@@ -2,7 +2,6 @@
 layout: post
 title: IE11에서 실행하기 (호환성)
 categories: React
-categories: TODO
 ---
 
 ES6이상의 문법이 사용되는 React개발환경은 구형브라우저에서는 동작하지 않는 문제가 발생합니다. 크게 2가지 원인이 있는데 그 원인과 해결안에 대해 알아봅니다. 구형브라우저, 특히 IE에서의 React를 실행할수 있는 방법들에 대해 정리해 보겠습니다. (해당글은 IE11기준으로 설명합니다.)
@@ -36,10 +35,14 @@ W3C트서는 제시하기는 표준 웹 기술(HTML5, CSS)들이 있습니다. �
 
 ## IE11 미지원기능 & 기능 지원
 
+대표적으로 IE11에서 지원하고 있지 못한 기능들(WEB API 와 ES6이상의 기능들)은 다음과 같습니다. 
 
-대표적으로 IE11에서 지원하고 있지 못한 기능들은 다음과 같습니다.
+- Promise
+- window.fetch
+- Symbol
+- Object.assign
+- Array.from + [ IE9 Map, Set ]
 
-!!!
 
 ## IE11 에서 동작하게 하기
 구형브라우저 IE11이 최신 문법을 적용하게 하기 위해 react-app-polyfill 또는 babel/polyfill 를 사용합니다. 
@@ -86,37 +89,49 @@ Babel 7.4.0부터이 패키지는 core-js / stable (ECMAScript 기능을 polyfil
 
 이말인 즉슨, 이 패키지는 core-js 및 regenerator-runtime의 필수 부분을 별도로 포함하기 위해 사용되지 않는다는 것입니다. 따라서 우리는 babel/polyfill은 deprecated 되었고 사용되는 두가지 모듈을 직접 사용해 보겠습니다.
 
+참고) react-app-polyfill 에서 async & awit / generator가 지원되지 않았던 것처럼, core-js 또한 fetch를 지원하지 않는 것처럼 완벽히 모든것을 제공하지는 않습니다. 서로 상호보완적으로 사용해야 합니다.
+https://github.com/zloirock/core-js#missing-polyfills
+
 ```js
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+
 import 'react-app-polyfill/ie9';
 import 'react-app-polyfill/stable';
 ```
 
-
 ## 전역에 추가하거나 & 플러그인을 사용하여 스코프를 제한하거나
-문제
+
 ### 전역에 폴리필 추가하기 (전역 오염 O)
+winodw객체의 속성으로 모듈이 로드되기 때문에 각기 다른 모듈을 공유하는데 제약이 없는 문제가 있습니다. 파일을 독립적으로 존재하지 못하게 되면 같은 이름의 변수를 사용하거나 스코프가 전역으로 설정되는 문제가 발생할 수 있습니다.
+
 ```js
 <script src="https://unpkg.com/core-js-bundle@3.1.4/index.js"></script>
 <script src="https://unpkg.com/regenerator-runtime@0.13.3/runtime.js"></script>
 ```
 
 ### Webpack 번들에 포함하고 전역에 폴리필 추가하기 (전역 오염 O)
+모듈로 로드하여 모듈의 의존성 및 스코프를 제한합니다.
+
+```sh
+$ npm install --save core-js regenerator-runtime
+```
+
 ```js
-npm install --save core-js regenerator-runtime
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-
 ```
 
 ### Webpack 번들에 포함하고 번들 내부에 가두기 (전역 오염 X)
 
-```js
-npm install --save-dev @babel/plugin-transform-runtime
-npm install --save @babel/runtime @babel/runtime-corejs3
-의존 모듈 설치 후 Webpack Config에 아래와 같이 Plugins 설정을 추가한다.
+의존 모듈 설치 후 Webpack Config에 아래와 같이 Plugins 설정을 추가합니다.
 
+```sh
+$ npm install --save-dev @babel/plugin-transform-runtime
+$ npm install --save @babel/runtime @babel/runtime-corejs3
+```
+
+```js
 {
   "plugins": [
     [

@@ -4,7 +4,15 @@ title: TODO
 categories: TODO
 ---
 
+## 알아보기
+
+module loose 모드?
+활성화 하지 않으면 호환성이 없는 코드로 트랜스파일링 된다?
+
+
 ## webpack 설정
+
+
 https://velog.io/@padakim/Webpack4-for-React-%EB%A6%AC%EC%95%A1%ED%8A%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%9B%B9%ED%8C%A94-1-
 react : 리액트를 사용하기 위하 필수 라이브러리 입니다.
 react-dom: 리액트 라이브러리 입니다. 브라우저를 위한 DOM 메소드를 제공합니다.
