@@ -5,6 +5,7 @@ categories: TODO
 ---
 
 ## webpack 설정
+https://hoilzz.github.io/webpack/2-add-babel/
 https://trustyoo86.github.io/webpack/2018/01/10/webpack-configuration.html
 https://okchangwon.tistory.com/3
 https://www.zerocho.com/category/Webpack/post/58aa916d745ca90018e5301d
