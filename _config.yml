@@ -25,29 +25,29 @@ navigation:
   - name: About
     url: /about
   - name: List
-    url: /menu/list
+    url: /list
   - name: JavaScript
-    url: /menu/javascript
+    url: /javascript
   - name: React
-    url: /menu/react
+    url: /react
   - name: Web
-    url: /menu/web
+    url: /web
   - name: Cloud
-    url: /menu/cloud
+    url: /cloud
   - name: Programming
-    url: /menu/programming
+    url: /programming
   - name: Etc
-    url: /menu/etc
+    url: /etc
   - name: Resume
-    url: /menu/resume
+    url: /resume
   - name: Diary
-    url: /menu/diaries
+    url: /diaries
   - name: TODO
-    url: /menu/todos
+    url: /todo
   # - name: Archive
-  #   url: /menu/archive
+  #   url: /archive
   # - name: Tags
-  #   url: /menu/tags
+  #   url: /tags
 
 # Pagination
 paginate: 50
