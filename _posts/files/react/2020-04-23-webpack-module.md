@@ -2,7 +2,10 @@
 layout: post
 title: Webpack moduel
 categories: React
+categories: TODO
 ---
+loose
+
 
 웹팩(Webpack)은 모듈 번들러 입니다. 여러개의 나누어져 있는 파일들을 하나의 파일로 만들어 주는역할을 하는데, 이때 어떤 파일들을 어떻게 module화 할지를 나타내는 속성이 바로 module입니다. module 속성에 대해 알아봅니다.
 
@@ -57,10 +60,30 @@ module.exports = {
           { loader: "sass-loader" },
         ],
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        include: path.join(__dirname, "src"),
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [["env", { module: false }]],
+            },
+          },
+        ],
+      },
     ],
   },
 };
 ```
+
+use에 로더를 등록하고 modules 로더별로 사용하는 옵션이 다를 수 있습니다. 많이 사용되는 공통 옵션으로는 다음과 같이 있습니다.
+
+https://babeljs.io/docs/en/babel-preset-es2015#loose
+
+- presets: []
+- modules: bool
 
 ### 테스트
 
@@ -102,6 +125,10 @@ const config = {
 
 참고) babel-preset-env는 단순히 모든 es6 plugin을 설치하는 것 이상으로, 기본적으로는 오래된 브라우저에 제공하기 위한 아주 많은 양의 컴파일된 결과를 제공하는데, 여기서 중요한 것은 원하는 브라우저!만 지원가능하도록 plugin을 선택할 수 있는 기능도 포함하고 있다.
 
+참고) https://github.com/babel/babel-loader#options
+
+- cacheDirectory: 기본값은 false입니다. 설정되면 주어진 디렉토리는 로더 결과를 캐시하는 데 사용됩니다. 향후 웹팩 빌드는 각 실행에서 잠재적으로 비싼 Babel 재 컴파일 프로세스를 실행할 필요가 없도록 캐시에서 읽습니다. 옵션 ({cacheDirectory : true})에서 값이 true로 설정되면 로더는 node_modules / .cache / babel-loader의 기본 캐시 디렉토리를 사용하거나 node_modules 폴더를 찾을 수없는 경우 기본 OS 임시 파일 디렉토리로 폴백합니다. 모든 루트 디렉토리에 있습니다.
+
 #### css loader
 
 css load를 위해, css 파일을 자바스크립트로 변환합니다.
@@ -133,6 +160,23 @@ module.exports = {
 #### font
 
 자바스크립트 파일 뿐만 아니라 이미지, 폰트, 스타일시트도 전부 모듈로 관리한다.
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+        ]
+      }
+```
 
 ## 그리고 플러그인
 
