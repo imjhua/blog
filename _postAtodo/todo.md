@@ -4,6 +4,10 @@ title: TODO
 categories: TODO
 ---
 
+## 코딩가이드
+https://itmining.tistory.com/72
+https://www.mimul.com/blog/why-we-argue-style/
+
 ## 알아보기
 
 module loose 모드?
