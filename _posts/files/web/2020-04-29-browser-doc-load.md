@@ -11,7 +11,7 @@ categories: Web
 페이지 라이프사이클은 크게 3가지로 분류됩니다. 로드 시점과 관련된 이벤트로써, 발생하는 시점은 다음과 같습니다.
 
 - DOMContentLoaded: HTML 이 모두 로드되고, DOM 트리가 완성되었지만, 외부 리소스(img etc) 가 아직 로드되어지지 않았을 때
-- load: 브라우저에 모든 리소스(img, style, script, etc) 가 로드되었을 때
+- window.load: 브라우저에 모든 리소스(img, style, script, etc) 가 로드되었을 때
 - beforeunload / unload: 페이지를 떠날 때
 
 일반적으로, 스크립트를 문서의 마지막(</body>) 이전에 삽입하면 굳이 이벤트를 이용하여 프로그래밍을 처리할 필요가 없습니다. 다만, 문서의 <head> 영역에 스크립트가 삽입되거나 외부의 파일에 정의되어 있다면 이벤트를 연결하여 문서의 로드시점에 맞게 처리해야 합니다.
@@ -20,7 +20,7 @@ categories: Web
 
 ### DOMContentLoaded
 
-HTML과 script가 로드된 시점에 발생하는 이벤트입니다. DOMContentLoaded 이벤트가 발생하는 시점은 script 작업 완료 시간만큼 지연됩니다.
+HTML과 script가 로드된 시점에 발생하는 이벤트입니다. 즉, 렌더트리생성 가능 시점인 DOM트리가 완성된 때이며 DOMContentLoaded 이벤트가 발생하는 시점은 개별 script 작업이 완료되는 시간만큼 지연됩니다.
 
 ```js
 window.addEventListener("DOMContentLoaded", function () {
@@ -80,9 +80,37 @@ document.getElementById("myFrame").onload = function () {
 이벤트를 직접 연결할 수도 있습니다.
 
 ```js
+window.onload = function() { 
+  //실행될 코드 
+}
+
+// 또는
+
 window.addEventListener("load", function () {
   //실행될 코드
 });
+```
+
+참고) load 이벤트는 리소스와 그것에 의존하는 리소스들의 로딩이 완료되면 실행됩니다.
+
+```html
+// 윈도우 모든 리소스 로드
+<script>
+  window.addEventListener("load", function (event) {
+    console.log("All resources finished loading!");
+  });
+</script>
+
+// 스크립트 리소스 로드
+<script>
+  var script = document.createElement("script");
+  script.addEventListener("load", function (event) {
+    console.log("Script finished loading and executing");
+  });
+  script.src = "http://example.com/example.js";
+  script.async = true;
+  document.getElementsByTagName("script")[0].parentNode.appendChild(script);
+</script>
 ```
 
 ### jQuery load
@@ -115,13 +143,13 @@ beforeunload / unload - 페이지를 떠날 때 발생하는 이벤트 입니다
 
 DOMContentLoaded 가 load 보다 빨리 발생합니다. 문서 로드 시점 이벤트의 다음 두가지를 구분하도록 합니다.
 
-- HTML과 script가 로드된 시점에 발생하는 이벤트: DOMContentLoaded, jQuery ready
+- HTML과 script가 로드된 시점(렌더트리생성 가능 시점인 DOM트리가 완성)에 발생하는 이벤트: DOMContentLoaded, jQuery ready
 - 문서의 모든 콘텐츠 로드 후 발생 이벤트: window.onload, jQuery load
 
 각 이벤트에 대한 유용한 경우는 다음과 같습니다.
 
 - DOMContentLoaded: DOM이 준비 상태이기 때문에, DOM 노드를 제어할 수 있다.
-- load: 모든 리소스가 로드된 시점이기에, image 사이즈와 같은 것들을 얻을 수 있다.
+- window.load: 모든 리소스가 로드된 시점이기에, image 사이즈와 같은 것들을 얻을 수 있다.
 - beforeunload / unload: 변화에 따른 저장 여부 및 페이지 이탈 여부를 확인할 수 있다.
 
 ---
@@ -131,3 +159,4 @@ DOMContentLoaded 가 load 보다 빨리 발생합니다. 문서 로드 시점 �
 - https://webdir.tistory.com/515
 - https://mygumi.tistory.com/281
 - https://ju-note.tistory.com/15
+- https://developer.mozilla.org/ko/docs/Web/Events/load

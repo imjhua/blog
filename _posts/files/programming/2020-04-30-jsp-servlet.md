@@ -2,6 +2,7 @@
 layout: post
 title: JSP와 Servlet
 categories: Programming
+categories: TODO
 ---
 https://gmlwjd9405.github.io/2018/11/04/servlet-vs-jsp.html
 https://mangkyu.tistory.com/14
