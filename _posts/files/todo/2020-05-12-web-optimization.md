@@ -4,6 +4,9 @@ title: 웹 최적화(Web Optimization)
 categories: Web
 categories: TODO
 ---
+https://d2.naver.com/helloworld/303083
+
+https://developer.yahoo.com/performance/rules.html
 
 https://estrella-kim.github.io/frontend_performance_optimization
 
