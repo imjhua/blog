@@ -21,6 +21,16 @@ categories: Web
 - 레이아웃(Layout): 렌더링 트리가 생성될 때, 각 렌더(Render) 객체가 위치와 크기를 갖게 되는 과정을 레이아웃이라고 한다.
 - 그리기(Painting): 그리기 단계는 렌더링 트리를 탐색하면서 특정 메모리 공간에 RGB 값을 채우는 과정이다.
 
+## Critical Rendering Path란?
+브라우저가 페이지의 초기 출력을 위해 실행해야 하는 순서를 Critical Rendering Path(CRP)라고 합니다.
+
+- DOM 트리 구축
+- CSSOM 트리 구축
+- JavaScript 실행
+- 렌더 트리 구축
+- 레이아웃 생성
+- 페인팅
+
 ## 렌더링 엔진
 
 렌더링 엔진의 역할은 요청 받은 내용을 브라우저 화면에 표시하는 일을 수행합니다.
@@ -72,7 +82,16 @@ DOM 트리가 구축되는 동안 브라우저는 렌더 트리를 구축합니�
 - 형상트리 생성이 완료되면 그리기
 - 그리기를 통해 화면에 표시 된다.
 
+### 정리
+Webkit과 Gecko는 용어가 약간 다르지만 렌더링 과정은 유사합니다.
 
+| Webkit	| Gecko	| 설명 | 
+| ------	| -----	| --- | 
+| Render | Tree	Frame Tree	| 렌더링 되는 노드 트리 | 
+| Render | Object	Frame	| 렌더링 되는 노드 | 
+| Layout	| Reflow	| 렌더링 되는 노드를 배치하는 과정 | 
+| Attachment	| Frame Constructor	| 렌더링 되는 노드 트리를 만드는 과정 | 
+| -	| Content Sink	| DOM 노드를 만드는 과정 | 
 
 ### 파싱
 
@@ -126,3 +145,4 @@ async와 defer를 지원하는 브라우저는 브라우저가 가지고 있는 
 - https://blog.asamaru.net/2017/05/04/script-async-defer/
 - https://d2.naver.com/helloworld/59361
 - https://webclub.tistory.com/630
+- https://beomy.github.io/tech/browser/browser-rendering/
