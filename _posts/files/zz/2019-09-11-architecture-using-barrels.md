@@ -56,7 +56,7 @@ export function getBaz() {}
 export function setBaz() {}
 ```
 
-데모에서 getBaz/ setBaz을 내 보내지 않으려면 변수를 이름으로 가져 와서 아래 표시된 것처럼 해당 이름을 내보내 변수에 넣을 수 있습니다.
+데모에서 getBaz / setBaz을 내보내지 않으려면 변수를 이름으로 가져 와서 아래 표시된 것처럼 해당 이름을 내보내 변수에 넣을 수 있습니다.
 
 ```js
 
