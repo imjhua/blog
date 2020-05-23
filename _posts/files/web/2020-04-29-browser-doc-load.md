@@ -5,6 +5,8 @@ categories: Web
 categories: TODO
 ---
 
+loading-javascript-without-blocking/
+
 https://humanwhocodes.com/blog/2009/06/23/loading-javascript-without-blocking/
 
 웹문서를 만드는 경우, 문서가 로드되었을때를 기점으로 문서를 초기화하고, 각종 설정을 부여하는 것은 빈번한 일입니다. 이 시점에 접근하기 위해 사용되는 이벤트들에 대하여 알아봅니다.
