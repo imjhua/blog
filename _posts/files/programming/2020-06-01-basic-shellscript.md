@@ -2,7 +2,6 @@
 layout: post
 title: ShellScript 기초
 categories: Promramming
-categories: TODO
 ---
 
 Shell쉘? ShellScript쉘 스크립트? 리눅스의 쉘은 명령어와 프로그램을 실행할 때 사용하는 인터페이스 입니다. 쉘명령어는 unix콘솔창에 직접 입력하여 실행하는 명령어이며 이를 통해 프로그램을 실행합니다. 쉘 스크립트는, 스크립트 파일로써 쉘명령어들로 작성됩니다. 쉘 스크립트를 알아보겠습니다.!
@@ -106,15 +105,27 @@ $ echo "aaa $a"
 $ command
 ```
 
-### 문법
+### if
 
+```sh
+if [ ... ]; then #if,then을 같은줄에 쓰려면 꼭꼬 ;로 구분해라!
+  ...
+fi
 
-https://www.lesstif.com/lpt/bash-shell-script-programming-26083916.html
+if [ ... ]; then
+  ...
+elif [ ... ];then
+  ...
+else
+  ...
+fi
+```
 
-#### if
+#### 조건식
+
 - integer 비교: -eq, -lt, -ne 등의 연산자를 사용한다.
 - 문자열 비교: ==, != 사용한다.
-- 테스트: [  ] 안에 test 조건을 넣을 수 있다.
+- 테스트: [ ] 안에 test 조건을 넣을 수 있다.
 
 ```sh
 if [ "$a" == "OK" ];then
@@ -122,12 +133,93 @@ if [ "$a" == "OK" ];then
 fi
 ```
 
-#### test
+#### String Test
+
+-z(문자열이 empty), -n(문자열이 none empty) 등
+
+```sh
+## $var 문자열이 공백인지 검사
+if [ -z $var ];then
+    echo "\$var is empty";
+fi
+```
+
+#### File Test
+
+-d(디렉터리 여부), -f(파일 존재) 등 파일 조건 검사 가능하다.
+
+```sh
+## /etc/nginx/sites-available/ 디렉터리가 없으면 생성
+if [ ! -d "/etc/nginx/sites-available/" ];then
+    mkdir /etc/nginx/sites-available/
+fi
+```
+
+###
+
 #### case
+
+```sh
+case $변수 in
+값1 ) 처리1;;
+값2 ) 처리2;;
+값3 ) 처리3;;
+...
+* ) default처리;;
+esac
+```
+
+```sh
+case $( arch ) in
+i386 ) echo 80386;; #;; 두번들어감에 유의!!!
+i486 ) echo 80486;;
+i586 ) echo pentium;;
+i686 ) echo pentium3;;
+* ) echo "몰라! 이상한 머신이야..."
+esac
+
+```
+
 #### while
+
+```sh
+while [ ... ];do
+  ...
+done
+```
+
+```sh
+i=0
+while [ $i -lt 10 ];do
+  echo $i
+  i=$((i+1))
+  sleep 0.2
+done
+
+```
+
 #### for
+
+for문은 반복횟수가 많아지면 불편합니다. while문으로 대체 할 수 있습니다.
+
+```sh
+for i in 1 2 3 4 5; do
+  echo $i
+  sleep 0.2
+done
+```
+
 #### read
-#### eval
+
+파일을 라인별로 읽어서 입력값으로 사용한다.
+
+```sh
+#!/bin/sh
+while IFS='' read -r line || [[ -n "$line" ]]; do
+    echo "Text read from file: $line"
+done < "$1"
+```
+
 
 ---
 
