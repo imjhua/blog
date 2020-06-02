@@ -74,7 +74,6 @@ exit 0 # exit code 0은 성공 1(~255까지)은 에러
 exit 0 # exit code 0은 성공 1(~255까지)은 에러
 ```
 
-
 참고) `#!/bin/bash`는 bash가 bin에 있다고 가정한 것인데, 이 가정이 항상 성립하지는 않습니다. env가 bin에 있다는 가정으로 다음과 같이 스크립트 파일이 사용하는 스크립팅 언어를 설명하는 것이 표준적 관례입니다.
 
 ```sh
@@ -135,6 +134,22 @@ $ command
 [ expr1 -a expr2 ] : expr1 AND expr2 의 결과 ( 둘다 참이면 참 )
 [ expr1 -o expr2 ] : expr1 OR expr2 의 결과 ( 둘중 하나만 참이면 참 )
 
+주의! <, > 연산자는 사전순서(알파벳순서)로 두 값의 대소를 판단한다. a < b
+
+### 연산
+
+미만 연산자나 초과 연산자로 수치들을 비교할 때는 이중 대괄호 대신 이중 괄호를 사용해야 한다.
+
+- [[]]: x
+- (()): o
+
+```sh
+if (( VAL < 12 )) # 연산자로 수치 비교시 if [[ VAL < 12 ]] 를 사용하면 안된다.
+then
+ echo "값 $VAL이 더 작음"
+fi
+```
+
 ### if
 
 if문은 다음과 같습니다.
@@ -191,16 +206,28 @@ fi
 
 #### File Test
 
--d(디렉터리 여부), -f(파일 존재) 등 파일 조건 검사 가능하다.
+파일의 조건을 검사하는 것이 가능합니다.
+
+```sh
+if [ -e $FILENAME ]
+then
+  echo $FILENAME 파일이 존재함
+fi
+```
+
+- -f: 파일 존재
+- -d: 디렉터리 여부
+- -e: 주어진 파일이 있는가
+- -r: 주어진 파일이 존재하며 읽을 수 있는가
+- -w: 주어진 파일이 존재하며 쓸 수 있는가
+- -x: 주어진 파일이 존재하며 실행할 수 있는가
 
 ```sh
 ## /etc/nginx/sites-available/ 디렉터리가 없으면 생성
 if [ ! -d "/etc/nginx/sites-available/" ];then
-    mkdir /etc/nginx/sites-available/
+  mkdir /etc/nginx/sites-available/
 fi
 ```
-
-###
 
 #### case
 
