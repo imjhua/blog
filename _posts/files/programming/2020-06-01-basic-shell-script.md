@@ -253,29 +253,31 @@ esac
 다음과 같이 활용할 수 있습니다.
 
 ```sh
- # case문 시작
-    case ${string} in
-        hello|HELLO)
-            echo "${string}: hello 일때"
-            ;;
-        wo*)
-            echo "${string}: wo로 시작하는 단어 일때"
-            ;;
-        s|start)
-            echo "${string}: s 혹은 start 일때"
-            ;;
-        e|end)
-            echo "${string}: e 혹은 end 일때"
-            ;;
-        *)
-            echo "${string}: 기타"
-            ;;
-    esac
-    # //case문 끝
+# case문 시작
+case ${string} in
+    hello|HELLO)
+        echo "${string}: hello 일때"
+        ;;
+    wo*)
+        echo "${string}: wo로 시작하는 단어 일때"
+        ;;
+    s|start)
+        echo "${string}: s 혹은 start 일때"
+        ;;
+    e|end)
+        echo "${string}: e 혹은 end 일때"
+        ;;
+    *)
+        echo "${string}: 기타"
+        ;;
+esac
+# //case문 끝
 
 ```
 
 #### while
+
+루프의 본문은 do와 done으로 표시합니다.
 
 ```sh
 while [ ... ];do
@@ -295,7 +297,7 @@ done
 
 #### for
 
-지정된 범위 안에서 반복문이 필요한 경우 다음과 같이 사용합니다.
+지정된 범위 안에서 반복문이 필요한 경우 다음과 같이 사용합니다. 이때 루프의 본문은 do와 done으로 표시합니다.
 
 ```sh
 for string in "hello" "world" "..."; do;
