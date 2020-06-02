@@ -105,23 +105,60 @@ $ echo "aaa $a"
 $ command
 ```
 
+### 문자열 & 산술 비교
+
+#### 문자열비교
+
+[ string ] : string이 빈 문자열이 아니라면 참
+[ string1 = string2 ] : 두 문자열이 같다면 참
+[ string1 != string2 ] : 두 문자열이 다르면 참
+[ -n string ] : 문자열이 null(빈 문자열) 이 아니라면 참
+[ -z string ] : 문자열이 null(빈 문자열) 이라면 참
+
+#### 산술비교
+
+[ expr1 -eq expr2 ] : 두 표현식 값이 같다면 참 ( EQual )
+[ expr1 -ne expr2 ] : 두 표현식 갑이 같지 않다면 참 ( Not Equal )
+[ expr1 -gt expr2 ] : expr1 > expr2 이면 참 ( Greater Then )
+[ expr1 -ge expr2 ] : expr1 >= expr2 이면 참 ( Greater Equal )
+[ expr1 -lt expr2 ] : expr1 < expr2 이면 참 ( Less Then )
+[ expr1 -le expr2 ] : expr1 <= expr2 이면 참 ( Less Equal )
+[ ! expr ] : expr 이 참이면 거짓, 거짓이면 참
+[ expr1 -a expr2 ] : expr1 AND expr2 의 결과 ( 둘다 참이면 참 )
+[ expr1 -o expr2 ] : expr1 OR expr2 의 결과 ( 둘중 하나만 참이면 참 )
+
 ### if
 
-```sh
-if [ ... ]; then #if,then을 같은줄에 쓰려면 꼭꼬 ;로 구분해라!
-  ...
-fi
+if문은 다음과 같습니다.
 
-if [ ... ]; then
-  ...
-elif [ ... ];then
-  ...
+```sh
+if [ ... ]
+then
+  # if-code
 else
-  ...
+  # else-code
 fi
 ```
 
-#### 조건식
+if,then을 같은줄에 쓰려면 꼭 ;로 구분해야 합니다.
+
+```sh
+if [ ... ]; then
+  # do something
+fi
+```
+
+elif절은 다음과 같이 사용할 수 있습니다.
+
+```sh
+if  [ something ]; then
+ echo "Something"
+ elif [ something_else ]; then
+   echo "Something else"
+ else
+   echo "None of the above"
+fi
+```
 
 - integer 비교: -eq, -lt, -ne 등의 연산자를 사용한다.
 - 문자열 비교: ==, != 사용한다.
@@ -161,7 +198,7 @@ fi
 
 ```sh
 case $변수 in
-값1 ) 처리1;;
+값1 ) 처리1;; #;; 두번들어감에 유의!
 값2 ) 처리2;;
 값3 ) 처리3;;
 ...
@@ -169,14 +206,28 @@ case $변수 in
 esac
 ```
 
+다음과 같이 활용할 수 있습니다.
+
 ```sh
-case $( arch ) in
-i386 ) echo 80386;; #;; 두번들어감에 유의!!!
-i486 ) echo 80486;;
-i586 ) echo pentium;;
-i686 ) echo pentium3;;
-* ) echo "몰라! 이상한 머신이야..."
-esac
+ # case문 시작
+    case ${string} in
+        hello|HELLO)
+            echo "${string}: hello 일때"
+            ;;
+        wo*)
+            echo "${string}: wo로 시작하는 단어 일때"
+            ;;
+        s|start)
+            echo "${string}: s 혹은 start 일때"
+            ;;
+        e|end)
+            echo "${string}: e 혹은 end 일때"
+            ;;
+        *)
+            echo "${string}: 기타"
+            ;;
+    esac
+    # //case문 끝
 
 ```
 
@@ -192,13 +243,34 @@ done
 i=0
 while [ $i -lt 10 ];do
   echo $i
-  i=$((i+1))
+  i=$((i+1)) # 연산이 필요한경우 (())로 감싼다.
   sleep 0.2
 done
 
 ```
 
 #### for
+
+지정된 범위 안에서 반복문이 필요한 경우 다음과 같이 사용합니다.
+
+```sh
+for string in "hello" "world" "..."; do;
+    echo ${string};
+done
+
+
+for i in {1..5}
+do
+   echo "Welcome $i times"
+done
+```
+
+```sh
+for i in {1..5..2} # increment 를 2로 지정
+do
+   echo "Welcome $i times"
+done
+```
 
 for문은 반복횟수가 많아지면 불편합니다. while문으로 대체 할 수 있습니다.
 
@@ -220,6 +292,11 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 done < "$1"
 ```
 
+## 정리
+
+- 여기서 인자(argument)와 매개변수(parameter)는 이름만 다를 뿐 의미는 같다.
+- Bash는 공백에 민감하다.
+- 변수 사용은 생각하지 말고 \${변수} 이렇게 쓰자.
 
 ---
 
@@ -228,3 +305,5 @@ done < "$1"
 - https://one2many.tistory.com/15
 - https://jhnyang.tistory.com/57
 - https://www.lesstif.com/lpt/bash-shell-script-programming-26083916.html
+- http://blog.naver.com/PostView.nhn?blogId=msn19972&logNo=90014737234
+- https://www.shellscript.sh/test.html
