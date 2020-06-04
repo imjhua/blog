@@ -255,21 +255,21 @@ esac
 ```sh
 # case문 시작
 case ${string} in
-    hello|HELLO)
-        echo "${string}: hello 일때"
-        ;;
-    wo*)
-        echo "${string}: wo로 시작하는 단어 일때"
-        ;;
-    s|start)
-        echo "${string}: s 혹은 start 일때"
-        ;;
-    e|end)
-        echo "${string}: e 혹은 end 일때"
-        ;;
-    *)
-        echo "${string}: 기타"
-        ;;
+  hello|HELLO)
+      echo "${string}: hello 일때"
+      ;;
+  wo*)
+      echo "${string}: wo로 시작하는 단어 일때"
+      ;;
+  s|start)
+      echo "${string}: s 혹은 start 일때"
+      ;;
+  e|end)
+      echo "${string}: e 혹은 end 일때"
+      ;;
+  *)
+      echo "${string}: 기타"
+      ;;
 esac
 # //case문 끝
 
@@ -297,22 +297,61 @@ done
 
 #### for
 
-지정된 범위 안에서 반복문이 필요한 경우 다음과 같이 사용합니다. 이때 루프의 본문은 do와 done으로 표시합니다.
+지정된 범위 안에서 반복문이 필요한 경우 사용합니다. 이때 루프의 본문은 do와 done으로 표시합니다.
+
+다음은 조건식을 이중 괄호쌍으로 감싸 for문을 표현하였습니다.
 
 ```sh
-for string in "hello" "world" "..."; do;
-    echo ${string};
+for ((i=0; i<100l i++))
+do
+  echo $i
 done
+```
 
+매개변수를 읽어 들일때 파일이름을 가리키는 $0를 제외하고, $1, \$2 등을 차례대로 읽어 순서대로 전달된 매개변수를 읽을 수 있습니다. for문으로 하나씩 증가하는 값을 받아 출력해보면 매개변수를 확인 할 수 있습니다.
 
+```sh
+for ARG
+do
+  echo $ARG
+done
+```
+
+```sh
+for string in "hello" "world" "..."; do; # 값을 공백으로 나열했을 뿐 ,구분자로 나열되는 Arraylist는 아닙니다.
+  echo ${string}
+done
+```
+
+Array를 사용하는 경우 index로 꺼내 올 수 있으며 \*와 @을 통해 전체 목록을 가져 올 수 있습니다.
+ex) array_name=("value 1" "value 2" "value 3") 인경우 index의 사용
+
+- array_name[0] = value 1
+- array_name[2] = value 3
+- array_name[*] = value 1 value 2 value 3
+- array_name[@] = value 1 value 2 value 3
+- array_name index = 0 1 2
+- array_name size = 3
+- array_name[0] size = 7
+
+```sh
+array=("stg" "alp" "prod") # 값을 공백으로 나열했을 뿐 ,구분자가 없습니다.
+for i in "${array[@]}"
+  echo $i
+done
+```
+
+```sh
 for i in {1..5}
 do
    echo "Welcome $i times"
 done
 ```
 
+반복문을 사용할때 값의 간격을 지정할 수 있습니다.
+
 ```sh
-for i in {1..5..2} # increment 를 2로 지정
+for i in {1..5..2} # increment 를 2로 지정. 양수 또는 음수로 지정할 수 있다.
 do
    echo "Welcome $i times"
 done
