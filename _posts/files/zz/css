@@ -1,0 +1,203 @@
+body {
+  overflow-x: hidden;
+}
+
+nav {
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+nav .nav-links {
+  display: flex;
+  align-items: center;
+}
+nav.main-nav {
+  height: 44px;
+}
+
+nav.sub-nav {
+  height: 52px;
+  border-bottom: 1px solid #eee;
+}
+
+nav.main-nav .nav-links {
+  justify-content: space-between;
+}
+
+nav.sub-nav .nav-links a:not(.product-name) {
+  font-size: 0.8rem;
+  margin-left: 2em;
+}
+
+nav.sub-nav .nav-links a.product-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-right: auto;
+}
+section {
+  border: 1px solid red;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+section.page-1 > strong {
+  font-size: 3rem;
+  margin-right: 0.2em;
+  float: left;
+}
+
+section.page-2 .description {
+  width: 200px;
+  overflow-wrap: break-word;
+  /* word-break: break-word; */
+}
+
+section.page-2 .pin {
+  border-left: 1px solid #000;
+  height: 40px;
+}
+
+section.page-3 h1 {
+  margin-bottom: 0;
+}
+section.page-3 h2 {
+  margin-top: 10px;
+  color: #aaa;
+}
+
+section.page-4 .text {
+  color: #aaa;
+}
+
+footer {
+  margin-top: 20px;
+  height: 200px;
+  background-color: silver;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+
+///
+
+
+<body>
+  <head>
+    <nav class="main-nav">
+      <div class="nav-links">
+        <a>menu-A</a>
+        <a>menu-B</a>
+        <a>menu-C</a>
+      </div>
+    </nav>
+    <nav class="sub-nav">
+      <div class="nav-links">
+        <a class="product-name">BrandName</a>
+        <a>login</a>
+        <a>help</a>
+      </div>
+    </nav>
+  </head>
+  <section class="page-0">
+    <h1 class="center">Title</h1>
+    <div class="center sticky">
+      <h1>Sub Title1</h1>
+    </div>
+    <div class="center sticky">
+      <h1>
+        Sub Title2 <br />
+        Test
+      </h1>
+    </div>
+    <div class="center sticky">
+      <h1>Sub Title3</h1>
+    </div>
+    <div class="center sticky">
+      <h1>Sub Title4</h1>
+    </div>
+  </section>
+  <section class="page-1">
+    <strong>Scroll</strong>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </section>
+  <section class="page-2">
+    <div class="center sticky">
+      <h1><small>Small...</small> Text</h1>
+    </div>
+
+    <div class="sticky">
+      <div class="description">
+        1. sdfkjlaksjflkjaslfkjasldjflksjdflkjsadlfjasldkfjlskadjf
+      </div>
+      <div class="pin"></div>
+    </div>
+
+    <div class="sticky">
+      <div class="description">
+        2. sdfkjlaksjflkjaslfkjasldjflksjdflkjsadlfjasldkfjlskadjf
+      </div>
+      <div class="pin"></div>
+    </div>
+  </section>
+
+  <section class="page-3">
+    <div class="center">
+      <h1>
+        Test
+      </h1>
+      <h2>
+        abcd <br />
+        abcd
+      </h2>
+    </div>
+  </section>
+
+  <section class="page-4">
+    <div class="text">
+      …neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+      consectetur, adipisci velit, sed quia non numquam eius modi tempora
+      incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad
+      minima veniam, quis nostrum exercitationem ullam corporis suscipit
+      laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum
+      iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
+      consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    </div>
+  </section>
+  <footer>imjhua</footer>
+  <script src="src/index.js"></script>
+</body>
+
+///
+
+import "./styles.css";
+
+let currentPageId = 1;
+
+/*
+1. 섹션들(5개?)의 height를 scrolle * 5
+2. 현재 pageOffset이 어떤 영역에 위치 하는지에 따라
+섹션을 보인다?
+3. 섹션중에서 문구를 보인다
+*/
+const pageIds = [0, 1, 2, 3, 4];
+for (let id of pageIds) {
+  document.querySelector(`.page-${id}`).style.height = window.innerHeight * 5;
+}
+
+window.addEventListener("scroll", function() {
+  console.log(window.pageYOffset / pageIds.length);
+  // const yOffset = window.pageYOffset;
+  // const pageHeight = window.innerHeight * 5;
+  // if(window.pageYOffset){
+
+  // }
+});
