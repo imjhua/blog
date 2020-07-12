@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Canvas API & 상태 정보 (ctx: Context)
+title: Canvas API & 상태 정보
 categories: Web
 ---
 
