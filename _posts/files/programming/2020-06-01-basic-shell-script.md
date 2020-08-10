@@ -368,7 +368,7 @@ done
 
 #### read
 
-파일을 라인별로 읽어서 입력값으로 사용한다.
+파일을 라인별로 읽어서 입력값으로 사용합니다.
 
 ```sh
 #!/bin/sh
@@ -376,6 +376,26 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     echo "Text read from file: $line"
 done < "$1"
 ```
+
+#### function
+
+함수를 정의할 때는 다음과 같은 구문을 사용합니다.
+
+```sh
+function test() # function 이나 ()중 하나는 생략해도 되지만 가독성을 위해 둘다 지정을 권장한다.
+{
+  # 함수 본문안에서 인수들 접근 
+  echo $1 # param1
+  echo $2 # param2
+}
+
+...
+
+$ test param1 param2 # 함수 호출
+```
+
+주의할 점이 있는데, 함수안에서 선언된 변수는 내장명령 local로 선언하지 않으면 모두 전역범위의 변수가 됩니다. 의도치 않게 변수를 변경하는 일이 되는 것을 조심해야 합니다.
+
 
 ## 정리
 
