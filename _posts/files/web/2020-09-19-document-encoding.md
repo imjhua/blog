@@ -4,46 +4,6 @@ title: 웹 서비스를 구성하는 문자 인코딩(charaterSet) 정리
 categories: Web
 ---
 
-정리)
-인코딩/디코딩을 위한 미리 정해진 기준을 charaterSet이라고 하며, 초기 표준은 아스키였고 표현해야 하는 문자가 많아지면서 유니코드가 등장하였습니다.
-
-서버가 응답에 대한 인코딩 정보를 내려주고 문서는 동일한 인코딩으로 페이지의 인코딩 정보를 선언합니다. 이때 서버 응답에서의 문자 인코딩정보는 참고용이기 때문에 꼭 지정하지 않을 수 있습니다. 문서의 인코딩은 별개이며, 따라서 서버의 인코딩 정보는 참고용일 뿐 문서가 해당 charset으로 변환(인코딩) 되는 것은 아닙니다.
-
-결론)
-
-서버가 잘못된 인코딩을 내려줄때
-예를들면 인코딩 utf-8 -> http header는 euc-kr
-
-html에서 문서인코딩을 utf-8로 선언해 두면
-응답헤더(참고용이다!) 보다는 문서의 인코딩 선언인 utf-8로 페이지를 읽기 때문에
-정상적으로 페이지가 읽힌다?
-
-이때 URL은??
-
-브라우저가 utf-8로 캐릭터를 찾아 보여주겠다는 것이지, u request url 자체가 깨져있으니 소용 없습니다
-
-호출하는 쪽에서 문서의 인코딩을 바꿀수 있나요..?
-
-아니오. 보장이 안됩니다. 바라보는 캐릭터셋 드 테이블이 달라서 완전치 않아요.
-호출하는 쪽에서야 이렇게 받고 싶어...라고 보낼 뿐이죠
-
-response
-httpHeader - contentType -
-
-Content-Type: text/html; charset=utf-8
-
-html
-<meta charset="utf-8" />
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-확인
-Document.characterSet 읽기 전용 속성은 현재 문서가 렌더링에 사용하는 문자 인코딩을 반환합니다.
-
-참고: Document.charset과 Document.inputEncoding
-
-- https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%9E%90_%EC%9D%B8%EC%BD%94%EB%94%A9
-
 웹 서비스는 서버와 클라이언트로, api와 html로, 동적인 기능구현을 위한 javascript로 구성될 것입니다. Server Response & HTML & Javascript 의 혼란스러운? 인코딩을 정리합니다.
 
 ## 문자 인코딩 (charaterSet)
@@ -203,6 +163,32 @@ if (document.charset) {
 }
 ```
 
+## 정리
+
+인코딩/디코딩을 위한 미리 정해진 기준을 charaterSet이라고 하며, 초기 표준은 아스키였고 표현해야 하는 문자가 많아지면서 유니코드가 등장하였습니다.
+
+서버가 응답에 대한 인코딩 정보를 내려주고 문서는 동일한 인코딩으로 페이지의 인코딩 정보를 선언합니다. 이때 서버 응답에서의 문자 인코딩정보는 참고용이기 때문에 꼭 지정하지 않을 수 있습니다. 문서의 인코딩은 별개이며, 따라서 서버의 인코딩 정보는 참고용일 뿐 문서가 해당 charset으로 변환(인코딩) 되는 것은 아닙니다.
+
+- 서버 소스 인코딩: utf-8
+- 서버 응답 헤더(httpHeader): Content-Type: text/html; charset=utf-8
+- HTML 문서: `<meta charset="utf-8" />`
+- js: `<script src='test.js' charset="utf-8"></script>`
+
+### 애매한 경우
+
+서버가 잘못된 인코딩을 내려줄때 다음과 같은 경우라면?
+
+- 서버 소스 인코딩: utf-8
+- 서버 응답 헤더(httpHeader): euc-kr
+- HTML 문서: utf-8
+
+응답헤더(참고용이다!) 보다는 문서의 인코딩 선언인 utf-8로 페이지를 읽기 때문에 정상적으로 페이지 인코딩이 정상적으로 이루어집니다.햇갈릴 수 있지만.. 호출하는 쪽에서 문서의 인코딩을 바꿀수는 없고 참고용일 뿐인 것입니다.
+
+---
+
+해당 내용은 다음 글을 참고 하였습니다.
+
+- https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%9E%90_%EC%9D%B8%EC%BD%94%EB%94%A9
 - https://www.w3.org/TR/1998/REC-html40-19980424/interact/forms.html#adef-accept-charset
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
 - https://ohgyun.com/314
