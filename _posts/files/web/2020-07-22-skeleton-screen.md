@@ -19,7 +19,8 @@ skeleton은 뼈대를 의미하는 단어입니다. 데이터를 받고 있는 �
 linear-gradient() CSS 함수는 두 개 이상의 색이 직선을 따라 점진적으로 변화하는 이미지를 생성합니다. 기본적으로 방향은 위에서 아래(to bottom)입니다. 함수의 결과는 image의 특별한 종류인 gradient자료형입니다. 따라서 gradient는 image의 한 종류로서 image를 사용하는 곳에만 적용할 수 있습니다. linear-gradient()를 background-color 등 color 자료형을 받는 속성에는 사용할 수 없습니다.
 
 - 사용법: linear-gradient([driection], #color1, #color2) (2개 이상의 색상은 필수)
-  참고) driection는 생략 가능 하며, 사용시 top, left, right deg 등 다양한 인자를 사용하여 위치 혹은 그라데이션 각도 변경이 가능하다.
+
+참고) driection는 생략 가능 하며, 사용시 top, left, right deg 등 다양한 인자를 사용하여 위치 혹은 그라데이션 각도 변경이 가능하다.
 
 ```css
 .element {
