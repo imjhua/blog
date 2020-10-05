@@ -18,7 +18,7 @@ categories: Web
 
 ## 문서 전체 크기
 
-- scrollHeight: 스크롤바 높이를 뺀 내용 전체의 높이
+- scrollHeight: 스크롤바 높이를 뺀 내용 전체의 높이 (document.body.scrollHeight)
 
 - clientHeight: 스크롤바 높이를 뺀 가시적인 높이
 
