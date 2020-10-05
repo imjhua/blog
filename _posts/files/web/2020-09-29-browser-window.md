@@ -44,10 +44,17 @@ if (winTop >= onTop) {
 
 ### 요소를 끝까지 스크롤했는지 판별하기
 
-다음 등식이 참인 경우 요소를 끝까지 스크롤한 것입니다.
+다음 등식이 참인 경우 요소를 끝까지 스크롤한 것입니다. 이떄 요소가 감싸고 있는 컨텐츠의 마진&패딩값에 대한 여유값이 필요합니다.
+
+스크롤을 포함한 (스크롤되는)요소 높이 - 스크롤 현재위치 는 요소의 높이보다 작아야 한다.
+
+참고) 정확히는 `element.scrollHeight - element.scrollTop === element.clientHeight`
 
 ```js
-element.scrollHeight - element.scrollTop === element.clientHeight;
+// 하단에 도착했을 경우(푸터영역 위까지의 요소를 끝까지 스크롤했는지 판별하기)
+if (element.scrollHeight - element.scrollTop - PADDING < element.clientHeight) {
+  getList();
+}
 ```
 
 ---
