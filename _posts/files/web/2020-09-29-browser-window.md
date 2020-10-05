@@ -24,6 +24,24 @@ categories: Web
 
 - offsetHeight: 스크롤바 높이를 포함한 가시적인 높이
 
+### 문서의 끝까지 스크롤했는지 판별하기
+
+전체 문서 높이 - 현재 보여지는 영역 창크기(보여지는 영역은 스크롤 대상 아님, 이 다음 영역부터 감지되어야 한다.) - 스크롤영역이 아닌 다른 영역(footer)
+
+```js
+const winTop = window.pageYOffset; // 스크롤할때마다 현재 윈도우 offset을 알아낸다.
+
+const windowScrollHeight = document.body.offsetHeight;
+const windowHeight = window.innerHeight;
+const footerElHeight = $(".footer").clientHeight;
+
+const onTop = windowScrollHeight - windowHeight - footerElHeight; //스크롤이 문서하단에 도착했는지 계산합니다.
+
+if (winTop >= onTop) {
+  getList();
+}
+```
+
 ### 요소를 끝까지 스크롤했는지 판별하기
 
 다음 등식이 참인 경우 요소를 끝까지 스크롤한 것입니다.
