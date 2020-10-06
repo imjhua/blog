@@ -47,6 +47,29 @@ X축으로 스크롤시 배경이 조금씩 지나가면서 앞에는 나무들�
 
 참고) https://www.beckett.design/
 
+## 시차 스크롤링 효과를 만드는 방법
+
+### background-attachment
+
+컨테이너 요소를 사용하고 특정 높이의 컨테이너에 배경 이미지를 추가합니다. 그런 background-attachment: fixed 를 설정하여 배경을 고정합니다. 다른 배경 속성은 이미지를 완벽하게 중앙에 배치하고 크기를 조정하는 데 사용됩니다.
+
+```css
+.parallax {
+  /* The image used */
+  background-image: url("img_parallax.jpg");
+
+  /* Set a specific height */
+  height: 500px;
+
+  /* Create the parallax scrolling effect */
+  /* scroll | fixed | local */
+  background-attachment: fixed; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+```
+
 ---
 
 해당 내용은 다음 글을 참고 하였습니다.
