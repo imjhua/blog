@@ -2,12 +2,7 @@
 layout: post
 title: 문서 로드 시점 이벤트와 브라우저 로딩 순서
 categories: Web
-categories: TODO
 ---
-
-loading-javascript-without-blocking/
-
-https://humanwhocodes.com/blog/2009/06/23/loading-javascript-without-blocking/
 
 웹문서를 만드는 경우, 문서가 로드되었을때를 기점으로 문서를 초기화하고, 각종 설정을 부여하는 것은 빈번한 일입니다. 이 시점에 접근하기 위해 사용되는 이벤트들에 대하여 알아봅니다.
 
@@ -85,9 +80,9 @@ document.getElementById("myFrame").onload = function () {
 이벤트를 직접 연결할 수도 있습니다.
 
 ```js
-window.onload = function() { 
-  //실행될 코드 
-}
+window.onload = function () {
+  //실행될 코드
+};
 
 // 또는
 
@@ -109,11 +104,28 @@ window.addEventListener("load", function () {
 // 스크립트 리소스 로드
 <script>
   var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "http://example.com/example.js";
   script.addEventListener("load", function (event) {
     console.log("Script finished loading and executing");
   });
-  script.src = "http://example.com/example.js";
+  // script.onload = function(){
+  //   alert("Script is ready!");
+  // };
+
+  // IE 버전에만 존재하는 readyState 체크하기
+  // script.onreadystatechange = function(){
+  //     if (script.readyState == "loaded" ||
+  //             script.readyState == "complete"){
+  //         script.onreadystatechange = null;
+  //         alert("Script is ready!"); // callback을 받을 수도 있음
+  //     }
+  // };
+
+
   script.async = true;
+  document.body.appendChild(script);
+  
   document.getElementsByTagName("script")[0].parentNode.appendChild(script);
 </script>
 ```
@@ -133,8 +145,6 @@ $(window).load(function () {
 beforeunload / unload - 페이지를 떠날 때 발생하는 이벤트 입니다.
 
 ## 브라우저로딩 순서와 발생하는 이벤트 정리
-
-https://humanwhocodes.com/blog/2009/06/23/loading-javascript-without-blocking/
 
 초기값은 readyState = loading로 시작합니다.
 
