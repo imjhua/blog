@@ -63,7 +63,7 @@ X축으로 스크롤시 배경이 조금씩 지나가면서 앞에는 나무들�
 
   /* Create the parallax scrolling effect */
   /* scroll | fixed | local */
-  background-attachment: fixed; 
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
