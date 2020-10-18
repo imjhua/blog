@@ -110,4 +110,3 @@ function resizeAllParagraphsToMatchBlockWidth() {
 해당 내용은 다음 글을 참고 하였습니다.
 
 - https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing?hl=ko
-

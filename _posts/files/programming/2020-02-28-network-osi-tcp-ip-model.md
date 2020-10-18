@@ -4,16 +4,15 @@ title: 네트워크 OSI 7계층과 TCP/IP 모델
 categories: Programming
 ---
 
-
 프로토콜은 서로 다른 기기들 간의 데이터 교환을 원활하게 수행할 수 있도록 표준화시켜 놓은 통신 규약입니다. 데이터 통신을 위한 두가지 프로토콜이 존재합니다. OSI 7계층과 TCP/IP 모델을 정리해봅니다.
 
 ## 간단 표
 
 | OSI 계층 | TCP/IP 모델 | . |
-| Application <br/> Presentation <br/> Setting | Application |   |
+| Application <br/> Presentation <br/> Setting | Application | |
 | Transport(TCP) | Host-to-Host Transport | 어떻게 전송? |
 | Network(IP) | Internet | |
-| Data Link | Network Interface|   |
+| Data Link | Network Interface| |
 | Physical | Hardware | |
 
 ## OSI 7계층과 TCP/IP 모델
@@ -26,8 +25,8 @@ ISO(국제표준화기구)에서 제안한 통신 프로토콜로 OSI 참조모�
 총 7Layer(7계층임)
 
 ### TCP/IP 모델(4레이어)
-TCP 프로토콜과 IP 프로토콜을 OSI 7계층 형식에 맞추어 더 추상화(혹은 간략화) 시킨 모델입니다. 인터넷 표준 프로토콜으로 컴퓨터의 데이터 통신을 행하기 위해서 만들어진 프로토콜 체계입니다. 총 4계층으로 이루어져있습니다.
 
+TCP 프로토콜과 IP 프로토콜을 OSI 7계층 형식에 맞추어 더 추상화(혹은 간략화) 시킨 모델입니다. 인터넷 표준 프로토콜으로 컴퓨터의 데이터 통신을 행하기 위해서 만들어진 프로토콜 체계입니다. 총 4계층으로 이루어져있습니다.
 
 네트워크 계층 -> 인터넷 계층 -> 전송 계층 -> 응용 계층
 
@@ -65,8 +64,8 @@ TCP 프로토콜과 IP 프로토콜을 OSI 7계층 형식에 맞추어 더 추�
 
 랜선, 허브등과같이 실제 물리적인 영역에서의 데이터계층입니다.
 
-
 ## 결론
+
 각각의 레이어를 거치면서 데이터의 양은 더 많아집니다. 맨 처음 언급했던것처럼 상위계층으로부터 받은 데이터는 관여하지않고 자신의 계층에서의 추가 데이터만 계속 늘어 가게 됩니다.
 
 ---

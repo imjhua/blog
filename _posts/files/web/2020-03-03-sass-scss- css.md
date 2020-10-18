@@ -1,7 +1,7 @@
 ---
 layout: post
-title: SASS / SCSS / SCSS 
-categories: HTML
+title: SASS / SCSS / SCSS
+categories: Web
 ---
 
 Sass(Syntactically Awesome StyleSheets)는 CSS pre-processor로서 CSS의 한계와 단점을 보완하여 보다 가독성이 높고 코드의 재사용에 유리한 CSS를 생성하기 위한 CSS의 확장(extension)입니다. CSS의 간결한 문법은 배우기 쉬우며 명확하여 프로젝트 초기에는 문제가 없이 보이지만 프로젝트의 규모가 커지고 수정이 빈번히 발생함에 따라 쉽게 지저분해지고 유지보수도 어려워지는 단점도 가지고 있습니다. Sass는 '문법적으로 멋진 스타일시트'를 뜻으로 CSS 전처리기 중 하나입니다. 그렇다면 SCSS는 무엇일까요?
@@ -135,11 +135,10 @@ SASS 활용을 위해선 컴퓨터에 SASS 컴파일러가 필요합니다.
 - 아래 사이트가 도움이 좀 될 겁니다.
 - https://1stwebdesigner.com/best-css-tools/
 
-
-
-
 ## 사용
+
 ### 가져오기(Import)
+
 @import로 외부에서 가져온 Sass 파일은 모두 단일 CSS 출력 파일로 병합됩니다. 또한, 가져온 파일에 정의된 모든 변수 또는 Mixins 등을 주 파일에서 사용할 수 있습니다. Sass @import는 기본적으로 Sass 파일을 가져오는데, CSS @import 규칙으로 컴파일되는 몇 가지 상황이 있습니다.
 
 - 파일 확장자가 .css일 때
@@ -156,6 +155,7 @@ SASS 활용을 위해선 컴퓨터에 SASS 컴파일러가 필요합니다.
 ```
 
 ### 중첩
+
 ```
 .section {
   width: 100%;
@@ -169,6 +169,7 @@ SASS 활용을 위해선 컴퓨터에 SASS 컴파일러가 필요합니다.
 ```
 
 ### 상위 선택자 참조
+
 ```
 .btn {
   position: absolute;
@@ -193,6 +194,7 @@ SASS 활용을 위해선 컴퓨터에 SASS 컴파일러가 필요합니다.
 ```
 
 ### 중첩 벗어나기
+
 ```
 .list {
   $w: 100px;
@@ -208,8 +210,8 @@ SASS 활용을 위해선 컴퓨터에 SASS 컴파일러가 필요합니다.
 }
 
 
-/* 변수 유효범위 
- .list 안에 있는 특정 변수를 범위 밖에서 사용할 수 없기 때문에, 
+/* 변수 유효범위
+ .list 안에 있는 특정 변수를 범위 밖에서 사용할 수 없기 때문에,
   위 예제 처럼 @at-root 키워드를 사용해야 한다. */
 
 .list {
@@ -231,6 +233,7 @@ SASS 활용을 위해선 컴퓨터에 SASS 컴파일러가 필요합니다.
 ```
 
 ### 중첩된 속성
+
 font-, margin- 등과 같이 동일한 네임 스페이스를 가지는 속성들을 다음과 같이 사용할 수 있습니다.
 
 ```
@@ -251,12 +254,10 @@ font-, margin- 등과 같이 동일한 네임 스페이스를 가지는 속성�
 }
 ```
 
-
-
-
-
 ### !global (전역 설정)
+
 !global 플래그를 사용하면 변수의 유효범위를 전역(Global)로 설정할 수 있습니다.
+
 ```
 .box1 {
   $color: #111 !global;
@@ -269,6 +270,7 @@ font-, margin- 등과 같이 동일한 네임 스페이스를 가지는 속성�
 ```
 
 ### !default (초깃값 설정)
+
 !default 플래그는 할당되지 않은 변수의 초깃값을 설정합니다.
 즉, 할당되어있는 변수가 있다면 변수가 기존 할당 값을 사용합니다.
 
@@ -282,9 +284,8 @@ $color-primary: red;
 
 ```
 
-
-
 ### 확장(Extend)
+
 특정 선택자가 다른 선택자의 모든 스타일을 가져야하는 경우가 종종 있습니다. 이럴 경우 선택자의 확장 기능을 사용할 수 있습니다.
 
 ```
@@ -295,13 +296,12 @@ $color-primary: red;
 }
 .btn-danger {
   @extend .btn; /* 다중선택자로 변환됨 .btn, .btn-danger*/
-  background: red; 
+  background: red;
 }
 ```
 
-
-
 ### 함수
+
 자신의 함수를 정의하여 사용할 수 있습니다.
 
 ```
@@ -327,6 +327,7 @@ $max-width: 980px;
 ```
 
 ### 조건식 if (함수)
+
 조건의 값(true, false)에 따라 두 개의 표현식 중 하나만 반환합니다. 조건부 삼항 연산자(conditional ternary operator)와 비슷합니다.
 
 ```
@@ -337,6 +338,7 @@ div {
 ```
 
 ### @if 지시어
+
 ```
 $bg: true;
 div {
@@ -347,6 +349,7 @@ div {
 ```
 
 ### @each
+
 List와 Map 데이터를 반복할 때 사용합니다. for in 문과 유사합니다.
 
 ```
@@ -361,7 +364,6 @@ $fruits: (apple, orange, banana, mango);
   }
 }
 ```
-
 
 ---
 
