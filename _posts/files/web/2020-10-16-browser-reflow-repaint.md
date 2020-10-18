@@ -74,7 +74,7 @@ function rePaint() {
 
 ### Reflow, Repaint 줄이기
 
-#### 사용하지 않는 노드에는 visibilty: invisible 보다 display: none을 사용하기
+#### 사용하지 않는 노드에는 visibility: invisible 보다 display: none을 사용하기
 
 visibility invisible은 레이아웃 공간을 차지하기 때문에 reflow의 대상이 됩니다. 하지만 display none은 Layout 공간을 차지하지 않아 Render Tree에서 아예 제외됩니다.
 
