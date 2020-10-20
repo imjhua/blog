@@ -39,10 +39,6 @@ categories: JavaScript
 - webpack-cli: 웹팩 커맨드라인 인터페이스 라이브러리입니다.
 - webpack-dev-server: 웹팩 개발서버 라이브러리입니다.
 
-## preset
-
-https://velog.io/@pop8682/%EB%B2%88%EC%97%AD-%EC%99%9C-babel-preset%EC%9D%B4-%ED%95%84%EC%9A%94%ED%95%98%EA%B3%A0-%EC%99%9C-%ED%95%84%EC%9A%94%ED%95%9C%EA%B0%80-yhk03drm7q
-
 ## 예
 
 바벨설정파일에 babel plugin들을 모아놓고 사용합니다.
