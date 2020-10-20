@@ -26,14 +26,12 @@ navigation:
     url: /about
   - name: List
     url: /list
+  - name: Web
+    url: /web
   - name: JavaScript
     url: /javascript
   - name: React
     url: /react
-  - name: Web
-    url: /web
-  - name: Cloud
-    url: /cloud
   - name: Programming
     url: /programming
   - name: Etc

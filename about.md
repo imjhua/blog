@@ -8,6 +8,7 @@ permalink: /about/
 
 - FrontEnd Developer
 - Positive Energy
+- Open Mind & Open Relationship & Readership
 
 다양한 것을 경험하는 것과 그 경험에 대해 나누는 것을 좋아합니다.
 
