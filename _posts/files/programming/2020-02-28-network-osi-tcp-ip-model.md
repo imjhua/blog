@@ -8,12 +8,12 @@ categories: Programming
 
 ## 간단 표
 
-| OSI 계층 | TCP/IP 모델 | . |
-| Application <br/> Presentation <br/> Setting | Application | |
-| Transport(TCP) | Host-to-Host Transport | 어떻게 전송? |
-| Network(IP) | Internet | |
-| Data Link | Network Interface| |
-| Physical | Hardware | |
+| OSI 계층 | TCP/IP 모델 |
+| Application <br/> Presentation <br/> Setting | Application |
+| Transport(TCP) | Host-to-Host Transport |
+| Network(IP) | Internet |
+| Data Link | Network Interface|
+| Physical | Hardware |
 
 ## OSI 7계층과 TCP/IP 모델
 
@@ -28,9 +28,20 @@ ISO(국제표준화기구)에서 제안한 통신 프로토콜로 OSI 참조모�
 
 TCP 프로토콜과 IP 프로토콜을 OSI 7계층 형식에 맞추어 더 추상화(혹은 간략화) 시킨 모델입니다. 인터넷 표준 프로토콜으로 컴퓨터의 데이터 통신을 행하기 위해서 만들어진 프로토콜 체계입니다. 총 4계층으로 이루어져있습니다.
 
-네트워크 계층 -> 인터넷 계층 -> 전송 계층 -> 응용 계층
+- 응용(애플리케이션) 계층
+- 전송 계층
+- 인터넷 계층
+- 네트워크 계층
 
-## OSI 계층 정리
+## OSI 계층(7계층)
+
+- 어플리케이션 계층(= TCP/IP 응용 계층)
+- 표현계층
+- 세션계층
+- 전송레이어(= TCP/IP 전송 계층)
+- 네트워크 인터페이스레이어(= TCP/IP 인터넷 계층)
+- 데이터링크계층(= TCP/IP 네트워크 계층)
+- 물리계층
 
 ### 어플리케이션계층(OSI 7계층)
 
