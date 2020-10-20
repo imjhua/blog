@@ -17,6 +17,8 @@ categories: Programming
 
 ## OSI 7계층과 TCP/IP 모델
 
+OSI(Open Systems Interconnections)7계층은 시스템들의 연결을 위한 모델입니다. TCP/IP 4계층은 이를 웹 서비스에 맞게 단순화시킨 모델입니다.
+
 ### OSI계층(7레이어)
 
 ISO(국제표준화기구)에서 제안한 통신 프로토콜로 OSI 참조모델은 컴퓨터와 컴퓨터 사이의 데이터전송을 분류한 모델입니다. 조금 어렵게 표현하여 각 계층은 다른 계층에 대해 알 필요가 없이 자신의 계층에서 캡슐화와 은닉(숨기기)가 가능합니다.
@@ -28,10 +30,10 @@ ISO(국제표준화기구)에서 제안한 통신 프로토콜로 OSI 참조모�
 
 TCP 프로토콜과 IP 프로토콜을 OSI 7계층 형식에 맞추어 더 추상화(혹은 간략화) 시킨 모델입니다. 인터넷 표준 프로토콜으로 컴퓨터의 데이터 통신을 행하기 위해서 만들어진 프로토콜 체계입니다. 총 4계층으로 이루어져있습니다.
 
-- 응용(애플리케이션) 계층
-- 전송 계층
-- 인터넷 계층
-- 네트워크 계층
+- 응용계층: HTTP, FTP, Telnet, SMTP 등 네트워크를 사용하는 응용프로그램으로 이뤄집니다.
+- 전송계층: TCP, UDP 등 시스템을 연결하고 데이터를 전송하는 역할을 합니다.
+- 인터넷계층: ICMP, IGMP, IP등 데이터를 정의하고 데이터의 경로를 라우팅합니다.
+- 물리계층: Ethernet, ATM등 네트워크 하드웨어를 의미합니다.
 
 ## OSI 계층(7계층)
 
@@ -85,3 +87,4 @@ TCP 프로토콜과 IP 프로토콜을 OSI 7계층 형식에 맞추어 더 추�
 
 - https://sleepyeyes.tistory.com/4
 - https://medium.com/harrythegreat/osi%EA%B3%84%EC%B8%B5-tcp-ip-%EB%AA%A8%EB%8D%B8-%EC%89%BD%EA%B2%8C-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0-f308b1115359
+- https://medium.com/@chrisjune_13837/web-http-tcp-ip-%EB%A9%94%EC%8B%9C%EC%A7%80%EB%9E%80-4b2721fe296f
