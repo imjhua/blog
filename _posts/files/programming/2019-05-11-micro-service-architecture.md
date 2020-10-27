@@ -2,7 +2,7 @@
 layout: post
 title: 마이크로 서비스 아키텍처 (Micro Service Architecture)
 categories: Programming
----s
+---
 
 대용량 웹서비스가 많아짐에 따라 정의된 아키텍처로써 서비스 지향 아키텍처(SOA: Srevice Oriented Architecture)를 근간으로 도메인을 기능별로 분리한 단위보다 더 작은 최소 단위입니다. 기능일수도 있고 최소 함수 및 조직단위가 하나의 서비스가 될 수 있습니다.
 
