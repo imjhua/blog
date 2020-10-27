@@ -4,7 +4,6 @@ title: 자격증
 categories: Resume
 ---
 
-
 ## 자격증
 
 ### 정보처리기사
