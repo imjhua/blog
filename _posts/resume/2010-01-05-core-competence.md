@@ -14,7 +14,7 @@ categories: Resume
 - 웹 애플리케이션 아키텍처 설계 및 공통 모듈 개발을 담당하며 리드개발자로서의 경험
 - 대시보드 구현을 통해 경험한 데이터 시각화에 대한 고민
 - 외국계 기업에서의 업무경력을 통한 글로벌 프로젝트 경험
-- Git, Jira, Wiki 등 협업 툴 사용에 익숙
+- Git, Bitbucket, Jira, Wiki, Slack 등 협업 툴 사용에 익숙
 - 코드 리뷰 경험
 
 ---
@@ -32,6 +32,19 @@ categories: Resume
 
 ### 스킬셋
 
+node: v13.8.0
+npm: v6.14.4
+webpack: v4.43.0
+preact: v10.4.1
+typescript: v3.7.5
+swiper: v5.3.7
+lottie-web: v5.6.6
+jest: v26.0.1
+enzyme: v3.11.0
+storybook: v5.3.18
+
+---
+
 webpack: ^4.44.0
 preact: ^10.4.6
 reduxjs/toolkit: ^1.4.0
@@ -43,6 +56,15 @@ typescript: ^3.9.7
 storybook: ^6.0.17
 jest: ^26.1.0
 babel: ^26.1.0
+
+---
+
+개발환경 구성 파일
+.babelrc: 최신 문법 변환을 위한 babel 설정 (webpack, jest에서 사용되고 storybook에서 사용하는 설정은 별도로 구성되어 있음)
+.eslintrc.js: 정적코드분석을 위한 eslint설정
+.prettierrc: prettier의 포맷 적용을 위한 설정. (코드 공통 형식)
+jest.config.js: 테스트프레임워크인 jest를 위한 설정 (테스트 유틸리티로 enzyme 사용)
+tsconfig.js: 타입스크립트를 위한 설정
 
 ### 클라이언트 사이드 관심사
 
