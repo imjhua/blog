@@ -2,6 +2,7 @@
 layout: post
 title: 스크롤 이벤트 최적화 하기
 categories: JavaScript
+categories: TODO
 ---
 
  
