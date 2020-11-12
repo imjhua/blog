@@ -30,8 +30,8 @@ navigation:
     url: /web
   - name: JavaScript
     url: /javascript
-  - name: React
-    url: /react
+  - name: Http
+    url: /http
   - name: Programming
     url: /programming
   - name: Etc
