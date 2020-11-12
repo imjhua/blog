@@ -24,8 +24,8 @@ navigation:
     url: /
   - name: About
     url: /about
-  - name: List
-    url: /list
+  - name: HTML
+    url: /html
   - name: Web
     url: /web
   - name: JavaScript
