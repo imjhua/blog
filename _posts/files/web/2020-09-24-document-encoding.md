@@ -101,7 +101,7 @@ IE8은! DOCTYPE 또는 특정 HTML 요소의 존재 여부에 따라 다른 모�
 document.documentMode;
 ```
 
-참고) 이전에는 window.navigator.userAgent의 msie문자열 유무에 따라 판별을 하였는데 IE11부터 해당 문자열이 사라졌다
+참고) 이전에는 window.navigator.userAgent의 msie문자열 유무에 따라 판별을 하였는데 IE11부터 해당 문자열이 사라졌다.
 
 - 10버전: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2)
 - 11버전: Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko

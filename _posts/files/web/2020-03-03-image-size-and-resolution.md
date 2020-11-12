@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Image Size and Resolution & Design
-categories: WEB
+categories: Web
 ---
 
 ### 해상도에 따른 디자인

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Web Component
-categories: WEB
+categories: Web
 ---
 
 웹 컴포넌트는 그 기능을 나머지 코드로부터 캡슐화하여 재사용 가능한 커스텀 엘리먼트를 생성하고 웹 앱에서 활용할 수 있도록 해주는 다양한 기술들의 모음입니다.
