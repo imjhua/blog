@@ -82,7 +82,7 @@ Host:[Hostname] 혹은 [IP]
 
 ## TRACE
 
-원격지 서버에 루프백 메시지 호출하기 위해 테스트용으로 사용합니다.
+클라이언트가 요청한 자원에 도달하기 까지의 경로를 기록하는 루프백(loop back) 검사용도로 사용합니다. 클라이언트가 요청 자원에 도달하기 까지 거쳐가는 프록시나 게이트웨이의 중간 경로부터 최종 수진 서버까지의 경로를 알아낼수 있습니다F. 
 
 ```
 TRACE [request-uri] HTTP/ 1.1
@@ -120,3 +120,4 @@ POST는 보통 자원생성(INSERT)의 개념으로 사용되고, PUT은 수정(
 해당 내용은 다음 글을 참고 하였습니다.
 
 - https://javaplant.tistory.com/18
+- https://goddaehee.tistory.com/169
