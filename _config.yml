@@ -32,6 +32,8 @@ navigation:
     url: /javascript
   - name: Http
     url: /http
+  - name: Network
+    url: /network
   - name: Programming
     url: /programming
   - name: Etc
