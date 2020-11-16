@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HTTP와 HTTPS
+title: HSTS(HTTP Strict Transport Security)
 categories: Http
 ---
 
