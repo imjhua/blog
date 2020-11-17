@@ -156,8 +156,8 @@ const handleClickForNewWindow = (e: Event) => {
 
 iframe 에서 삽입된 부모 페이지의 객체에 접근하기 위해 window.parent 를 제공합니다. window.open 에서 호출한 부모 페이지의 객체에 접근하기 위해 window.opener 를 제공합니다. 주의할 점은 window.parent는 삽입된 부모 페이지가 없으면 자기 자신을 가리킵니다.
 
-- 자신의 창이 팝업창(popup)일 경우 opener
-- 아이프레임(iframe)일 경우 parent
+- 자신의 창이 팝업창(popup)일 경우 opener. 단, IE에서는 동작하지 않음.
+- 아이프레임(iframe)일 경우 parent.
 
 ---
 
