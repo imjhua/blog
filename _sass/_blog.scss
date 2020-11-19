@@ -24,7 +24,6 @@ h6 {
   margin-bottom: 0;
 }
 
-
 h1 + p,
 h2 + p,
 h3 + p,
@@ -42,8 +41,10 @@ h4 {
   color: #898e92;
 }
 
-ol, ul, dl {
-  margin: .5em;
+ol,
+ul,
+dl {
+  margin: 0.5em;
 }
 
 // body,
@@ -69,8 +70,8 @@ code {
 }
 
 .posts > .post > h1 {
-  margin-top: .1em;
-  margin-bottom: .1em;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
 }
 
 // .entry > p {
@@ -79,4 +80,17 @@ code {
 
 .categories {
   color: #333;
+}
+
+.entry > ul:first-of-type {
+  border: 2px solid #ddd;
+  padding: 10px 20px;
+  margin: 0;
+}
+.entry > ul:first-of-type:before {
+  content: "목차";
+  display: block;
+  font-size: 1.3rem;
+  text-decoration: underline;
+  margin-bottom: 10px;
 }

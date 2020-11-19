@@ -4,6 +4,8 @@ title: 스크롤이벤트성능과 passive옵션
 categories: Web
 ---
 
+https://marshall-ku.com/web/tips/%EC%8A%A4%ED%81%AC%EB%A1%A4-%EB%93%B1%EC%9D%98-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0
+
 스크롤이벤트성능문제를 해결하는 방안으로 `{passive:true}`옵션설정에 대한 가이드가 있습니다. 스크롤이벤트의 성능과 해당 옵션은 어떤 관계가 있는지 알아봅니다.
 
 ## 이벤트 등록(addEventListener)
