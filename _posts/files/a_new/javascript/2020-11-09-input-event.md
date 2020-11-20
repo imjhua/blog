@@ -4,21 +4,22 @@ title: input엘리먼트의 Event
 categories: JavaScript
 ---
 
+text type의 input인 경우, 입력받는 text에 따라 입력과 관련된 2개의 이벤트가 발생하게 됩니다. key 이벤트는 제외하고 change와 input이벤트입니다. 비슷해 보이는 이벤트의 차이는 무엇일까요?
+
 <hr />
 
 <!-- vscode-markdown-toc -->
-* [onChage & onInput event](#onchage-&-oninput-event)
-  * [onChage event](#onchage-event)
-  * [onInput event](#oninput-event)
-* [정리](#정리)
+
+- [onChage & onInput event](#onchage-&-oninput-event)
+  - [onChage event](#onchage-event)
+  - [onInput event](#oninput-event)
+- [정리](#정리)
 
 <!-- vscode-markdown-toc-config
 	numbering=false
 	autoSave=true
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
-
-text type의 input인 경우, 입력받는 text에 따라 입력과 관련된 2개의 이벤트가 발생하게 됩니다. key 이벤트는 제외하고 change와 input이벤트입니다. 비슷해 보이는 이벤트의 차이는 무엇일까요?
 
 ## <a name='onchage-&-oninput-event'></a>onChage & onInput event
 
