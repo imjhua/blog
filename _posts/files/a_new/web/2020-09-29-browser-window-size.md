@@ -1,30 +1,40 @@
 ---
 layout: post
-title: 브라우저의 창
+title: 브라우저의 window 사이즈
 categories: Web
 ---
 
 브라우저의 창 크기를 나타내는 속성들이 몇가지 있습니다. 브라우저의 창 크기는 브라우저를 구성하고 있는 브라우저 메뉴영역들에 따라 달라집니다.
 
-## 브라우저 창 크기
+<hr/>
+
+<!-- vscode-markdown-toc -->
+
+- [브라우저 창 크기](#브라우저-창-크기)
+- [문서 전체 크기](#문서-전체-크기)
+  - [문서의 끝까지 스크롤했는지 판별하기](#문서의-끝까지-스크롤했는지-판별하기)
+  - [요소를 끝까지 스크롤했는지 판별하기](#요소를-끝까지-스크롤했는지-판별하기)
+
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+## <a name='브라우저-창-크기'></a>브라우저 창 크기
 
 - 해상도: window.screen.width & window.screen.height
-
 - 화면 크키(브라우저 UI 개발자 도구, 스크롤 영역 제외): innerWidth & innerHeight
-
 - 브라우저 UI(윈도우 두께)를 포험한 전체 크기: outerWidth & outerHeight
-
 - 이벤트가 발생한 위치: event.clientX & event.clientY
 
-## 문서 전체 크기
+## <a name='문서-전체-크기'></a>문서 전체 크기
 
 - scrollHeight: 스크롤바 높이를 뺀 내용 전체의 높이 (document.body.scrollHeight)
-
 - clientHeight: 스크롤바 높이를 뺀 가시적인 높이
-
 - offsetHeight: 스크롤바 높이를 포함한 가시적인 높이
 
-### 문서의 끝까지 스크롤했는지 판별하기
+### <a name='문서의-끝까지-스크롤했는지-판별하기'></a>문서의 끝까지 스크롤했는지 판별하기
 
 전체 문서 높이 - 현재 보여지는 영역 창크기(보여지는 영역은 스크롤 대상 아님, 이 다음 영역부터 감지되어야 한다.) - 스크롤영역이 아닌 다른 영역(footer)
 
@@ -42,7 +52,7 @@ if (winTop >= onTop) {
 }
 ```
 
-### 요소를 끝까지 스크롤했는지 판별하기
+### <a name='요소를-끝까지-스크롤했는지-판별하기'></a>요소를 끝까지 스크롤했는지 판별하기
 
 다음 등식이 참인 경우 요소를 끝까지 스크롤한 것입니다. 이떄 요소가 감싸고 있는 컨텐츠의 마진&패딩값에 대한 여유값이 필요합니다.
 

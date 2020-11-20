@@ -1,21 +1,22 @@
 ---
 layout: post
-title: requestAnimationFrame
+title: 부드러운 애니메이션 적용하기 (requestAnimationFrame)
 categories: JavaScript
 ---
 
-브라우저의 애니메이션을 더 나은 성능으로 보여주기 위한 방법으로 requestAnimationFrame를 사용해볼 수 있습니다.
+사람의 눈은 1초당 60개 이상의 프레임(60 fps, 프레임당 16.7ms)으로 이뤄진 애니메이션을 볼 때 움직임이 자연스럽다고 느낍니다. 반대로 60 fps를 초과할수록 움직임이 버벅인다는걸 느끼게 됩니다. 브라우저의 애니메이션을 더 나은 성능으로 보여주기 위한 방법으로 requestAnimationFrame를 사용해볼 수 있습니다.
 
 <hr />
 
 <!-- vscode-markdown-toc -->
-* [requestAnimationFrame(rAF)](#requestanimationframe(raf))
-  * [장점](#장점)
-  * [동작](#동작)
-  * [적용](#적용)
-* [참고](#참고)
-  * [브라우저 렌더링](#브라우저-렌더링)
-* [정리](#정리)
+
+- [requestAnimationFrame(rAF)](<#requestanimationframe(raf)>)
+  - [장점](#장점)
+  - [동작](#동작)
+  - [적용](#적용)
+- [참고](#참고)
+  - [화면에 프레임을 추가하는 순서](#화면에-프레임을-추가하는-순서)
+- [정리](#정리)
 
 <!-- vscode-markdown-toc-config
 	numbering=false
@@ -56,23 +57,34 @@ draw();
 
 ## <a name='참고'></a>참고
 
-### <a name='브라우저-렌더링'></a>브라우저 렌더링
+### <a name='화면에-프레임을-추가하는-순서'></a>화면에 프레임을 추가하는 순서
 
-- Recalculate Style: 요소에 적용할 스타일을 계산.
-- Layout: 요소의 레이아웃을 생성하고, 화면에 배치.
-- Paint: 생성된 모든 레이아웃에 픽셀을 추가. GPU는 필요에 따라 생성한 레이어의 비트맵을 사용해 화면에 렌더링.
-- Composite Layers: 생성한 레이어 계층을 합성. 이 계층을 내려다보면 모든 요소가 고유한 위치(복합 계층)를 갖는 완전한 웹 페이지로 보여짐.
+자바스크립트로 스타일을 변경하는 구문이 있는지 확인한 뒤 해당되는 DOM 요소에 CSS class 또는 inline 스타일로 반영합니다.
 
-마지막 단게인 Composite Layers(합성) 생성은 CPU가 애니메이션을 처리하기 위해 GPU와 통신하는 단계입니다.
+- Style: 현재 버전의 CSS를 어떤 DOM 요소에 적용해야 할지 계산합니다.
+- Layout: 각 요소의 너비나 위치를 갱신에 화면 상에 배치합니다.
+- Paint: 각 요소에 배경색, 글자 색과 같이 픽셀을 채우는 과정입니다.
+- Composite: 이전 과정에서 생성된 레이어를 병합합니다.
+  위 과정의 처리 시간이 16.7ms 을 초과하는 횟수가 늘어날수록 전체 렌더링 시간이 지연됩니다. 결국 앞서 나온 애니메이션 예제와 같이 여행자가 인지할만큼 반응이 느려지는 결과를 가져옵니다.
 
-참고) transform, opacity와 같은 속성을 사용하면, CPU 대신 GPU를 사용해 웹 브라우저가 애니메이션을 수행할 수 있도록 할 수 있습니다.
+애플리케이션에 많은 부담을 주는 경우 레이아웃 트리거를 완전히 피하려고 노력해야 합니다! 합성은 피할 수 없는 단계이므로..
+
+참고) 마지막 단게인 Composite Layers(합성) 생성은 CPU가 애니메이션을 처리하기 위해 GPU와 통신하는 단계입니다. transform, opacity와 같은 속성을 사용하면, CPU 대신 GPU를 사용해 웹 브라우저가 애니메이션을 수행할 수 있도록 할 수 있습니다.
 
 ## <a name='정리'></a>정리
 
 requestAnimationFrame은 브라우저 내부에서 무슨 일이 일어나고 있는지 알고 있기 때문에 브라우저가 렌더링할 수 있는 능력을 벗어나는 횟수만큼 실행되는 것을 방지할 수 있습니다. 따라서 애니메이션 스케줄링을 최적화 할 수 있습니다.
+
+다음과 같은 특징이 있습니다.
+
+- 브라우저가 레이아웃을 계산하는 것보다 더 자주 또는 덜 자주 호출되지 않는다.(정확한 주기로 호출)
+- 브라우저가 레이아웃을 계산하기 바로 전에 호출된다.(정확한 타이밍에 호출).
+- 레이아웃 변경 (DOM 또는 CSSOM 변경)에 rAF를 사용하는것이 적절하다.
+- rAF는 브라우저에서 관련 레이아웃을 렌더링하는 다른 것들과 마찬가지로 수직동기화(V-SYNC)된다.
 
 ---
 
 해당 내용은 다음 글을 참고 하였습니다.
 
 - https://dev.opera.com/articles/better-performance-with-requestanimationframe/
+- https://medium.com/myrealtrip-product/fe-website-perf-part2-e0c7462ef822

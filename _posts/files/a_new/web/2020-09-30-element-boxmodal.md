@@ -6,25 +6,48 @@ categories: Web
 
 엘리먼트의 크기를 나타내는 속성들이 몇가지 있습니다. 엘리먼트의 크기 또한 엘리먼트를 구성하는 박스모달을 기준으로 차이가 있습니다.
 
-## 엘리먼트의 박스모달
+<hr/>
+
+<!-- vscode-markdown-toc -->
+
+- [엘리먼트의 박스모달](#엘리먼트의-박스모달)
+  - [달라지는 기준](#달라지는-기준)
+    - [패딩만 포함](#패딩만-포함)
+    - [마진만 제외](#마진만-제외)
+    - [스크롤로 감싸진 영역의 크기](#스크롤로-감싸진-영역의-크기)
+- [레이아웃 크기와 렌더링 크기](#레이아웃-크기와-렌더링-크기)
+  - [getBoundingClientRect()](<#getboundingclientrect()>)
+  - [Canvas의 크기](#canvas의-크기)
+- [box-sizing](#box-sizing)
+  - [content-box](#content-box)
+  - [border-box](#border-box)
+- [정리](#정리)
+
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+## <a name='엘리먼트의-박스모달'></a>엘리먼트의 박스모달
 
 엘리먼트의 박스모달은 텍스트를 포함한 컨텐츠 + 패딩 + 보더 + 마진 으로 구성됩니다. 박스모달의 영역들을 기준으로 하여 엘리먼트의 크기가 달라질 수 있습니다. 컨텐츠라고 할때, 켄텐츠영역은 패딩과 border(테두리)는 포함하지 않습니다.
 
-### 달라지는 기준
+### <a name='달라지는-기준'></a>달라지는 기준
 
-#### 패딩만 포함
+#### <a name='패딩만-포함'></a>패딩만 포함
 
 margin값과 border값이 제외된, padding값까지만 적용된 내부의 실제 크기를 가져옵니다. 패딩을 포함하고 있기때문에 패딩값이 달라지면 크기도 달라집니다.
 
 - clientWidth & clientHeigh
 
-#### 마진만 제외
+#### <a name='마진만-제외'></a>마진만 제외
 
 패팅 & 보더 & 스크롤을 포함하며 일반적으로 많이 사용됩니다. 스크롤이 있는경우 스크롤을 포함하며, 스크롤의 크기는 브라우저마다 다릅니다. 크롬 약 17
 
 - offsetWidth & offsetHeight
 
-#### 스크롤로 감싸진 영역의 크기
+#### <a name='스크롤로-감싸진-영역의-크기'></a>스크롤로 감싸진 영역의 크기
 
 스크롤이 존재하는 경우 스크롤로 감싸진 영역의 크기입니다. 패팅 & 보더를 포함합니다.
 
@@ -32,9 +55,9 @@ margin값과 border값이 제외된, padding값까지만 적용된 내부의 실
 
 일반적으로 width와 height는 엘리먼트의 컨텐츠의 크기를 지정합니다. 패딩과 보더를 포함하여 크기를 계산하는 것이 엘리먼트의 크기를 예측하기 쉽기 때문에 패딩과 보더를 포함하여 엘리먼트 크기를 계산 할 수 있도록 css 속성을 사용하기도 합니다.
 
-## 레이아웃 크기와 렌더링 크기
+## <a name='레이아웃-크기와-렌더링-크기'></a>레이아웃 크기와 렌더링 크기
 
-### getBoundingClientRect()
+### <a name='getboundingclientrect()'></a>getBoundingClientRect()
 
 대부분의 경우엔 getBoundingClientRect()은 마진만을 제외(패딩 보더 포함)한 offsetWidth, offsetHeight와 거의 같은 값을 리턴합니다. 하지만, transform이 적용되어 있다면 조금 달라집니다.
 
@@ -54,7 +77,7 @@ offsetWidth와 offsetHeight 속성은 엘리먼트의 레이아웃 크기를 리
 
 최종 렌더링된 값을 가져오고 싶다면, offsetWidth 대신 getBoundingClientRect()를 사용하면 됩니다.
 
-### Canvas의 크기
+### <a name='canvas의-크기'></a>Canvas의 크기
 
 width 및 height 속성을 지정하지 않으면 캔버스의 처음 너비는 300 픽셀이고 높이는 150 픽셀입니다. 요소는 CSS에 의해 임의로 크기를 정할 수 있지만 렌더링하는 동안 이미지는 레이아웃 크기에 맞게 크기가 조정됩니다. CSS 크기 지정이 초기 캔버스의 비율을 고려하지 않으면 왜곡되어 나타납니다.
 
@@ -84,19 +107,19 @@ css로 영역을 늘리는 것은 페인팅 픽셀을 조정하는 것이다. �
 <canvas id="c" width="100" height="150"></canvas>
 ```
 
-## box-sizing
+## <a name='box-sizing'></a>box-sizing
 
 박스의 크기를 화면에 표시하는 방식을 변경하는 속성입니다. 따라서 테두리가 있는 경우에는 테두리의 두께로 인해서 원하는 크기를 찾기가 어렵습니다.
 
-### content-box
+### <a name='content-box'></a>content-box
 
 기본값으로 패딩과 보더를 제외한 컨텐츠의 크기입니다.
 
-### border-box
+### <a name='border-box'></a>border-box
 
 테두리를 기준으로 크기를 정합니다. 마진을 제외한 패딩과 테두리를 포함한 크기를 지정할 수 있기 때문에 예측하기가 더 쉽습니다. 최근엔 모든 엘리먼트에 이 값을 지정하는 경우가 늘고 있습니다.
 
-## 정리
+## <a name='정리'></a>정리
 
 - 패딩만 포함: clientWidth & clientHeigh
 - 마진만 제외: offsetWidth & offsetHeight
@@ -117,7 +140,7 @@ border-box는 테두리와 안쪽 여백의 크기도 요소의 크기로 고려
 
 - clientWidth 실제 크기 요소가 차지하는 실존. 존재. 레이아웃상의 물리적 크기
 - getBoundingClientRect는 변화를 고려하여 렌더링 해서 화면에 그려지는 영역을 담당한다. 요소가 화면에서 차지하는 공간의 양.
-- canvas의 기본은 300 * 150. CSS 크기 지정이 초기 캔버스의 비율을 고려하지 않으면 왜곡되어 나타난다.
+- canvas의 기본은 300 \* 150. CSS 크기 지정이 초기 캔버스의 비율을 고려하지 않으면 왜곡되어 나타난다.
 
 ---
 
