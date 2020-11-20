@@ -82,12 +82,12 @@ code {
   color: #333;
 }
 
-.entry > ul:first-of-type {
+.entry > hr + ul {
   border: 2px solid #ddd;
   padding: 10px 20px;
   margin: 0;
 }
-.entry > ul:first-of-type:before {
+.entry > hr + ul:before {
   content: "목차";
   display: block;
   font-size: 1.3rem;

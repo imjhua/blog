@@ -6,13 +6,16 @@ categories: JavaScript
 
 동기와 비동기 그리고 블로킹과 논블로킹 비슷하지만 모두 다른 개념입니다. 호출 및 처리 방식에 대한 각자의 관심사로 구분해봅니다.
 
+<hr />
+
 <!-- vscode-markdown-toc -->
-* [동기 / 비동기](#동기-/-비동기)
-* [블로킹 / 논블로킹](#블로킹-/-논블로킹)
-* [조합해보기](#조합해보기)
-  * [NonBlocking & Sync 를 알아보자](#nonblocking-&-sync-를-알아보자)
-  * [Blocking & Async 를 알아보자](#blocking-&-async-를-알아보자)
-* [정리](#정리)
+
+- [동기 / 비동기](#동기-/-비동기)
+- [블로킹 / 논블로킹](#블로킹-/-논블로킹)
+- [조합해보기](#조합해보기)
+  - [NonBlocking & Sync](#nonblocking-&-sync)
+  - [Blocking & Async](#blocking-&-async)
+- [정리](#정리)
 
 <!-- vscode-markdown-toc-config
 	numbering=false
@@ -36,11 +39,11 @@ categories: JavaScript
 
 ## <a name='조합해보기'></a>조합해보기
 
-### <a name='nonblocking-&-sync-를-알아보자'></a>NonBlocking & Sync 를 알아보자
+### <a name='nonblocking-&-sync'></a>NonBlocking & Sync
 
 NonBlocking 은 바로 return을 해서 제어권을 주고, Sync 는 작업완료여부를 호출한 쪽에서 신경 씁니다. 결론적으로 요청하면 실행함수는 바로 반환(제어권 줌)이 되고 다른일을 수행할 것입니다. 제어권을 받은 요청은 함수의 완료 여부를 기다립니다. 완료되었는지 계속 물어보는 일을 추가로 수행하는것이 NonBlocking & Sync 입니다.
 
-### <a name='blocking-&-async-를-알아보자'></a>Blocking & Async 를 알아보자
+### <a name='blocking-&-async'></a>Blocking & Async
 
 요청받은 Blocking 은 작업이 완료될때까지 제어권을 가지고 있고, Async 는 작업완료여부는 요청한 쪽에서 신경을 쓰지 않습니다. 요청은 제어권이 없는 상태이며 요청한 작업의 완료와 상관없이 다음이 실행될 것입니다.
 
