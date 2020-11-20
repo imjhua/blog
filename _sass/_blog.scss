@@ -93,7 +93,7 @@ code {
 body.dark {
   background-color: #092f40;
   font-family: "Arial", "Dotum", sans-serif;
-  color: #fff;
+  color: #81959c;
 }
 body.dark h1,
 body.dark h2,
@@ -101,25 +101,31 @@ body.dark h3,
 body.dark h4,
 body.dark h5,
 body.dark h6 {
-  color: #fff;
+  color: #81959c;
 }
 body.dark p {
-  color: #fff;
+  color: #81959c;
 }
-body.dark .site-name a{
-  color: #fff;
+body.dark .site-name a {
+  color: #81959c;
 }
-body.dark a,
-body.dark span.categories {
-  color: #62809e;
-}
-body.dark nav a {
-  color: #c7bbbb;
+
+body.dark span.categories,
+body.dark a {
+  color: #4b6682;
 }
 body.dark .site-description {
   color: #81959c;
 }
+body.dark nav a {
+  color: #c7bbbb;
+}
 
-body.dark .highlight {
-  background-color: none;
+body.dark .highlight,
+body.dark .wrapper-footer {
+  background-color: transparent;
+}
+
+body.dark .entry > hr + ul a {
+  background: #ececec;
 }
