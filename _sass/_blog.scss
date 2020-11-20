@@ -73,11 +73,6 @@ code {
   margin-top: 0.1em;
   margin-bottom: 0.1em;
 }
-
-// .entry > p {
-//   margin: 4px 0;
-// }
-
 .categories {
   color: #333;
 }
@@ -93,4 +88,38 @@ code {
   font-size: 1.3rem;
   text-decoration: underline;
   margin-bottom: 10px;
+}
+
+body.dark {
+  background-color: #092f40;
+  font-family: "Arial", "Dotum", sans-serif;
+  color: #fff;
+}
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
+  color: #fff;
+}
+body.dark p {
+  color: #fff;
+}
+body.dark .site-name a{
+  color: #fff;
+}
+body.dark a,
+body.dark span.categories {
+  color: #62809e;
+}
+body.dark nav a {
+  color: #c7bbbb;
+}
+body.dark .site-description {
+  color: #81959c;
+}
+
+body.dark .highlight {
+  background-color: none;
 }
