@@ -76,7 +76,7 @@ code {
 .categories {
   color: #333;
 }
-
+/* toc */
 .entry > hr + ul {
   border: 2px solid #ddd;
   padding: 10px 20px;
@@ -90,6 +90,16 @@ code {
   margin-bottom: 10px;
 }
 
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   color: #1395ba;
+// }
+
+/* dark theme */
 body.dark {
   background-color: #092f40;
   font-family: "Arial", "Dotum", sans-serif;

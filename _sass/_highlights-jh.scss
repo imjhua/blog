@@ -230,9 +230,16 @@ pre.highlight {
 .highlight .c1 {
   color: slategray;
 }
-
+.highlight .s1 {
+  color: #a0c79f;
+}
 .highlight,
 pre.highlight,
 pre.highlight code {
   font-family: Consolas, Monaco, monospace;
+}
+
+code.highlighter-rouge {
+  background-color: #ececec;
+  color: inherit;
 }
