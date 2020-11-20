@@ -6,26 +6,42 @@ categories: Etc
 
 Pub/Sub는 이벤트를 처리하는 서비스에서 이벤트를 생성하는 서비스를 분리하는 비동기 메시징 서비스입니다.
 
-## Publish(Pub)
+<hr />
+
+<!-- vscode-markdown-toc -->
+* [Publish(Pub)](#publish(pub))
+* [Subscribe(Sub)](#subscribe(sub))
+* [장점과 단점](#장점과-단점)
+  * [장점](#장점)
+  * [단점](#단점)
+* [사용](#사용)
+
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+## <a name='publish(pub)'></a>Publish(Pub)
 
 메시지를 보냅니다.
 내고 (Publish : 발행) 받는 (Subscribe : 구독) 형태의 통신
 
-## Subscribe(Sub)
+## <a name='subscribe(sub)'></a>Subscribe(Sub)
 
 메시지를 받습니다. 메시지를 받고 싶다면 해당 Pub을 구독합니다.
 
-## 장점과 단점
+## <a name='장점과-단점'></a>장점과 단점
 
-### 장점
+### <a name='장점'></a>장점
 
 발행자와 구독자의 디커플링(의존성 없음)은 더 다이나믹한 네트워크 토폴로지와 높은 확장성을 허용합니다.
 
-### 단점
+### <a name='단점'></a>단점
 
 Pub은 메시지를 보내고 Sub이 받는지 받지 않는지 알지 못합니다. 메시지를 받았다 혹은 메시지를 보냈다는것을 보장 할 수 없습니다.
 
-## 사용
+## <a name='사용'></a>사용
 
 - 네트워크 클러스터 간의 워크로드 균형 조정. 대규모 작업 큐를 여러 작업자 간에 효율적으로 분배
 - 비동기 워크플로 구현. 예: 주문 처리 애플리케이션이 주제를 주문하고 한 명 이상의 작업자가 주문을 처리합니다.
