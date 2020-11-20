@@ -67,7 +67,7 @@ categories: Web
 
 - will-change: 앞으로 일어날 변경점들을 브라우저에게 알려주어 브라우저가 실제 요소가 변화되기 전에 적절하게 최적화한다.
 - AddEventListener{passive: true}: 이벤트를 받는 컴포지터 스레드에 해당 이벤트가 메인 스레드의 처리를 기다리지 않고 바로 Composite를 수행해도 된다는 힌트를 준다.
-- display: 여러 속성의 스타일을 변경하는 중간 단계에서는 화면에 표시하지 않고, 작업이 완료되고 최종 경과가 반영되는 마지막 시점에 요소를 다시 표시한다면 `(특히)리플로`와 리페인트의 발생횟수를 크게 줄일 수 있.
+- display: 여러 속성의 스타일을 변경하는 중간 단계에서는 화면에 표시하지 않고, 작업이 완료되고 최종 경과가 반영되는 마지막 시점에 요소를 다시 표시한다면 `(특히)리플로`와 리페인트의 발생횟수를 크게 줄일 수 있다.
 - node clone: 복제된 노드는 DOM 트리에 추가된 상태가 아니므로 렌더링 성능에 영향을 줄 수 있는 작업을 실행하더라도 리플로나 리페인트가 발생하지 않는다.
 
 참고) https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count?hl=ko

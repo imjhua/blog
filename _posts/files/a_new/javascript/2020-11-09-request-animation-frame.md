@@ -4,7 +4,7 @@ title: 부드러운 애니메이션 적용하기 (requestAnimationFrame)
 categories: JavaScript
 ---
 
-사람의 눈은 1초당 60개 이상의 프레임(60 fps, 프레임당 16.7ms)으로 이뤄진 애니메이션을 볼 때 움직임이 자연스럽다고 느낍니다. 반대로 60 fps를 초과할수록 움직임이 버벅인다는걸 느끼게 됩니다. 브라우저의 애니메이션을 더 나은 성능으로 보여주기 위한 방법으로 requestAnimationFrame를 사용해볼 수 있습니다.
+좋은 성능이란 궁극적 인 목표 인 초당 60 프레임 (FPS)에 도달하는 것을 의미합니다. 사람의 눈은 1초당 60개 이상의 프레임(60 fps, 프레임당 16.7ms)으로 이뤄진 애니메이션을 볼 때 움직임이 자연스럽다고 느끼기 때문입니다. 반대로 60 fps를 초과할수록 움직임이 버벅인다는걸 느끼게 됩니다. 브라우저의 애니메이션을 더 나은 성능으로 보여주기 위한 방법으로 requestAnimationFrame를 사용해볼 수 있습니다.
 
 <hr />
 
@@ -88,3 +88,4 @@ requestAnimationFrame은 브라우저 내부에서 무슨 일이 일어나고 �
 
 - https://dev.opera.com/articles/better-performance-with-requestanimationframe/
 - https://medium.com/myrealtrip-product/fe-website-perf-part2-e0c7462ef822
+- https://www.viget.com/articles/animation-performance-101-browser-under-the-hood/
