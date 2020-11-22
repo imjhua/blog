@@ -4,19 +4,21 @@
   <body class="darkk">
     {% include nav.html %}
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
+    <div id="main" role="main" class="container">{{ content }}</div>
 
     <div class="wrapper-footer">
       <div class="container">
-        <footer class="footer">
-          {% include footer.html %}
-        </footer>
+        <footer class="footer">{% include footer.html %}</footer>
       </div>
     </div>
 
     {% include analytics.html %}
   </body>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script>
+    const body = document.querySelector("body");
+    // setTimeout(() => {
+      body.classList.add("active");
+    // }, 1000);
+  </script>
 </html>
