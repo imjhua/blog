@@ -80,39 +80,42 @@ code {
 /* menu */
 .wrapper-masthead {
   background: #bf80bf;
-  height: 80vh;
 
   // background-attachment: fixed;
   // background-position: center;
   // background-repeat: no-repeat;
   // background-size: cover;
 }
+body.active .wrapper-masthead{
+  height: 80vh;
+
+}
 .wrapper-masthead * {
   color: #fff;
 }
 
-.wrapper-masthead a {
+.wrapper-masthead nav a {
   // font-weight: bold;
   display: inline-block;
   height: 50px;
 }
 
-.wrapper-masthead a:hover {
-  color: #fff;
+.wrapper-masthead nav a:hover {
+  color: inherit;
   // font-weight: bold;
 }
-.wrapper-masthead a:after {
+.wrapper-masthead nav a:after {
   content: "";
   height: 2px;
   background: #fff;
   transition: transform 0.3s;
 }
-.wrapper-masthead a:hover:after {
+.wrapper-masthead nav a:hover:after {
   display: block;
   transform: scaleX(1);
   width: 100%;
 }
-.wrapper-masthead a[href="/etc"] {
+.wrapper-masthead nav a[href="/etc"] {
   display: block;
 }
 
