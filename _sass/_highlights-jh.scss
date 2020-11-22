@@ -1,28 +1,21 @@
+$code-font: Consolas, Monaco, monospace;
+
 pre,
 code {
   font-family: $code-font;
 }
 
-code.highlighter-rouge {
-  font-size: 90%;
-  color: $oc-indigo-9;
-  background-color: $oc-gray-1;
-  padding: 0.1em 0.2em;
-  border-radius: 3px;
-}
-
-pre.highlight {
-  font-size: $small-font-size;
-  padding: 0.45em 0.45em 0.45em 0.625em;
-  border: 1px solid $oc-gray-3;
-  border-radius: 3px;
-  margin: 1em 0;
-  overflow: scroll;
-}
-
 .highlight {
-  background: $oc-gray-0;
+  background: #333e4b;
+  color: #f8f8f2;
+  font-size: 18px;
 }
+
+code.highlighter-rouge {
+  background-color: #ececec;
+  color: inherit;
+}
+
 .highlight .c {
   color: #999988;
   font-style: italic;
@@ -120,7 +113,7 @@ pre.highlight {
   color: #008080;
 } /* Name.Attribute */
 .highlight .nb {
-  color: #0086b3;
+  color: #87a8d2;
 } /* Name.Builtin */
 .highlight .nc {
   color: #445588;
@@ -219,27 +212,19 @@ pre.highlight {
 .highlight .kd {
   color: #66d9ef;
 }
-// .highlight .nx {
-//   color: #e6db74;
-// }
-.highlight {
-  background: #333e4b;
-  color: #f8f8f2;
-  font-size: 18px;
-}
 .highlight .c1 {
   color: slategray;
 }
 .highlight .s1 {
   color: #a0c79f;
 }
-.highlight,
-pre.highlight,
-pre.highlight code {
-  font-family: Consolas, Monaco, monospace;
+.highlight .nt {
+  color: #8d8db9;
+}
+.highlight .s {
+  color: #e0a96e;
 }
 
-code.highlighter-rouge {
-  background-color: #ececec;
-  color: inherit;
+.highlight .s2 {
+  color: #e6db74;
 }
