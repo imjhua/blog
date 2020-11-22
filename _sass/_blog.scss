@@ -78,6 +78,12 @@ code {
   color: #333;
 }
 /* menu */
+
+.wrapper-masthead a:hover {
+  color: inherit;
+  // font-weight: bold;
+}
+
 .wrapper-masthead {
   background: #bf80bf;
 
@@ -100,10 +106,7 @@ body.active .wrapper-masthead{
   height: 50px;
 }
 
-.wrapper-masthead nav a:hover {
-  color: inherit;
-  // font-weight: bold;
-}
+
 .wrapper-masthead nav a:after {
   content: "";
   height: 2px;
