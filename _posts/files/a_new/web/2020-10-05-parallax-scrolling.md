@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Parallax Scrolling
+title: Parallax Scrolling(패럴랙스 스크롤링)
 categories: Web
 ---
 
