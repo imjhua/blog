@@ -1,9 +1,16 @@
 /* BLOG */
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
 
 $color-primary: #fff;
 .container {
   max-width: 80%;
 }
+
 .posts {
   article.post {
     a.read-more {
@@ -38,6 +45,39 @@ $color-primary: #fff;
       margin-bottom: 10px;
     }
   }
+  h2 {
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: transform 0.1s ease;
+    &.show {
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+}
+
+.page-contents {
+  background: #333;
+  &.show + .container {
+    padding-top: 10px;
+  }
+
+  * {
+    color: $color-primary;
+  }
+  a:hover {
+    color: inherit !important;
+  }
+  nav {
+    background: inherit;
+    margin: 0;
+    float: none;
+    height: 3rem;
+    line-height: 3rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 }
 
 .wrapper-masthead {
@@ -55,6 +95,7 @@ $color-primary: #fff;
     .masthead {
       position: sticky;
       top: 0;
+      border-bottom-width: 0;
       .site-info {
         .site-name {
           font-weight: bold;
@@ -111,7 +152,8 @@ body {
 }
 
 // 컨텐츠
-.page > h1,.post > h1 {
+.page > h1,
+.post > h1 {
   color: #39a5a5;
 }
 

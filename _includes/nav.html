@@ -20,12 +20,23 @@
         <a href="{{ nav.url }}">{{ nav.name }}</a>
         {% else %} {% unless site.url contains "imjhua.github.io" and (nav.name
         == 'List' or nav.name == 'Diary' or nav.name == 'TODO' or nav.name ==
-        'Resume' or nav.name ==
-        'List' or nav.name ==
-        'Etc') %}
+        'Resume' or nav.name == 'List' or nav.name == 'Etc') %}
         <a href="{{ site.baseurl }}{{ nav.url }}">{{ nav.name }} </a>
         {% endunless %} {% endif %} {% endfor %}
       </nav>
     </header>
   </div>
+</div>
+
+<div class="page-contents hide">
+  <nav>
+    {% for nav in site.navigation %} {% if nav.url contains 'http://' or nav.url
+    contains 'https://' %}
+    <a href="{{ nav.url }}">{{ nav.name }}</a>
+    {% else %} {% unless site.url contains "imjhua.github.io" and (nav.name ==
+    'List' or nav.name == 'Diary' or nav.name == 'TODO' or nav.name == 'Resume'
+    or nav.name == 'List' or nav.name == 'Etc') %}
+    <a href="{{ site.baseurl }}{{ nav.url }}">{{ nav.name }} </a>
+    {% endunless %} {% endif %} {% endfor %}
+  </nav>
 </div>
