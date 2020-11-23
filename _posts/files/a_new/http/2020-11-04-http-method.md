@@ -73,7 +73,7 @@ Host:[Hostname] 혹은 [IP]
 
 ## CONNECT
 
-동적으로 터널 모드를 교환를 교환하거나 프락시 기능을 요청시 사용합니다.
+동적으로 터널 모드를 교환하거나 프락시 기능을 요청시 사용합니다.
 
 ```
 CONNECT [request-uri] HTTP/1.1
