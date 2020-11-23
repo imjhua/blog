@@ -52,7 +52,7 @@ exports.foo = template;
 
 ### exports와 module.exports의 차이점
 
-exports객체와 module.exports객체는 동일합니다. exports 가 module.exports객체를 call by reference 방식으로 바라보고 있으며, 최종적으로 리턴값은 module.exports 라는것이다. exports는 module.exports를 참조하는 변수입니다. Node.js의 모듈 시스템에서 실제로 익스포트 되는 객체는 module.exports이고, exports는 이를 참조하는 변수에 불과합니다.
+exports객체와 module.exports객체는 동일합니다. exports 가 module.exports객체를 call by reference 방식으로 바라보고 있으며, 최종적으로 리턴값은 module.exports 라는것입니다. exports는 module.exports를 참조하는 변수입니다. Node.js의 모듈 시스템에서 실제로 익스포트 되는 객체는 module.exports이고, exports는 이를 참조하는 변수에 불과합니다.
 
 ```js
 var module = { exports: {} };
