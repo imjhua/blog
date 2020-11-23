@@ -9,30 +9,30 @@ HTTP상태코드를 정리합니다.
 <hr />
 
 <!-- vscode-markdown-toc -->
-
-- [정보(100~)](<#정보(100~)>)
-  - [100 Continue](#100-continue)
-- [성공(200~)](<#성공(200~)>)
-  - [200 OK](#200-ok)
-- [이동(300~)](<#이동(300~)>)
-  - [301 Moved Permanently(영구적)](<#301-moved-permanently(영구적)>)
-  - [302 Found(임시)](<#302-found(임시)>)
-  - [304 Not Modified(캐시목적)](<#304-not-modified(캐시목적)>)
-- [클라이언트에러(400~)](<#클라이언트에러(400~)>)
-  - [400 Bad Request](#400-bad-request)
-  - [401 Unauthorized](#401-unauthorized)
-  - [403 Forbidden](#403-forbidden)
-  - [404 Not Found](#404-not-found)
-  - [405 Method Not Allowed](#405-method-not-allowed)
-  - [408 Request Timeout](#408-request-timeout)
-  - [409 Conflict](#409-conflict)
-- [서버에러(500~)](<#서버에러(500~)>)
-  - [500 Internal Server Error](#500-internal-server-error)
-  - [501 Not Implemented](#501-not-implemented)
-  - [502 Bad Gateway](#502-bad-gateway)
-  - [503 Service Unavailable](#503-service-unavailable)
-  - [504 Gateway Timeout](#504-gateway-timeout)
-- [정리](#정리)
+* [정보(100~)](#정보(100~))
+  * [100 Continue](#100-continue)
+* [성공(200~)](#성공(200~))
+  * [200 OK](#200-ok)
+* [이동(300~)](#이동(300~))
+  * [301 Moved Permanently(영구적)](#301-moved-permanently(영구적))
+  * [302 Found(임시)](#302-found(임시))
+  * [304 Not Modified(캐시목적)](#304-not-modified(캐시목적))
+  * [307](#307)
+* [클라이언트에러(400~)](#클라이언트에러(400~))
+  * [400 Bad Request](#400-bad-request)
+  * [401 Unauthorized](#401-unauthorized)
+  * [403 Forbidden](#403-forbidden)
+  * [404 Not Found](#404-not-found)
+  * [405 Method Not Allowed](#405-method-not-allowed)
+  * [408 Request Timeout](#408-request-timeout)
+  * [409 Conflict](#409-conflict)
+* [서버에러(500~)](#서버에러(500~))
+  * [500 Internal Server Error](#500-internal-server-error)
+  * [501 Not Implemented](#501-not-implemented)
+  * [502 Bad Gateway](#502-bad-gateway)
+  * [503 Service Unavailable](#503-service-unavailable)
+  * [504 Gateway Timeout](#504-gateway-timeout)
+* [정리](#정리)
 
 <!-- vscode-markdown-toc-config
 	numbering=false
@@ -70,6 +70,9 @@ HTTP상태코드를 정리합니다.
 ### <a name='304-not-modified(캐시목적)'></a>304 Not Modified(캐시목적)
 
 이것은 캐시를 목적으로 사용됩니다. 이것은 클라이언트에게 응답이 수정되지 않았음을 알려주며, 그러므로 클라이언트는 계속해서 응답의 캐시된 버전을 사용할 수 있습니다.
+
+### <a name='307'></a>307 
+클라리언트가 요청한 리소스가 다른 URI에 있으며, 이전 요청과 동일한 메소드를 사용하여 요청해야할 때, 서버가 클라이언트에 이 응답을 직접 보냅니다. 이것은 302 Found HTTP 응답 코드와 동일한 의미를 가지고 있으며, 사용자 에이전트가 반드시 사용된 HTTP 메소드를 변경하지 말아야 하는 점만 다릅니다: 만약 첫 요청에 POST가 사용되었다면, 두번째 요청도 반드시 POST를 사용해야 합니다.
 
 ## <a name='클라이언트에러(400~)'></a>클라이언트에러(400~)
 
@@ -130,8 +133,9 @@ HTTP상태코드를 정리합니다.
 - 200 OK
 
 - 301 Moved Permanently(영구이동): 308에러코드와 동일. URL변경으로 리디렉션을 할 때 사용
-- 302 Found(임시이동): 307에러코드와 동일
+- 302 Found(임시이동): 307에러코드와 동일하지만 차이는 302는 예상안되고 307은 예상된다.
 - 304 Not Modified: 캐시목적
+- 307 Temporary Redirect: (http -> https)
 
 - 400 Bad Request
 - 401 Unauthorized
