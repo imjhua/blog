@@ -137,6 +137,17 @@ $color-primary: #fff;
 // body
 body {
   &.main {
+    .h2{
+
+    }
+    .h2.title:before,
+    .h2.title:after{
+      content:'';
+      display: block;
+      width: 30%;
+      border-bottom: 1px solid #333;
+      
+    }
     .wrapper-masthead {
       height: 80vh;
     }
