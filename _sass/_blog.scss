@@ -8,7 +8,7 @@
 
 $color-primary: #fff;
 .container {
-  max-width: 80%;
+  max-width: 70%;
 }
 
 .posts {
@@ -136,6 +136,7 @@ $color-primary: #fff;
 
 // body
 body {
+  color: #595959;
   &.main {
     h2 {
       position: relative;
@@ -165,9 +166,19 @@ body {
 // main
 .main {
   .post {
+    &:hover {
+      h1 * {
+        color: #4db380;
+      }
+    }
     h1 {
       margin-top: 0.1em;
       margin-bottom: 0.1em;
+      font-weight: normal;
+
+      a:hover {
+        color: #4db380;
+      }
     }
   }
 }
