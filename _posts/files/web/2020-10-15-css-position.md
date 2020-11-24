@@ -6,7 +6,20 @@ categories: Web
 
 레이아웃의 위치를 지정할 수 있는 속성이 있습니다. CSS position 속성은 문서 상에 요소를 배치하는 방법을 지정합니다.top, right, bottom, left 속성이 요소를 배치할 최종 위치를 결정합니다.
 
-## postion 속성
+<hr />
+
+<!-- vscode-markdown-toc -->
+
+- [postion 속성](#postion-속성)
+- [정리](#정리)
+
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+## <a name='postion-속성'></a>postion 속성
 
 position 속성은 상속되지 않으며, 위(top), 아래(bottom), 왼쪽(left), 오른쪽(right) 의 위치를 같이 설정 할 수 있습니다.
 
@@ -16,13 +29,13 @@ position 속성은 상속되지 않으며, 위(top), 아래(bottom), 왼쪽(left
 - fixed: 스크롤 시 엘리먼트를 고정시킨다. 원래 위치와 상관없이 위치를 지정할 수 있다. 절대적인 위치로 존재하며 상위 요소에 영향을 받지 않기 때문에 화면이 바뀌더라도 고정된 위치를 설정 할 수 있다. 브라우저 화면의 상대 위치를 기준으로 위치가 결정된다.
 - sticky: 최초에는 relative속성처럼 동작하다가 스크롤이 특정 지점에 도달하면 요소를 고정(fixed)시킬 수 있다. (IE미지원)
 
-## 정리
+## <a name='정리'></a>정리
 
 포지션 속성들을 정리하면 다음과 같습니다.
 
 - Absolute Position: 브라우저 또는 상위요소를 기준으로 배치하는 방법
 - Relative Position: 자기자신을 기준으로 배치하는 방법
-- Fixed Position: 스크린을 기준으로 배치하는 방법
+- Fixed Position: 뷰포트를 기준으로 배치하는 방법. fixed 프로퍼티 선언 시, block 요소의 width는 inline 요소와 같이 content에 맞게 변화되므로 적절한 width를 지정하여야 한다.
 - Sticky: 자기자신을 기준으로 하다가 특정 지점에서 스크린을 기준으로 고정하여 배치하는 방법(중간에 탭고성)
 
 ---

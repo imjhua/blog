@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 포트폴리오 개발
+title: 인터랙션 개발
 categories: Resume
 ---
 

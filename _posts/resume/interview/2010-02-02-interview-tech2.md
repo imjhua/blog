@@ -45,26 +45,31 @@ categories: Resume
 - 304 Not Modified: 캐시목적
 - 307 Temporary Redirect: (http -> https)
 
-## cors 허용1!
+## cors 허용
 
-- Access-Control-Allow-Origin
+- SOP: same-origin policy 동일출처정책
+- CORS: Cross-Origin Resource Sharing 교차 출처 리소스 공유
+- 기본 자바스크립트를 사용해 보내는 크로스 오리진 요청의 경우 기본적으로 쿠키나 HTTP 인증 같은 쿠키와 같은 자격 증명(credential)이 함께 전송되지 않는다.
+- Access-Control-Allow-Origin는 \* 모든 출처를 허용한다는 의미기 때문에, 다른 출처에서 리소스를 요청할 때 CORS 정책 위반으로 인한 제약을 받지 않는다.
+- 자격증명이 있는 경우 특정 origin으로 적용 필요하다.
+- Access-Control-Allow-Credentials: true
 
-## 쿠키 & 세션!!
+## 쿠키 & 세션
 
-- https://doooyeon.github.io/2018/09/10/cookie-and-session.html
-- 로컬스토리지
+HTTP 프로토콜은 모든 요청 간 의존관계가 없습니다. 계속해서 연결을 유지하지 않기 때문에 리소스 낭비가 줄어드는 것이 큰 장점이지만, 통신할 때마다 새로 연결하기 때문에 클라이언트는 매 요청마다 인증을 해야 한다는 단점이 있습니다. 이전 요청과 현재 요청이 같은 사용자의 요청인지 알기 위해서는 상태를 유지해야 합니다. HTTP 프로토콜에서 상태를 유지하기 위한 기술로 쿠키와 세션이 존재합니다.
+
+- 쿠키는 웹브라우저(클라이언트)에서 관리하고 있다가, 다음 요청 때 쿠키를 HTTP 헤더에 넣어서 전송. 데이터교환 목적.
+- 세션은 일정 시간 동안 같은 브라우저로부터 들어오는 요청을 하나의 상태로 보고 그 상태를 유지하는 기술로, 웹 브라우저를 통해 서버에 접속한 이후부터 브라우저를 종료할 때까지 유지되는 상태이다. 서버자원사용
+- Web Storage 쿠키의 제한점을 보완하기 위하여 html5에서 등장
 
 ## js async & defer!!
 
-https://ko.javascript.info/script-async-defer
+- async(DOMContentLoaded 후)와 defer(DOMContentLoaded 전) 스크립트는 다운로드 시 페이지 렌더링을 막지 않는다는 공통점
+- 브라우저는 defer 속성이 있는 스크립트(이하 defer 스크립트 또는 지연 스크립트)를 '백그라운드’에서 다운로드 합니다. 따라서 지연 스크립트를 다운로드 하는 도중에도 HTML 파싱이 멈추지 않습니다. 그리고 defer 스크립트 실행은 페이지 구성이 끝날 때까지 지연 됩니다.지연 스크립트는 페이지 생성을 절대 막지 않습니다. 지연 스크립트는 DOM이 준비된 후에 실행되긴 하지만 DOMContentLoaded 이벤트 발생 전에 실행됩니다.
+- async 속성이 붙은 스크립트(이하 async 스크립트 또는 비동기 스크립트)는 페이지와 완전히 독립적으로 동작합니다. 페이지 구성이 끝난 후에 async 스크립트 다운로딩이 끝난 경우, DOMContentLoaded는 async 스크립트 실행 전에 발생할 수 있습니다,
+- 동적 스크립트는 기본적으로 ‘async’ 스크립트처럼 행동합니다.
 
-브라우저는 defer 속성이 있는 스크립트(이하 defer 스크립트 또는 지연 스크립트)를 '백그라운드’에서 다운로드 합니다. 따라서 지연 스크립트를 다운로드 하는 도중에도 HTML 파싱이 멈추지 않습니다. 그리고 defer 스크립트 실행은 페이지 구성이 끝날 때까지 지연 됩니다.지연 스크립트는 페이지 생성을 절대 막지 않습니다. 지연 스크립트는 DOM이 준비된 후에 실행되긴 하지만 DOMContentLoaded 이벤트 발생 전에 실행됩니다.
-async 속성이 붙은 스크립트(이하 async 스크립트 또는 비동기 스크립트)는 페이지와 완전히 독립적으로 동작합니다. 페이지 구성이 끝난 후에 async 스크립트 다운로딩이 끝난 경우, DOMContentLoaded는 async 스크립트 실행 전에 발생할 수 있습니다,
-동적 스크립트는 기본적으로 ‘async’ 스크립트처럼 행동합니다.
-async와 defer 스크립트는 다운로드 시 페이지 렌더링을 막지 않는다는 공통점
-
-
-## 버전닝
+## 버전닝(Semantic Versioning)
 
 - ~p 틸드 패치
 - ^m 캐럿 마이너

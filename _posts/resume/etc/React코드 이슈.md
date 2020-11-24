@@ -14,7 +14,8 @@ const isNationWideBranchNo = deliveryTimetables[0]?.timetables.some(
     isShippingAddressBranch && branchNo === NATIONWIDE_BRANCH_NO
 );
 
-// 문제는 연속으로 isNationWideBranchNo 동일한 값이면 의존성 배열에서 캐치가 안된다.
+// 문제는 연속으로 isNationWideBranchNo 동일한 값이면 상태변화가 일어나지 않으므로
+// 의존성 배열에서 캐치가 안된다. deliveryTimetables는 변하더라도..
 // deliveryTimetables 를 같이 넣어줘야 함 -> useEffect에서 안쓰는 변수임..
 // isNationWideBranchNo를 useEffect에서 변수로 할당하여 안에서 체크하도록 변경
 // 그런데 저 변수는 다른곳에서도 쓰인다..?
