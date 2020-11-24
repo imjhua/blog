@@ -39,7 +39,7 @@ navigation:
   - name: Etc
     url: /etc
   - name: Interview
-    url: /interveiw
+    url: /interview
   - name: Resume
     url: /resume
   - name: Diary
