@@ -77,7 +77,7 @@ p:first-of-type {
 ```js
 document.querySelectorAll('dt.fixed')
 NodeList(2) [dt.fixed, dt.fixed]0: dt.fixed1: dt.fixedlength: 2__proto__: NodeList
-document.querySelectorAll('dt.fixed:last-child')
+document.querySelectorAll('dt.fixed:last-of-type')
 NodeList []
 ```
 
