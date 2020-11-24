@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pub-Sub 패턴
-categories: Etc
+categories: Programming
 ---
 
 Pub/Sub는 이벤트를 처리하는 서비스에서 이벤트를 생성하는 서비스를 분리하는 비동기 메시징 서비스입니다.
@@ -9,12 +9,13 @@ Pub/Sub는 이벤트를 처리하는 서비스에서 이벤트를 생성하는 �
 <hr />
 
 <!-- vscode-markdown-toc -->
-* [Publish(Pub)](#publish(pub))
-* [Subscribe(Sub)](#subscribe(sub))
-* [장점과 단점](#장점과-단점)
-  * [장점](#장점)
-  * [단점](#단점)
-* [사용](#사용)
+
+- [Publish(Pub)](<#publish(pub)>)
+- [Subscribe(Sub)](<#subscribe(sub)>)
+- [장점과 단점](#장점과-단점)
+  - [장점](#장점)
+  - [단점](#단점)
+- [사용](#사용)
 
 <!-- vscode-markdown-toc-config
 	numbering=false

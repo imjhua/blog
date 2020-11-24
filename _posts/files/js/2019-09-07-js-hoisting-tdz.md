@@ -1,6 +1,6 @@
 ---
 layout: post
-title: let과 const는 호이스팅 될까? (Hoisting과 TDZ)
+title: let과 const는 호이스팅이 될까? (Hoisting과 TDZ)
 categories: JavaScript
 ---
 
@@ -21,6 +21,7 @@ console.log(this.y); // undefined
 console.log(foo); // undefined
 var foo = 2; // hoisting 됨
 
+//또는
 console.log(foo); // ReferenceError: foo is not defined
 let foo = 2; // let 변수를 선언 전에 참조하는 것은 에러
 ```
@@ -31,7 +32,7 @@ JS 함수 안에서 선언한 var의 스코프는 해당 함수 전체입니다.
 
 var로 선언된 x는 함수범위로 스코프를 가집니다. 다음 IIFE로 선언된 클로저 함수의 스코프에서 x는 함수의 시작점으로 호이스팅 되기 때문에 x는 undefined가 출력됩니다.
 
-```jsx
+```js
 var x = "outer scope";
 (function () {
   console.log(x); // undefined
@@ -115,27 +116,33 @@ let foo = 1; // 전역 변수
 
 const로 선언된 x는 블록 스코프(함수 블록 포함)를 가집니다. 다음 IIFE로 선언된 클로저 함수의 스코프에서 x는 블록 시작점으로 호이스팅됩니다. 호이스팅되었기 때문에 x는 ReferenceError가 출력됩니다.
 
-```jsx
+```js
 const x = "outer scope";
 (function () {
-  console.log(x);
+  console.log(x); //  ReferenceError: Cannot access 'x' before initialization
   const x = "inner scope";
 })();
 ```
 
-변수 선언의 순서를 다르게 적용하여 코드를 다시 살펴 보겠습니다.
+### 코드 테스트
 
-```jsx
+다음 경우를 비교해 봅니다.
+
+```js
+// 1: 전역 변수 참조
+let a = "aaa";
+(function () {
+  console.log(a); // aaa 정상 출력
+})();
+
+// 2: 블록 스코프
 let a = "aaa";
 (function () {
   let a;
   console.log(a); // undefined
 })();
-```
 
-다음 코드를 얼핏 보면 호이스팅이 되지 않아 access 에러가 나는 것 처럼 보이지만, 실제로는 호이스팅 되어 access에러가 발생하는 것입니다. 왜냐하면 호이스팅 되지 않았다면 함수 밖에 선언된 let a='aaa'를 참조하여 정상적으로 출력되어야 할 것인데, 그렇지 않기 때문입니다. 호이스팅 되었는데 access에러가 나는 이유는 무엇일까요? 바로 TDZ때문입니다. TDZ는 아래에서 자세히 다룹니다.
-
-```jsx
+// 3: 호이스팅 TDZ(변수가 존재하지만 초기화되지 않음)
 let a = "aaa";
 (function () {
   console.log(a);
