@@ -7,7 +7,7 @@ categories: Resume
 
 
 ## 애니메이션
-- https://wsss.tistory.com/34?category=701850
+- https://wsss.tistory.com/34?category=701850 짱짱
 - https://codepen.io/pieter-biesemans/pen/xqVBdK 한땀한땀?
 - https://bashooka.com/inspiration/scrolling-animation-effects/
 - https://dashboardpack.com/live-demo-preview/?livedemo=290%3Futm_source%3Dcolorlib&utm_medium=reactlist&utm_campaign=architecthtml&v=38dd815e66db

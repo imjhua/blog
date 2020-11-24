@@ -274,20 +274,12 @@ reflow를 피하거나 최소화하는 방법
 - mdpi: 중간밀도 1x
 - hdpi: 고밀도 1.5x
 
-## 동기 /비동기 & 클로킹 / 논블로킹
+## 성능측적
 
-- Blocking/NonBlocking은 호출한 입장에서의 호출되는 함수가 바로 리턴하는지 하지않는지/하는지
-- Sync/Async는 처리되는 방식은 함수완료여부를 신경쓰는지/쓰지않는지
-
-- Blocking: 호출되는 함수가 바로 리턴하지 않는다.
-- NonBlocking: 호출되는 함수는 바로 리턴한다.
-- Synchronous: 호출하는 함수는 작업 완료 여부를 신경쓴다.
-- Asynchronous: 호출하는 함수는 작업 완료 여부를 신경쓰지 않는다.
-
-## location
-
-- hostname: 도메인 이름
-- host: 도메인 + 포트까지
+- FP(First Paint): 흰 화면에서 화면에 무언가가 처음으로 그려지기 시작하는 순간이다.
+- FCP(First Contentful Paint): 텍스트나 이미지가 출력되기 시작하는 순간이다.
+- FMP(First Meaningful Paint): 사용자에게 의미 있는 콘텐츠가 그려지기 시작하는 첫 순간이다. 콘텐츠를 노출하는데 필요한 CSS, 자바스크립트 로드가 시작되고 스타일이 적용되어 주요 콘텐츠를 읽을 수 있다.
+- TTI(Time to Interactive): 자바스크립트의 초기 실행이 완료되어서 사용자가 직접 행동을 취할 수 있는 순간이다.
 
 ## Canvas & SVG
 
@@ -420,6 +412,21 @@ this 프로퍼티에는 this 값이 할당된다. this에 할당되는 값은 �
 | 전통적인 파일기반 방식의 정적 컨텐츠 | 이벤트 처리/비동기식/논블로킹 방식 처리로 인해 정적 컨텐츠 제공시 고속 처리가 가능 |
 | 동적 컨텐츠는 서버 내에서 처리 | 동적 컨텐츠를 처리 하지 않는다 |
 | 리눅스, BSD, UNIX , Window | 리눅스, BSD, UNIX, Window 부분지원 |
+
+## 동기 /비동기 & 클로킹 / 논블로킹
+
+- Blocking/NonBlocking은 호출한 입장에서의 호출되는 함수가 바로 리턴하는지 하지않는지/하는지
+- Sync/Async는 처리되는 방식은 함수완료여부를 신경쓰는지/쓰지않는지
+
+- Blocking: 호출되는 함수가 바로 리턴하지 않는다.
+- NonBlocking: 호출되는 함수는 바로 리턴한다.
+- Synchronous: 호출하는 함수는 작업 완료 여부를 신경쓴다.
+- Asynchronous: 호출하는 함수는 작업 완료 여부를 신경쓰지 않는다.
+
+## location
+
+- hostname: 도메인 이름
+- host: 도메인 + 포트까지
 
 ## TDD와 BDD
 
