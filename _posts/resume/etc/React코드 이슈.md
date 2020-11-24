@@ -4,7 +4,31 @@ title: React 코드 이슈
 categories: Resume
 ---
 
-- 리엑트, 페이지 이동시 초기화가 필요한 영역 처리
+## 컨텍스트 사용
+```js
+// 생성
+export const DataContext = createContext<{
+  context: moduleTarget;
+  updateContext: StateUpdater<moduleTarget>;
+}>({
+  context: '',
+  /* eslint-disable @typescript-eslint/no-empty-function */
+  updateContext: () => {},
+});
+// 적용 App
+  return (
+    activePopup && (
+      <DataContext.Provider value={{ context, updateContext }}>
+        <LayerPopup active={activePopup} activeAddressListPopup={activeAddressListPopup} />
+      </DataContext.Provider>
+    )
+  );
+// 사용 LayerPopup
+  const { context, updateContext } = useContext(DataContext);
+```
+
+## 리엑트, 페이지 이동시 초기화가 필요한 영역 처리
+- 상태 변경 반복해 볼것
 
 ## 상태 변경에 따른 useEffect
 

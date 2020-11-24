@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 기술 면접 질문
-categories: Resume
+categories: Interview
 ---
 
 ## 링크드 리스트와 배열 차이

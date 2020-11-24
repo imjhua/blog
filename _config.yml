@@ -38,6 +38,8 @@ navigation:
     url: /programming
   - name: Etc
     url: /etc
+  - name: Interview
+    url: /interveiw
   - name: Resume
     url: /resume
   - name: Diary

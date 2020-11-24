@@ -4,6 +4,20 @@ title: 인터랙션 개발
 categories: Resume
 ---
 
+
+
+## 애니메이션
+- https://wsss.tistory.com/34?category=701850
+- https://codepen.io/pieter-biesemans/pen/xqVBdK 한땀한땀?
+- https://bashooka.com/inspiration/scrolling-animation-effects/
+- https://dashboardpack.com/live-demo-preview/?livedemo=290%3Futm_source%3Dcolorlib&utm_medium=reactlist&utm_campaign=architecthtml&v=38dd815e66db
+- animation 동작만들어보기: https://codepen.io/joyanna/pen/NWGYLNW
+- ani 합: https://codepen.io/hisamikurita/pen/OJLrjpB
+- 프로그레스바 에서 텍스트 노출: https://codepen.io/AbubakerSaeed/pen/abzWqPb
+
+
+## TODO
+
 - 마우스가 오버되면 컬러값 랜덤?
 - 빌보드 구현(자동 롤링 & 뷰포트에 들어왔을때만 동작)
 - 뷰포트 계산 하는 함수로 분리(패딩 인자로)
