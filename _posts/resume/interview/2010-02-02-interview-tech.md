@@ -74,14 +74,11 @@ MAC 주소: 네트워크 상에서 서로를 구분하기 위하여 Device 마�
 
 브라우저에서 URL 정보를 이용해 서버에 요청을 보내면 마크업 데이터가 브라우저에 도착합니다. 이때 xxx.gif라는 이미지 파일을 다운로드하는 태그를 만났을 때 브라우저의 처리 절차는 다음과 같습니다.
 
-1. Expires 정보 확인
-   브라우저가 xxx.gif 파일을 서버에 요청하기 전에 사용자 PC에 저장된 Expires 정보(만료 날짜)를 확인합니다. Expires 정보가 있고 설정한 기한이 남았다면 사용자 PC의 xxx.gif 파일을 사용하게 됩니다. 이 단계가 네트워크 통신 단계의 Cache Read 단계입니다.
+1. Expires 정보 확인: 브라우저가 xxx.gif 파일을 서버에 요청하기 전에 사용자 PC에 저장된 Expires 정보(만료 날짜)를 확인합니다. Expires 정보가 있고 설정한 기한이 남았다면 사용자 PC의 xxx.gif 파일을 사용하게 됩니다. 이 단계가 네트워크 통신 단계의 Cache Read 단계입니다.
 
-2. If-Modified-Since 정보 확인
-   Expires 정보가 없거나 기한이 지났으면 If-Modified-Since 정보(마지막으로 수정한 날짜)가 있는지 확인합니다. If-Modified-Since 정보가 없으면 서버에 요청해 이미지를 받게됩니다. 이때 상태 코드는 '200 OK'입니다. If-Modified-Since 정보가 있으면 If-Modified-Since 정보를 서버에 보냅니다.
+2. If-Modified-Since 정보 확인: Expires 정보가 없거나 기한이 지났으면 If-Modified-Since 정보(마지막으로 수정한 날짜)가 있는지 확인합니다. If-Modified-Since 정보가 없으면 서버에 요청해 이미지를 받게됩니다. 이때 상태 코드는 '200 OK'입니다. If-Modified-Since 정보가 있으면 If-Modified-Since 정보를 서버에 보냅니다.
 
-3. If-Modified-Since 정보와 Last-Modified 정보 비교
-   서버는 브라우저가 보낸 If-Modified-Since 정보를 Last-Modified 정보(서버에 저장된 마지막 수정 날짜)와 비교합니다. 수정한 날짜가 같다면 상태 코드 '304 Not Modified'를 보내 사용자 PC에 있는 파일을 사용하게 합니다. 날짜가 다르다면 서버에서 파일을 보냅니다. 이때 상태 코드는 200 OK 입니다.
+3. If-Modified-Since 정보와 Last-Modified 정보 비교: 서버는 브라우저가 보낸 If-Modified-Since 정보를 Last-Modified 정보(서버에 저장된 마지막 수정 날짜)와 비교합니다. 수정한 날짜가 같다면 상태 코드 '304 Not Modified'를 보내 사용자 PC에 있는 파일을 사용하게 합니다. 날짜가 다르다면 서버에서 파일을 보냅니다. 이때 상태 코드는 200 OK 입니다.
 
 이 과정에서 알 수 있듯이 사용자 PC에 캐시 파일이 있고 Expires 정보가 유효하다면 해당 파일을 서버에 요청하지 않고 캐시에 저장된 파일을 이용합니다. 이러면 동적인 이미지 등을 제외한 나머지 정적인 요소(이미지, 스타일시트, 자바스크립트 등)는 별도로 서버에 요청하지 않기 때문에 로딩 속도를 크게 향상 시킬 수 있습니다.
 
@@ -271,8 +268,10 @@ reflow를 피하거나 최소화하는 방법
 
 같은 면적에서 해상도가 높아지면 이미지는 압축되어 사이즈가 작게 보인다.
 
-- mdpi: 중간밀도 1x
-- hdpi: 고밀도 1.5x
+- PPI(Pixels Per Inch): 픽셀기준(디지털 해상도) 선명도
+- DPI(Dots per inch): 점개수기준(프린터의 성능 등 출력물에 대한 해상도) 정밀도
+- mdpi(160dpi): 중간밀도 1x
+- hdpi(240dpi): 고밀도 1.5x
 
 ## 성능측적
 
