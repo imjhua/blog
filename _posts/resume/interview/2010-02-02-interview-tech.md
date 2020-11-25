@@ -445,14 +445,16 @@ this 프로퍼티에는 this 값이 할당된다. this에 할당되는 값은 �
 
 offset에 대한 기준을 변경한다.
 
-- staic: 위치를 지정하지 않는다. offset은 무시된다.
+- static: 위치를 지정하지 않는다. offset은 무시된다.
 - relative: 원래 위치로부터 offset으로 위치를 계산한다.
 - absolute: 원래 위치 static이 아닌 가장 가까운 조상의 위치를 기준으로 하여offset으로 위치를 계산한다.
 - fixed: 원래 위치와 상관없이 위치를 지정한다. 상위요소에 영향을 받지 않는다. 고정된 위치를 설정하며 브라우저의 상대위치가 기준이 된다.
+- sticky: 위치잡기 요소가 특정 임계점에(예로 뷰포트의 상단으로부터 10px) 스크롤될 때까지 상대 위치잡기처럼 행동할 수 있다가 그 뒤에 위치가 고정.
 
 - Absolute Position(브라우저 또는 상위요소를 기준으로 배치하는 방법)
 - Relative Position(자기자신을 기준으로 배치하는 방법)
 - Fixed Position(스크린을 기준으로 배치하는 방법)
+- Sticky (Relative + Fixed)
 
 ## dispaly & visibility
 
