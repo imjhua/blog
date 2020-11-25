@@ -1,3 +1,18 @@
+@media only screen and (min-width: 960px) {
+  .container {
+    max-width: 70%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .container {
+    overflow: hidden;
+  }
+
+  .page-contents {
+    display: none !important;
+  }
+}
+
 /* BLOG */
 .hide {
   display: none;
@@ -7,9 +22,6 @@
 }
 
 $color-primary: #fff;
-.container {
-  max-width: 70%;
-}
 
 .posts {
   article.post {
@@ -176,10 +188,10 @@ body {
     h2.title:after {
       content: "";
       display: block;
-      width: 40%;
+      width: 38%;
       border-bottom: 1px solid #333;
       position: absolute;
-      top: 1em;
+      top: 50%;
     }
     h2.title:before {
       left: 3%;
