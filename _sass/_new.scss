@@ -195,7 +195,7 @@ article.post {
       border-bottom: 1px solid #a4afb3;
     }
   }
-  h1 {
+  > h1 {
     color: $post-titleh-color;
   }
   h2 {
@@ -220,7 +220,7 @@ article.post {
       background-color: #ffe300;
     }
   }
-  h1 {
+  > h1 {
     color: $post-titleh-color;
   }
 }
