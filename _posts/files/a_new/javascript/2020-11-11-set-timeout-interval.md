@@ -1,18 +1,19 @@
 ---
 layout: post
-title: setTimeout과 setInterval는 같을까?
+title: setTimeout과 setInterval는 같을 수 있을까?
 categories: JavaScript
 ---
 
-비동기적으로 코드를 실행할 수 있는 여러 WebAPI에는 setTimeout과 setInterval가 있습니다. setTimeout를 반복하면 setinterval과 동일한 효과를 낼 수 있는데요. 이 두개의 실행함수는 정말 같을까요?
+비동기적으로 코드를 실행할 수 있는 여러 WebAPI에는 setTimeout과 setInterval가 있습니다. setTimeout를 반복하면 setinterval과 동일한 효과를 낼 수 있는데요. 반복되는 이 두개의 실행함수 동작이 같을까요?
 
 <hr />
 
 <!-- vscode-markdown-toc -->
-* [setTimout & setInterval](#settimout-&-setinterval)
-* [setTimout으로 setInterval 구현하기](#settimout으로-setinterval-구현하기)
-  * [다른 점](#다른-점)
-* [참고](#참고)
+
+- [setTimout & setInterval](#settimout-&-setinterval)
+- [setTimout으로 setInterval 구현하기](#settimout으로-setinterval-구현하기)
+  - [다른 점](#다른-점)
+- [참고](#참고)
 
 <!-- vscode-markdown-toc-config
 	numbering=false

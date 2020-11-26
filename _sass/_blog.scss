@@ -46,15 +46,15 @@ $color-primary: #fff;
     background-color: #ffe300;
   }
   hr + ul {
-    border: 2px solid #ddd;
+    border: 2px solid #a4afb3;
     padding: 10px 20px;
     margin: 0;
     &:before {
       content: "목차";
       display: block;
       font-size: 1.3rem;
-      text-decoration: underline;
       margin-bottom: 10px;
+      border-bottom: 1px solid #a4afb3;
     }
   }
   h2 {
@@ -71,9 +71,8 @@ $color-primary: #fff;
 .page-contents {
   background: #333;
   &.show + .container {
-    padding-top: 10px;
+    padding-top: 40px;
   }
-
   * {
     color: $color-primary;
   }
@@ -94,6 +93,7 @@ $color-primary: #fff;
     padding: 0 20px;
     z-index: 1;
     a:hover {
+      color: red;
       // font-weight: bold;
     }
   }
