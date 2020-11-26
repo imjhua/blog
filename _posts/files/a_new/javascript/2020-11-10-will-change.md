@@ -105,3 +105,4 @@ will-change속성이 브라우저에게 알려주는 것은 현재 일어날 변
 - https://www.viget.com/articles/animation-performance-101-browser-under-the-hood/
 - https://wit.nts-corp.com/2017/06/05/4571
 - https://web-atelier.tistory.com/39
+- https://dev.opera.com/articles/ko/css-will-change-property/

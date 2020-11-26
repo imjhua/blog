@@ -1,0 +1,236 @@
+/* 반응형: 컨테이터 길이와 메뉴 */
+@media only screen and (min-width: 960px) {
+  .container {
+    max-width: 70%;
+  }
+}
+@media screen and (max-width: 640px) {
+  header {
+    text-align: center;
+  }
+  .container {
+    overflow: hidden;
+  }
+  // .mobile {
+  //   display: none !important;
+  // }
+}
+/* js로 제어 */
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+/* 헤더 영역 */
+$header-color: #fff;
+header {
+  background: #333;
+  color: $header-color;
+  margin-bottom: 50px;
+  position: relative;
+  .container {
+    max-width: 90%;
+    position: relative;
+    height: 100%;
+    * {
+      color: #fff;
+    }
+    .sticky {
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      .site-info {
+        .site-name {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .mobile {
+    &.show + .container {
+      padding-top: 40px;
+    }
+    nav {
+      background: #333;
+      margin: 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      text-align: right;
+      padding: 0 20px;
+      z-index: 1;
+    }
+  }
+  .bubble {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    pointer-events: none;
+    background: yellow;
+    position: absolute;
+    animation: blow 2s linear infinite;
+  }
+}
+
+// 네비게이션
+nav {
+  float: right;
+  a {
+    height: 36px;
+    line-height: 36px;
+    font-size: 20px;
+    color: $header-color;
+    display: inline-block;
+    &[href="/etc"] {
+      display: block;
+    }
+    &:hover {
+      color: $header-color;
+    }
+    &:after {
+      content: "";
+      height: 2px;
+      background: #fff;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    &:hover:after {
+      display: block;
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* 바디 */
+$body-color: #595959; // 343a40 / 595959
+body {
+  color: $body-color;
+  header {
+    background: #bf80bf;
+  }
+  .container {
+  }
+  &.home {
+    header {
+      height: 80vh;
+    }
+    .container {
+      h2.title {
+        position: relative;
+        text-align: center;
+        &:before,
+        &:after {
+          content: "";
+          display: block;
+          width: 38%;
+          border-bottom: 1px solid #333;
+          position: absolute;
+          top: 50%;
+        }
+        &:before {
+          left: 3%;
+        }
+        &:after {
+          right: 3%;
+        }
+      }
+    }
+  }
+}
+
+// post목록에서 post 요약
+$posts-title-color: #294f8a;
+$posts-titleh-color: #4db380;
+.posts {
+  article.post {
+    padding: 1em;
+    &:hover {
+      h1 * {
+        color: $posts-titleh-color;
+      }
+      a.read-more {
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+    a.read-more {
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: transform 1s ease;
+      display: inline-block;
+    }
+    h1 {
+      margin-top: 0.1em;
+      margin-bottom: 0.1em;
+      font-weight: normal;
+      color: $posts-title-color;
+      // a:hover {
+      //   color: $posts-titleh-color;
+      // }
+    }
+    .categories {
+      color: #333;
+    }
+  }
+}
+
+// post 상세
+$post-titleh-color: #39a5a5;
+article.post {
+  hr + ul {
+    border: 2px solid #a4afb3;
+    padding: 10px 20px;
+    margin: 0;
+    &:before {
+      content: "목차";
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #a4afb3;
+    }
+  }
+  h1 {
+    color: $post-titleh-color;
+  }
+  h2 {
+    // visibility: hidden;
+    // transform: translateY(5px);
+    // transition: transform 0.1s ease;
+    // &.show {
+    //   visibility: visible;
+    //   transform: translateY(0);
+    // }
+  }
+}
+
+// page list
+.page {
+  .entry ul.archive li {
+    a {
+      color: $body-color;
+    }
+    &:hover a {
+      opacity: 0.5;
+      background-color: #ffe300;
+    }
+  }
+  h1 {
+    color: $post-titleh-color;
+  }
+}
+
+// keyframes
+@keyframes blow {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -1000%) scale(4);
+    filter: hue-rotate(720deg);
+  }
+}

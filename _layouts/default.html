@@ -1,53 +1,19 @@
 <!DOCTYPE html>
 <html>
   {% include head.html %}
-  <body class="main">
-    <div class="bubbling-wrapper">{% include nav.html %}</div>
+  <body class="home">
+    <header class="bubbling-wrapper">{% include nav.html %}</header>
 
-    <h2 class="title">Posts</h2>
-
-    <div id="main" role="main" class="container">{{ content }}</div>
+    <div id="main" role="main" class="container">
+      <h2 class="title">Posts</h2>
+      {{ content }}
+    </div>
 
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">{% include footer.html %}</footer>
       </div>
     </div>
-
-    {% include analytics.html %}
   </body>
-  <script>
-    let count = 0;
-    const warpper = document.querySelector(".wrapper-masthead");
-    warpper.addEventListener("mouseleave", function ({ offsetX, offsetY }) {
-      count = 0;
-    });
-    
-    warpper.addEventListener("mousemove", function ({ offsetX, offsetY }) {
-      count++;
-
-      if (count % 5 !== 1) return;
-      const docFrag = document.createDocumentFragment(); // 메모리에만 존재하며 마크업에 표현되지 않음
-
-      let bubble = document.createElement("div");
-      bubble.classList.add("bubble");
-
-      bubble.style.left = offsetX + "px";
-      bubble.style.top = offsetY + "px";
-
-      docFrag.appendChild(bubble); // 메모리상에서 조작후
-      warpper.appendChild(docFrag);
-
-      (function (bubble) {
-        setTimeout(function () {
-          bubble.remove();
-        }, 1800);
-      })(bubble);
-    });
-
-    // for (const timeoutID of timeoutIDs) {
-    // clearTimeout(timeoutID);
-    //   timeoutIDs.shift();
-    // }
-  </script>
+  <script src="{{ site.baseurl }}/js/home.js"></script>
 </html>
