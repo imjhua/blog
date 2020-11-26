@@ -1,7 +1,7 @@
 /* 반응형: 컨테이터 길이와 메뉴 */
 @media only screen and (min-width: 960px) {
   .container {
-    max-width: 70%;
+    max-width: 80%;
   }
 }
 @media screen and (max-width: 640px) {
@@ -30,10 +30,11 @@ header {
   color: $header-color;
   margin-bottom: 50px;
   position: relative;
-  .container {
+  .wrapper {
+    height: 100%;
     max-width: 90%;
     position: relative;
-    height: 100%;
+    margin: 0 auto;
     * {
       color: #fff;
     }
@@ -41,10 +42,10 @@ header {
       padding: 20px 0;
       position: sticky;
       top: 0;
-      .site-info {
-        .site-name {
-          font-weight: bold;
-        }
+      &:after {
+        content: "";
+        display: block;
+        clear: both;
       }
     }
   }
@@ -81,12 +82,14 @@ header {
 // 네비게이션
 nav {
   float: right;
+  margin-top: 23px;
+  font-size: 20px;
   a {
     height: 34px;
     line-height: 34px;
-    font-size: 20px;
     color: $header-color;
     display: inline-block;
+    margin-left: 20px;
     &[href="/etc"] {
       display: block;
     }
@@ -115,6 +118,8 @@ body {
     background: #bf80bf;
   }
   .container {
+    padding: 0 10px;
+    margin: 0 auto;
   }
   &.home {
     header {
