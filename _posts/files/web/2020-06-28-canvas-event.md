@@ -29,7 +29,7 @@ var ctx = canvas.getContext('2d');
 ctx.fillStyle = 'rgb(255, 0, 0)';
 ctx.fillRect(50, 50, 20, 20);
 
-ctx.fillStyle = 'rgb(0, 255, 0);
+ctx.fillStyle = 'rgb(0, 255, 0)';
 ctx.fillRect(150, 150, 30, 30);
 
 
