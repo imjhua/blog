@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CSS가 일반적으로 자바 스크립트보다 애니메이션에 더 좋은 이유
+title: 애니메이션 구현에 CSS가 자바스크립트보다 더 좋은 이유
 categories: JavaScript
 ---
 

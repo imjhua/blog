@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Http Status Code
-categories: Web
+categories: Http
 ---
 
-HTTP상태코드를 정리합니다.
+HTTP 상태코드를 정리합니다.
 
 <hr />
 

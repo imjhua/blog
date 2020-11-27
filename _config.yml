@@ -26,6 +26,8 @@ navigation:
     url: /about
   - name: HTML
     url: /html
+  - name: CSS
+    url: /css
   - name: Web
     url: /web
   - name: JavaScript
