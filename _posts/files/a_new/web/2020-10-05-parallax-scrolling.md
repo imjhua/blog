@@ -72,7 +72,7 @@ X축으로 스크롤시 배경이 조금씩 지나가면서 앞에는 나무들�
 
 ### <a name='background-attachment'></a>background-attachment
 
-컨테이너 요소를 사용하고 특정 높이의 컨테이너에 배경 이미지를 추가합니다. 그런 background-attachment: fixed 를 설정하여 배경을 고정합니다. 다른 배경 속성은 이미지를 완벽하게 중앙에 배치하고 크기를 조정하는 데 사용됩니다.
+컨테이너 요소를 사용하고 특정 높이의 컨테이너에 배경 이미지를 추가합니다. 다음 background-attachment: fixed 를 설정하여 배경을 고정합니다. 다른 배경 속성은 이미지를 완벽하게 중앙에 배치하고 크기를 조정하는 데 사용됩니다.
 
 ```css
 .parallax {
