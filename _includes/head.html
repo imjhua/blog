@@ -1,5 +1,8 @@
 <head>
-  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+  <title>
+    {% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{
+    site.description }}
+  </title>
 
   {% include meta.html %}
 
@@ -8,7 +11,48 @@
   <![endif]-->
 
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="{{ site.name }} - {{ site.description }}"
+    href="{{ site.baseurl }}/feed.xml"
+  />
 
   <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  <script>
+    function showIFrameDoc(iframe, url) {
+      fetch(`${url}/index.html`)
+        .then(function (response) {
+          return response.text();
+        })
+        .then((html) => {
+          fetch(`${url}/style.css`)
+            .then(function (response) {
+              return response.text();
+            })
+            .then(function (style) {
+              const doc = iframe.contentDocument;
+              doc.open();
+              doc.write(`<style>${style}
+					html {
+						transform: scale(0.5);
+						transform-origin: 0 0;
+					}
+					body{
+						overflow: hidden;
+						width: 200%;
+					}
+				<\/style>`);
+              doc.write(html);
+              doc.close();
+            })
+            .catch(function (err) {
+              console.log("Failed to fetch page: ", err);
+            });
+        })
+        .catch(function (err) {
+          console.log("Failed to fetch page: ", err);
+        });
+    }
+  </script>
 </head>
