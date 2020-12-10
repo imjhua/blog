@@ -25,7 +25,7 @@ const checkViewPort = function () {
     pageHeader.classList.contains("hide") &&
     window.pageYOffset >= defaultHeaderHeight
   ) {
-    console.log("show");
+    // console.log("show");
     // show header
     show(pageHeader);
     // document.body.style.marginTop = `${pageHeaderHeight}px`;
@@ -34,7 +34,7 @@ const checkViewPort = function () {
     pageHeader.classList.contains("show") &&
     window.pageYOffset < defaultHeaderHeight
   ) {
-    console.log("hide");
+    // console.log("hide");
     hide(pageHeader);
     // document.body.style.marginTop = "0";
   }
