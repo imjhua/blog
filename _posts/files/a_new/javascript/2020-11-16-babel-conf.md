@@ -4,32 +4,48 @@ title: Babel conf
 categories: JavaScript
 ---
 
-Babel을 구성하는 방법은 여러가지가 있습니다.
+Babel을 구성하는 두가지 방법에 대해 알아봅니다.
 
-## 구성 파일 유형
+<hr />
+
+<!-- vscode-markdown-toc -->
+
+- [구성 파일 유형](#구성-파일-유형)
+- [설정 적용](#설정-적용)
+- [프로젝트 전체에서 구성하는 경우](#프로젝트-전체에서-구성하는-경우)
+- [프로젝트 한 부분에만 적용하는 경우](#프로젝트-한-부분에만-적용하는-경우)
+- [추천하는 바는](#추천하는-바는)
+- [트러블 슈팅](#트러블-슈팅)
+
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+## <a name='구성-파일-유형'></a>구성 파일 유형
 
 Babel에는 두 가지 병렬 구성 파일 형식이 있으며 함께 또는 독립적으로 사용할 수 있습니다.
 
-## 설정 적용
+## <a name='설정-적용'></a>설정 적용
 
 - 프로젝트 전체 구성: babel.config.json
 - 파일 기준 구성: .babelrc.json
 - 또..) 파일은 아니지만 package.json에 babel 키를 추가 하여 구성
 
-## 프로젝트 전체에서 구성하는 경우
+## <a name='프로젝트-전체에서-구성하는-경우'></a>프로젝트 전체에서 구성하는 경우
 
-babel.config.json
-당신을위한 것입니다!
+babel.config.json 을 사용합니다.
 
-## 프로젝트 한 부분에만 적용하는 경우
+## <a name='프로젝트-한-부분에만-적용하는-경우'></a>프로젝트 한 부분에만 적용하는 경우
 
-.babelrc.json 당신을위한 것입니다!
+.babelrc.json 을 사용합니다.
 
-## 추천하는 바는
+## <a name='추천하는-바는'></a>추천하는 바는
 
 babel.config.json형식을 사용하는 것이 좋습니다. 바벨 자체가 그것을 사용하고 있습니다.
 
-## 트러블 슈팅
+## <a name='트러블-슈팅'></a>트러블 슈팅
 
 node모듈 바벨링 안되는 문제로 바벨 7이슈(https://github.com/babel/babel/issues/8672)가 있습니다. 프로젝트내에서 영향을 주는 바벨 설정 파일 문제입니다. 바벨 설정파일이 2가지 방법에 따라 영향이 가는 범위가 달라집니다.
 
@@ -54,8 +70,8 @@ packages/
 
 ```
 # sub project
-packages/ 
-  mod/ 
+packages/
+  mod/
   package.json.
   babelrc.json
 index.js
