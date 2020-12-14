@@ -46,11 +46,14 @@ link는 외부의 resource와 현재 document의 연결을 정의하는 것으�
 
 ### <a name='preload-(미리로드)'></a>preload (미리로드)
 
-브라우저에게 미리 로드해야 한다고, 현재 탐색에는 리소스가 필요하며 가능한 한 빠르게 가져오기를 시도해야 한다고 알려줍니다. link의 rel 속성값을 preload로 지정합니다. 브라우저는 미리 알기 때문에 다운로드를 더 일찍 시작 할 것입니다. preload는 브라우저가 반드시 리소스를 가져오게 만듭니다. 리소스를 중복 참조하면 중복된 개수만큼 리소스를 가져오기 때문에 리소스를 중복해서 참조하지 않도록 해야 합니다.
+브라우저에게 미리 로드해야 한다고, 현재 탐색에는 리소스가 필요하며 가능한 한 빠르게 가져오기를 시도해야 한다고 알려줍니다. link의 rel 속성값을 preload로 지정합니다. 브라우저는 미리 알기 때문에 다운로드를 더 일찍 시작 할 것입니다. preload는 브라우저가 반드시 리소스를 가져오게 만듭니다. 리소스를 중복 참조하면 중복된 개수만큼 리소스를 가져오기 때문에 리소스를 중복해서 참조하지 않도록 해야 합니다. 특히 폰트를 미리 로드하게 되면, 사용자가 사이트의 폰트를 기다리는 시간을 감소시키고, 시스템 폰트와 선언된 포트의 충돌을 해결할 수 있습니다.
+
+
 
 ```html
 <link rel="preload" as="script" href="super-important.js" />
 <link rel="preload" as="style" href="critical.css" />
+<link rel="preload" as="font" crossorigin="crossorigin" type="font/woff2" href="myfont.woff2">
 ```
 
 크롬에서는 현재 페이지에서 preload를 사용하여 로드 후 3초 내로 사용되지 않는 리소스는 Developer Tools의 Console에 경고를 트리거합니다. 그러니 주의해야 합니다.
