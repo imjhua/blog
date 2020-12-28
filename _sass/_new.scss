@@ -112,7 +112,8 @@ $body-color: #595959; // 343a40 / 595959
 body {
   color: $body-color;
   header {
-    background: #bf80bf;
+    background: linear-gradient(-30deg, #e5b6c7, #885db7);
+    // background: #bf80bf;
   }
   .container {
     padding: 0 10px;
