@@ -10,9 +10,12 @@ permalink: /about/
 - Positive Energy
 - Open Mind & Open Relationship & Readership
 
+
+컴포넌트 기반 UI 개발 방식을 추구합니다.
+ 
 다양한 것을 경험하는 것과 그 경험에 대해 나누는 것을 좋아합니다.
 
-어떻게보다는, 무엇을해야하는가?를 고민하기위해 노력합니다.
+어떻게보다는 무엇을해야하는가?를 고민하기위해 노력합니다.
 
 ---
 
