@@ -43,7 +43,7 @@ header {
       position: sticky;
       top: 0;
       &:after {
-        content: "";
+        content: '';
         display: block;
         clear: both;
       }
@@ -87,14 +87,14 @@ nav {
     color: $header-color;
     display: inline-block;
     margin-left: 20px;
-    &[href="/etc"] {
+    &[href='/etc'] {
       display: block;
     }
     &:hover {
       color: $header-color;
     }
     &:after {
-      content: "";
+      content: '';
       height: 2px;
       background: #fff;
       transform: scaleX(0);
@@ -129,7 +129,7 @@ body {
         text-align: center;
         &:before,
         &:after {
-          content: "";
+          content: '';
           display: block;
           width: 38%;
           border-bottom: 1px solid #333;
@@ -191,7 +191,7 @@ article.post {
     padding: 10px 20px;
     margin: 0;
     &:before {
-      content: "목차";
+      content: '목차';
       display: block;
       font-size: 1.3rem;
       margin-bottom: 10px;
@@ -219,8 +219,10 @@ article.post {
       color: $body-color;
     }
     &:hover a {
-      opacity: 0.5;
-      background-color: #ffe300;
+      opacity: 0.8;
+      background: linear-gradient(transparent 60%, #f1709a 70% 100%);
+      transform: skew(-10deg);
+      display: inline-block;
     }
   }
   > h1 {
